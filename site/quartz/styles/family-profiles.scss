@@ -1,0 +1,60 @@
+/* Family History Website - Custom Styles for Profiles */
+
+/* Dual-Pane Layout for Profile Pages */
+body:has([data-slug*="profiles/People/"]) {
+  .page {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 2rem;
+    max-width: 100%;
+    
+    .left-sidebar {
+      overflow-y: auto;
+      max-height: calc(100vh - 100px);
+    }
+    
+    .right-sidebar {
+      overflow-y: auto;
+      max-height: calc(100vh - 100px);
+    }
+  }
+}
+
+/* Profile Header Styling */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--light);
+  border-radius: 8px;
+  border-left: 4px solid var(--secondary);
+}
+
+/* Mermaid Diagram Enhancement */
+.mermaid {
+  background: var(--light);
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  
+  .node {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    &:hover rect {
+      filter: brightness(1.1);
+      stroke-width: 3px !important;
+    }
+  }
+}
+
+/* Responsive - Mobile stacks vertically */
+@media (max-width: 1024px) {
+  body:has([data-slug*="profiles/People/"]) .page {
+    grid-template-columns: 1fr;
+  }
+}
+
