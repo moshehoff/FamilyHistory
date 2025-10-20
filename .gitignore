@@ -1,0 +1,70 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv
+
+# Node.js / npm
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp
+.pnp.js
+
+# Quartz build outputs
+site/quartz/public/
+site/quartz/.quartz-cache/
+site/quartz/node_modules/
+site/quartz/package-lock.json
+
+# Generated profiles from doit.py (not the source)
+site/content/profiles/
+!site/content/profiles/.gitkeep
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Backup files
+*.backup
+*.bak
+*.backup2
+*.orig
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# npm cache
+.npm/
+
