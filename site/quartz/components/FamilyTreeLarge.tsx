@@ -5,13 +5,14 @@ export default (() => {
   const FamilyTreeLarge: QuartzComponent = ({ displayClass, fileData }: QuartzComponentProps) => {
     // Only show on profile pages
     const isProfile = fileData.frontmatter?.type === "profile"
+    const profileId = fileData.frontmatter?.ID as string | undefined
     
     if (!isProfile) {
       return null
     }
 
     return (
-      <div class={classNames(displayClass, "family-tree-large")}>
+      <div class={classNames(displayClass, "family-tree-large")} data-profile-id={profileId}>
         <h3>🌳 עץ משפחתי גדול</h3>
         
         <div class="tree-controls">
@@ -29,15 +30,114 @@ export default (() => {
         </div>
         
         <div class="tree-container">
-          <div class="tree-placeholder">
-            <p>עץ משפחתי מלא</p>
-            <small>יושלם בשבוע 5-6<br />יכלול את כל המשפחה עם אינטראקציה מלאה</small>
-          </div>
+          <div id="family-tree-diagram" class="mermaid">טוען עץ משפחתי...</div>
         </div>
+        
+        <script type="module" dangerouslySetInnerHTML={{__html: `
+console.log('[TREE DEBUG 1] FamilyTreeLarge script loaded');
+
+const profileId = '${profileId}';
+console.log('[TREE DEBUG 2] Profile ID:', profileId);
+
+async function loadAndRenderTree() {
+  console.log('[TREE DEBUG 3] Starting loadAndRenderTree');
+  
+  try {
+    console.log('[TREE DEBUG 4] Fetching /static/family-data.json');
+    const response = await fetch('/static/family-data.json');
+    console.log('[TREE DEBUG 5] Response status:', response.status);
+    
+    if (!response.ok) {
+      throw new Error('HTTP ' + response.status);
+    }
+    
+    const familyData = await response.json();
+    console.log('[TREE DEBUG 6] Data loaded. People:', familyData.people.length);
+    
+    // Build tree as array then join
+    const lines = [];
+    lines.push('flowchart TD');
+    lines.push('classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;');
+    lines.push('classDef selected fill:#ffeb3b,stroke:#f57f17,stroke-width:3px;');
+    
+    familyData.people.forEach(person => {
+      const nodeId = 'id' + person.id;
+      const name = person.name.replace(/"/g, "'");
+      const isSelected = person.id === profileId;
+      
+      lines.push(nodeId + '["' + name + '"]');
+      lines.push('class ' + nodeId + ' ' + (isSelected ? 'selected' : 'person'));
+    });
+    
+    familyData.families.forEach(fam => {
+      if (!fam.husband && !fam.wife) return;
+      const mNode = 'marriage_' + fam.id;
+      lines.push(mNode + '((" "))');
+      if (fam.husband) lines.push('id' + fam.husband + ' --- ' + mNode);
+      if (fam.wife) lines.push('id' + fam.wife + ' --- ' + mNode);
+      fam.children.forEach(child => {
+        lines.push(mNode + ' --> id' + child);
+      });
+    });
+    
+    // Join with actual newline using template literal
+    //const diagram = \`\${lines.join('\\n')}\`;
+    const diagram = lines.join('\\n'); // This creates actual newlines in the output
+    
+    console.log('[TREE DEBUG 7] Diagram built, length:', diagram.length);
+    console.log('[TREE DEBUG 7.5] First 200 chars:', diagram.substring(0, 200));
+    
+    const treeDiv = document.getElementById('family-tree-diagram');
+    if (treeDiv) {
+      console.log('[TREE DEBUG 8] Setting diagram to div');
+
+      // ננקה רווחים מיותרים ונשתמש ב-innerHTML עם <pre>
+      const safeDiagram = diagram.trim();
+      treeDiv.innerHTML = \`<pre class="mermaid">\${safeDiagram}</pre>\`;
+
+      console.log('[TREE DEBUG 9] Loading Mermaid...');
+      
+      // Load Mermaid dynamically
+      const mermaidModule = await import('https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs');
+      const mermaid = mermaidModule.default;
+      
+      console.log('[TREE DEBUG 10] Mermaid loaded! Initializing...');
+      
+      // Initialize Mermaid
+      mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: 'loose',
+        theme: 'base'
+      });
+      
+      console.log('[TREE DEBUG 11] Rendering diagram...');
+      const mermaidNode = treeDiv.querySelector('.mermaid');
+      
+      try {
+        await mermaid.run({ nodes: [mermaidNode] });
+        console.log('[TREE DEBUG 12] SUCCESS! Diagram rendered!');
+      } catch (e) {
+        console.error('[TREE DEBUG ERROR]', e);
+        treeDiv.innerHTML = '<pre style="color:red">Error: ' + e + '</pre>';
+      }
+    } else {
+      console.error('[TREE DEBUG ERROR] Div not found!');
+    }
+  } catch (error) {
+    console.error('[TREE DEBUG ERROR] Load failed:', error);
+    const treeDiv = document.getElementById('family-tree-diagram');
+    if (treeDiv) {
+      treeDiv.innerHTML = '<p style="color:red;padding:2rem;">ERROR: ' + error.message + '</p>';
+    }
+  }
+}
+
+setTimeout(loadAndRenderTree, 500);
+        `}} />
       </div>
     )
   }
-
+  
   FamilyTreeLarge.css = `
 .family-tree-large {
   position: sticky;
@@ -80,22 +180,11 @@ export default (() => {
     border: 1px solid var(--lightgray);
     border-radius: 6px;
     background: white;
+    padding: 1rem;
   }
   
-  .tree-placeholder {
-    text-align: center;
-    padding: 4rem 2rem;
-    color: var(--gray);
-    
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    small {
-      color: var(--darkgray);
-      line-height: 1.6;
-    }
+  #family-tree-diagram {
+    min-height: 300px;
   }
 }
 
@@ -104,54 +193,6 @@ export default (() => {
     position: relative;
     margin-top: 2rem;
   }
-}
-`
-
-  FamilyTreeLarge.afterDOMLoaded = `
-const zoomInBtn = document.getElementById('zoom-in');
-const zoomOutBtn = document.getElementById('zoom-out');
-const resetBtn = document.getElementById('reset-view');
-const treeContainer = document.querySelector('.tree-container');
-
-let currentZoom = 1;
-
-if (zoomInBtn && treeContainer) {
-  zoomInBtn.addEventListener('click', function() {
-    currentZoom = Math.min(currentZoom + 0.2, 2);
-    const svg = treeContainer.querySelector('svg');
-    if (svg) {
-      svg.style.transform = 'scale(' + currentZoom + ')';
-    }
-  });
-}
-
-if (zoomOutBtn && treeContainer) {
-  zoomOutBtn.addEventListener('click', function() {
-    currentZoom = Math.max(currentZoom - 0.2, 0.5);
-    const svg = treeContainer.querySelector('svg');
-    if (svg) {
-      svg.style.transform = 'scale(' + currentZoom + ')';
-    }
-  });
-}
-
-if (resetBtn && treeContainer) {
-  resetBtn.addEventListener('click', function() {
-    currentZoom = 1;
-    const svg = treeContainer.querySelector('svg');
-    if (svg) {
-      svg.style.transform = 'scale(1)';
-    }
-  });
-}
-
-const genSelect = document.getElementById('generations-select');
-if (genSelect) {
-  genSelect.addEventListener('change', function(e) {
-    const generations = e.target.value;
-    console.log('Selected generations:', generations);
-    // TODO: שבוע 5-6 - regenerate tree
-  });
 }
 `
 

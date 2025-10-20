@@ -1,6 +1,7 @@
 import os
 import argparse
 import urllib.parse
+import json
 
 
 
@@ -455,6 +456,50 @@ def write_bios_index(people_dir, bios_dir):
     with open(os.path.join(people_dir, "bios.md"), "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
 
+def write_family_data_json(individuals, families, out_dir):
+    """Generate family-data.json for the large family tree visualization."""
+    inds = {i: norm_individual(i, d) for i, d in individuals.items()}
+    fams = {f: norm_family(f, d) for f, d in families.items()}
+    
+    # Build clean data structure
+    people = []
+    for pid, p in inds.items():
+        clean_id = pid.strip("@")
+        people.append({
+            "id": clean_id,
+            "name": p["name"],
+            "birth_date": p["birth_date"],
+            "death_date": p["death_date"],
+            "famc": p["famc"].strip("@") if p["famc"] else None,
+            "fams": [f.strip("@") for f in p["fams"]]
+        })
+    
+    families_list = []
+    for fid, f in fams.items():
+        clean_id = fid.strip("@")
+        families_list.append({
+            "id": clean_id,
+            "husband": f["husband"].strip("@") if f["husband"] else None,
+            "wife": f["wife"].strip("@") if f["wife"] else None,
+            "children": [c.strip("@") for c in f["children"]]
+        })
+    
+    data = {
+        "people": people,
+        "families": families_list
+    }
+    
+    # Write to Quartz static folder so it can be served at /family-data.json
+    # Assuming output is site/content/profiles, static is at site/quartz/static
+    static_dir = os.path.join(out_dir, "..", "..", "quartz", "static")
+    os.makedirs(static_dir, exist_ok=True)
+    output_path = os.path.join(static_dir, "family-data.json")
+    
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    
+    debug(f"Generated family-data.json with {len(people)} people and {len(families_list)} families → {output_path}")
+
 def main():
     argp = argparse.ArgumentParser(description="GEDCOM ➜ Quartz profiles + bios merge")
     argp.add_argument("gedcom_file", help="Path to .ged file")
@@ -478,6 +523,9 @@ def main():
     people_dir = os.path.join(args.output, "People")
     write_people_index(people_dir)  # Write main index
     write_bios_index(people_dir, args.bios_dir)  # Write bios index
+    
+    # Generate family data JSON for large family tree
+    write_family_data_json(individuals, families, args.output)
 
     debug(f"Done → {args.output}")
 

@@ -22,9 +22,10 @@ site/.quartz-cache/
 site/node_modules/
 site/package-lock.json
 
-# Generated profiles from doit.py (not the source)
+# Generated files from doit.py (not the source)
 site/content/profiles/
 !site/content/profiles/.gitkeep
+site/quartz/static/family-data.json
 
 # OS files
 .DS_Store
