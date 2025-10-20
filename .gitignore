@@ -17,10 +17,10 @@ yarn-error.log*
 .pnp.js
 
 # Quartz build outputs
-site/quartz/public/
-site/quartz/.quartz-cache/
-site/quartz/node_modules/
-site/quartz/package-lock.json
+site/public/
+site/.quartz-cache/
+site/node_modules/
+site/package-lock.json
 
 # Generated profiles from doit.py (not the source)
 site/content/profiles/

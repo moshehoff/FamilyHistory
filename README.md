@@ -7,13 +7,14 @@
 ### 0. התקנת Quartz (פעם אחת)
 
 ```powershell
-# שבט את הטמפלייט
-git clone https://github.com/sosiristseng/template-quartz.git site
-cd site
+# שבט את Quartz הרשמי
+git clone https://github.com/jackyzha0/quartz.git site
 
-# התקן את Quartz (submodule) והתלויות
-git submodule update --init --recursive
-cd quartz
+# הסר את ה-git כדי שיהיה חלק מהפרויקט שלנו
+Remove-Item -Recurse -Force site/.git
+
+# התקן תלויות
+cd site
 npm install
 npm install mermaid family-chart @types/node
 ```
@@ -21,20 +22,14 @@ npm install mermaid family-chart @types/node
 ### 1. יצירת פרופילים מ-GEDCOM
 ```powershell
 # מתיקיית V4
-python scripts/doit.py data/tree.ged
+python scripts/doit.py data/tree.ged -o site/content/profiles
 ```
 
 ### 2. הרצת האתר
 
 ```powershell
-# העתק קונפיגורציה
 cd site
-Copy-Item quartz.config.ts quartz/ -Force
-Copy-Item quartz.layout.ts quartz/ -Force
-
-# בנה והרץ
-cd quartz
-npx quartz build --directory ../content --serve
+npx quartz build --serve
 ```
 
 **האתר יהיה זמין ב: http://localhost:8080** 🎉
@@ -49,7 +44,8 @@ npx quartz build --directory ../content --serve
 
 ## תיעוד מלא
 
-ראה: **`WEEK1_IMPLEMENTATION.md`** - הוראות מפורטות, בדיקות ופתרון בעיות
+- **`WEEK1_IMPLEMENTATION.md`** - הוראות מפורטות שבוע 1
+- **`QUARTZ_SETUP.md`** - הסבר על ההתקנה החדשה (ללא submodule)
 
 ## מבנה פרויקט
 

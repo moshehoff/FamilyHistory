@@ -458,7 +458,7 @@ def write_bios_index(people_dir, bios_dir):
 def main():
     argp = argparse.ArgumentParser(description="GEDCOM ➜ Quartz profiles + bios merge")
     argp.add_argument("gedcom_file", help="Path to .ged file")
-    argp.add_argument("-o", "--output", default="site/content/profiles", help="Output directory for profiles")
+    argp.add_argument("-o", "--output", default="site/content/profiles", help="Output directory for profiles (default: site/content/profiles)")
     argp.add_argument("--bios-dir", default="bios", help="Directory with bio *.md files (default: bios)")
     argp.add_argument("--analyze-places", action="store_true", help="Analyze unique places in the GEDCOM file")
     args = argp.parse_args()
