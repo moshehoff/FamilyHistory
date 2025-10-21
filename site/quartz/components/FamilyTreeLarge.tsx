@@ -58,15 +58,13 @@ async function loadAndRenderTree() {
     const lines = [];
     lines.push('flowchart TD');
     lines.push('classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;');
-    lines.push('classDef selected fill:#ffeb3b,stroke:#f57f17,stroke-width:3px;');
     
     familyData.people.forEach(person => {
       const nodeId = 'id' + person.id;
       const name = person.name.replace(/"/g, "'");
-      const isSelected = person.id === profileId;
       
       lines.push(nodeId + '["' + name + '"]');
-      lines.push('class ' + nodeId + ' ' + (isSelected ? 'selected' : 'person'));
+      lines.push('class ' + nodeId + ' person');
     });
     
     familyData.families.forEach(fam => {
@@ -140,12 +138,17 @@ setTimeout(loadAndRenderTree, 500);
   
   FamilyTreeLarge.css = `
 .family-tree-large {
-  position: sticky;
-  top: 1rem;
+  width: 100%;
+  margin: 0 0 2rem 0;
+  padding: 1.5rem;
+  background: var(--light);
+  border-radius: 8px;
+  border: 1px solid var(--lightgray);
   
   h3 {
     margin: 0 0 1rem 0;
     color: var(--darkgray);
+    font-size: 1.5rem;
   }
   
   .tree-controls {
@@ -175,8 +178,8 @@ setTimeout(loadAndRenderTree, 500);
   
   .tree-container {
     width: 100%;
+    height: 500px;
     overflow: auto;
-    max-height: calc(100vh - 200px);
     border: 1px solid var(--lightgray);
     border-radius: 6px;
     background: white;

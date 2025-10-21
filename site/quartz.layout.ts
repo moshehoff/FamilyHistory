@@ -22,11 +22,11 @@ export const defaultContentPageLayout: PageLayout = {
       component: Component.Breadcrumbs(),
       condition: (page) => page.fileData.slug !== "index",
     }),
+    Component.FamilyTreeLarge(),
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
     Component.ProfileTabs(),
-    Component.FamilyTreeLarge(),
   ],
   left: [
     Component.PageTitle(),
