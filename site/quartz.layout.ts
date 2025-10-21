@@ -26,6 +26,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ContentMeta(),
     Component.TagList(),
     Component.ProfileTabs(),
+    Component.FamilyTreeLarge(),
   ],
   left: [
     Component.PageTitle(),
@@ -43,9 +44,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Explorer(),
   ],
   right: [
-    Component.FamilyTreeLarge(),
     Component.DesktopOnly(Component.TableOfContents()),
-    Component.Backlinks(),
   ],
 }
 
