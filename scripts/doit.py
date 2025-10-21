@@ -215,6 +215,98 @@ def build_mermaid_graph(pid, p, fams, name_of):
     return "\n".join(lines)
 
 
+def build_descendants_diagram(pid, p, individuals, fams, name_of):
+    """Build a Mermaid graph showing 2 generations of descendants."""
+    lines = ["```mermaid", "flowchart TD", 
+            "classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;",
+            "classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;"]
+    
+    # Helper functions (same as above)
+    def node_id(iid): return f'id{iid.replace("@", "")}'
+    def node_label(iid): 
+        name = name_of.get(iid, iid)
+        name = name.replace('"', "'")
+        return name
+    def make_node(iid):
+        node = node_id(iid)
+        name = node_label(iid)
+        lines.append(f'{node}["{name}"]')
+        lines.append(f'class {node} internal-link')
+        encoded_name = urllib.parse.quote(name.replace(" ", "-"))
+        lines.append(f'click {node} "/profiles/People/{encoded_name}" "{name}"')
+        return node
+    
+    # Add the central person
+    person_node = make_node(pid)
+    
+    # Iterate through all families where this person is a parent
+    for fid in p["fams"]:
+        if fid not in fams:
+            continue
+        fam = fams[fid]
+        
+        # Add spouse if exists
+        spouse_id = None
+        if fam.get("husband") == pid and fam.get("wife"):
+            spouse_id = fam["wife"]
+        elif fam.get("wife") == pid and fam.get("husband"):
+            spouse_id = fam["husband"]
+        
+        spouse_node = None
+        if spouse_id:
+            spouse_node = make_node(spouse_id)
+            # Marriage connection
+            marriage_node = f'marriage_{node_id(fid)}'
+            lines.append(f'{marriage_node}((" "))')
+            lines.append(f'{person_node} --- {marriage_node}')
+            lines.append(f'{spouse_node} --- {marriage_node}')
+        
+        # Add children (1st generation)
+        for child_id in fam.get("children", []):
+            child_node = make_node(child_id)
+            if spouse_node:
+                lines.append(f'{marriage_node} --> {child_node}')
+            else:
+                lines.append(f'{person_node} --> {child_node}')
+            
+            # Now add this child's spouse and children (2nd generation - grandchildren)
+            if child_id not in individuals:
+                continue
+            child_data = individuals[child_id]
+            
+            for child_fam_id in child_data.get("fams", []):
+                if child_fam_id not in fams:
+                    continue
+                child_fam = fams[child_fam_id]
+                
+                # Add child's spouse
+                child_spouse_id = None
+                if child_fam.get("husband") == child_id and child_fam.get("wife"):
+                    child_spouse_id = child_fam["wife"]
+                elif child_fam.get("wife") == child_id and child_fam.get("husband"):
+                    child_spouse_id = child_fam["husband"]
+                
+                child_spouse_node = None
+                if child_spouse_id:
+                    child_spouse_node = make_node(child_spouse_id)
+                    # Marriage connection for child
+                    child_marriage_node = f'marriage_{node_id(child_fam_id)}'
+                    lines.append(f'{child_marriage_node}((" "))')
+                    lines.append(f'{child_node} --- {child_marriage_node}')
+                    lines.append(f'{child_spouse_node} --- {child_marriage_node}')
+                
+                # Add grandchildren
+                for grandchild_id in child_fam.get("children", []):
+                    grandchild_node = make_node(grandchild_id)
+                    if child_spouse_node:
+                        lines.append(f'{child_marriage_node} --> {grandchild_node}')
+                    else:
+                        lines.append(f'{child_node} --> {grandchild_node}')
+    
+    lines.append("```")
+    return "\n".join(lines)
+
+
 ##############################################################################
 # 3) BUILD NOTES (wiki-links + bios)
 ##############################################################################
@@ -310,6 +402,9 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
 
         # Generate Mermaid family tree diagram
         mermaid_diagram = build_mermaid_graph(pid, p, fams, name_of)
+        
+        # Generate descendants diagram (2 generations)
+        descendants_diagram = build_descendants_diagram(pid, p, inds, fams, name_of)
 
         lines = [
             "---",
@@ -321,6 +416,9 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
             f"**Death**: {p['death_date']}" + (f" at {dp_link}" if dp_link else ""),
             f"**Occupation**: {p['occupation'] or '—'}",
             mermaid_diagram,
+            "",
+            "## Descendants (2 Generations)",
+            descendants_diagram,
             "\n**Parents**:\n"   + ("\n".join(parents)  or "—"),
             "\n**Siblings**:\n" + ("\n".join(siblings) or "—"),
             "\n**Spouse**:\n"   + ("\n".join(spouses)  or "—"),
