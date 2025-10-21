@@ -132,7 +132,8 @@ def build_mermaid_graph(pid, p, fams, name_of):
     """Build a Mermaid graph showing the person's immediate family relationships."""
     lines = ["```mermaid", "flowchart TD", 
             "classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;",
-            "classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;"]
+            "classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;",
+            "classDef current fill:#ffeb3b,stroke:#f57f17,stroke-width:4px;"]
     
     # Helper to create node IDs and labels
     def node_id(iid): return f'id{iid.replace("@", "")}'
@@ -141,19 +142,22 @@ def build_mermaid_graph(pid, p, fams, name_of):
         # Remove problematic characters from display name
         name = name.replace('"', "'")
         return name
-    def make_node(iid):
+    def make_node(iid, is_current=False):
         node = node_id(iid)
         name = node_label(iid)
         lines.append(f'{node}["{name}"]')
-        lines.append(f'class {node} internal-link')
+        if is_current:
+            lines.append(f'class {node} current')
+        else:
+            lines.append(f'class {node} internal-link')
         # Add click handler for navigation
         # URL-encode the name for the path
         encoded_name = urllib.parse.quote(name.replace(" ", "-"))
         lines.append(f'click {node} "/profiles/People/{encoded_name}" "{name}"')
         return node
     
-    # Add the central person
-    person_node = make_node(pid)
+    # Add the central person (highlighted)
+    person_node = make_node(pid, is_current=True)
     
     # Add parents and their relationship
     if p["famc"] in fams:
@@ -219,7 +223,8 @@ def build_descendants_diagram(pid, p, individuals, fams, name_of):
     """Build a Mermaid graph showing 2 generations of descendants."""
     lines = ["```mermaid", "flowchart TD", 
             "classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;",
-            "classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;"]
+            "classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;",
+            "classDef current fill:#ffeb3b,stroke:#f57f17,stroke-width:4px;"]
     
     # Helper functions (same as above)
     def node_id(iid): return f'id{iid.replace("@", "")}'
@@ -227,17 +232,20 @@ def build_descendants_diagram(pid, p, individuals, fams, name_of):
         name = name_of.get(iid, iid)
         name = name.replace('"', "'")
         return name
-    def make_node(iid):
+    def make_node(iid, is_current=False):
         node = node_id(iid)
         name = node_label(iid)
         lines.append(f'{node}["{name}"]')
-        lines.append(f'class {node} internal-link')
+        if is_current:
+            lines.append(f'class {node} current')
+        else:
+            lines.append(f'class {node} internal-link')
         encoded_name = urllib.parse.quote(name.replace(" ", "-"))
         lines.append(f'click {node} "/profiles/People/{encoded_name}" "{name}"')
         return node
     
-    # Add the central person
-    person_node = make_node(pid)
+    # Add the central person (highlighted)
+    person_node = make_node(pid, is_current=True)
     
     # Iterate through all families where this person is a parent
     for fid in p["fams"]:
@@ -302,6 +310,114 @@ def build_descendants_diagram(pid, p, individuals, fams, name_of):
                         lines.append(f'{child_marriage_node} --> {grandchild_node}')
                     else:
                         lines.append(f'{child_node} --> {grandchild_node}')
+    
+    lines.append("```")
+    return "\n".join(lines)
+
+
+def build_ancestors_diagram(pid, p, individuals, fams, name_of):
+    """Build a Mermaid graph showing 2 generations of ancestors (parents and grandparents)."""
+    lines = ["```mermaid", "flowchart TD", 
+            "classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;",
+            "classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;",
+            "classDef current fill:#ffeb3b,stroke:#f57f17,stroke-width:4px;"]
+    
+    # Helper functions
+    def node_id(iid): return f'id{iid.replace("@", "")}'
+    def node_label(iid): 
+        name = name_of.get(iid, iid)
+        name = name.replace('"', "'")
+        return name
+    def make_node(iid, is_current=False):
+        node = node_id(iid)
+        name = node_label(iid)
+        lines.append(f'{node}["{name}"]')
+        if is_current:
+            lines.append(f'class {node} current')
+        else:
+            lines.append(f'class {node} internal-link')
+        encoded_name = urllib.parse.quote(name.replace(" ", "-"))
+        lines.append(f'click {node} "/profiles/People/{encoded_name}" "{name}"')
+        return node
+    
+    # Add the central person (current profile)
+    person_node = make_node(pid, is_current=True)
+    
+    # Add parents (1st generation)
+    if p["famc"] in fams:
+        fam = fams[p["famc"]]
+        parent_fam_id = p["famc"]
+        
+        father_node = None
+        mother_node = None
+        
+        if fam.get("husband"):
+            father_node = make_node(fam["husband"])
+            father_id = fam["husband"]
+        if fam.get("wife"):
+            mother_node = make_node(fam["wife"])
+            mother_id = fam["wife"]
+        
+        # Marriage connection for parents
+        if father_node and mother_node:
+            marriage_node = f'marriage_{node_id(parent_fam_id)}'
+            lines.append(f'{marriage_node}((" "))')
+            lines.append(f'{father_node} --- {marriage_node}')
+            lines.append(f'{mother_node} --- {marriage_node}')
+            lines.append(f'{marriage_node} --> {person_node}')
+        elif father_node or mother_node:
+            parent_node = father_node or mother_node
+            lines.append(f'{parent_node} --> {person_node}')
+        
+        # Add grandparents (2nd generation) - father's parents
+        if father_node and father_id in individuals:
+            father_data = individuals[father_id]
+            if father_data.get("famc") and father_data["famc"] in fams:
+                gp_fam = fams[father_data["famc"]]
+                gp_fam_id = father_data["famc"]
+                
+                grandfather_node = None
+                grandmother_node = None
+                
+                if gp_fam.get("husband"):
+                    grandfather_node = make_node(gp_fam["husband"])
+                if gp_fam.get("wife"):
+                    grandmother_node = make_node(gp_fam["wife"])
+                
+                if grandfather_node and grandmother_node:
+                    gp_marriage_node = f'marriage_{node_id(gp_fam_id)}'
+                    lines.append(f'{gp_marriage_node}((" "))')
+                    lines.append(f'{grandfather_node} --- {gp_marriage_node}')
+                    lines.append(f'{grandmother_node} --- {gp_marriage_node}')
+                    lines.append(f'{gp_marriage_node} --> {father_node}')
+                elif grandfather_node or grandmother_node:
+                    gp_node = grandfather_node or grandmother_node
+                    lines.append(f'{gp_node} --> {father_node}')
+        
+        # Add grandparents (2nd generation) - mother's parents
+        if mother_node and mother_id in individuals:
+            mother_data = individuals[mother_id]
+            if mother_data.get("famc") and mother_data["famc"] in fams:
+                gp_fam = fams[mother_data["famc"]]
+                gp_fam_id = mother_data["famc"]
+                
+                grandfather_node = None
+                grandmother_node = None
+                
+                if gp_fam.get("husband"):
+                    grandfather_node = make_node(gp_fam["husband"])
+                if gp_fam.get("wife"):
+                    grandmother_node = make_node(gp_fam["wife"])
+                
+                if grandfather_node and grandmother_node:
+                    gp_marriage_node = f'marriage_{node_id(gp_fam_id)}'
+                    lines.append(f'{gp_marriage_node}((" "))')
+                    lines.append(f'{grandfather_node} --- {gp_marriage_node}')
+                    lines.append(f'{grandmother_node} --- {gp_marriage_node}')
+                    lines.append(f'{gp_marriage_node} --> {mother_node}')
+                elif grandfather_node or grandmother_node:
+                    gp_node = grandfather_node or grandmother_node
+                    lines.append(f'{gp_node} --> {mother_node}')
     
     lines.append("```")
     return "\n".join(lines)
@@ -400,11 +516,10 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
         bp_link = wl_place(p["birth_place"]) if p["birth_place"] else ""
         dp_link = wl_place(p["death_place"]) if p["death_place"] else ""
 
-        # Generate Mermaid family tree diagram
+        # Generate Mermaid diagrams
         mermaid_diagram = build_mermaid_graph(pid, p, fams, name_of)
-        
-        # Generate descendants diagram (2 generations)
         descendants_diagram = build_descendants_diagram(pid, p, inds, fams, name_of)
+        ancestors_diagram = build_ancestors_diagram(pid, p, inds, fams, name_of)
 
         lines = [
             "---",
@@ -413,21 +528,31 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
             f"ID: {safe_filename(clean_id)}",
             "---",
             f"**Birth**: {p['birth_date']}" + (f" at {bp_link}" if bp_link else ""),
-            f"**Death**: {p['death_date']}" + (f" at {dp_link}" if dp_link else ""),
-            f"**Occupation**: {p['occupation'] or '—'}",
-            mermaid_diagram,
             "",
-            "## Descendants (2 Generations)",
-            descendants_diagram,
+            f"**Death**: {p['death_date']}" + (f" at {dp_link}" if dp_link else ""),
+            "",
+            f"**Occupation**: {p['occupation'] or '—'}",
+            "",
             "\n**Parents**:\n"   + ("\n".join(parents)  or "—"),
             "\n**Siblings**:\n" + ("\n".join(siblings) or "—"),
             "\n**Spouse**:\n"   + ("\n".join(spouses)  or "—"),
             "\n**Children**:\n" + ("\n".join(children) or "—"),
             "\n**Notes**:\n"    + (p['notes'] or "—"),
+            "",
+            "---",
+            "",
+            "## Family Tree",
+            mermaid_diagram,
+            "",
+            "## Ancestors (2 Generations)",
+            ancestors_diagram,
+            "",
+            "## Descendants (2 Generations)",
+            descendants_diagram,
         ]
 
         if bio_text:
-            lines += ["", "**Biography**:", bio_text]
+            lines += ["", "---", "", "## Biography", bio_text]
 
         # no body-level GEDCOM ID; it now lives in frontmatter as `ID`
 
