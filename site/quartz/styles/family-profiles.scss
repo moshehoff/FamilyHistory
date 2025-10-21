@@ -2,20 +2,24 @@
 
 /* Dual-Pane Layout for Profile Pages */
 body:has([data-slug*="profiles/People/"]) {
-  .page {
-    display: grid;
-    grid-template-columns: 60% 40%;
-    gap: 2rem;
-    max-width: 100%;
+  #quartz-body {
+    display: grid !important;
+    grid-template-columns: 20% 80% !important;
+    gap: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
     
-    .left-sidebar {
+    .sidebar.left {
       overflow-y: auto;
       max-height: calc(100vh - 100px);
     }
     
-    .right-sidebar {
-      overflow-y: auto;
-      max-height: calc(100vh - 100px);
+    .center {
+      padding: 0 4rem;
+    }
+    
+    .sidebar.right {
+      display: none !important;
     }
   }
 }
