@@ -533,11 +533,15 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
             "",
             f"**Occupation**: {p['occupation'] or '—'}",
             "",
-            "\n**Parents**:\n"   + ("\n".join(parents)  or "—"),
-            "\n**Siblings**:\n" + ("\n".join(siblings) or "—"),
-            "\n**Spouse**:\n"   + ("\n".join(spouses)  or "—"),
-            "\n**Children**:\n" + ("\n".join(children) or "—"),
-            "\n**Notes**:\n"    + (p['notes'] or "—"),
+            "**Parents**: "   + (", ".join(parents)  or "—"),
+            "",
+            "**Siblings**: " + (", ".join(siblings) or "—"),
+            "",
+            "**Spouse**: "   + (", ".join(spouses)  or "—"),
+            "",
+            "**Children**: " + (", ".join(children) or "—"),
+            "",
+            "**Notes**: "    + (p['notes'] or "—"),
             "",
             "---",
             "",
@@ -562,7 +566,163 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
 
 
 ##############################################################################
-# 4) CREATE People/index.md  ### NEW
+# 4) CREATE media-index.json for ProfileTabs
+##############################################################################
+
+def create_media_index(documents_dir, static_dir):
+    """Create a JSON index of all images and documents for each profile."""
+    import json
+    
+    print(f"[DEBUG] Starting media index creation from {documents_dir}")
+    
+    # documents/ is in project root, not in profiles/
+    # Contains both images and documents for each profile
+    
+    index = {
+        "images": {},
+        "documents": {}
+    }
+    
+    # Scan documents directory (contains both images and documents for each profile)
+    if os.path.exists(documents_dir):
+        print(f"[DEBUG] Scanning documents directory: {documents_dir}")
+        profile_dirs = [d for d in os.listdir(documents_dir) if os.path.isdir(os.path.join(documents_dir, d))]
+        print(f"[DEBUG] Found {len(profile_dirs)} profile directories: {profile_dirs}")
+        
+        for profile_id in profile_dirs:
+            profile_dir = os.path.join(documents_dir, profile_id)
+            print(f"[DEBUG] Processing profile {profile_id}")
+            
+            images = []
+            documents = []
+            
+            files_in_dir = os.listdir(profile_dir)
+            print(f"[DEBUG]   Files in {profile_id}: {files_in_dir}")
+            
+            for filename in files_in_dir:
+                # Skip metadata files
+                if filename.endswith(('.txt', '.md')):
+                    print(f"[DEBUG]   Skipping metadata file: {filename}")
+                    continue
+                
+                base_name = os.path.splitext(filename)[0]
+                
+                # Check if it's an image
+                if filename.lower().endswith(('.jpg', '.jpeg', '.png', '.gif', '.webp')):
+                    print(f"[DEBUG]   Found image: {filename}")
+                    # Try to read caption from metadata file
+                    caption = ""
+                    for ext in ['.txt', '.md']:
+                        caption_file = os.path.join(profile_dir, base_name + ext)
+                        if os.path.exists(caption_file):
+                            with open(caption_file, 'r', encoding='utf-8') as f:
+                                caption = f.read().strip()
+                            print(f"[DEBUG]     Caption from {base_name}{ext}: {caption[:50]}...")
+                            break
+                    
+                    images.append({
+                        "filename": filename,
+                        "caption": caption
+                    })
+                
+                # Otherwise, it's a document
+                else:
+                    print(f"[DEBUG]   Found document: {filename}")
+                    # Try to read metadata from file with same name
+                    title = filename
+                    description = ""
+                    for ext in ['.txt', '.md']:
+                        meta_file = os.path.join(profile_dir, base_name + ext)
+                        if os.path.exists(meta_file):
+                            with open(meta_file, 'r', encoding='utf-8') as f:
+                                lines = f.read().strip().split('\n')
+                                if len(lines) > 0:
+                                    title = lines[0]
+                                if len(lines) > 1:
+                                    description = lines[1]
+                            print(f"[DEBUG]     Metadata from {base_name}{ext}: title='{title}', desc='{description[:30]}...'")
+                            break
+                    
+                    documents.append({
+                        "filename": filename,
+                        "title": title,
+                        "description": description
+                    })
+            
+            if images:
+                index["images"][profile_id] = images
+                print(f"[DEBUG]   Added {len(images)} images for {profile_id}")
+            if documents:
+                index["documents"][profile_id] = documents
+                print(f"[DEBUG]   Added {len(documents)} documents for {profile_id}")
+    else:
+        print(f"[DEBUG] Documents directory does not exist: {documents_dir}")
+    
+    # Write index to static directory
+    os.makedirs(static_dir, exist_ok=True)
+    index_path = os.path.join(static_dir, "media-index.json")
+    with open(index_path, 'w', encoding='utf-8') as f:
+        json.dump(index, f, ensure_ascii=False, indent=2)
+    
+    print(f"[DEBUG] Created media index with {len(index['images'])} profiles with images, "
+          f"{len(index['documents'])} profiles with documents --> {index_path}")
+    
+    # Copy documents/ to site/quartz/static/documents/ so Quartz serves them from /static/documents/
+    import shutil
+    static_documents_dir = os.path.join("site", "quartz", "static", "documents")
+    print(f"[DEBUG] Preparing to copy {documents_dir} to {static_documents_dir}")
+    
+    if os.path.exists(documents_dir):
+        # Count files to copy
+        total_files = 0
+        for root, dirs, files in os.walk(documents_dir):
+            total_files += len(files)
+        print(f"[DEBUG] Found {total_files} files to copy")
+        
+        if os.path.exists(static_documents_dir):
+            print(f"[DEBUG] Removing existing {static_documents_dir}")
+            shutil.rmtree(static_documents_dir)
+        
+        print(f"[DEBUG] Copying files...")
+        shutil.copytree(documents_dir, static_documents_dir)
+        print(f"[DEBUG] OK Successfully copied {total_files} files to {static_documents_dir}")
+    else:
+        print(f"[DEBUG] ERROR Source directory does not exist: {documents_dir}")
+    
+    # Also copy image files from bios/ directory to site/content/ for use in biographies
+    # Quartz will copy them to site/public/ during build
+    bios_content_dir = os.path.join("site", "content")
+    print(f"[DEBUG] Copying image files from bios to {bios_content_dir}")
+    
+    image_extensions = ['.png', '.jpg', '.jpeg', '.gif', '.webp']
+    copied_images = 0
+    
+    os.makedirs(bios_content_dir, exist_ok=True)
+    
+    for filename in os.listdir("bios"):
+        file_path = os.path.join("bios", filename)
+        if os.path.isfile(file_path):
+            ext = os.path.splitext(filename)[1].lower()
+            if ext in image_extensions:
+                # Copy with original name (with spaces)
+                dest_path = os.path.join(bios_content_dir, filename)
+                shutil.copy2(file_path, dest_path)
+                copied_images += 1
+                print(f"[DEBUG]   Copied {filename} --> {bios_content_dir}")
+                
+                # Also copy with dashes instead of spaces (for Quartz links)
+                filename_with_dashes = filename.replace(' ', '-')
+                if filename_with_dashes != filename:
+                    dest_path_dashes = os.path.join(bios_content_dir, filename_with_dashes)
+                    shutil.copy2(file_path, dest_path_dashes)
+                    copied_images += 1
+                    print(f"[DEBUG]   Copied {filename_with_dashes} --> {bios_content_dir}")
+    
+    print(f"[DEBUG] OK Copied {copied_images} image files from bios/ to {bios_content_dir}")
+
+
+##############################################################################
+# 5) CREATE People/index.md  ### NEW
 ##############################################################################
 
 def write_people_index(people_dir):
@@ -721,7 +881,7 @@ def write_family_data_json(individuals, families, out_dir):
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
     
-    debug(f"Generated family-data.json with {len(people)} people and {len(families_list)} families → {output_path}")
+    debug(f"Generated family-data.json with {len(people)} people and {len(families_list)} families --> {output_path}")
 
 def main():
     argp = argparse.ArgumentParser(description="GEDCOM ➜ Quartz profiles + bios merge")
@@ -749,8 +909,13 @@ def main():
     
     # Generate family data JSON for large family tree
     write_family_data_json(individuals, families, args.output)
+    
+    # Create media index for ProfileTabs
+    documents_dir = "documents"  # documents/ in project root
+    static_dir = os.path.join("site", "quartz", "static")
+    create_media_index(documents_dir, static_dir)
 
-    debug(f"Done → {args.output}")
+    debug(f"Done --> {args.output}")
 
 
 if __name__ == "__main__":
