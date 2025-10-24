@@ -4,13 +4,14 @@ import * as Component from "./quartz/components"
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
-  header: [],
+  header: [Component.NavBar()],
   afterBody: [],
   footer: Component.Footer({
     links: {
       "Home": "/",
       "All Profiles": "/profiles/People/",
-      "About": "/pages/about_en",
+      "Profiles with Biographies": "/profiles/People/bios",
+      "About": "/pages/about",
     },
   }),
 }

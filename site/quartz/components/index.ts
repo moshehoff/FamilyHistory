@@ -25,6 +25,7 @@ import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
 import ProfileTabs from "./ProfileTabs"
 import FamilyTreeLarge from "./FamilyTreeLarge"
+import NavBar from "./NavBar"
 
 export {
   ArticleTitle,
@@ -54,4 +55,5 @@ export {
   ConditionalRender,
   ProfileTabs,
   FamilyTreeLarge,
+  NavBar,
 }
