@@ -27,6 +27,10 @@ site/content/profiles/
 !site/content/profiles/.gitkeep
 site/quartz/static/family-data.json
 
+# Copied source content (tracked in content/ directory)
+site/content/index.md
+site/content/pages/
+
 # OS files
 .DS_Store
 .DS_Store?

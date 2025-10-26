@@ -883,11 +883,37 @@ def write_family_data_json(individuals, families, out_dir):
     
     debug(f"Generated family-data.json with {len(people)} people and {len(families_list)} families --> {output_path}")
 
+def copy_source_content(src_content_dir, dst_content_dir):
+    """Copy source content (index.md, pages/) to site/content/"""
+    import shutil
+    
+    debug(f"Copying source content from {src_content_dir} to {dst_content_dir}")
+    
+    os.makedirs(dst_content_dir, exist_ok=True)
+    
+    # Copy index.md
+    src_index = os.path.join(src_content_dir, "index.md")
+    if os.path.exists(src_index):
+        dst_index = os.path.join(dst_content_dir, "index.md")
+        shutil.copy2(src_index, dst_index)
+        debug(f"Copied {src_index} -> {dst_index}")
+    
+    # Copy pages/ directory
+    src_pages = os.path.join(src_content_dir, "pages")
+    dst_pages = os.path.join(dst_content_dir, "pages")
+    
+    if os.path.exists(src_pages):
+        if os.path.exists(dst_pages):
+            shutil.rmtree(dst_pages)
+        shutil.copytree(src_pages, dst_pages)
+        debug(f"Copied {src_pages} -> {dst_pages}")
+
 def main():
     argp = argparse.ArgumentParser(description="GEDCOM ➜ Quartz profiles + bios merge")
     argp.add_argument("gedcom_file", help="Path to .ged file")
     argp.add_argument("-o", "--output", default="site/content/profiles", help="Output directory for profiles (default: site/content/profiles)")
     argp.add_argument("--bios-dir", default="bios", help="Directory with bio *.md files (default: bios)")
+    argp.add_argument("--src-content-dir", default="content", help="Directory with source content files (default: content)")
     argp.add_argument("--analyze-places", action="store_true", help="Analyze unique places in the GEDCOM file")
     args = argp.parse_args()
 
@@ -901,6 +927,9 @@ def main():
         analyze_places(individuals)
         return
 
+    # Copy source content to site/content/
+    copy_source_content(args.src_content_dir, os.path.dirname(args.output))
+    
     build_obsidian_notes(individuals, families, args.output, args.bios_dir)
 
     people_dir = os.path.join(args.output, "People")
