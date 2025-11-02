@@ -4,12 +4,16 @@ title: Family History
 
 # Welcome to Our Family History Website
 
-ברוכים הבאים לאתר ההיסטוריה המשפחתית שלנו
+הקמתי את האתר הזה כדי להוציא לאור את עבודת חייו של אבי, פיטר הופמן, שליקט, נבר, חקר והרכיב חתיכה אחר חתיכה, את סיפור ההיסטוריה המשפחתית למען הדורות הבאים.
 
-## 👥 Explore the Family
+בהעלאת החומר לאתר השתדלתי ככל הניתן להביא את הדברים בשם אומרם ולהיות נאמן למקור. 
+
+#### תוכן עניינים
+
+הקדמה על יד פיטר הופמן [preface](pages/preface)
 
 - [All Profiles](/profiles/People/) - 546 family members
-- [Profiles with Biographies](/profiles/People/bios) - Detailed life stories
+- [Profiles with extended Biographies](/profiles/People/bios) - Detailed life stories
 
 ## 🌳 Interactive Features
 

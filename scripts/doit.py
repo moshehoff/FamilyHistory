@@ -908,14 +908,50 @@ def copy_source_content(src_content_dir, dst_content_dir):
         shutil.copytree(src_pages, dst_pages)
         debug(f"Copied {src_pages} -> {dst_pages}")
 
+def clean_project():
+    """Remove all generated files and build outputs."""
+    import shutil
+    
+    paths_to_remove = [
+        "site/content",  # All content (profiles, index.md, pages/)
+        "site/public",   # Quartz build output
+        "site/.quartz-cache",  # Quartz cache
+        "site/quartz/static/family-data.json",  # Generated family data
+        "site/quartz/static/media-index.json",  # Generated media index
+    ]
+    
+    print("Cleaning project...")
+    for path in paths_to_remove:
+        full_path = os.path.abspath(path)
+        if os.path.exists(full_path):
+            if os.path.isdir(full_path):
+                shutil.rmtree(full_path)
+                print(f"  Removed directory: {path}")
+            else:
+                os.remove(full_path)
+                print(f"  Removed file: {path}")
+        else:
+            print(f"  (not found, skipping: {path})")
+    
+    print("Clean complete!")
+
+
 def main():
     argp = argparse.ArgumentParser(description="GEDCOM ➜ Quartz profiles + bios merge")
-    argp.add_argument("gedcom_file", help="Path to .ged file")
+    argp.add_argument("gedcom_file", nargs="?", help="Path to .ged file")
+    argp.add_argument("--clean", action="store_true", help="Clean all generated files and build outputs")
     argp.add_argument("-o", "--output", default="site/content/profiles", help="Output directory for profiles (default: site/content/profiles)")
     argp.add_argument("--bios-dir", default="bios", help="Directory with bio *.md files (default: bios)")
     argp.add_argument("--src-content-dir", default="content", help="Directory with source content files (default: content)")
     argp.add_argument("--analyze-places", action="store_true", help="Analyze unique places in the GEDCOM file")
     args = argp.parse_args()
+    
+    if args.clean:
+        clean_project()
+        return
+    
+    if not args.gedcom_file:
+        argp.error("gedcom_file is required (unless using --clean)")
 
     os.makedirs(args.output, exist_ok=True)
     if not os.path.exists(args.bios_dir):
