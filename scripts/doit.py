@@ -911,13 +911,16 @@ def copy_source_content(src_content_dir, dst_content_dir):
 def clean_project():
     """Remove all generated files and build outputs."""
     import shutil
+    import glob
     
     paths_to_remove = [
         "site/content",  # All content (profiles, index.md, pages/)
         "site/public",   # Quartz build output
         "site/.quartz-cache",  # Quartz cache
+        "site/site",  # Accidentally created nested directory
         "site/quartz/static/family-data.json",  # Generated family data
         "site/quartz/static/media-index.json",  # Generated media index
+        "site/quartz/static/documents",  # Copied documents directory
     ]
     
     print("Cleaning project...")
@@ -933,6 +936,8 @@ def clean_project():
         else:
             print(f"  (not found, skipping: {path})")
     
+    # Also clean up image files that might have been copied to site/content/
+    # (they get recreated from bios/ during build)
     print("Clean complete!")
 
 
