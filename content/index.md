@@ -24,6 +24,7 @@ For one, the development of the Internet, which has enabled like-minded individu
 
 - [All Profiles](/profiles/People/) - 546 family members
 - [Profiles with Extended Biographies](/profiles/People/bios) - Detailed life stories
+- [Disclaimer](/pages/disclaimer) - About this website
 
 ---
 
