@@ -733,7 +733,7 @@ def write_people_index(people_dir, pages_dir):
         if f.lower().endswith(".md") and f.lower() != "index.md" and f.lower() != "bios.md"
     )
 
-    lines = ["# All Profiles\n"]
+    lines = ["## All Profiles\n"]
     for fname in files:
         title = fname[:-3]                      # strip .md
         url   = "/profiles/" + urllib.parse.quote(fname[:-3])  # absolute path to profile
@@ -827,7 +827,7 @@ def write_bios_index(people_dir, bios_dir, pages_dir):
 
     # Create the index page
     lines = [
-        "# Profiles of Interest\n",
+        "## Profiles of Interest\n",
         "This page lists family members who have extended biographical information.\n"
     ]
     
