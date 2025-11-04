@@ -149,7 +149,7 @@ def build_mermaid_graph(pid, p, fams, name_of):
         if is_current:
             lines.append(f'class {node} current')
         else:
-            lines.append(f'class {node} internal-link')
+        lines.append(f'class {node} internal-link')
         # Add click handler for navigation
         # URL-encode the name for the path
         encoded_name = urllib.parse.quote(name.replace(" ", "-"))
@@ -950,7 +950,7 @@ def main():
     argp.add_argument("--src-content-dir", default="content", help="Directory with source content files (default: content)")
     argp.add_argument("--analyze-places", action="store_true", help="Analyze unique places in the GEDCOM file")
     args = argp.parse_args()
-    
+
     if args.clean:
         clean_project()
         return
@@ -960,7 +960,7 @@ def main():
 
     os.makedirs(args.output, exist_ok=True)
     if not os.path.exists(args.bios_dir):
-        os.makedirs(args.bios_dir, exist_ok=True)
+    os.makedirs(args.bios_dir, exist_ok=True)
 
     individuals, families = parse_gedcom_file(args.gedcom_file)
     
@@ -970,13 +970,13 @@ def main():
 
     # Copy source content to site/content/
     copy_source_content(args.src_content_dir, os.path.dirname(args.output))
-    
+
     build_obsidian_notes(individuals, families, args.output, args.bios_dir)
 
     people_dir = os.path.join(args.output, "People")
     write_people_index(people_dir)  # Write main index
     write_bios_index(people_dir, args.bios_dir)  # Write bios index
-    
+
     # Generate family data JSON for large family tree
     write_family_data_json(individuals, families, args.output)
     

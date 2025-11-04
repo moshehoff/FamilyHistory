@@ -17,10 +17,10 @@ export default (() => {
       <div class={classNames(displayClass, "profile-tabs")} data-profile-id={profileId}>
         <div class="tabs-header">
           <button class="tab-button active" data-tab="biography">
-            📖 קורות חיים
+            📖 Biography
           </button>
-          <button class="tab-button" data-tab="media">
-            🖼️ 📄 גלריה
+          <button class="tab-button" data-tab="media" id="media-tab-button" style="display: none;">
+            🖼️ Gallery
           </button>
         </div>
         
@@ -31,7 +31,7 @@ export default (() => {
           
           <div class="tab-pane" data-tab-content="media">
             <div id="media-content">
-              <div class="loading-message">טוען גלריה...</div>
+              <div class="loading-message">Loading gallery...</div>
             </div>
           </div>
         </div>
@@ -209,171 +209,245 @@ export default (() => {
 `
 
   ProfileTabs.afterDOMLoaded = `
-const tabButtons = document.querySelectorAll('.tab-button');
-const tabPanes = document.querySelectorAll('.tab-pane');
-const profileTabs = document.querySelector('.profile-tabs');
-const profileId = profileTabs ? profileTabs.getAttribute('data-profile-id') : null;
+// Store cleanup functions for tab button event listeners
+let tabButtonCleanups = [];
 
-let mediaLoaded = false;
-
-console.log('[ProfileTabs] Initializing, profileId:', profileId);
-
-// Move all article content into the biography tab
-function moveContentToTabs() {
-  const biographyPane = document.querySelector('[data-tab-content="biography"]');
-  if (!biographyPane) {
-    console.log('[ProfileTabs] Cannot find biography pane');
+// Initialize profile tabs - runs on every navigation
+function initProfileTabs() {
+  // Clean up previous event listeners
+  tabButtonCleanups.forEach(function(cleanup) {
+    cleanup();
+  });
+  tabButtonCleanups = [];
+  
+  const profileTabs = document.querySelector('.profile-tabs');
+  if (!profileTabs) {
+    // Not a profile page, skip initialization
     return;
   }
   
-  // Find the article element (contains all the profile content)
-  const article = document.querySelector('article');
-  if (!article) {
-    console.log('[ProfileTabs] Cannot find article element');
+  const profileId = profileTabs.getAttribute('data-profile-id');
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const tabPanes = document.querySelectorAll('.tab-pane');
+  const mediaTabButton = document.getElementById('media-tab-button');
+  
+  let mediaLoaded = false;
+  
+  console.log('[ProfileTabs] Initializing, profileId:', profileId);
+  
+  if (!profileId) {
     return;
   }
   
-  // Get all children of article
-  const contentToMove = Array.from(article.children);
-  
-  console.log('[ProfileTabs] Found', contentToMove.length, 'elements to move from article');
-  
-  // Move all content into biography tab
-  contentToMove.forEach(function(element) {
-    biographyPane.appendChild(element);
-  });
-  
-  console.log('[ProfileTabs] Content moved to biography tab');
-}
-
-// Run on load
-moveContentToTabs();
-
-// Tab switching
-tabButtons.forEach(function(button) {
-  button.addEventListener('click', function() {
-    const tabName = button.getAttribute('data-tab');
-    console.log('[ProfileTabs] Switching to tab:', tabName);
-    
-    // Remove active class from all
-    tabButtons.forEach(function(btn) {
-      btn.classList.remove('active');
-    });
-    tabPanes.forEach(function(pane) {
-      pane.classList.remove('active');
-    });
-    
-    // Add active to clicked
-    button.classList.add('active');
-    const targetPane = document.querySelector('[data-tab-content="' + tabName + '"]');
-    if (targetPane) {
-      targetPane.classList.add('active');
-    }
-    
-    // Load content on first view
-    if (tabName === 'media' && !mediaLoaded && profileId) {
-      loadMedia(profileId);
-      mediaLoaded = true;
-    }
-  });
-});
-
-// Load media (images and documents combined)
-function loadMedia(profileId) {
-  console.log('[ProfileTabs] Loading media for profile:', profileId);
-  const mediaContent = document.getElementById('media-content');
-  if (!mediaContent) return;
-  
-  const basePath = '/static/documents/' + profileId + '/';
-  
-  fetch('/static/media-index.json')
-    .then(function(response) {
-      if (!response.ok) throw new Error('No media index');
-      return response.json();
-    })
-    .then(function(data) {
-      const images = data.images[profileId] || [];
-      const documents = data.documents[profileId] || [];
-      
-      console.log('[ProfileTabs] Found', images.length, 'images and', documents.length, 'documents');
-      
-      if (images.length === 0 && documents.length === 0) {
-        mediaContent.innerHTML = '<div class="empty-message">אין תמונות או מסמכים זמינים</div>';
-        return;
-      }
-      
-      mediaContent.innerHTML = '';
-      
-      // Add images section
-      if (images.length > 0) {
-        const imagesSection = document.createElement('div');
-        imagesSection.className = 'media-section';
-        imagesSection.innerHTML = '<h3>תמונות</h3><div class="gallery-grid"></div>';
-        mediaContent.appendChild(imagesSection);
+  // Check if profile has media content and show/hide the gallery tab accordingly
+  function checkMediaContent() {
+    fetch('/static/media-index.json')
+      .then(function(response) {
+        if (!response.ok) {
+          console.log('[ProfileTabs] No media index found');
+          return null;
+        }
+        return response.json();
+      })
+      .then(function(data) {
+        if (!data) return;
         
-        const galleryGrid = imagesSection.querySelector('.gallery-grid');
-        images.forEach(function(img) {
-          const item = document.createElement('div');
-          item.className = 'gallery-item';
-          item.innerHTML = '<img src="' + basePath + img.filename + '" alt="' + (img.caption || '') + '">' +
-                          (img.caption ? '<div class="image-caption">' + img.caption + '</div>' : '');
+        const images = data.images[profileId] || [];
+        const documents = data.documents[profileId] || [];
+        
+        console.log('[ProfileTabs] Found', images.length, 'images and', documents.length, 'documents for profile', profileId);
+        
+        if (images.length > 0 || documents.length > 0) {
+          if (mediaTabButton) {
+            mediaTabButton.style.display = 'block';
+          }
+        } else {
+          if (mediaTabButton) {
+            mediaTabButton.style.display = 'none';
+          }
+        }
+      })
+      .catch(function(err) {
+        console.log('[ProfileTabs] Error checking media content:', err);
+        if (mediaTabButton) {
+          mediaTabButton.style.display = 'none';
+        }
+      });
+  }
+  
+  // Check media content
+  checkMediaContent();
+  
+  // Move all article content into the biography tab
+  function moveContentToTabs() {
+    const biographyPane = document.querySelector('[data-tab-content="biography"]');
+    if (!biographyPane) {
+      console.log('[ProfileTabs] Cannot find biography pane');
+      return;
+    }
+    
+    // Find the article element (contains all the profile content)
+    const article = document.querySelector('article');
+    if (!article) {
+      console.log('[ProfileTabs] Cannot find article element');
+      return;
+    }
+    
+    // Get all children of article
+    const contentToMove = Array.from(article.children);
+    
+    console.log('[ProfileTabs] Found', contentToMove.length, 'elements to move from article');
+    
+    // Move all content into biography tab
+    contentToMove.forEach(function(element) {
+      biographyPane.appendChild(element);
+    });
+    
+    console.log('[ProfileTabs] Content moved to biography tab');
+  }
+  
+  // Move content to tabs
+  moveContentToTabs();
+  
+  // Load media (images and documents combined)
+  function loadMedia(profileId) {
+    console.log('[ProfileTabs] Loading media for profile:', profileId);
+    const mediaContent = document.getElementById('media-content');
+    if (!mediaContent) return;
+    
+    const basePath = '/static/documents/' + profileId + '/';
+    
+    fetch('/static/media-index.json')
+      .then(function(response) {
+        if (!response.ok) throw new Error('No media index');
+        return response.json();
+      })
+      .then(function(data) {
+        const images = data.images[profileId] || [];
+        const documents = data.documents[profileId] || [];
+        
+        console.log('[ProfileTabs] Found', images.length, 'images and', documents.length, 'documents');
+        
+        if (images.length === 0 && documents.length === 0) {
+          mediaContent.innerHTML = '<div class="empty-message">No images or documents available</div>';
+          return;
+        }
+        
+        mediaContent.innerHTML = '';
+        
+        // Add images section
+        if (images.length > 0) {
+          const imagesSection = document.createElement('div');
+          imagesSection.className = 'media-section';
+          imagesSection.innerHTML = '<h3>Images</h3><div class="gallery-grid"></div>';
+          mediaContent.appendChild(imagesSection);
           
-          // Click to open full size
-          item.addEventListener('click', function() {
-            window.open(basePath + img.filename, '_blank');
+          const galleryGrid = imagesSection.querySelector('.gallery-grid');
+          images.forEach(function(img) {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            item.innerHTML = '<img src="' + basePath + img.filename + '" alt="' + (img.caption || '') + '">' +
+                            (img.caption ? '<div class="image-caption">' + img.caption + '</div>' : '');
+            
+            // Click to open full size
+            item.addEventListener('click', function() {
+              window.open(basePath + img.filename, '_blank');
+            });
+            
+            galleryGrid.appendChild(item);
           });
+        }
+        
+        // Add documents section
+        if (documents.length > 0) {
+          const docsSection = document.createElement('div');
+          docsSection.className = 'media-section';
+          docsSection.innerHTML = '<h3>Documents</h3><div class="documents-list"></div>';
+          mediaContent.appendChild(docsSection);
           
-          galleryGrid.appendChild(item);
-        });
+          const docsList = docsSection.querySelector('.documents-list');
+          documents.forEach(function(doc) {
+            const item = document.createElement('div');
+            item.className = 'document-item';
+            
+            const icon = getDocumentIcon(doc.filename);
+            
+            item.innerHTML = '<div class="document-icon">' + icon + '</div>' +
+                            '<div class="document-info">' +
+                            '<div class="document-name">' + (doc.title || doc.filename) + '</div>' +
+                            '<div class="document-meta">' + (doc.description || '') + '</div>' +
+                            '</div>' +
+                            '<a href="' + basePath + doc.filename + '" download class="document-download">Download</a>';
+            
+            docsList.appendChild(item);
+          });
+        }
+      })
+      .catch(function(err) {
+        console.log('[ProfileTabs] Media loading error:', err);
+        mediaContent.innerHTML = '<div class="empty-message">Error loading gallery</div>';
+      });
+  }
+  
+  function getDocumentIcon(filename) {
+    const ext = filename.split('.').pop().toLowerCase();
+    const icons = {
+      'pdf': '📕',
+      'doc': '📘',
+      'docx': '📘',
+      'xls': '📊',
+      'xlsx': '📊',
+      'txt': '📄',
+      'jpg': '🖼️',
+      'jpeg': '🖼️',
+      'png': '🖼️',
+      'gif': '🖼️'
+    };
+    return icons[ext] || '📄';
+  }
+  
+  // Tab switching with proper cleanup
+  tabButtons.forEach(function(button) {
+    const clickHandler = function() {
+      const tabName = button.getAttribute('data-tab');
+      console.log('[ProfileTabs] Switching to tab:', tabName);
+      
+      // Remove active class from all
+      tabButtons.forEach(function(btn) {
+        btn.classList.remove('active');
+      });
+      tabPanes.forEach(function(pane) {
+        pane.classList.remove('active');
+      });
+      
+      // Add active to clicked
+      button.classList.add('active');
+      const targetPane = document.querySelector('[data-tab-content="' + tabName + '"]');
+      if (targetPane) {
+        targetPane.classList.add('active');
       }
       
-      // Add documents section
-      if (documents.length > 0) {
-        const docsSection = document.createElement('div');
-        docsSection.className = 'media-section';
-        docsSection.innerHTML = '<h3>מסמכים</h3><div class="documents-list"></div>';
-        mediaContent.appendChild(docsSection);
-        
-        const docsList = docsSection.querySelector('.documents-list');
-        documents.forEach(function(doc) {
-          const item = document.createElement('div');
-          item.className = 'document-item';
-          
-          const icon = getDocumentIcon(doc.filename);
-          
-          item.innerHTML = '<div class="document-icon">' + icon + '</div>' +
-                          '<div class="document-info">' +
-                          '<div class="document-name">' + (doc.title || doc.filename) + '</div>' +
-                          '<div class="document-meta">' + (doc.description || '') + '</div>' +
-                          '</div>' +
-                          '<a href="' + basePath + doc.filename + '" download class="document-download">הורד</a>';
-          
-          docsList.appendChild(item);
-        });
+      // Load content on first view
+      if (tabName === 'media' && !mediaLoaded && profileId) {
+        loadMedia(profileId);
+        mediaLoaded = true;
       }
-    })
-    .catch(function(err) {
-      console.log('[ProfileTabs] Media loading error:', err);
-      mediaContent.innerHTML = '<div class="empty-message">שגיאה בטעינת גלריה</div>';
+    };
+    
+    button.addEventListener('click', clickHandler);
+    tabButtonCleanups.push(function() {
+      button.removeEventListener('click', clickHandler);
     });
+  });
 }
 
-function getDocumentIcon(filename) {
-  const ext = filename.split('.').pop().toLowerCase();
-  const icons = {
-    'pdf': '📕',
-    'doc': '📘',
-    'docx': '📘',
-    'xls': '📊',
-    'xlsx': '📊',
-    'txt': '📄',
-    'jpg': '🖼️',
-    'jpeg': '🖼️',
-    'png': '🖼️',
-    'gif': '🖼️'
-  };
-  return icons[ext] || '📄';
-}
+// Run on initial load
+initProfileTabs();
+
+// Run on every navigation (SPA)
+document.addEventListener('nav', function() {
+  initProfileTabs();
+});
 `
 
   return ProfileTabs

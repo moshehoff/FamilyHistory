@@ -26,10 +26,20 @@ site/package-lock.json
 site/content/profiles/
 !site/content/profiles/.gitkeep
 site/quartz/static/family-data.json
+site/quartz/static/media-index.json
+site/quartz/static/documents/
 
 # Copied source content (tracked in content/ directory)
 site/content/index.md
 site/content/pages/
+
+# Images copied from bios/ to site/content/
+site/content/*.png
+site/content/*.jpg
+site/content/*.jpeg
+site/content/*.gif
+site/content/*.webp
+site/content/Pasted*.png
 
 # OS files
 .DS_Store
