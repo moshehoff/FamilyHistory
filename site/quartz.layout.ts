@@ -9,8 +9,8 @@ export const sharedPageComponents: SharedLayout = {
   footer: Component.Footer({
     links: {
       "Home": "/",
-      "All Profiles": "/profiles/People/",
-      "Profiles with Biographies": "/profiles/People/bios",
+      "All Profiles": "/pages/all-profiles",
+      "Profiles of Interest": "/pages/profiles-of-interest",
       "About": "/pages/about",
     },
   }),

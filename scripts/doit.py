@@ -153,7 +153,7 @@ def build_mermaid_graph(pid, p, fams, name_of):
         # Add click handler for navigation
         # URL-encode the name for the path
         encoded_name = urllib.parse.quote(name.replace(" ", "-"))
-        lines.append(f'click {node} "/profiles/People/{encoded_name}" "{name}"')
+        lines.append(f'click {node} "/profiles/{encoded_name}" "{name}"')
         return node
     
     # Add the central person (highlighted)
@@ -241,7 +241,7 @@ def build_descendants_diagram(pid, p, individuals, fams, name_of):
         else:
             lines.append(f'class {node} internal-link')
         encoded_name = urllib.parse.quote(name.replace(" ", "-"))
-        lines.append(f'click {node} "/profiles/People/{encoded_name}" "{name}"')
+        lines.append(f'click {node} "/profiles/{encoded_name}" "{name}"')
         return node
     
     # Add the central person (highlighted)
@@ -337,7 +337,7 @@ def build_ancestors_diagram(pid, p, individuals, fams, name_of):
         else:
             lines.append(f'class {node} internal-link')
         encoded_name = urllib.parse.quote(name.replace(" ", "-"))
-        lines.append(f'click {node} "/profiles/People/{encoded_name}" "{name}"')
+        lines.append(f'click {node} "/profiles/{encoded_name}" "{name}"')
         return node
     
     # Add the central person (current profile)
@@ -473,7 +473,8 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
         return f"[{place}](https://en.wikipedia.org/wiki/{wiki_name})"
     ptr = lambda iid: wl(name_of.get(iid, iid)) if iid else ""
 
-    people_dir = os.path.join(out_dir, "People")
+    # Profiles go directly in out_dir (no "People" subdirectory)
+    people_dir = out_dir
     os.makedirs(people_dir, exist_ok=True)
 
     verbose_debug(f"Output directory for profiles: {people_dir}")
@@ -725,20 +726,21 @@ def create_media_index(documents_dir, static_dir):
 # 5) CREATE People/index.md  ### NEW
 ##############################################################################
 
-def write_people_index(people_dir):
-    """Create/overwrite People/index.md with Markdown links."""
+def write_people_index(people_dir, pages_dir):
+    """Create/overwrite pages/all-profiles.md with Markdown links."""
     files = sorted(
         f for f in os.listdir(people_dir)
-        if f.lower().endswith(".md") and f != "index.md"
+        if f.lower().endswith(".md") and f.lower() != "index.md" and f.lower() != "bios.md"
     )
 
-    lines = ["# All People\n"]
+    lines = ["# All Profiles\n"]
     for fname in files:
         title = fname[:-3]                      # strip .md
-        url   = urllib.parse.quote(fname)       # encode spaces/עברית
+        url   = "/profiles/" + urllib.parse.quote(fname[:-3])  # absolute path to profile
         lines.append(f"* [{title}]({url})")
 
-    with open(os.path.join(people_dir, "index.md"), "w", encoding="utf-8") as f:
+    os.makedirs(pages_dir, exist_ok=True)
+    with open(os.path.join(pages_dir, "all-profiles.md"), "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
 
 
@@ -792,8 +794,8 @@ def analyze_places(individuals):
     print("\nTotal unique places:", len(places))
     return places
 
-def write_bios_index(people_dir, bios_dir):
-    """Create/overwrite People/bios.md with links to profiles that have biographies."""
+def write_bios_index(people_dir, bios_dir, pages_dir):
+    """Create/overwrite pages/profiles-of-interest.md with links to profiles that have biographies."""
     # Get all biography files
     bio_ids = {
         os.path.splitext(f)[0] 
@@ -804,7 +806,7 @@ def write_bios_index(people_dir, bios_dir):
     # Get all profile files that have matching bios
     profiles_with_bios = []
     for fname in sorted(os.listdir(people_dir)):
-        if not fname.endswith('.md') or fname in ('index.md', 'bios.md'):
+        if not fname.endswith('.md'):
             continue
             
         profile_path = os.path.join(people_dir, fname)
@@ -821,22 +823,23 @@ def write_bios_index(people_dir, bios_dir):
                     gedcom_id = ln.split(':', 1)[1].strip().strip("'\"")
                     break
         if gedcom_id and gedcom_id in bio_ids:
-            profiles_with_bios.append((fname[:-3], fname))  # (title, filename)
+            profiles_with_bios.append((fname[:-3], fname[:-3]))  # (title, name)
 
     # Create the index page
     lines = [
-        "# Profiles with Biographies\n",
-        "This page lists all family members who have biographical information.\n"
+        "# Profiles of Interest\n",
+        "This page lists family members who have extended biographical information.\n"
     ]
     
     if profiles_with_bios:
-        for title, fname in profiles_with_bios:
-            url = urllib.parse.quote(fname)
+        for title, name in profiles_with_bios:
+            url = "/profiles/" + urllib.parse.quote(name)
             lines.append(f"* [{title}]({url})")
     else:
         lines.append("*No biographical information available yet.*")
 
-    with open(os.path.join(people_dir, "bios.md"), "w", encoding="utf-8") as f:
+    os.makedirs(pages_dir, exist_ok=True)
+    with open(os.path.join(pages_dir, "profiles-of-interest.md"), "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
 
 def write_family_data_json(individuals, families, out_dir):
@@ -958,6 +961,9 @@ def main():
     if not args.gedcom_file:
         argp.error("gedcom_file is required (unless using --clean)")
 
+    # Always clean before building
+    clean_project()
+    
     os.makedirs(args.output, exist_ok=True)
     if not os.path.exists(args.bios_dir):
         os.makedirs(args.bios_dir, exist_ok=True)
@@ -973,9 +979,11 @@ def main():
 
     build_obsidian_notes(individuals, families, args.output, args.bios_dir)
 
-    people_dir = os.path.join(args.output, "People")
-    write_people_index(people_dir)  # Write main index
-    write_bios_index(people_dir, args.bios_dir)  # Write bios index
+    # Write index pages to pages/ directory (under site/content/pages/)
+    people_dir = args.output  # profiles are directly in output
+    pages_dir = os.path.join(os.path.dirname(args.output), "pages")
+    write_people_index(people_dir, pages_dir)  # Write all-profiles.md
+    write_bios_index(people_dir, args.bios_dir, pages_dir)  # Write profiles-of-interest.md
 
     # Generate family data JSON for large family tree
     write_family_data_json(individuals, families, args.output)

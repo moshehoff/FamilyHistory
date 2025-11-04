@@ -25,15 +25,29 @@ Our family's story is one of resilience, migration, and perseverance. From Easte
 
 This website represents countless hours of research, interviews with family members, digitization of old documents, and careful documentation. It stands as a testament to the importance of remembering and honoring those who came before us.
 
+## Disclaimer
+
+The information on this website is based on material that my father, Peter Hoffman, collected, researched, and compiled over many years. When uploading the information to this website, I made every effort to remain faithful to the source.
+
+If there is an error in the information or if a piece of information is missing, please feel free to contact me at [moshe.hoffman@gmail.com](mailto:moshe.hoffman@gmail.com).
+
+## Work in Progress
+
+This website is currently under active development, both technologically and content-wise. We are continuously working on:
+- Improving the technical infrastructure and user experience
+- Adding extended biographies and historical content
+- Digitizing and uploading family documents and photographs
+- Expanding the genealogical data
+
 ## Contributing
 
-Family history is a collaborative effort. If you have:
-- **Photographs** or documents to share
-- **Stories** or memories about family members
-- **Corrections** or additional information
-- **Questions** about the family tree
+Family members who are interested in contributing are warmly welcomed! If you would like to:
+- Add biographies or stories about relatives
+- Share photographs or documents
+- Write a few words about family members
+- Provide corrections or additional information
 
-We would love to hear from you. Every contribution helps make this resource more complete and valuable for everyone.
+Please contact me at [moshe.hoffman@gmail.com](mailto:moshe.hoffman@gmail.com), and I will be happy to help you add your contributions to the site.
 
 ## Technical Notes
 

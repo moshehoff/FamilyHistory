@@ -14,10 +14,9 @@ const NavBar: QuartzComponent = ({ fileData, cfg, displayClass }: QuartzComponen
         
         <ul class="navbar-menu">
           <li><a href="/">Home</a></li>
-          <li><a href="/profiles/People/">All Profiles</a></li>
-          <li><a href="/profiles/People/bios">Profiles with Biographies</a></li>
+          <li><a href="/pages/all-profiles">All Profiles</a></li>
+          <li><a href="/pages/profiles-of-interest">Profiles of Interest</a></li>
           <li><a href="/pages/about">About</a></li>
-          <li><a href="/pages/disclaimer">Disclaimer</a></li>
         </ul>
       </div>
     </nav>
@@ -122,7 +121,7 @@ NavBar.css = `
   }
   
   .navbar-menu.active {
-    max-height: 350px;
+    max-height: 300px;
   }
   
   .navbar-menu li {
