@@ -30,7 +30,5 @@ For one, the development of the Internet, which has enabled like-minded individu
 
 - [All Profiles](/pages/all-profiles) - Complete list of 546 family members
 - [Profiles of Interest](/pages/profiles-of-interest) - Profiles with extended biographical information
-  - [Wolf Hoffman](/profiles/Wolf-Hoffman) - Founder of the Hoffman dynasty
-  - [Tobl Hochman (Hoffman)](/profiles/Tobl-Hochman-(Hoffman)) - Co-founder of the Hoffman dynasty
 - [About](/pages/about) - About this website
 
