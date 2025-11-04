@@ -149,7 +149,7 @@ def build_mermaid_graph(pid, p, fams, name_of):
         if is_current:
             lines.append(f'class {node} current')
         else:
-        lines.append(f'class {node} internal-link')
+            lines.append(f'class {node} internal-link')
         # Add click handler for navigation
         # URL-encode the name for the path
         encoded_name = urllib.parse.quote(name.replace(" ", "-"))
@@ -960,7 +960,7 @@ def main():
 
     os.makedirs(args.output, exist_ok=True)
     if not os.path.exists(args.bios_dir):
-    os.makedirs(args.bios_dir, exist_ok=True)
+        os.makedirs(args.bios_dir, exist_ok=True)
 
     individuals, families = parse_gedcom_file(args.gedcom_file)
     
