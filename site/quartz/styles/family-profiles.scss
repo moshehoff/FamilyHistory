@@ -53,6 +53,21 @@ body:has([data-slug*="profiles/People/"]) {
       stroke-width: 3px !important;
     }
   }
+
+  // Links in Mermaid diagrams should be blue
+  a {
+    color: #0066cc !important;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // Also style the text inside nodes
+  .nodeLabel {
+    color: #0066cc !important;
+  }
 }
 
 /* Responsive - Mobile stacks vertically */

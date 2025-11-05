@@ -76,11 +76,11 @@ strong {
 a {
   font-weight: $semiBoldWeight;
   text-decoration: none;
-  transition: color 0.2s ease, text-decoration 0.2s ease;
-  color: #0066cc;
+  transition: color 0.2s ease;
+  color: var(--secondary);
 
   &:hover {
-    text-decoration: underline;
+    color: var(--tertiary);
   }
 
   &.internal {

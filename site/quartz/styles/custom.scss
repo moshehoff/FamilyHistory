@@ -8,6 +8,16 @@ article {
   max-width: 800px;
   line-height: 1.8;
   font-size: 1.05rem;
+
+  // Links in article content: blue with underline on hover
+  a {
+    color: #0066cc;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 // Also limit tab content width for profile pages
@@ -15,4 +25,14 @@ article {
   max-width: 800px;
   line-height: 1.8;
   font-size: 1.05rem;
+
+  // Links in tab content: blue with underline on hover
+  a {
+    color: #0066cc;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
