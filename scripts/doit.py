@@ -133,7 +133,7 @@ def build_mermaid_graph(pid, p, fams, name_of):
     lines = ["```mermaid", "flowchart TD", 
             "classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;",
             "classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;",
-            "classDef current fill:#ffeb3b,stroke:#f57f17,stroke-width:4px;"]
+            "classDef current fill:#bbdefb,stroke:#1976d2,stroke-width:3px;"]
     
     # Helper to create node IDs and labels
     def node_id(iid): return f'id{iid.replace("@", "")}'
@@ -224,7 +224,7 @@ def build_descendants_diagram(pid, p, individuals, fams, name_of):
     lines = ["```mermaid", "flowchart TD", 
             "classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;",
             "classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;",
-            "classDef current fill:#ffeb3b,stroke:#f57f17,stroke-width:4px;"]
+            "classDef current fill:#bbdefb,stroke:#1976d2,stroke-width:3px;"]
     
     # Helper functions (same as above)
     def node_id(iid): return f'id{iid.replace("@", "")}'
@@ -320,7 +320,7 @@ def build_ancestors_diagram(pid, p, individuals, fams, name_of):
     lines = ["```mermaid", "flowchart TD", 
             "classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;",
             "classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;",
-            "classDef current fill:#ffeb3b,stroke:#f57f17,stroke-width:4px;"]
+            "classDef current fill:#bbdefb,stroke:#1976d2,stroke-width:3px;"]
     
     # Helper functions
     def node_id(iid): return f'id{iid.replace("@", "")}'
