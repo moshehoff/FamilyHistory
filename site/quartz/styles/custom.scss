@@ -6,8 +6,8 @@
 // Global content width limitation for better readability
 article {
   max-width: 800px;
-  line-height: 1.8;
-  font-size: 1.05rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
   background-color: #f5f5f5;
   padding: 2rem;
   border-radius: 8px;
@@ -35,13 +35,20 @@ article {
   p, span, div {
     color: #000;
   }
+
+  // Smaller heading sizes for diagrams
+  h2 {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
 }
 
 // Also limit tab content width for profile pages
 .tab-pane {
   max-width: 800px;
-  line-height: 1.8;
-  font-size: 1.05rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
   background-color: #f5f5f5;
   padding: 2rem;
   border-radius: 8px;
@@ -68,5 +75,48 @@ article {
   // Regular text in black
   p, span, div {
     color: #000;
+  }
+
+  // Smaller heading sizes for diagrams
+  h2 {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+// Definition list styling for profile info (applies to both article and tab-pane)
+.profile-info-list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1rem;
+  margin: 0;
+
+  dt {
+    color: #666;
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  dd {
+    margin: 0;
+    color: #000;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+// Navbar and Explorer links should be DARK BLACK (not gray) - STRONG OVERRIDE
+.navbar-menu a,
+.navbar a,
+.explorer a,
+.explorer-content ul li > a,
+.folder-container div > a,
+.folder-container div > button span {
+  color: #1a1a1a !important;
+  
+  &:hover {
+    color: var(--tertiary) !important;
   }
 }

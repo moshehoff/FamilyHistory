@@ -471,6 +471,14 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
         # Try to find a mapping, if not found use the place name directly
         wiki_name = place_to_wiki.get(place, place.replace(" ", "_"))
         return f"[{place}](https://en.wikipedia.org/wiki/{wiki_name})"
+    
+    def wl_place_html(place):
+        """Return HTML link for a place (for use in HTML tags)"""
+        if not place:   
+            return ""
+        wiki_name = place_to_wiki.get(place, place.replace(" ", "_"))
+        return f'<a href="https://en.wikipedia.org/wiki/{wiki_name}">{place}</a>'
+    
     ptr = lambda iid: wl(name_of.get(iid, iid)) if iid else ""
 
     # Profiles go directly in out_dir (no "People" subdirectory)
@@ -514,45 +522,66 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
                 verbose_debug(f"Found bio for {p['name']} at {bio_path}")
                 break
 
-        bp_link = wl_place(p["birth_place"]) if p["birth_place"] else ""
-        dp_link = wl_place(p["death_place"]) if p["death_place"] else ""
+        bp_link_md = wl_place(p["birth_place"]) if p["birth_place"] else ""
+        dp_link_md = wl_place(p["death_place"]) if p["death_place"] else ""
+        bp_link_html = wl_place_html(p["birth_place"]) if p["birth_place"] else ""
+        dp_link_html = wl_place_html(p["death_place"]) if p["death_place"] else ""
 
+        # Convert person links from [[name]] to HTML <a> tags
+        def person_link_to_html(wikilink):
+            """Convert [[Person Name]] to HTML link"""
+            if not wikilink or wikilink == "—":
+                return wikilink
+            # Remove [[ and ]]
+            name = wikilink.replace("[[", "").replace("]]", "")
+            # Encode name for URL
+            import urllib.parse
+            encoded_name = urllib.parse.quote(name)
+            return f'<a href="/profiles/{encoded_name}">{name}</a>'
+        
         # Generate Mermaid diagrams
         mermaid_diagram = build_mermaid_graph(pid, p, fams, name_of)
         descendants_diagram = build_descendants_diagram(pid, p, inds, fams, name_of)
         ancestors_diagram = build_ancestors_diagram(pid, p, inds, fams, name_of)
 
+        # Build profile info with proper indentation structure (for HTML)
+        birth_value = p['birth_date'] + (f" at {bp_link_html}" if bp_link_html else "")
+        death_value = p['death_date'] + (f" at {dp_link_html}" if dp_link_html else "")
+        occupation_value = p['occupation'] or '—'
+        parents_value_html = ", ".join([person_link_to_html(p) for p in parents]) if parents else "—"
+        siblings_value_html = ", ".join([person_link_to_html(s) for s in siblings]) if siblings else "—"
+        spouse_value_html = ", ".join([person_link_to_html(sp) for sp in spouses]) if spouses else "—"
+        children_value_html = ", ".join([person_link_to_html(c) for c in children]) if children else "—"
+        notes_value = p['notes'] or "—"
+        
         lines = [
             "---",
             "type: profile",
             f"title: {safe_filename(p['name'] or pid)}",
             f"ID: {safe_filename(clean_id)}",
             "---",
-            f"**Birth**: {p['birth_date']}" + (f" at {bp_link}" if bp_link else ""),
-            "",
-            f"**Death**: {p['death_date']}" + (f" at {dp_link}" if dp_link else ""),
-            "",
-            f"**Occupation**: {p['occupation'] or '—'}",
-            "",
-            "**Parents**: "   + (", ".join(parents)  or "—"),
-            "",
-            "**Siblings**: " + (", ".join(siblings) or "—"),
-            "",
-            "**Spouse**: "   + (", ".join(spouses)  or "—"),
-            "",
-            "**Children**: " + (", ".join(children) or "—"),
-            "",
-            "**Notes**: "    + (p['notes'] or "—"),
+            '<div class="profile-info-box">',
+            '<dl class="profile-info-list">',
+            f'<dt>Birth:</dt><dd>{birth_value}</dd>',
+            f'<dt>Death:</dt><dd>{death_value}</dd>',
+            f'<dt>Occupation:</dt><dd>{occupation_value}</dd>',
+            f'<dt>Parents:</dt><dd>{parents_value_html}</dd>',
+            f'<dt>Siblings:</dt><dd>{siblings_value_html}</dd>',
+            f'<dt>Spouse:</dt><dd>{spouse_value_html}</dd>',
+            f'<dt>Children:</dt><dd>{children_value_html}</dd>',
+            f'<dt>Notes:</dt><dd>{notes_value}</dd>',
+            '</dl>',
+            "</div>",
             "",
             "---",
             "",
-            "## Family Tree",
+            "## Nuclear Family",
             mermaid_diagram,
             "",
-            "## Ancestors (2 Generations)",
+            "## Ancestors (up to 2 Gen.)",
             ancestors_diagram,
             "",
-            "## Descendants (2 Generations)",
+            "## Descendants (up to 2 Gen.)",
             descendants_diagram,
         ]
 

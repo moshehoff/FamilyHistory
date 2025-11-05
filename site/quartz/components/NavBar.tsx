@@ -86,17 +86,19 @@ NavBar.css = `
 }
 
 .navbar-menu a {
-  color: var(--darkgray);
+  color: #1a1a1a !important;
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
   padding: 0.5rem 0;
   transition: color 0.2s ease;
   display: block;
+  background-color: transparent !important;
 }
 
 .navbar-menu a:hover {
-  color: var(--secondary);
+  color: var(--tertiary) !important;
+  text-decoration: none !important;
 }
 
 /* Mobile Styles */

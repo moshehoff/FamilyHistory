@@ -121,13 +121,15 @@ button.desktop-explorer {
     overscroll-behavior: contain;
 
     & li > a {
-      color: var(--dark);
-      opacity: 0.75;
+      color: #1a1a1a !important;
+      opacity: 1 !important;
       pointer-events: all;
+      background-color: transparent !important;
+      text-decoration: none !important;
 
       &.active {
         opacity: 1;
-        color: var(--tertiary);
+        color: var(--tertiary) !important;
       }
     }
   }
@@ -157,16 +159,18 @@ button.desktop-explorer {
   user-select: none;
 
   & div > a {
-    color: var(--secondary);
+    color: var(--darkgray) !important;
     font-family: var(--headerFont);
     font-size: 0.95rem;
     font-weight: $semiBoldWeight;
     line-height: 1.5rem;
     display: inline-block;
+    background-color: transparent !important;
+    text-decoration: none !important;
   }
 
   & div > a:hover {
-    color: var(--tertiary);
+    color: var(--tertiary) !important;
   }
 
   & div > button {
@@ -184,7 +188,7 @@ button.desktop-explorer {
     & span {
       font-size: 0.95rem;
       display: inline-block;
-      color: var(--secondary);
+      color: var(--darkgray) !important;
       font-weight: $semiBoldWeight;
       margin: 0;
       line-height: 1.5rem;
