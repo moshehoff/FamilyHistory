@@ -123,14 +123,14 @@ article {
 
 // Biography styling - Images and Captions
 article, .tab-pane {
-  // Images: centered with elegant frame and shadow
+  // Images: centered with black frame and shadow
   img {
     margin: 2rem auto;
     display: block;
     max-width: 100%;
-    border: 1px solid #ddd;
+    border: 2px solid #333;
     border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     padding: 8px;
     background: white;
   }
@@ -146,5 +146,61 @@ article, .tab-pane {
     margin-bottom: 2rem;
     font-style: italic;
     font-weight: normal; // Cancel the bold from strong
+  }
+
+  // Blockquotes: elegant styling for long quotations
+  blockquote {
+    background: #f9f9f9;
+    border-left: 4px solid #0066cc;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: #333;
+    border-radius: 4px;
+
+    p {
+      margin: 0.5rem 0;
+    }
+  }
+
+  // Section separators: elegant horizontal rules
+  hr {
+    border: none;
+    border-top: 2px solid #e0e0e0;
+    margin: 3rem 0;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // Citation boxes for newspaper quotes
+  .citation-box {
+    background: #fdf6e3;
+    border: 2px dashed #d4b896;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 6px;
+    font-family: Georgia, serif;
+    
+    &::before {
+      content: "📰 ";
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+    }
+  }
+
+  // Info boxes for author notes
+  .info-box {
+    background: #e3f2fd;
+    border-left: 4px solid #1976d2;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 4px;
+    font-size: 0.95rem;
+
+    &::before {
+      content: "ℹ️ ";
+      margin-right: 0.5rem;
+    }
   }
 }
