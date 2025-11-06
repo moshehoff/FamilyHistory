@@ -120,3 +120,31 @@ article {
     color: var(--tertiary) !important;
   }
 }
+
+// Biography styling - Images and Captions
+article, .tab-pane {
+  // Images: centered with elegant frame and shadow
+  img {
+    margin: 2rem auto;
+    display: block;
+    max-width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    background: white;
+  }
+
+  // Image captions: **_caption text_** (strong + em)
+  // Only em that is the ONLY child of strong will be styled as caption
+  strong > em:only-child {
+    display: block;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+    font-weight: normal; // Cancel the bold from strong
+  }
+}
