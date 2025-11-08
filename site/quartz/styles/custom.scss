@@ -253,7 +253,57 @@ article, .tab-pane {
       text-decoration: underline;
     }
   }
-  
+}
+
+// Chapter tabs (nested inside biography tab)
+.chapter-tabs-container {
+  margin: 2rem 0;
+}
+
+.chapter-tabs-header {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 2px solid var(--lightgray);
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.chapter-tab-button {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333; // Dark color instead of gray
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: #000;
+    background: var(--lightgray);
+  }
+
+  &.active {
+    color: var(--secondary);
+    border-bottom-color: var(--secondary);
+    font-weight: 600;
+  }
+}
+
+.chapter-tabs-content {
+  .chapter-tab-pane {
+    display: none;
+    animation: fadeIn 0.3s ease;
+
+    &.active {
+      display: block;
+    }
+  }
+}
+
+// Back to article/tab-pane context
+article, .tab-pane {
   // Images and Captions
   // Images: centered with black frame and shadow
   img {

@@ -363,6 +363,8 @@ ID: I10
 
 ### 3.3 Biography Files
 
+#### 3.3.1 Biography פשוטה (Single File)
+
 **מיקום**: `bios/{ID}.md`
 
 **פורמט**: Markdown טהור (ללא frontmatter)
@@ -378,6 +380,302 @@ ID: I10
 - קוד: ` ```code``` `
 
 **שילוב**: `doit.py` מעתיק את התוכן לסוף הפרופיל תחת `## Biography`
+
+#### 3.3.2 Biography מורחבת עם פרקים (Extended Biography with Chapters)
+
+**מבנה תיקיות**:
+```
+bios/
+  I10/
+    I10.md              ← Introduction (מופיע כטאב ראשון)
+    01-in_russia.md     ← פרק 1
+    02-savran_pogrom.md ← פרק 2
+    03-trans_siberian.md ← פרק 3
+    img_savran.png      ← תמונות לפרקים
+    img_podolia.png
+    ...
+```
+
+**כללי שמות קבצים**:
+- קובץ ה-Introduction: `{ID}.md` (למשל `I10.md`)
+- קבצי פרקים: `##-chapter_name.md` (מספר + מקף + שם באנגלית עם קווים תחתונים)
+- תמונות: `img_name.png/jpg` (כל שם תקין)
+
+**תוכן קובץ Introduction** (`I10.md`):
+```markdown
+## MOSHE HOCHMAN  Introduction
+
+[טקסט מבוא כללי על האדם]
+
+## Chapters
+
+1. [[01-in_russia|Moshe Hoffman In Russia]]
+2. [[02-savran_progrom|1917 Savran Pogrom]]
+3. [[03-trans_siberian|Trans Sibirian Railway]]
+
+_**Author Name, Location, Date**_
+```
+
+**הערות חשובות**:
+- הכותרת הראשונה תהיה שם הפרק (מתפרסר אוטומטית לשמות הטאבים)
+- רשימת הפרקים משתמשת ב-wikilinks עם תחביר: `[[filename-without-md|Display Name]]`
+- הקישורים יעבדו כפתרונות לחיצה ש פותחים את הפרקים בטאבים
+
+#### 3.3.3 סינטקס Markdown לכתיבת ביוגרפיות
+
+##### שבירת שורות (Line Breaks)
+```markdown
+שורה ראשונה  
+שורה שנייה
+
+[שימו לב: שתי רווחים בסוף שורה ראשונה!]
+```
+**חשוב מאוד**: שבירת שורה ב-Markdown דורשת **שתי רווחים** בסוף השורה. אחרת, השורות ימוזגו לפסקה אחת.
+
+##### תמונות ו-Captions
+
+**תמונה פשוטה**:
+```markdown
+![[bios/I10/img_savran_ukraine.png]]
+```
+
+**תמונה עם Caption**:
+```markdown
+![[bios/I10/img_savran_ukraine.png]]
+**_SAVRAN in THE UKRAINE (present day frontiers)._**
+```
+
+**הערות**:
+- הנתיב לתמונה: `bios/{ID}/image_name.png` (נתיב מלא ביחס לשורש הפרויקט)
+- Caption מיד אחרי התמונה: `**_text_**` (bold + italic)
+- `doit.py` מעתיק אוטומטית את כל התמונות מ-`bios/{ID}/` אל `site/content/`
+- התמונות יוצגו עם מסגרת שחורה וצל (סטיילינג אוטומטי)
+
+##### ציטוטים מעיתונים (Citation Box)
+```markdown
+<div class="citation-box">
+כאן הטקסט המצוטט מהעיתון או המאמר.
+יכול להיות בכמה פסקאות.
+
+כל הטקסט יוצג ברקע בז' עם מסגרת מקווקווה וסמל עיתון 📰.
+</div>
+```
+
+**מתי להשתמש**: ציטוטים ארוכים מעיתונים, מסמכים היסטוריים, ראיונות.
+
+##### הערות מחבר (Info Box)
+```markdown
+<div class="info-box">
+
+**Comment:** כאן הערת המחבר או הסבר נוסף.
+
+ניתן להוסיף מידע היסטורי, הערות מחקר, או הסברים שלא היו במקור.
+
+</div>
+```
+
+**מתי להשתמש**: הערות מחבר הביוגרפיה, הסברים מחקריים, הקשר היסטורי.
+
+##### Code Blocks (לעצי משפחה או טקסט ASCII)
+````markdown
+```
+Wolf & Beile Hochman
+│
+├─ 1. Shimon Me'ir (שמעון מאיר)
+├─ 2. Haim Yudl (חיים יהודה)
+├─ 3. Avram (אברהם)
+└─ 10. Yisroel (ישראל)
+```
+````
+
+**שימוש**: עצי משפחה פשוטים, טבלאות ASCII, או טקסט שצריך להישאר בפורמט monospace.
+
+##### רשימות ממוספרות
+```markdown
+1. פריט ראשון
+2. פריט שני
+3. פריט שלישי
+```
+
+##### קישורים בין פרקים (Chapter Links)
+```markdown
+לפרטים נוספים ראה [[02-savran_pogrom|פרק הפוגרום בסברן]].
+```
+
+**תחביר**: `[[chapter-filename-without-md|טקסט התצוגה]]`
+
+**התנהגות**: לחיצה על הקישור תעביר לפרק המבוקש (ללא טעינה מחדש של העמוד).
+
+##### עיצוב טקסט
+```markdown
+*italic*
+_italic_
+**bold**
+***bold italic***
+**_bold italic_**
+```
+
+##### קישורים חיצוניים
+```markdown
+[טקסט הקישור](https://example.com)
+```
+
+##### ציטוטים קצרים (Blockquotes)
+```markdown
+> זהו ציטוט קצר או משפט מודגש.
+> ניתן להמשיך למספר שורות.
+```
+
+**שימוש**: ציטוטים קצרים, משפטים חשובים, או הדגשת טקסט.
+
+**הבדל מ-Citation Box**: 
+- `> quote` - לציטוטים קצרים ופשוטים
+- `<div class="citation-box">` - לציטוטים ארוכים מעיתונים/מסמכים
+
+##### כותרות משנה
+```markdown
+## כותרת ראשית (בתוך פרק)
+### כותרת משנה
+#### כותרת משנה קטנה
+```
+
+**המלצה**: השתמש ב-`##` לכותרות ראשיות, `###` למשניות.
+
+##### טקסט מודגש בתוך פסקה
+```markdown
+_Moishe witnessed pogroms in Savran. He saw mounted troops with swords decapitating Jews._ (related to his grandson Trevor David)
+```
+
+**שימוש**: הדגשת משפטים שנאמרו בעל פה, ציטוטים קצרים מבני משפחה.
+
+##### דוגמה מלאה מהפרק Russia
+```markdown
+## The Tsarist army
+
+About 1906 Moishe was conscripted into the Tsarist army.
+
+### This article came in from Lane Igoudin:
+
+<div class="citation-box">
+After 1905, the position of the Jewish soldiers in the army became precarious...
+[טקסט ארוך מהמאמר]
+</div>
+
+#### From [https://yivoencyclopedia.org/...](https://yivoencyclopedia.org/...):
+>A disproportionate number of young Jewish men were conscripted.
+
+_Moishe, however, served in his trade of wheelwright._ (related to Jack)
+
+![[bios/I10/img_moishe_1909.png]]
+**_1909 Moishe (on the right in the dark uniform) with a fellow soldier._**
+
+<div class="info-box">
+
+**Comment:** The Russo-Japanese war started on 5.2.1904...
+
+</div>
+```
+
+#### 3.3.4 תהליך העבודה (Workflow)
+
+1. **יצירת תיקייה**: צור `bios/{ID}/` (למשל `bios/I10/`)
+2. **קובץ Introduction**: צור `bios/I10/I10.md` עם מבוא ורשימת פרקים
+3. **קבצי פרקים**: צור `01-chapter.md`, `02-chapter.md`, וכו'
+4. **תמונות**: העתק תמונות ל-`bios/I10/` עם שמות ברורים (למשל `img_savran_ukraine.png`)
+5. **הרצת Build**:
+   ```bash
+   python scripts/doit.py data/tree.ged
+   ```
+6. **בדיקה**: `doit.py` יודפיס:
+   - `[DEBUG] Found chapter directory: I10`
+   - `[DEBUG]   Copied 01-in_russia.md --> site\quartz\static\chapters\I10`
+   - `[DEBUG] OK Copied 20 image files from bios/ to site\content`
+
+#### 3.3.5 מה קורה ב-Build?
+
+1. `doit.py` סורק את `bios/` ומזהה תיקיות (כמו `I10/`)
+2. יוצר `site/quartz/static/chapters-index.json` עם מטא-דאטה של כל הפרקים
+3. מעתיק את כל קבצי ה-.md של הפרקים אל `site/quartz/static/chapters/{ID}/`
+4. מעתיק את כל התמונות מ-`bios/{ID}/` אל `site/content/` (גם עם רווחים וגם עם מקפים)
+5. ב-runtime, `ProfileTabs.tsx` טוען את הפרקים דינמית ומפרסר את ה-Markdown ל-HTML
+
+#### 3.3.6 בעיות נפוצות ופתרונות
+
+##### בעיה: שורות מתמזגות לפסקה אחת
+**סיבה**: חסרות שתי רווחים בסוף השורה.  
+**פתרון**: הוסף שתי רווחים לפני ה-Enter:
+```markdown
+שורה ראשונה  ← שתי רווחים כאן!
+שורה שנייה
+```
+
+##### בעיה: תמונה לא נטענת (404)
+**סיבות אפשריות**:
+1. הנתיב לא נכון - וודא: `![[bios/I10/img_name.png]]`
+2. התמונה לא בתיקייה - העתק את התמונה ל-`bios/I10/`
+3. לא הרצת `doit.py` אחרי הוספת התמונה
+
+**פתרון**: הרץ מחדש:
+```bash
+python scripts/doit.py data/tree.ged
+```
+
+##### בעיה: Citation Box לא מוצג נכון
+**סיבה**: שורה ריקה חסרה אחרי/לפני ה-`<div>`.
+
+**פתרון נכון**:
+```markdown
+פסקה רגילה.
+
+<div class="citation-box">
+טקסט הציטוט.
+</div>
+
+פסקה הבאה.
+```
+
+##### בעיה: קישור לפרק לא עובד
+**סיבות**:
+1. שם הקובץ לא תואם - וודא: `[[01-in_russia|...]]` תואם ל-`01-in_russia.md`
+2. הקישור כתוב עם רווחים - השתמש במקפים תחתונים: `01-in_russia` ולא `01 in russia`
+
+##### בעיה: Code Block נראה כטקסט רגיל
+**סיבה**: חסר שורה ריקה לפני/אחרי ה-` ``` `.
+
+**פתרון נכון**:
+````markdown
+פסקה רגילה.
+
+```
+Wolf & Beile Hochman
+│
+├─ 1. Shimon Me'ir
+```
+
+פסקה הבאה.
+````
+
+##### בעיה: הפרקים לא מופיעים בטאבים
+**סיבות אפשריות**:
+1. מבנה התיקיות לא נכון - וודא: `bios/I10/I10.md` קיים
+2. לא הרצת `doit.py` - הרץ: `python scripts/doit.py data/tree.ged`
+3. שם הקובץ Introduction לא תואם ל-ID - חייב להיות `I10.md` עבור `I10/`
+
+**בדיקה**: אחרי הרצת `doit.py`, חפש בפלט:
+```
+[DEBUG] Found chapter directory: I10
+[DEBUG]   Copied 01-in_russia.md --> site\quartz\static\chapters\I10
+```
+
+##### בעיה: Caption לא מופיע מתחת לתמונה
+**סיבה**: חסרה שורה ריקה בין התמונה ל-Caption, או Caption לא מעוצב נכון.
+
+**פתרון נכון**:
+```markdown
+![[bios/I10/img_savran.png]]
+**_SAVRAN in THE UKRAINE._**
+```
+(ללא שורה ריקה בינהם, והשתמש ב-`**_text_**`)
 
 ### 3.4 Media Index
 

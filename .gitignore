@@ -27,6 +27,8 @@ site/content/profiles/
 !site/content/profiles/.gitkeep
 site/quartz/static/family-data.json
 site/quartz/static/media-index.json
+site/quartz/static/chapters-index.json
+site/quartz/static/chapters/
 site/quartz/static/documents/
 
 # Copied source content (tracked in content/ directory)
