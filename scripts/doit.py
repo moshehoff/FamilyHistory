@@ -150,7 +150,7 @@ def build_mermaid_graph(pid, p, fams, name_of):
         if is_current:
             lines.append(f'class {node} current')
         else:
-        lines.append(f'class {node} internal-link')
+            lines.append(f'class {node} internal-link')
         # Add click handler for navigation
         # URL-encode the name for the path
         encoded_name = urllib.parse.quote(name.replace(" ", "-"))
@@ -730,22 +730,28 @@ def create_media_index(documents_dir, static_dir):
     
     os.makedirs(bios_content_dir, exist_ok=True)
     
-    for filename in os.listdir("bios"):
-        file_path = os.path.join("bios", filename)
-        if os.path.isfile(file_path):
+    # Walk through bios directory and subdirectories
+    for root, dirs, files in os.walk("bios"):
+        # Skip .obsidian directory
+        if '.obsidian' in root:
+            continue
+            
+        for filename in files:
             ext = os.path.splitext(filename)[1].lower()
             if ext in image_extensions:
-                # Copy with original name (with spaces)
+                file_path = os.path.join(root, filename)
+                
+                # Copy with original name (with spaces/underscores)
                 dest_path = os.path.join(bios_content_dir, filename)
                 shutil.copy2(file_path, dest_path)
                 copied_images += 1
                 print(f"[DEBUG]   Copied {filename} --> {bios_content_dir}")
                 
-                # Also copy with dashes instead of spaces (for Quartz links)
-                filename_with_dashes = filename.replace(' ', '-')
+                # Also copy with dashes instead of spaces AND underscores (for Quartz links and to avoid italic parsing)
+                filename_with_dashes = filename.replace(' ', '-').replace('_', '-')
                 if filename_with_dashes != filename:
-                    dest_path_dashes = os.path.join(bios_content_dir, filename_with_dashes)
-                    shutil.copy2(file_path, dest_path_dashes)
+                    dest_path_dashed = os.path.join(bios_content_dir, filename_with_dashes)
+                    shutil.copy2(file_path, dest_path_dashed)
                     copied_images += 1
                     print(f"[DEBUG]   Copied {filename_with_dashes} --> {bios_content_dir}")
     
@@ -1164,7 +1170,7 @@ def main():
     
     os.makedirs(args.output, exist_ok=True)
     if not os.path.exists(args.bios_dir):
-    os.makedirs(args.bios_dir, exist_ok=True)
+        os.makedirs(args.bios_dir, exist_ok=True)
 
     individuals, families = parse_gedcom_file(args.gedcom_file)
     

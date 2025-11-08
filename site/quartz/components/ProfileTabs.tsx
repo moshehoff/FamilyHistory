@@ -841,6 +841,82 @@ function initProfileTabs() {
       return '<pre><code' + langAttr + '>' + code + '</code></pre>';
     });
     
+    // Images ![[image.png]] - MUST be processed BEFORE bold/italic/links
+    html = html.replace(/!\\[\\[([^\\]]+)\\]\\]/g, function(match, imagePath) {
+      // Extract filename from path
+      var filename = imagePath.split('/').pop();
+      // Images are in site/content/ and served directly by Quartz
+      // Replace both spaces AND underscores with dashes to match what doit.py copies
+      var filenameWithDashes = filename.replace(/[ _]/g, '-');
+      // Use root path (Quartz serves content/ directly)
+      var imageSrc = '/' + filenameWithDashes;
+      var imageSrcWithSpaces = '/' + encodeURIComponent(filename);
+      // Escape quotes properly for HTML attribute
+      var escapedFilename = filename.replace(/"/g, '&quot;');
+      // Try with spaces if dashes fail (fallback)
+      return '<img src="' + imageSrc + '" alt="' + escapedFilename + '" onerror="this.src=&quot;' + imageSrcWithSpaces + '&quot;">';
+    });
+    
+    // Links [[slug|Display Text]] or [[slug]] - convert to chapter links (MUST be after images, before bold/italic)
+    html = html.replace(/\\[\\[([^\\]]+)\\]\\]/g, function(match, text) {
+      // Split by | to get slug and display text
+      var parts = text.split('|');
+      var slug = parts[0].trim();
+      var displayText = parts.length > 1 ? parts[1].trim() : slug;
+      
+      // Try to find matching chapter by name or slug
+      var targetSlug = null;
+      if (chaptersDataForLinks) {
+        // Check if it matches a chapter name or slug
+        var normalizedSlug = slug.toLowerCase().replace(/_/g, '-');
+        
+        // Check main chapter
+        if (chaptersDataForLinks.main && (
+          chaptersDataForLinks.main.slug === normalizedSlug ||
+          chaptersDataForLinks.main.name.toLowerCase() === normalizedSlug ||
+          chaptersDataForLinks.main.filename.toLowerCase().replace('.md', '') === normalizedSlug
+        )) {
+          targetSlug = chaptersDataForLinks.main.slug;
+        } else {
+          // Check other chapters - try exact match first
+          for (var i = 0; i < chaptersDataForLinks.chapters.length; i++) {
+            var chapter = chaptersDataForLinks.chapters[i];
+            var chapterNameNormalized = chapter.name.toLowerCase().replace(/_/g, '-');
+            var chapterFilenameNormalized = chapter.filename.toLowerCase().replace('.md', '').replace(/_/g, '-');
+            
+            if (chapter.slug === normalizedSlug ||
+                chapterNameNormalized === normalizedSlug ||
+                chapterFilenameNormalized === normalizedSlug ||
+                chapter.title.toLowerCase() === normalizedSlug) {
+              targetSlug = chapter.slug;
+              break;
+            }
+            
+            // Try to match by removing leading numbers (e.g., "02-in_russia" matches "01-in-russia")
+            var slugWithoutNumbers = normalizedSlug.replace(/^\\d+-/, '');
+            var chapterNameWithoutNumbers = chapterNameNormalized.replace(/^\\d+-/, '');
+            var chapterFilenameWithoutNumbers = chapterFilenameNormalized.replace(/^\\d+-/, '');
+            
+            if (slugWithoutNumbers === chapterNameWithoutNumbers ||
+                slugWithoutNumbers === chapterFilenameWithoutNumbers) {
+              targetSlug = chapter.slug;
+              break;
+            }
+          }
+        }
+        
+        // If no match found, try to create slug from text
+        if (!targetSlug) {
+          targetSlug = normalizedSlug;
+        }
+      } else {
+        // Fallback: create slug from text
+        targetSlug = slug.replace(/_/g, '-').toLowerCase();
+      }
+      
+      return '<a href="#chapter=' + targetSlug + '" class="chapter-link" data-chapter-slug="' + targetSlug + '">' + displayText + '</a>';
+    });
+    
     // Headers
     html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
     html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
@@ -887,84 +963,14 @@ function initProfileTabs() {
     
     html = processedLines.join('\\n');
     
-    // Images ![[image.png]] - convert to img tags
-    html = html.replace(/!\\[\\[([^\\]]+)\\]\\]/g, function(match, imagePath) {
-      // Extract filename from path
-      var filename = imagePath.split('/').pop();
-      // Images are in site/content/ and served directly by Quartz
-      // doit.py copies images with dashes, so try dashed version first
-      var filenameWithDashes = filename.replace(/ /g, '-');
-      // Use root path (Quartz serves content/ directly)
-      var imageSrc = '/' + filenameWithDashes;
-      var imageSrcWithSpaces = '/' + encodeURIComponent(filename);
-      // Escape quotes properly for HTML attribute
-      var escapedFilename = filename.replace(/"/g, '&quot;');
-      // Try with spaces if dashes fail (fallback)
-      return '<img src="' + imageSrc + '" alt="' + escapedFilename + '" onerror="this.src=&quot;' + imageSrcWithSpaces + '&quot;">';
-    });
+
     
-    // Links [[slug|Display Text]] or [[slug]] - convert to chapter links
-    html = html.replace(/\\[\\[([^\\]]+)\\]\\]/g, function(match, text) {
-      // Split by | to get slug and display text
-      var parts = text.split('|');
-      var slug = parts[0].trim();
-      var displayText = parts.length > 1 ? parts[1].trim() : slug;
-      
-      // Try to find matching chapter by name or slug
-      var targetSlug = null;
-      if (chaptersDataForLinks) {
-        // Check if it matches a chapter name or slug
-        var normalizedSlug = slug.toLowerCase().replace(/_/g, '-');
-        
-        // Check main chapter
-        if (chaptersDataForLinks.main && (
-          chaptersDataForLinks.main.slug === normalizedSlug ||
-          chaptersDataForLinks.main.name.toLowerCase() === normalizedSlug ||
-          chaptersDataForLinks.main.filename.toLowerCase().replace('.md', '') === normalizedSlug
-        )) {
-          targetSlug = chaptersDataForLinks.main.slug;
-        } else {
-          // Check other chapters - try exact match first
-          for (var i = 0; i < chaptersDataForLinks.chapters.length; i++) {
-            var chapter = chaptersDataForLinks.chapters[i];
-            var chapterNameNormalized = chapter.name.toLowerCase().replace(/_/g, '-');
-            var chapterFilenameNormalized = chapter.filename.toLowerCase().replace('.md', '').replace(/_/g, '-');
-            
-            if (chapter.slug === normalizedSlug ||
-                chapterNameNormalized === normalizedSlug ||
-                chapterFilenameNormalized === normalizedSlug ||
-                chapter.title.toLowerCase() === normalizedSlug) {
-              targetSlug = chapter.slug;
-              break;
-            }
-            
-            // Try to match by removing leading numbers (e.g., "02-in_russia" matches "01-in-russia")
-            var slugWithoutNumbers = normalizedSlug.replace(/^\d+-/, '');
-            var chapterNameWithoutNumbers = chapterNameNormalized.replace(/^\d+-/, '');
-            var chapterFilenameWithoutNumbers = chapterFilenameNormalized.replace(/^\d+-/, '');
-            
-            if (slugWithoutNumbers === chapterNameWithoutNumbers ||
-                slugWithoutNumbers === chapterFilenameWithoutNumbers) {
-              targetSlug = chapter.slug;
-              break;
-            }
-          }
-        }
-        
-        // If no match found, try to create slug from text
-        if (!targetSlug) {
-          targetSlug = normalizedSlug;
-        }
-      } else {
-        // Fallback: create slug from text
-        targetSlug = slug.replace(/_/g, '-').toLowerCase();
-      }
-      
-      return '<a href="#chapter=' + targetSlug + '" class="chapter-link" data-chapter-slug="' + targetSlug + '">' + displayText + '</a>';
-    });
-    
-    // Links [text](url)
+    // External links [text](url)
     html = html.replace(/\\[([^\\]]+)\\]\\(([^)]+)\\)/g, '<a href="$2">$1</a>');
+    
+    // Handle line breaks (two spaces at end of line = <br>)
+    // This must be done BEFORE paragraph processing
+    html = html.replace(/  \\n/g, '<br>\\n');
     
     // First, extract and preserve multi-line HTML blocks (div, blockquote, etc.)
     // This prevents them from being broken by paragraph splitting
