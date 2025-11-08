@@ -700,9 +700,9 @@ function initProfileTabs() {
     // Load chapter content if not already loaded
     loadChapter(chapterSlug);
     
-    // Update URL hash
+    // Update URL hash (with state for popstate handling)
     const newUrl = window.location.pathname + '#chapter=' + chapterSlug;
-    history.pushState({ chapter: chapterSlug }, '', newUrl);
+    history.pushState({ chapter: chapterSlug, tab: 'biography' }, '', newUrl);
   }
   
   // Load chapter content
@@ -838,6 +838,40 @@ function initProfileTabs() {
     // Italic
     html = html.replace(/\\*(.*?)\\*/g, '<em>$1</em>');
     html = html.replace(/_(.*?)_/g, '<em>$1</em>');
+    
+    // Ordered lists (1. item, 2. item, etc.)
+    var lines = html.split('\\n');
+    var inList = false;
+    var listHtml = '';
+    var processedLines = [];
+    
+    for (var i = 0; i < lines.length; i++) {
+      var line = lines[i];
+      var listMatch = line.match(/^(\\d+)\\.\\s+(.*)$/);
+      
+      if (listMatch) {
+        if (!inList) {
+          inList = true;
+          listHtml = '<ol>';
+        }
+        listHtml += '<li>' + listMatch[2] + '</li>';
+      } else {
+        if (inList) {
+          listHtml += '</ol>';
+          processedLines.push(listHtml);
+          listHtml = '';
+          inList = false;
+        }
+        processedLines.push(line);
+      }
+    }
+    
+    if (inList) {
+      listHtml += '</ol>';
+      processedLines.push(listHtml);
+    }
+    
+    html = processedLines.join('\\n');
     
     // Images ![[image.png]] - convert to img tags
     html = html.replace(/!\\[\\[([^\\]]+)\\]\\]/g, function(match, imagePath) {
@@ -1117,14 +1151,97 @@ function initProfileTabs() {
     
     // Handle browser back/forward button for chapter tabs
     window.addEventListener('popstate', function(event) {
+      console.log('[ProfileTabs] Popstate event:', event.state, 'hash:', window.location.hash);
+      
       const hash = window.location.hash;
+      
+      // Handle chapter navigation
       if (hash && hash.startsWith('#chapter=')) {
         const chapterSlug = hash.substring(9);
-        switchToChapter(chapterSlug);
-      } else {
-        // If no chapter hash, show introduction or first chapter
+        console.log('[ProfileTabs] Restoring chapter:', chapterSlug);
+        
+        // First, ensure Biography tab is active
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabPanes = document.querySelectorAll('.tab-pane');
+        const biographyButton = document.querySelector('[data-tab="biography"]');
+        const biographyPane = document.querySelector('[data-tab-content="biography"]');
+        
+        if (biographyButton && biographyPane) {
+          // Remove active from all
+          tabButtons.forEach(function(btn) { btn.classList.remove('active'); });
+          tabPanes.forEach(function(pane) { pane.classList.remove('active'); });
+          
+          // Activate biography tab
+          biographyButton.classList.add('active');
+          biographyPane.classList.add('active');
+          
+          // Now switch to the chapter (without updating history again)
+          setTimeout(function() {
+            // Remove active from all chapter buttons
+            document.querySelectorAll('.chapter-tab-button').forEach(function(btn) {
+              btn.classList.remove('active');
+            });
+            
+            // Remove active from all chapter panes
+            document.querySelectorAll('.chapter-tab-pane').forEach(function(pane) {
+              pane.classList.remove('active');
+            });
+            
+            // Activate target chapter button
+            const targetButton = document.querySelector('.chapter-tab-button[data-chapter-slug="' + chapterSlug + '"]');
+            if (targetButton) {
+              targetButton.classList.add('active');
+            }
+            
+            // Activate target chapter pane
+            const targetPane = document.querySelector('.chapter-tab-pane[data-chapter-slug="' + chapterSlug + '"]');
+            if (targetPane) {
+              targetPane.classList.add('active');
+            }
+            
+            // Load chapter content if needed
+            if (!loadedChapters[chapterSlug]) {
+              loadChapter(chapterSlug);
+            } else {
+              displayChapter(chapterSlug, loadedChapters[chapterSlug]);
+            }
+          }, 50);
+        }
+      } else if (!hash || hash === '#') {
+        // No hash or empty hash - go back to default view
+        console.log('[ProfileTabs] No hash, showing default view');
         if (chaptersData && chaptersData.main) {
-          switchToChapter(chaptersData.main.slug);
+          // Ensure biography tab is active and show introduction
+          const biographyButton = document.querySelector('[data-tab="biography"]');
+          const biographyPane = document.querySelector('[data-tab-content="biography"]');
+          
+          if (biographyButton && biographyPane) {
+            document.querySelectorAll('.tab-button').forEach(function(btn) { btn.classList.remove('active'); });
+            document.querySelectorAll('.tab-pane').forEach(function(pane) { pane.classList.remove('active'); });
+            
+            biographyButton.classList.add('active');
+            biographyPane.classList.add('active');
+            
+            // Activate introduction chapter
+            setTimeout(function() {
+              document.querySelectorAll('.chapter-tab-button').forEach(function(btn) {
+                btn.classList.remove('active');
+              });
+              document.querySelectorAll('.chapter-tab-pane').forEach(function(pane) {
+                pane.classList.remove('active');
+              });
+              
+              const introButton = document.querySelector('.chapter-tab-button[data-chapter-slug="' + chaptersData.main.slug + '"]');
+              if (introButton) introButton.classList.add('active');
+              
+              const introPane = document.querySelector('.chapter-tab-pane[data-chapter-slug="' + chaptersData.main.slug + '"]');
+              if (introPane) introPane.classList.add('active');
+              
+              if (!loadedChapters[chaptersData.main.slug]) {
+                loadChapter(chaptersData.main.slug);
+              }
+            }, 50);
+          }
         }
       }
     });

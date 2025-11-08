@@ -979,12 +979,24 @@ def analyze_places(individuals):
 
 def write_bios_index(people_dir, bios_dir, pages_dir):
     """Create/overwrite pages/profiles-of-interest.md with links to profiles that have biographies."""
-    # Get all biography files
-    bio_ids = {
-        os.path.splitext(f)[0] 
-        for f in os.listdir(bios_dir) 
-        if f.endswith(('.md', '.MD'))
-    }
+    # Get all biography files - both direct .md files and directories with IXX.md inside
+    bio_ids = set()
+    
+    for entry in os.listdir(bios_dir):
+        entry_path = os.path.join(bios_dir, entry)
+        
+        # Check if it's a direct .md file
+        if entry.endswith(('.md', '.MD')):
+            bio_ids.add(os.path.splitext(entry)[0])
+        
+        # Check if it's a directory (chapter-based biography)
+        elif os.path.isdir(entry_path) and not entry.startswith('.'):
+            # Check if there's a main bio file (e.g., I10/I10.md)
+            main_bio_file = os.path.join(entry_path, f"{entry}.md")
+            if os.path.isfile(main_bio_file):
+                bio_ids.add(entry)
+    
+    print(f"[DEBUG] Found {len(bio_ids)} profiles with biographies: {sorted(bio_ids)}")
     
     # Get all profile files that have matching bios
     profiles_with_bios = []
@@ -1006,7 +1018,9 @@ def write_bios_index(people_dir, bios_dir, pages_dir):
                     gedcom_id = ln.split(':', 1)[1].strip().strip("'\"")
                     break
         if gedcom_id and gedcom_id in bio_ids:
-            profiles_with_bios.append((fname[:-3], fname[:-3]))  # (title, name)
+            # Use slugified name (with dashes instead of spaces) for URL
+            slugified_name = fname[:-3].replace(' ', '-')
+            profiles_with_bios.append((fname[:-3], slugified_name))  # (title, slugified_name)
 
     # Create the index page
     lines = [
@@ -1015,8 +1029,9 @@ def write_bios_index(people_dir, bios_dir, pages_dir):
     ]
     
     if profiles_with_bios:
-        for title, name in profiles_with_bios:
-            url = "/profiles/" + urllib.parse.quote(name)
+        for title, slugified_name in profiles_with_bios:
+            # Use slugified name directly (no URL encoding needed, already has dashes)
+            url = "/profiles/" + slugified_name
             lines.append(f"* [{title}]({url})")
     else:
         lines.append("*No biographical information available yet.*")
