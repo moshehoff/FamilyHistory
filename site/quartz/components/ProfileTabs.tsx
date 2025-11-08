@@ -664,8 +664,8 @@ function initProfileTabs() {
   }
   
   // Switch to chapter (works with inner chapter tabs)
-  function switchToChapter(chapterSlug) {
-    console.log('[ProfileTabs] Switching to chapter:', chapterSlug);
+  function switchToChapter(chapterSlug, fromPopstate) {
+    console.log('[ProfileTabs] Switching to chapter:', chapterSlug, 'fromPopstate:', fromPopstate);
     
     // Remove active from all chapter tab buttons
     document.querySelectorAll('.chapter-tab-button').forEach(function(button) {
@@ -693,6 +693,15 @@ function initProfileTabs() {
     const biographyButton = document.querySelector('[data-tab="biography"]');
     const biographyPane = document.querySelector('[data-tab-content="biography"]');
     if (biographyButton && biographyPane) {
+      // Remove active from ALL main tabs first
+      document.querySelectorAll('.tab-button').forEach(function(btn) {
+        btn.classList.remove('active');
+      });
+      document.querySelectorAll('.tab-pane').forEach(function(pane) {
+        pane.classList.remove('active');
+      });
+      
+      // Then activate biography
       biographyButton.classList.add('active');
       biographyPane.classList.add('active');
     }
@@ -700,9 +709,11 @@ function initProfileTabs() {
     // Load chapter content if not already loaded
     loadChapter(chapterSlug);
     
-    // Update URL hash (with state for popstate handling)
-    const newUrl = window.location.pathname + '#chapter=' + chapterSlug;
-    history.pushState({ chapter: chapterSlug, tab: 'biography' }, '', newUrl);
+    // Update URL hash ONLY if not from popstate (to avoid double history entry)
+    if (!fromPopstate) {
+      const newUrl = window.location.pathname + '#chapter=' + chapterSlug;
+      history.pushState({ chapter: chapterSlug, tab: 'biography' }, '', newUrl);
+    }
   }
   
   // Load chapter content
@@ -771,9 +782,12 @@ function initProfileTabs() {
       chapterLinks.forEach(function(link) {
         link.addEventListener('click', function(e) {
           e.preventDefault();
+          e.stopPropagation();
           const targetSlug = link.getAttribute('data-chapter-slug');
-          console.log('[ProfileTabs] Chapter link clicked:', targetSlug);
-          switchToChapter(targetSlug);
+          console.log('[ProfileTabs] Chapter link clicked, target:', targetSlug);
+          if (targetSlug) {
+            switchToChapter(targetSlug, false);
+          }
         });
       });
       
@@ -1158,90 +1172,15 @@ function initProfileTabs() {
       // Handle chapter navigation
       if (hash && hash.startsWith('#chapter=')) {
         const chapterSlug = hash.substring(9);
-        console.log('[ProfileTabs] Restoring chapter:', chapterSlug);
+        console.log('[ProfileTabs] Restoring chapter from popstate:', chapterSlug);
         
-        // First, ensure Biography tab is active
-        const tabButtons = document.querySelectorAll('.tab-button');
-        const tabPanes = document.querySelectorAll('.tab-pane');
-        const biographyButton = document.querySelector('[data-tab="biography"]');
-        const biographyPane = document.querySelector('[data-tab-content="biography"]');
-        
-        if (biographyButton && biographyPane) {
-          // Remove active from all
-          tabButtons.forEach(function(btn) { btn.classList.remove('active'); });
-          tabPanes.forEach(function(pane) { pane.classList.remove('active'); });
-          
-          // Activate biography tab
-          biographyButton.classList.add('active');
-          biographyPane.classList.add('active');
-          
-          // Now switch to the chapter (without updating history again)
-          setTimeout(function() {
-            // Remove active from all chapter buttons
-            document.querySelectorAll('.chapter-tab-button').forEach(function(btn) {
-              btn.classList.remove('active');
-            });
-            
-            // Remove active from all chapter panes
-            document.querySelectorAll('.chapter-tab-pane').forEach(function(pane) {
-              pane.classList.remove('active');
-            });
-            
-            // Activate target chapter button
-            const targetButton = document.querySelector('.chapter-tab-button[data-chapter-slug="' + chapterSlug + '"]');
-            if (targetButton) {
-              targetButton.classList.add('active');
-            }
-            
-            // Activate target chapter pane
-            const targetPane = document.querySelector('.chapter-tab-pane[data-chapter-slug="' + chapterSlug + '"]');
-            if (targetPane) {
-              targetPane.classList.add('active');
-            }
-            
-            // Load chapter content if needed
-            if (!loadedChapters[chapterSlug]) {
-              loadChapter(chapterSlug);
-            } else {
-              displayChapter(chapterSlug, loadedChapters[chapterSlug]);
-            }
-          }, 50);
-        }
+        // Just call switchToChapter with fromPopstate=true
+        switchToChapter(chapterSlug, true);
       } else if (!hash || hash === '#') {
-        // No hash or empty hash - go back to default view
-        console.log('[ProfileTabs] No hash, showing default view');
+        // No hash or empty hash - go back to introduction
+        console.log('[ProfileTabs] No hash, showing introduction');
         if (chaptersData && chaptersData.main) {
-          // Ensure biography tab is active and show introduction
-          const biographyButton = document.querySelector('[data-tab="biography"]');
-          const biographyPane = document.querySelector('[data-tab-content="biography"]');
-          
-          if (biographyButton && biographyPane) {
-            document.querySelectorAll('.tab-button').forEach(function(btn) { btn.classList.remove('active'); });
-            document.querySelectorAll('.tab-pane').forEach(function(pane) { pane.classList.remove('active'); });
-            
-            biographyButton.classList.add('active');
-            biographyPane.classList.add('active');
-            
-            // Activate introduction chapter
-            setTimeout(function() {
-              document.querySelectorAll('.chapter-tab-button').forEach(function(btn) {
-                btn.classList.remove('active');
-              });
-              document.querySelectorAll('.chapter-tab-pane').forEach(function(pane) {
-                pane.classList.remove('active');
-              });
-              
-              const introButton = document.querySelector('.chapter-tab-button[data-chapter-slug="' + chaptersData.main.slug + '"]');
-              if (introButton) introButton.classList.add('active');
-              
-              const introPane = document.querySelector('.chapter-tab-pane[data-chapter-slug="' + chaptersData.main.slug + '"]');
-              if (introPane) introPane.classList.add('active');
-              
-              if (!loadedChapters[chaptersData.main.slug]) {
-                loadChapter(chaptersData.main.slug);
-              }
-            }, 50);
-          }
+          switchToChapter(chaptersData.main.slug, true);
         }
       }
     });
