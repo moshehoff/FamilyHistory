@@ -1,1113 +1,1361 @@
-# מפרט מפורט ומלא - אתר היסטוריה משפחתית
+# מפרט מפורט - אתר היסטוריה משפחתית
 
-## 1. מטרת הפרויקט
+**גרסה**: 3.0  
+**תאריך**: נובמבר 2025  
+**סטטוס**: מימוש פעיל
 
-### 1.1 מטרה כללית
-אתר ציבורי לשמירה ותיעוד ההיסטוריה המשפחתית לדורות הבאים ולבני משפחה רחוקים וקרובים.
+---
 
-### 1.2 מטרות ספציפיות
-- שמירה על מידע גנאלוגי מדויק ומפורט
-- הצגת קורות חיים מפורטים כמו פרקים בספר
-- שילוב תמונות ומסמכים היסטוריים
-- יצירת עץ משפחתי אינטראקטיבי
-- אפשרות למבקרים להוסיף הערות ותגובות
-- ממשק אנגלי עם תוכן בעברית/אנגלית לפי המקור
+## 1. סקירה כללית
+
+### 1.1 מטרת הפרויקט
+אתר סטטי לתיעוד והצגת היסטוריה משפחתית, מבוסס על נתוני GEDCOM, עם ביוגרפיות מפורטות, תמונות ומסמכים היסטוריים.
+
+### 1.2 עקרונות מרכזיים
+- **אתר סטטי**: ללא שרת backend, ללא database
+- **ממשק אנגלי**: כל ה-GUI באנגלית בלבד
+- **תוכן רב-לשוני**: תוכן בעברית/אנגלית לפי המקור
+- **פשטות**: ללא תכונות מורכבות מיותרות (ללא מערכת תגובות)
+- **קריאות**: עיצוב נקי ומקצועי, דומה לספר
+
+---
 
 ## 2. ארכיטקטורה טכנית
 
-### 2.1 טכנולוגיות בסיס
-- **Static Site Generator**: Quartz 4 (מבוסס Obsidian)
-- **Frontend Framework**: React + TypeScript + SCSS
-- **Templating Engine**: Quartz Components
-- **Data Source**: GEDCOM files
-- **Family Tree Visualization**: Mermaid diagrams
-- **Alternative Tree Library**: family-chart (if Mermaid insufficient)
-- **Content Management**: Markdown files with frontmatter
+### 2.1 טכנולוגיות
+- **Static Site Generator**: Quartz 4.5.2
+- **Frontend**: React + TypeScript + SCSS
+- **Data Source**: GEDCOM file (`data/tree.ged`)
+- **Diagrams**: Mermaid.js
+- **Build Tool**: Python script (`scripts/doit.py`)
 
-### 2.2 מבנה הנתונים
-- **GEDCOM**: מקור הנתונים הראשי
-- **Markdown Files**: פרופילים עם frontmatter
-- **Place Mappings**: קישורי ויקיפדיה (place_mappings.json)
-- **Bios Directory**: ביוגרפיות מפורטות (רק לפרופילים עם ביוגרפיה)
-- **Documents Directory**: מסמכים ותמונות עם מטא-דאטה (רק לפרופילים עם מסמכים)
-
-### 2.3 תהליך בנייה מפורט
-1. **GEDCOM Processing**: `doit.py` קורא GEDCOM ויוצר Markdown files
-2. **Quartz Build**: `npx quartz build` בונה את האתר הסטטי
-3. **Content Indexing**: Quartz יוצר אינדקס תוכן אוטומטי
-4. **Static Generation**: יצירת HTML, CSS, JS סטטיים
-5. **Deployment**: העלאה לשרת או GitHub Pages
-
-## 3. מבנה קבצים מפורט
+### 2.2 תהליך בנייה
 
 ```
-family-history-website/
-├── data/                           # נתונים מקוריים
-│   ├── tree.ged                   # קובץ GEDCOM ראשי
-│   └── place_mappings.json        # קישורי ויקיפדיה (נוצר אוטומטית)
-├── site/                          # אתר Quartz
-│   ├── content/                   # תוכן האתר
-│   │   ├── index.md               # דף בית
-│   │   ├── profiles/              # פרופילים
-│   │   │   ├── People/            # פרופילים אינדיבידואליים
-│   │   │   │   ├── I1.md         # פרופיל I1
-│   │   │   │   ├── I2.md         # פרופיל I2
-│   │   │   │   └── I3.md         # פרופיל I3
-│   │   │   ├── all-profiles.md   # כל הפרופילים
-│   │   │   └── profiles-with-bios.md  # פרופילים עם ביוגרפיות
-│   │   ├── pages/                 # דפים סטטיים
-│   │   │   ├── about_en.md        # אודות (אנגלית)
-│   │   │   ├── about_he.md        # אודות (עברית)
-│   │   │   ├── history_en.md      # היסטוריה (אנגלית)
-│   │   │   └── history_he.md      # היסטוריה (עברית)
-│   │   └── dynamic/               # דפים דינמיים
-│   │       ├── family-tree_en.md  # עץ משפחתי (אנגלית)
-│   │       ├── family-tree_he.md  # עץ משפחתי (עברית)
-│   │       ├── search_en.md       # חיפוש (אנגלית)
-│   │       └── search_he.md       # חיפוש (עברית)
-│   ├── quartz/                    # קוד Quartz
-│   │   ├── components/            # רכיבי React
-│   │   ├── plugins/               # תוספים
-│   │   ├── styles/                # עיצוב
-│   │   └── util/                  # כלי עזר
-│   ├── quartz.config.ts           # תצורת Quartz
-│   ├── quartz.layout.ts           # פריסת דפים
-│   └── public/                    # קבצים סטטיים
-├── bios/                          # ביוגרפיות מפורטות
-│   ├── I1.md                      # ביוגרפיה מפורטת של I1
-│   ├── I2.md                      # ביוגרפיה מפורטת של I2
-│   └── I3.md                      # ביוגרפיה מפורטת של I3
-├── documents/                     # מסמכים ותמונות
-│   ├── I1/                        # מסמכים של פרופיל I1
-│   │   ├── family_photo.jpg
-│   │   ├── family_photo.md        # כותרת ותיאור
-│   │   ├── work_photo.jpg
-│   │   ├── work_photo.md          # כותרת ותיאור
-│   │   ├── birth_certificate.pdf
-│   │   ├── birth_certificate.md   # כותרת ותיאור
-│   │   ├── letter_1945.pdf
-│   │   ├── letter_1945.md         # כותרת ותיאור
-│   │   ├── random_photo.jpg       # ללא .md = ללא הערות
-│   │   └── old_document.pdf       # ללא .md = ללא הערות
-│   ├── I2/                        # מסמכים של פרופיל I2
-│   │   ├── passport.pdf
-│   │   └── passport.md            # כותרת ותיאור
-│   └── I3/                        # מסמכים של פרופיל I3
-│       └── (אין תיקייה - אין מסמכים)
-├── profile_photos/                # תמונות פרופיל
-│   ├── I1.jpg                     # תמונת פרופיל של I1
-│   ├── I2.jpg                     # תמונת פרופיל של I2
-│   └── I3.jpg                     # תמונת פרופיל של I3
-├── comments/                      # הערות משתמשים
-│   ├── I1.json                    # הערות על פרופיל I1 (רק אם יש)
-│   ├── I2.json                    # הערות על פרופיל I2 (רק אם יש)
-│   └── I3.json                    # הערות על פרופיל I3 (רק אם יש)
+┌─────────────┐
+│ tree.ged    │ (GEDCOM data)
+└──────┬──────┘
+       │
+       v
+┌─────────────┐
+│  doit.py    │ (Python script)
+└──────┬──────┘
+       │
+       ├──> Parses GEDCOM
+       ├──> Generates Markdown profiles
+       ├──> Creates family diagrams
+       ├──> Copies bios/ to site/content/
+       ├──> Copies images to site/content/
+       ├──> Creates media-index.json
+       └──> Copies documents/ to site/quartz/static/documents/
+       │
+       v
+┌─────────────┐
+│site/content/│ (Generated Markdown)
+└──────┬──────┘
+       │
+       v
+┌─────────────┐
+│Quartz Build │ (npx quartz build)
+└──────┬──────┘
+       │
+       v
+┌─────────────┐
+│site/public/ │ (Static HTML/CSS/JS)
+└─────────────┘
+```
+
+#### 2.2.1 שלבי `doit.py`
+1. **Clean**: מחיקת כל הקבצים הקודמים (`site/content/`, `site/public/`, etc.)
+2. **Parse GEDCOM**: קריאת `tree.ged` ל-dictionaries של individuals ו-families
+3. **Copy Source Content**: העתקת `content/index.md` ו-`content/pages/` ל-`site/content/`
+4. **Build Profiles**: יצירת Markdown profiles ב-`site/content/profiles/`
+   - Frontmatter עם type, title, ID
+   - HTML structure עם `<dl>` לפרטי הפרופיל
+   - 3 דיאגרמות Mermaid: Nuclear Family, Ancestors, Descendants
+   - שילוב ביוגרפיה מפורטת מ-`bios/{ID}.md` אם קיימת
+5. **Generate Indexes**: יצירת `pages/all-profiles.md` ו-`pages/profiles-of-interest.md`
+6. **Create Media Index**: סריקת `documents/` ויצירת `media-index.json`
+7. **Copy Documents**: העתקת `documents/` ל-`site/quartz/static/documents/`
+8. **Copy Images**: העתקת תמונות מ-`bios/` ל-`site/content/`
+9. **Generate Family Data**: יצירת `family-data.json` לעץ המשפחתי הגדול
+
+---
+
+## 3. מבנה קבצים
+
+```
+V4/
+├── data/
+│   ├── tree.ged                    # GEDCOM source file
+│   ├── tree.ged.backup             # Backups
+│   └── tree.ged.backup2
+│
+├── bios/                           # Extended biographies (Markdown)
+│   ├── I10.md                      # Moshe Hoffman's biography
+│   ├── I3.md                       # Edith Hoffman's biography
+│   ├── Pasted image 20251022123649.png  # Images used in bios
+│   ├── Pasted image 20251022123726.png
+│   └── ...
+│
+├── documents/                      # Media files for profiles
+│   └── I10/                        # Moshe Hoffman's media
+│       ├── Tubble & Moishe 1957.jpg
+│       └── Tubble & Moishe 1957.md # Caption/description
+│
+├── content/                        # Static pages (NOT generated)
+│   ├── index.md                    # Homepage
+│   └── pages/
+│       └── about.md                # About page
+│
+├── site/                           # Quartz site
+│   ├── content/                    # Generated content (DO NOT EDIT)
+│   │   ├── index.md                # Copied from content/
+│   │   ├── pages/                  # Copied from content/pages/
+│   │   │   ├── about.md
+│   │   │   ├── all-profiles.md     # Generated by doit.py
+│   │   │   └── profiles-of-interest.md  # Generated by doit.py
+│   │   └── profiles/               # Generated by doit.py
+│   │       ├── Moshe משה Hoffman.md
+│   │       ├── Edith צירל Hoffman.md
+│   │       └── ...
+│   │
+│   ├── quartz/
+│   │   ├── components/             # Custom React components
+│   │   │   ├── NavBar.tsx          # Top navigation bar
+│   │   │   ├── ProfileTabs.tsx     # Biography/Gallery tabs
+│   │   │   ├── ArticleTitle.tsx    # Page title (only for profiles)
+│   │   │   ├── PageTitle.tsx       # Site title
+│   │   │   ├── ContentMeta.tsx     # Metadata (disabled)
+│   │   │   └── Footer.tsx          # Footer with links
+│   │   │
+│   │   ├── styles/                 # SCSS styles
+│   │   │   ├── base.scss           # Quartz base styles
+│   │   │   ├── custom.scss         # Custom global styles
+│   │   │   ├── family-profiles.scss # Profile-specific styles
+│   │   │   └── explorer.scss       # Explorer sidebar styles
+│   │   │
+│   │   ├── scripts/
+│   │   │   └── util.ts             # Utilities (cache busting)
+│   │   │
+│   │   └── static/                 # Static assets
+│   │       ├── family-data.json    # Generated by doit.py
+│   │       ├── media-index.json    # Generated by doit.py
+│   │       └── documents/          # Copied by doit.py
+│   │
+│   ├── quartz.config.ts            # Quartz configuration
+│   ├── quartz.layout.ts            # Page layouts
+│   └── public/                     # Build output (DO NOT EDIT)
+│
 ├── scripts/
-│   └── doit.py                    # סקריפט המרת GEDCOM
-├── package.json                   # תלויות וסקריפטים
-└── public/                        # אתר מוכן (נוצר אוטומטית)
+│   └── doit.py                     # Main build script
+│
+└── .gitignore                      # Ignore generated files
 ```
 
-## 4. ממשק משתמש מפורט
+---
+
+## 4. ממשק משתמש (UI)
 
 ### 4.1 מבנה כללי
-- **ממשק דו-פריים**:
-  - **פריים שמאל (60%)**: פרופיל נבחר
-  - **פריים ימין (40%)**: עץ משפחתי גדול
+
+```
+┌─────────────────────────────────────────────────────────┐
+│ [Family History]  Home | All Profiles | ... | About    │ ← Top Navigation
+├──────────┬──────────────────────────────────────────────┤
+│          │                                              │
+│ Explorer │         Main Content Area                    │
+│          │                                              │
+│ - pages  │  ┌────────────────────────────────────┐     │
+│   - about│  │  Profile: Moshe משה Hoffman        │     │
+│   - all  │  ├────────────────────────────────────┤     │
+│ - profiles│ │ [Biography] [Gallery]              │     │
+│   - Moshe│  ├────────────────────────────────────┤     │
+│   - Edith│  │                                    │     │
+│   - ...  │  │  Birth: circa 1884 at Savran...    │     │
+│          │  │  Death: April 7, 1973...           │     │
+│          │  │                                    │     │
+│          │  │  ## Nuclear Family                 │     │
+│          │  │  [Mermaid diagram]                 │     │
+│          │  │                                    │     │
+│          │  │  ## Biography                      │     │
+│          │  │  Biography text...                 │     │
+│          │  │                                    │     │
+│          │  └────────────────────────────────────┘     │
+│          │                                              │
+└──────────┴──────────────────────────────────────────────┘
+```
 
 ### 4.2 Navigation Bar (סרגל ניווט עליון)
-```
-[Home] [All Profiles] [Profiles with Biographies] [About]
-```
-
-**עיצוב ופונקציונליות**:
-- **מיקום**: צמוד לחלק העליון של הדף
-- **התנהגות**: סטטי, נעלם בגלילה (לא sticky)
-- **עיצוב**: נקי וסולידי, רקע בהיר, טיפוגרפיה ברורה
-- **מובייל**: תפריט המבורגר (☰) רספונסיבי
-- **שפה**: אנגלית בלבד (GUI)
 
 **קישורים**:
-- **Home**: דף הבית עם סקירה כללית
-- **All Profiles**: רשימת כל הפרופילים
-- **Profiles with Biographies**: פרופילים עם ביוגרפיות מורחבות
-- **About**: אודות המשפחה והאתר
+- **Home**: דף הבית
+- **All Profiles**: כל הפרופילים (546 members)
+- **Profiles of Interest**: פרופילים עם ביוגרפיות מורחבות
+- **About**: אודות האתר
 
-### 4.3 תפריט צדדי
+**עיצוב**:
+- מיקום: צמוד לחלק העליון
+- התנהגות: סטטי (לא sticky, נעלם בגלילה)
+- צבע: רקע לבן, טקסט שחור (#1a1a1a)
+- פונט: 1rem, font-weight 500
+- Hover: צבע tertiary
+- מובייל: תפריט המבורגר (☰)
+
+**קוד**: `site/quartz/components/NavBar.tsx`
+
+### 4.3 Explorer (תפריט צד)
+
+**תוכן**:
+- תיקייה `pages/`: about, all-profiles, profiles-of-interest
+- תיקייה `profiles/`: כל הפרופילים (21 profiles)
+
+**עיצוב**:
+- פונט: Segoe UI, 14px (0.875rem)
+- צבע: שחור כהה (#1a1a1a)
+- Hover: צבע tertiary
+- Active: צבע tertiary
+
+**קוד**: `site/quartz/components/styles/explorer.scss`
+
+### 4.4 דף פרופיל
+
+#### 4.4.1 מבנה
 ```
-פרופילים:
-- ד"ר פטר פנחס הופמן
-- היימן יהודה הופמן
-- אדית צירל הופמן
-- טירזה הופמן לוי
-- משה בועז הופמן
-
-דפים:
-- דף בית
-- אודות המשפחה
-- היסטוריה כללית
-```
-
-### 4.4 דף פרופיל (פריים שמאל)
-
-#### 4.4.1 כותרת פרופיל
-```
-[תמונת פרופיל]  ד"ר פטר פנחס הופמן
-                נולד: 28 בנובמבר 1946, פרת', אוסטרליה
-                נפטר: 28 בדצמבר 2024
-                מקצוע: רופא עיניים
-```
-
-#### 4.4.2 טאבים
-**טאב 1: קורות חיים (נפתח כברירת מחדל)**
-- מידע בסיסי מ-GEDCOM (תאריכי לידה, פטירה, מקצוע, מקומות)
-- קישורי ויקיפדיה למקומות
-- דיאגרמות משפחתיות (Family Tree, Ancestors, Descendants)
-- ביוגרפיה מפורטת ב-Markdown (אם קיימת)
-
-**טאב 2: גלריה (תמונות ומסמכים)**
-- סעיף תמונות: גלריה של תמונות עם כותרות ותיאורים
-- סעיף מסמכים: רשימת מסמכים עם כותרות, תיאורים וקישורים להורדה
-- תמונות/מסמכים ללא .md מוצגות ללא הערות
-
-#### 4.4.3 דיאגרמת משפחה קרובה
-- דיאגרמת Mermaid של המשפחה הקרובה
-- הורים, אחים, ילדים, בני זוג
-- קשרי נישואין כקודקודים נפרדים
-- לחיצה על פרופיל מעבירה לפרופיל
-
-**דוגמה לדיאגרמה**:
-```mermaid
-flowchart TD
-classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
-classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
-idI3["Haim Yehuda חיים יהודה Hochman"]
-class idI3 internal-link
-click idI3 "/People/Haim%20Yehuda%20%D7%97%D7%99%D7%99%D7%9D%20%D7%99%D7%94%D7%95%D7%93%D7%94%20Hochman/" _self
-idI1["Wolf זאב Hochman"]
-class idI1 internal-link
-click idI1 "/People/Wolf%20%D7%96%D7%90%D7%91%20Hochman/" _self
-idI12["Beile ביילא Hochman"]
-class idI12 internal-link
-click idI12 "/People/Beile%20%D7%91%D7%99%D7%99%D7%9C%D7%90%20Hochman/" _self
-marriage_idF1((" "))
-idI1 --- marriage_idF1
-idI12 --- marriage_idF1
-marriage_idF1 --> idI3
+┌──────────────────────────────────────┐
+│ Moshe משה Hoffman                    │ ← Title (ArticleTitle)
+├──────────────────────────────────────┤
+│ [Biography] [Gallery]                │ ← Tabs (ProfileTabs)
+├──────────────────────────────────────┤
+│ Birth: circa 1884 at Savran...       │ ← Profile Info (<dl> structure)
+│ Death: April 7, 1973 at Perth...     │
+│ Occupation: wheelwright, publican... │
+│ Parents: —                           │
+│ Siblings: —                          │
+│ Spouse: Tobl Hochman (Hoffman)       │
+│ Children: Aaron, Bella, Hyman...     │
+│ Notes: Created by: https://...      │
+├──────────────────────────────────────┤
+│ ## Nuclear Family                    │ ← Mermaid diagram
+│ [Mermaid diagram]                    │
+│                                      │
+│ ## Ancestors (up to 2 Gen.)          │
+│ [Mermaid diagram]                    │
+│                                      │
+│ ## Descendants (up to 2 Gen.)        │
+│ [Mermaid diagram]                    │
+├──────────────────────────────────────┤
+│ ## Biography                         │ ← Extended biography (if exists)
+│ Biography text from bios/I10.md...   │
+└──────────────────────────────────────┘
 ```
 
-### 4.5 עץ משפחתי (פריים ימין)
+#### 4.4.2 Profile Info Structure
+- **HTML**: `<dl class="profile-info-list">` עם `<dt>` ו-`<dd>`
+- **CSS Grid**: 2 columns (auto, 1fr) לעימוד עקבי
+- **Links**: HTML `<a>` tags (לא Markdown wikilinks)
+  - Person links: `/profiles/{encoded_name}`
+  - Place links: Wikipedia URLs
 
-#### 4.5.1 פקדי בקרה
-```
-[הצג הכל ▼] [עדכן עץ] [זום +] [זום -] [איפוס]
-```
+**קוד**:
+- Generation: `scripts/doit.py` (functions: `wl_place_html`, `person_link_to_html`)
+- Styling: `site/quartz/styles/custom.scss` (`.profile-info-list`)
 
-#### 4.5.2 דיאגרמת Mermaid
-- עץ משפחתי אינטראקטיבי
-- זום וגלילה עם העכבר
-- לחיצה על קודקוד מעבירה לפרופיל
-- אפשרות בחירת מספר דורות
+#### 4.4.3 Tabs System
 
-## 5. מערכת נתונים מפורטת
+**טאב 1: Biography** (ברירת מחדל)
+- פרטי פרופיל בסיסיים
+- 3 דיאגרמות Mermaid
+- ביוגרפיה מפורטת (אם קיימת)
 
-### 5.1 מבנה פרופיל Markdown
+**טאב 2: Gallery** (רק אם יש תמונות/מסמכים)
+- תמונות עם captions
+- מסמכים עם קישורים להורדה
+- נטען דינמית מ-`media-index.json`
+
+**קוד**: `site/quartz/components/ProfileTabs.tsx`
+
+**התנהגות**:
+- הטאבים מאותחלים ב-`afterDOMLoaded`
+- מאותחלים מחדש בכל navigation (event `"nav"`)
+- Gallery tab מוסתר אם אין מדיה
+
+### 4.5 Page Title
+
+**התנהגות**:
+- **Profile pages**: מציג את שם הפרופיל ככותרת
+- **Other pages**: לא מציג כותרת (מוסתר)
+
+**קוד**: `site/quartz/components/ArticleTitle.tsx`
+
+### 4.6 Site Title
+
+**עיצוב**:
+- פונט: 1.1rem, bold (700)
+- צבע: `var(--secondary)`
+- Hover: `var(--tertiary)`
+
+**קוד**: `site/quartz/components/PageTitle.tsx`
+
+---
+
+## 3. מבנה נתונים
+
+### 3.1 GEDCOM File
+
+**מיקום**: `data/tree.ged`
+
+**תוכן**:
+- Individuals (INDI records)
+- Families (FAM records)
+- Events (BIRT, DEAT, etc.)
+- Places, dates, occupations, notes
+
+**Parsing**: `scripts/doit.py` → `parse_gedcom_file()`
+
+### 3.2 Profile Markdown
+
+**מיקום**: `site/content/profiles/{Name}.md` (generated)
+
+**מבנה**:
 ```markdown
 ---
 type: profile
-title: Dr PETER פנחס HOFFMAN
-ID: I105
+title: Moshe משה Hoffman
+ID: I10
 ---
 
-**Birth**: November 28, 1946 at [Subiaco, Perth, Western Australia, Australia](https://en.wikipedia.org/wiki/Subiaco,_Western_Australia)
-**Death**: December 28, 2024
-**Occupation**: medical practitioner, ophthalmologist
+<div class="profile-info-box">
+<dl class="profile-info-list">
+<dt>Birth:</dt><dd>circa 1884 at <a href="...">Savran</a></dd>
+<dt>Death:</dt><dd>April 7, 1973 at <a href="...">Perth</a></dd>
+<dt>Occupation:</dt><dd>wheelwright, publican, businessman</dd>
+<dt>Parents:</dt><dd>—</dd>
+<dt>Siblings:</dt><dd>—</dd>
+<dt>Spouse:</dt><dd><a href="...">Tobl Hochman (Hoffman)</a></dd>
+<dt>Children:</dt><dd><a href="...">Aaron</a>, <a href="...">Bella</a>, ...</dd>
+<dt>Notes:</dt><dd>Created by: https://...</dd>
+</dl>
+</div>
 
+---
+
+## Nuclear Family
 ```mermaid
-%%{init: { 'securityLevel': 'loose' }}%%
-flowchart TD
-classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
-classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
-idI105["Dr PETER פנחס HOFFMAN"]
-class idI105 internal-link
-click idI105 "/People/Dr%20PETER%20%D7%A4%D7%A0%D7%97%D7%A1%20HOFFMAN/" _self
-idI41["Hyman Judah Hoffman"]
-class idI41 internal-link
-click idI41 "/People/Hyman%20Judah%20Hoffman/" _self
-idI107["Edith צירל Hoffman"]
-class idI107 internal-link
-click idI107 "/People/Edith%20%D7%A6%D7%99%D7%A8%D7%9C%20Hoffman/" _self
-marriage_idF28((" "))
-idI41 --- marriage_idF28
-idI107 --- marriage_idF28
-marriage_idF28 --> idI105
+...
 ```
 
-**Parents**:
-[[People/Hyman Judah Hoffman|Hyman Judah Hoffman]]
-[[People/Edith צירל Hoffman|Edith צירל Hoffman]]
-
-**Siblings**:
-[[People/Edward Denis אליהו Hoffman|Edward Denis אליהו Hoffman]]
-[[People/Dianne Helen דינה Kemp|Dianne Helen דינה Kemp]]
-
-**Spouse**:
-[[People/Varda ורדה Hoffman|Varda ורדה Hoffman]]
-
-**Children**:
-[[People/Tirza Hoffman Levi|Tirza Hoffman Levi]]
-[[People/Moshe משה בועז Hoffman|Moshe משה בועז Hoffman]]
-[[People/Hila Sarai הילה שרי Hoffman|Hila Sarai הילה שרי Hoffman]]
-
-**Notes**:
-Account type: basic
+## Ancestors (up to 2 Gen.)
+```mermaid
+...
 ```
 
-### 5.2 מבנה place_mappings.json
+## Descendants (up to 2 Gen.)
+```mermaid
+...
+```
+
+---
+
+## Biography
+[Biography text from bios/I10.md if exists]
+```
+
+### 3.3 Biography Files
+
+**מיקום**: `bios/{ID}.md`
+
+**פורמט**: Markdown טהור (ללא frontmatter)
+
+**תוכן**:
+- כותרות: `#`, `##`, `###`
+- פסקאות: טקסט רגיל
+- תמונות: `![[image.png]]` (Obsidian format)
+- קישורים: `[text](url)` או wikilinks `[[Name]]`
+- ציטוטים: `> quote text`
+- רשימות: `-`, `1.`, etc.
+- טבלאות: Markdown tables או ASCII art
+- קוד: ` ```code``` `
+
+**שילוב**: `doit.py` מעתיק את התוכן לסוף הפרופיל תחת `## Biography`
+
+### 3.4 Media Index
+
+**מיקום**: `site/quartz/static/media-index.json` (generated)
+
+**מבנה**:
 ```json
 {
-  "Savran, Podolia": {
-    "wikipedia_en": "https://en.wikipedia.org/wiki/Savran",
-    "wikipedia_he": "https://he.wikipedia.org/wiki/סברן",
-    "profile_ids": ["I1", "I2", "I3"],
-    "auto_generated": true,
-    "date_created": "2024-01-15"
+  "I10": {
+    "images": [
+      {
+        "filename": "Tubble & Moishe 1957.jpg",
+        "path": "/documents/I10/Tubble & Moishe 1957.jpg",
+        "caption": "*Tubble & Moishe 1957*..."
+      }
+    ],
+    "documents": []
   }
 }
 ```
 
-### 5.3 מבנה comments/I1.json
+**שימוש**: `ProfileTabs.tsx` קורא את הקובץ ומציג Gallery רק אם יש מדיה
+
+### 3.5 Family Data
+
+**מיקום**: `site/quartz/static/family-data.json` (generated)
+
+**מבנה**:
 ```json
 {
-  "profile_id": "I1",
-  "comments": [
+  "people": [
     {
-      "id": "comment_1",
-      "name": "שם המגיב",
-      "email": "email@example.com",
-      "date": "2024-01-15",
-      "comment": "טקסט ההערה"
+      "id": "@I10@",
+      "name": "Moshe משה Hoffman",
+      "birth_date": "circa 1884",
+      "death_date": "April 7, 1973",
+      "parents": [],
+      "children": ["@I1@", "@I2@", ...],
+      "spouses": ["@I11@"]
     }
-  ]
+  ],
+  "families": [...]
 }
 ```
 
-### 5.4 מבנה documents/I1/family_photo.md
+**שימוש**: עתידי - לעץ משפחתי גדול אינטראקטיבי
+
+---
+
+## 4. עיצוב (Design)
+
+### 4.1 Typography
+
+#### Global (כל האתר)
+- **Font**: System default (Quartz)
+- **Size**: Default
+- **Colors**: Quartz theme
+
+#### Biography & Tabs (`article`, `.tab-pane`)
+- **Font**: Segoe UI, Tahoma, Geneva, Verdana, sans-serif
+- **Size**: 14px (0.875rem)
+- **Line Height**: 1.7
+- **Color**: #2a2a2a (dark gray, not pure black)
+- **Text Align**: left
+
+**קוד**: `site/quartz/styles/custom.scss`
+
+```scss
+article, .tab-pane {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.875rem; // 14px
+  line-height: 1.7;
+  color: #2a2a2a;
+}
+```
+
+#### Explorer
+- **Font**: Segoe UI (same as biography)
+- **Size**: 14px (0.875rem)
+- **Color**: #1a1a1a (very dark, almost black)
+
+**קוד**: `site/quartz/components/styles/explorer.scss`
+
+### 4.2 Colors
+
+- **Primary**: `var(--secondary)` (from Quartz theme)
+- **Hover**: `var(--tertiary)`
+- **Links in content**: #0066cc (blue)
+- **Field labels**: #666 (gray)
+- **Regular text**: #000 (black)
+- **Background**: #f5f5f5 (light gray)
+- **Navbar/Explorer links**: #1a1a1a (dark black)
+
+### 4.3 Layout
+
+#### Content Width
+- **Global**: 800px (`article` in base styles)
+- **Biography**: Inherits from global
+
+#### Profile Info Box
+- **Background**: #e8e8e8 (slightly darker gray)
+- **Border**: 1px solid #ccc
+- **Padding**: 1rem
+- **Border Radius**: 4px
+- **Font Size**: 0.9rem
+
+#### Profile Info List (Definition List)
+- **Display**: CSS Grid
+- **Columns**: `auto 1fr` (label auto-width, value fills remaining)
+- **Gap**: 0.5rem (row), 1rem (column)
+- **Labels (`<dt>`)**: 
+  - Color: #666
+  - Font Weight: 600
+  - White Space: nowrap
+- **Values (`<dd>`)**: 
+  - Color: #000
+  - Word Wrap: break-word
+
+### 4.4 Links
+
+#### Content Links (`article a`, `.tab-pane a`)
+- **Color**: #0066cc (blue)
+- **Font Weight**: normal
+- **Hover**: underline
+- **Background**: transparent
+
+#### Navbar & Explorer Links
+- **Color**: #1a1a1a (dark black)
+- **Font Weight**: 500 (navbar), semibold (explorer)
+- **Hover**: `var(--tertiary)`, no underline
+- **Background**: transparent
+- **Opacity**: 1 (no grayed-out effect)
+
+#### Mermaid Diagram Links
+- **Color**: #0066cc (blue)
+- **Hover**: underline
+
+### 4.5 Mermaid Diagrams
+
+**Styling**:
+- **Current node**: fill #bbdefb (light blue), stroke #1976d2 (darker blue), stroke-width 3px
+- **Other nodes**: default Mermaid styling
+- **Links**: clickable, navigate to profile pages
+
+**Titles**:
+- "Nuclear Family" (not "Family Tree")
+- "Ancestors (up to 2 Gen.)"
+- "Descendants (up to 2 Gen.)"
+
+**קוד**: `scripts/doit.py` (functions: `build_family_tree_diagram`, `build_ancestors_diagram`, `build_descendants_diagram`)
+
+### 4.6 Images & Captions
+
+#### Images
+- **Display**: block, centered
+- **Margin**: 2rem auto
+- **Border**: 2px solid #333 (black frame)
+- **Border Radius**: 4px
+- **Box Shadow**: 0 2px 8px rgba(0, 0, 0, 0.15)
+- **Padding**: 8px
+- **Background**: white
+- **Max Width**: 100%
+
+#### Captions
+- **Format in Markdown**: `**_caption text_**` (bold + italic)
+- **Rendering**: `<strong><em>caption</em></strong>`
+- **Styling**:
+  - Display: block
+  - Text Align: center
+  - Font Size: 0.9rem
+  - Color: #666 (gray)
+  - Margin Top: -1rem (close to image)
+  - Margin Bottom: 2rem
+  - Font Style: italic
+  - Font Weight: normal (cancels bold)
+
+**CSS Selector**: `strong > em:only-child`
+
+**קוד**: `site/quartz/styles/custom.scss`
+
+### 4.7 Blockquotes
+
+**Styling**:
+- Background: #f9f9f9 (light gray)
+- Border Left: 4px solid #0066cc (blue)
+- Padding: 1rem 1.5rem
+- Margin: 1.5rem 0
+- Font Style: italic
+- Color: #333
+- Border Radius: 4px
+
+**קוד**: `site/quartz/styles/custom.scss`
+
+### 4.8 Citation Boxes & Info Boxes
+
+#### Citation Box (`.citation-box`)
+- **Usage**: Newspaper quotes, historical citations
+- **Background**: #fdf6e3 (beige)
+- **Border**: 2px dashed #d4b896
+- **Icon**: 📰
+
+#### Info Box (`.info-box`)
+- **Usage**: Author notes, comments
+- **Background**: #e3f2fd (light blue)
+- **Border Left**: 4px solid #1976d2
+- **Icon**: ℹ️
+
+**קוד**: `site/quartz/styles/custom.scss`
+
+### 4.9 Horizontal Rules
+
+**Styling**:
+- Border: none
+- Border Top: 2px solid #e0e0e0
+- Margin: 3rem 0
+- Width: 60%
+- Centered (margin-left/right: auto)
+
+---
+
+## 5. תהליך פיתוח
+
+### 5.1 עדכון נתונים
+
+```bash
+# 1. Edit GEDCOM file
+# Edit data/tree.ged in external tool (e.g., Gramps)
+
+# 2. Run build script
+python scripts/doit.py data/tree.ged
+
+# 3. Quartz auto-builds (if running)
+# OR manually: cd site && npx quartz build
+```
+
+### 5.2 הוספת ביוגרפיה
+
+```bash
+# 1. Create biography file
+# Create bios/{ID}.md (e.g., bios/I10.md)
+
+# 2. Write content in Markdown
+# Use Markdown syntax, Obsidian image links, etc.
+
+# 3. Add images (if any)
+# Place images in bios/ directory
+# Reference with ![[image.png]]
+
+# 4. Run build script
+python scripts/doit.py data/tree.ged
+```
+
+### 5.3 הוספת מדיה (תמונות/מסמכים)
+
+```bash
+# 1. Create directory for profile
+mkdir documents/{ID}/
+
+# 2. Add media files
+cp photo.jpg documents/{ID}/
+
+# 3. Add caption/description (optional)
+# Create documents/{ID}/photo.md with caption
+
+# 4. Run build script
+python scripts/doit.py data/tree.ged
+```
+
+### 5.4 עדכון דפים סטטיים
+
+```bash
+# 1. Edit static pages
+# Edit content/index.md or content/pages/*.md
+
+# 2. Run build script
+python scripts/doit.py data/tree.ged
+
+# 3. Content is copied to site/content/
+```
+
+### 5.5 ניקוי פרויקט
+
+```bash
+# Manual clean
+python scripts/doit.py --clean
+
+# Automatic clean
+# doit.py runs clean_project() automatically before every build
+```
+
+**מה נמחק**:
+- `site/content/` (כל התוכן הגנרי)
+- `site/public/` (build output)
+- `site/.quartz-cache/`
+- `site/quartz/static/family-data.json`
+- `site/quartz/static/media-index.json`
+- `site/quartz/static/documents/`
+
+---
+
+## 6. כתיבת ביוגרפיות - מדריך מפורט
+
+### 6.1 עקרונות כתיבה
+
+#### 6.1.1 Markdown Basics
+- **כותרות**: `#`, `##`, `###` (אל תשתמש ב-`#` - שמור ל-`##` ומטה)
+- **פסקאות**: שורה ריקה אחת בין פסקאות
+- **Line breaks**: שתי רווחים בסוף שורה + Enter (או שורה ריקה לפסקה חדשה)
+- **Bold**: `**text**`
+- **Italic**: `_text_` או `*text*`
+- **Bold + Italic**: `**_text_**` או `_**text**_`
+
+#### 6.1.2 תמונות
+
+**פורמט Obsidian**:
 ```markdown
-# תמונה משפחתית
-*ד"ר פטר עם משפחתו, 1985*
-
-תמונה זו צולמה בחגיגת יום הולדת 40 של ד"ר פטר. 
-נראים בה כל הילדים והנכדים שלו.
+![[Pasted image 20251022123649.png]]
+**_SAVRAN in THE UKRAINE (present day frontiers)._**
 ```
 
-## 6. שפה ותוכן
+**הסבר**:
+- `![[image.png]]` - Obsidian wikilink לתמונה
+- שורה ריקה
+- `**_caption_**` - caption ממורכז (bold + italic)
 
-### 6.1 עקרונות שפה
-- **ממשק (GUI)**: אנגלית בלבד
-- **תוכן**: לפי המקור - עברית/אנגלית/מעורב
-  - נתונים מ-GEDCOM: כפי שהם (שמות, תאריכים, מקומות)
-  - ביוגרפיות: כפי שנכתבו (עברית או אנגלית)
-  - תיאורים ותגיות: אנגלית
+**חשוב**:
+- התמונה והcaption חייבים להיות בפסקאות נפרדות (שורה ריקה ביניהם)
+- Caption חייב להיות `**_text_**` (bold + italic) כדי להיות ממורכז
+- אם רוצים caption רגיל (לא ממורכז), השתמשו רק ב-`_text_` (italic)
 
-### 6.2 דוגמה
+#### 6.1.3 ציטוטים
+
+**Blockquote רגיל**:
 ```markdown
-**Birth**: November 28, 1946 at [Perth, Australia](https://en.wikipedia.org/wiki/Perth)
-**Death**: December 28, 2024
-**Occupation**: medical practitioner, ophthalmologist
-
-## Biography
-תוכן הביוגרפיה בעברית או באנגלית...
+> _"You are not in Russia here..."_
+>
+> _"I have a case in the Warsaw paper..."_
+>
+> _"Twenty-seven years ago..."_
 ```
 
-## 7. מערכת קישורי ויקיפדיה
+**חשוב**:
+- כל פסקה בציטוט צריכה `>` בהתחלה
+- שורה ריקה עם `>` בין פסקאות
+- אל תשכחו את ה-`>` בכל שורה!
 
-### 7.1 תהליך זיהוי מקומות
-1. סקריפט סורק את כל המקומות ב-GEDCOM
-2. מחפש ערכים מתאימים בויקיפדיה
-3. יוצר place_mappings.json אוטומטית
-4. משתמש בודק ומאשר ב-commit
-
-### 7.2 מבנה קישור
+**Citation Box (לציטוטים מעיתונים)**:
 ```markdown
-<!-- אנגלית -->
-Birth: 1866 at [Savran](https://en.wikipedia.org/wiki/Savran)
+<div class="citation-box">
 
-<!-- עברית (מעדיף עברית אם קיימת) -->
-לידה: 1866 ב[סברן](https://he.wikipedia.org/wiki/סברן)
-```
+**Sunday Times, April 1942**
 
-### 7.3 טיפול במקומות ללא ויקיפדיה
-- מקומות ללא ערך לא נכנסים למיפוי
-- הצגה כמו ב-GEDCOM: "Unknown Place, Russia"
+_A well known Perth publican was once..._
 
-## 8. מערכת תגובות
+_As a young man in his teens Morris..._
 
-### 8.1 טופס תגובה
-```html
-<form>
-  <input type="text" placeholder="שם" required>
-  <input type="email" placeholder="אימייל" required>
-  <textarea placeholder="הערה"></textarea>
-  <button type="submit">שלח הערה</button>
-</form>
-```
-
-### 8.2 הצגת תגובות
-```html
-<div class="comment">
-  <h4>שם המגיב</h4>
-  <p class="date">15 בינואר 2024</p>
-  <p>טקסט ההערה</p>
 </div>
 ```
 
-## 9. חיפוש
+**Info Box (להערות)**:
+```markdown
+<div class="info-box">
 
-### 9.1 חיפוש פשוט
-- שדה חיפוש אחד
-- חיפוש בכל הדפים
-- תוצאות עם קישורים
+**Comment:** The Russo-Japanese war started on 5.2.1904...
 
-### 9.2 חיפוש פשוט בלבד
-- שדה חיפוש אחד
-- חיפוש בכל הדפים
-- תוצאות עם קישורים
-
-## 10. תהליך עבודה מפורט
-
-### 10.1 עדכון נתונים
-```bash
-# 1. עדכון GEDCOM
-cp new_family.ged data/tree.ged
-
-# 2. המרה ל-Markdown
-python3 scripts/doit.py data/tree.ged -o site/content/profiles --bios-dir bios
-
-# 3. עדכון מקומות
-node update-places.js
-
-# 4. בניית האתר
-cd site && npx quartz build
-
-# 5. העלאה לשרת
-rsync -av public/ user@server:/var/www/html/
+</div>
 ```
 
-### 10.2 הוספת ביוגרפיה
-```bash
-# 1. יצירת קובץ ביוגרפיה
-echo "# קורות חיים של ד"ר פטר" > bios/I1.md
+#### 6.1.4 קישורים
 
-# 2. הוספת תמונות ומסמכים
-mkdir documents/I1/
-cp photo.jpg documents/I1/
-echo "# תמונה משפחתית" > documents/I1/photo.md
-
-# 3. בניית האתר
-cd site && npx quartz build
+**קישורים חיצוניים**:
+```markdown
+[Wikipedia](https://en.wikipedia.org/wiki/Savran)
 ```
 
-### 10.3 הוספת דף סטטי
-```bash
-# 1. יצירת דף
-echo "# אודות המשפחה" > site/content/pages/about_he.md
-
-# 2. בניית האתר
-cd site && npx quartz build
+**קישורים פנימיים** (לפרופילים):
+```markdown
+[[Person Name]]
 ```
 
-## 11. דרישות ביצועים
+**הערה**: קישורים פנימיים יומרו אוטומטית ל-HTML links על ידי `doit.py`
 
-### 11.1 זמני טעינה
-- דף פרופיל: < 2 שניות
-- עץ משפחתי: < 3 שניות
-- חיפוש: < 1 שנייה
+#### 6.1.5 טקסט עברי
 
-### 11.2 תמיכה בדפדפנים
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
-
-### 11.3 תמיכה במובייל
-- רספונסיבי מלא (אותו אתר)
-- תמיכה במגע
-- זום ופאן בעץ
-- תפריט מותאם למובייל
-
-## 12. אבטחה
-
-### 12.1 הגנה על מידע
-- הגנה מפני XSS
-
-## 13. מסמכים טכניים
-
-### 13.1 תיעוד
-- מדריך למשתמש
-- מדריך למנהל
-- תיעוד טכני
-
-## 14. ROADMAP מפורט למימוש האתר
-
-### 14.1 שלב 1: הכנת התשתית (שבוע 1-2)
-
-#### 14.1.1 שבוע 1: התקנה והגדרה בסיסית
-**מטרה**: הקמת סביבת פיתוח ותשתית בסיסית
-
-**תת-שלבים**:
-1. **התקנת Quartz 4**
-   ```bash
-   npx create-quartz@latest family-history
-   cd family-history
-   npm install
-   ```
-
-2. **התקנת תלויות נוספות**
-   ```bash
-   npm install mermaid
-   npm install family-chart
-   npm install @types/node
-   ```
-
-3. **הכנת מבנה הקבצים**
-   - יצירת תיקיות: `bios/`, `documents/`, `comments/`, `profile_photos/`
-   - הכנת תבניות Markdown לפרופילים
-   - הגדרת תצורת Quartz בסיסית
-
-4. **הכנת סקריפט GEDCOM בסיסי**
-   - שיפור `doit.py` הקיים
-   - הוספת יצירת frontmatter לפרופילים
-   - הוספת יצירת דיאגרמות Mermaid
-
-**תוצאות**:
-- סביבת פיתוח פועלת
-- מבנה קבצים מוכן
-- סקריפט GEDCOM מייצר פרופילים בסיסיים
-
-#### 14.1.2 שבוע 2: רכיבי Quartz בסיסיים
-**מטרה**: יצירת רכיבי React בסיסיים
-
-**תת-שלבים**:
-1. **רכיב פרופיל משפחתי בסיסי**
-   - הצגת מידע בסיסי מ-GEDCOM
-   - טאב קורות חיים (ברירת מחדל)
-   - דיאגרמת Mermaid מקומית
-
-2. **רכיב עץ משפחתי בסיסי**
-   - דיאגרמת Mermaid גדולה
-   - פקדי בקרה בסיסיים
-   - אינטראקציה עם פרופילים
-
-3. **עיצוב בסיסי**
-   - CSS/SCSS לפרופילים
-   - עיצוב דו-פריים
-   - תפריט עליון וצדדי
-
-**תוצאות**:
-- רכיבי React בסיסיים פועלים
-- ממשק דו-פריים עובד
-- דיאגרמות Mermaid מוצגות
-
-### 14.2 שלב 2: מערכת נתונים מתקדמת (שבוע 3-4)
-
-#### 14.2.1 שבוע 3: מערכת קישורי ויקיפדיה
-**מטרה**: יצירת מערכת אוטומטית לקישורי ויקיפדיה
-
-**תת-שלבים**:
-1. **סקריפט זיהוי מקומות**
-   - חיפוש אוטומטי בויקיפדיה
-   - עדיפות לעברית על פני אנגלית
-   - יצירת `place_mappings.json`
-
-2. **שילוב קישורים בפרופילים**
-   - עדכון `doit.py` לשילוב קישורים
-   - הוספת קישורים למקומות לידה/פטירה
-   - טיפול במקומות ללא ויקיפדיה
-
-3. **מערכת אישור מקומות**
-   - ממשק לבדיקת מקומות חדשים
-   - שמירת בחירות המשתמש
-   - עדכון אוטומטי רק למקומות חדשים
-
-**תוצאות**:
-- קישורי ויקיפדיה אוטומטיים
-- מערכת אישור מקומות פועלת
-- פרופילים עם קישורים למקומות
-
-#### 14.2.2 שבוע 4: מערכת מסמכים ותמונות
-**מטרה**: יצירת מערכת ניהול מסמכים ותמונות
-
-**תת-שלבים**:
-1. **מערכת מסמכים**
-   - יצירת תיקיות לפי פרופיל
-   - קבצי .md למטא-דאטה
-   - הצגה בטאב מסמכים
-
-2. **מערכת תמונות**
-   - תמונות פרופיל נפרדות
-   - גלריה לתמונות נוספות
-   - שילוב תמונות בטקסט
-
-3. **מערכת ביוגרפיות**
-   - תיקיית `bios/` לפרופילים עם ביוגרפיה
-   - שילוב ביוגרפיות בטאב קורות חיים
-   - תמיכה ב-Markdown מלא
-
-**תוצאות**:
-- מערכת מסמכים ותמונות פועלת
-- ביוגרפיות משולבות בפרופילים
-- מטא-דאטה למסמכים ותמונות
-
-### 14.3 שלב 3: ממשק משתמש מתקדם (שבוע 5-6)
-
-#### 14.3.1 שבוע 5: טאבים ותצוגות מתקדמות
-**מטרה**: שיפור ממשק הפרופילים
-
-**תת-שלבים**:
-1. **טאבים מתקדמים**
-   - טאב קורות חיים (ברירת מחדל) - כולל דיאגרמות
-   - טאב גלריה - תמונות ומסמכים ביחד
-   - מעבר חלק בין טאבים
-
-2. **דיאגרמת משפחה קרובה**
-   - דיאגרמה כמו בפרויקט V3
-   - קשרי נישואין כקודקודים
-   - לחיצה על פרופילים לניווט
-
-3. **עיצוב מתקדם**
-   - עיצוב רספונסיבי
-   - אנימציות ומעברים
-   - תמיכה במובייל
-
-**תוצאות**:
-- טאבים פועלים בצורה חלקה
-- דיאגרמת משפחה קרובה מדויקת
-- עיצוב רספונסיבי מלא
-
-#### 14.3.2 שבוע 6: עץ משפחתי מתקדם
-**מטרה**: שיפור העץ המשפחתי הגדול
-
-**תת-שלבים**:
-1. **פקדי בקרה מתקדמים**
-   - בחירת מספר דורות
-   - זום וגלילה
-   - איפוס תצוגה
-   - עדכון עץ
-
-2. **אינטראקציה מתקדמת**
-   - לחיצה על קודקודים לניווט
-   - סינכרון עם פרופיל נבחר
-   - הדגשת פרופיל נבחר
-
-3. **ביצועים**
-   - אופטימיזציה לעץ גדול
-   - טעינה הדרגתית
-   - זיכרון מטמון
-
-**תוצאות**:
-- עץ משפחתי מתקדם פועל
-- אינטראקציה חלקה
-- ביצועים טובים
-
-### 14.4 שלב 4: תמיכה רב-לשונית (שבוע 7-8)
-
-#### 14.4.1 שבוע 7: דפים דו-לשוניים
-**מטרה**: יצירת דפים בעברית ואנגלית
-
-**תת-שלבים**:
-1. **דפים סטטיים דו-לשוניים**
-   - `about_en.md`, `about_he.md`
-   - `history_en.md`, `history_he.md`
-   - `index_en.md`, `index_he.md`
-
-2. **דפים דינמיים דו-לשוניים**
-   - `family-tree_en.md`, `family-tree_he.md`
-   - `search_en.md`, `search_he.md`
-   - `all-profiles_en.md`, `all-profiles_he.md`
-
-3. **מערכת זיהוי שפה**
-   - זיהוי אוטומטי לפי דפדפן
-   - כפתור שפה
-   - תפריט שפה
-
-**תוצאות**:
-- דפים דו-לשוניים פועלים
-- מערכת זיהוי שפה עובדת
-- ניווט בין שפות
-
-#### 14.4.2 שבוע 8: תרגום שדות ורכיבים
-**מטרה**: תרגום שדות ורכיבים לשפות
-
-**תת-שלבים**:
-1. **תרגום שדות**
-   - "occupation" / "מקצוע"
-   - "birth" / "לידה"
-   - "death" / "פטירה"
-   - JSON יחיד, תרגום בזמן יצירת דף
-
-2. **תרגום רכיבים**
-   - תפריטים וכותרות
-   - הודעות שגיאה
-   - טקסטים בממשק
-
-3. **קישורי ויקיפדיה דו-לשוניים**
-   - עדיפות לעברית אם קיימת
-   - נפילה לאנגלית אם אין עברית
-   - עדכון place_mappings.json
-
-**תוצאות**:
-- תרגום שדות פועל
-- רכיבים מתורגמים
-- קישורי ויקיפדיה דו-לשוניים
-
-### 14.5 שלב 5: מערכת תגובות וחיפוש (שבוע 9-10)
-
-#### 14.5.1 שבוע 9: מערכת תגובות
-**מטרה**: יצירת מערכת תגובות למבקרים
-
-**תת-שלבים**:
-1. **טופס תגובה**
-   - שדות: שם, אימייל, תגובה
-   - אימות קלט
-   - שליחה לשרת
-
-2. **שמירת תגובות**
-   - JSON לכל פרופיל
-   - רק לפרופילים עם תגובות
-   - מבנה: `comments/I1.json`
-
-3. **הצגת תגובות**
-   - רשימת תגובות בפרופיל
-   - תאריך ושם המגיב
-   - עיצוב נקי
-
-**תוצאות**:
-- מערכת תגובות פועלת
-- תגובות נשמרות ומוצגות
-- ממשק משתמש נוח
-
-#### 14.5.2 שבוע 10: מערכת חיפוש
-**מטרה**: יצירת מערכת חיפוש פשוטה
-
-**תת-שלבים**:
-1. **חיפוש בסיסי**
-   - שדה חיפוש אחד
-   - חיפוש בכל הדפים
-   - תוצאות עם קישורים
-
-2. **אינדקס תוכן**
-   - יצירת אינדקס אוטומטי
-   - עדכון בזמן אמת
-   - חיפוש מהיר
-
-3. **תצוגת תוצאות**
-   - רשימת תוצאות
-   - הדגשת מילות מפתח
-   - קישורים לדפים
-
-**תוצאות**:
-- מערכת חיפוש פועלת
-- חיפוש מהיר ויעיל
-- תוצאות רלוונטיות
-
-### 14.6 שלב 6: בדיקות ופריסה (שבוע 11-12)
-
-#### 14.6.1 שבוע 11: בדיקות מקיפות
-**מטרה**: בדיקת כל התכונות והפונקציונליות
-
-**תת-שלבים**:
-1. **בדיקות פונקציונליות**
-   - כל התכונות עובדות
-   - ניווט בין דפים
-   - אינטראקציה עם עץ
-
-2. **בדיקות ביצועים**
-   - זמני טעינה
-   - ביצועים במובייל
-   - אופטימיזציה
-
-3. **בדיקות תאימות**
-   - דפדפנים שונים
-   - מכשירים שונים
-   - רזולוציות שונות
-
-**תוצאות**:
-- כל התכונות עובדות
-- ביצועים טובים
-- תאימות מלאה
-
-#### 14.6.2 שבוע 12: פריסה וסיום
-**מטרה**: פריסת האתר לאינטרנט
-
-**תת-שלבים**:
-1. **הכנת פריסה**
-   - בניית האתר הסופי
-   - אופטימיזציה לפריסה
-   - הכנת קבצים סטטיים
-
-2. **פריסה לשרת**
-   - העלאה לשרת
-   - הגדרת דומיין
-   - בדיקת פריסה
-
-3. **תיעוד וסיום**
-   - מדריך למשתמש
-   - מדריך למנהל
-   - תיעוד טכני
-
-**תוצאות**:
-- אתר פועל באינטרנט
-- תיעוד מלא
-- פרויקט מוכן לשימוש
-
-### 14.7 סיכום ROADMAP
-
-**סה"כ זמן**: 12 שבועות (3 חודשים)
-
-**שלבים עיקריים**:
-1. **שבוע 1-2**: תשתית בסיסית
-2. **שבוע 3-4**: מערכת נתונים מתקדמת
-3. **שבוע 5-6**: ממשק משתמש מתקדם
-4. **שבוע 7-8**: תמיכה רב-לשונית
-5. **שבוע 9-10**: תגובות וחיפוש
-6. **שבוע 11-12**: בדיקות ופריסה
-
-**תכונות עיקריות**:
-- ✅ ממשק דו-פריים
-- ✅ דיאגרמות Mermaid
-- ✅ מערכת GEDCOM
-- ✅ תמיכה דו-לשונית
-- ✅ קישורי ויקיפדיה
-- ✅ מערכת תגובות
-- ✅ חיפוש פשוט
-- ✅ ניהול מסמכים ותמונות
-
-## 15. דוגמאות קוד מפורטות
-
-### 15.1 רכיב פרופיל משפחתי
-```tsx
-// quartz/components/FamilyProfile.tsx
-import React, { useState } from 'react'
-import { Page } from 'quartz'
-
-interface FamilyProfileProps {
-  page: Page
-}
-
-export const FamilyProfile: React.FC<FamilyProfileProps> = ({ page }) => {
-  const [activeTab, setActiveTab] = useState('biography')
-  
-  return (
-    <div className="family-profile">
-      <div className="profile-header">
-        <img src={page.data.frontmatter?.photo} alt={page.data.frontmatter?.title} />
-        <div className="profile-info">
-          <h1>{page.data.frontmatter?.title}</h1>
-          <p>נולד: {page.data.frontmatter?.birth_date}</p>
-          <p>מקצוע: {page.data.frontmatter?.occupation}</p>
-        </div>
-      </div>
-      
-      <div className="tabs">
-        <button 
-          className={activeTab === 'biography' ? 'active' : ''}
-          onClick={() => setActiveTab('biography')}
-        >
-          קורות חיים
-        </button>
-        <button 
-          className={activeTab === 'gallery' ? 'active' : ''}
-          onClick={() => setActiveTab('gallery')}
-        >
-          גלריה
-        </button>
-        <button 
-          className={activeTab === 'documents' ? 'active' : ''}
-          onClick={() => setActiveTab('documents')}
-        >
-          מסמכים
-        </button>
-      </div>
-      
-      <div className="tab-content">
-        {activeTab === 'biography' && (
-          <div className="biography">
-            <div dangerouslySetInnerHTML={{ __html: page.data.html }} />
-          </div>
-        )}
-        {activeTab === 'gallery' && (
-          <div className="gallery">
-            {/* גלריה של תמונות */}
-          </div>
-        )}
-        {activeTab === 'documents' && (
-          <div className="documents">
-            {/* רשימת מסמכים */}
-          </div>
-        )}
-      </div>
-    </div>
-  )
-}
+**פשוט כתבו עברית**:
+```markdown
+Moishe was the eighth of the ten children of Wolf זאב and Beile ביילא Hochman.
 ```
 
-### 15.2 רכיב עץ משפחתי
-```tsx
-// quartz/components/FamilyTree.tsx
-import React, { useState, useEffect } from 'react'
-import mermaid from 'mermaid'
+**אין צורך ב-tags מיוחדים** - הדפדפן יזהה אוטומטית
 
-interface FamilyTreeProps {
-  profiles: any[]
-  selectedProfile?: string
-}
+#### 6.1.6 טבלאות
 
-export const FamilyTree: React.FC<FamilyTreeProps> = ({ profiles, selectedProfile }) => {
-  const [generations, setGenerations] = useState(3)
-  const [mermaidDiagram, setMermaidDiagram] = useState('')
-  
-  useEffect(() => {
-    generateMermaidDiagram()
-  }, [profiles, generations, selectedProfile])
-  
-  const generateMermaidDiagram = () => {
-    let diagram = `flowchart TD
-      classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
-      classDef selected fill:#ffeb3b,stroke:#f57f17,stroke-width:3px;
-      classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
-    `
-    
-    profiles.forEach(profile => {
-      const id = profile.id
-      const name = profile.name
-      const isSelected = selectedProfile === id
-      
-      diagram += `id${id}["${name}"]
-        class id${id} ${isSelected ? 'selected' : 'internal-link'}
-        click id${id} "/People/${encodeURIComponent(name)}/" _self
-      `
-      
-      // הוספת קשרים
-      if (profile.parents) {
-        profile.parents.forEach(parent => {
-          diagram += `id${parent} --> id${id}\n`
-        })
-      }
-    })
-    
-    setMermaidDiagram(diagram)
-  }
-  
-  return (
-    <div className="family-tree">
-      <div className="controls">
-        <select 
-          value={generations} 
-          onChange={(e) => setGenerations(parseInt(e.target.value))}
-        >
-          <option value={2}>2 דורות</option>
-          <option value={3}>3 דורות</option>
-          <option value={4}>4 דורות</option>
-          <option value={5}>5 דורות</option>
-        </select>
-        <button onClick={generateMermaidDiagram}>עדכן עץ</button>
-      </div>
-      
-      <div className="mermaid-container">
-        <div className="mermaid" dangerouslySetInnerHTML={{ __html: mermaidDiagram }} />
-      </div>
-    </div>
-  )
-}
+**Markdown Table** (לא מומלץ - קשה לקרוא):
+```markdown
+| # | Name | Hebrew |
+|---|------|--------|
+| 1 | Shimon Me'ir | שמעון מאיר |
+| 2 | Haim Yudl | חיים יהודה |
 ```
 
-### 15.3 סקריפט עדכון מקומות
-```python
-# scripts/update_places.py
-import json
-import requests
-import re
-from pathlib import Path
-
-def find_wikipedia_links(place_name):
-    """מחפש קישורי ויקיפדיה למקום"""
-    try:
-        # חיפוש בויקיפדיה האנגלית
-        en_url = f"https://en.wikipedia.org/api/rest_v1/page/summary/{place_name.replace(' ', '_')}"
-        en_response = requests.get(en_url)
-        
-        # חיפוש בויקיפדיה העברית
-        he_url = f"https://he.wikipedia.org/api/rest_v1/page/summary/{place_name.replace(' ', '_')}"
-        he_response = requests.get(he_url)
-        
-        result = {
-            "wikipedia_en": None,
-            "wikipedia_he": None
-        }
-        
-        if en_response.status_code == 200:
-            result["wikipedia_en"] = f"https://en.wikipedia.org/wiki/{place_name.replace(' ', '_')}"
-            
-        if he_response.status_code == 200:
-            result["wikipedia_he"] = f"https://he.wikipedia.org/wiki/{place_name.replace(' ', '_')}"
-            
-        return result
-    except:
-        return {"wikipedia_en": None, "wikipedia_he": None}
-
-def update_place_mappings():
-    """עדכון קישורי המקומות"""
-    mappings = {}
-    
-    # קריאת כל הפרופילים
-    profiles_dir = Path("site/content/profiles/People")
-    for profile_file in profiles_dir.glob("*.md"):
-        with open(profile_file, 'r', encoding='utf-8') as f:
-            content = f.read()
-            
-        # חילוץ מקומות מהתוכן
-        places = re.findall(r'\*\*Birth\*\*:.*?at\s+([^,\n]+)', content)
-        places.extend(re.findall(r'\*\*Death\*\*:.*?at\s+([^,\n]+)', content))
-        
-        for place in places:
-            place = place.strip()
-            if place not in mappings:
-                links = find_wikipedia_links(place)
-                if links["wikipedia_en"] or links["wikipedia_he"]:
-                    mappings[place] = {
-                        **links,
-                        "profile_id": profile_file.stem,
-                        "profile_url": f"/People/{profile_file.stem}/",
-                        "auto_generated": True,
-                        "date_created": "2024-01-15"
-                    }
-    
-    # שמירת המיפויים
-    with open("place_mappings.json", 'w', encoding='utf-8') as f:
-        json.dump(mappings, f, ensure_ascii=False, indent=2)
-    
-    print(f"עודכנו {len(mappings)} מקומות")
-
-if __name__ == "__main__":
-    update_place_mappings()
+**ASCII Art** (מומלץ - נקי וקריא):
+```
+Wolf & Beile Hochman
+│
+├─ 1. Shimon Me'ir (שמעון מאיר)
+├─ 2. Haim Yudl (חיים יהודה)
+├─ 3. Avram (אברהם)
+└─ 10. Yisroel (ישראל)
 ```
 
-### 15.4 רכיב תגובות
-```tsx
-// quartz/components/Comments.tsx
-import React, { useState, useEffect } from 'react'
+**שימו לב**: ASCII art צריך להיות בתוך ` ```code block``` ` כדי לשמור על הפורמט
 
-interface Comment {
-  id: string
-  name: string
-  email: string
-  date: string
-  comment: string
-}
+#### 6.1.7 Line Breaks - חשוב מאוד!
 
-interface CommentsProps {
-  profileId: string
-}
+**בעיה נפוצה**: שורות רצופות מתמזגות לשורה אחת
 
-export const Comments: React.FC<CommentsProps> = ({ profileId }) => {
-  const [comments, setComments] = useState<Comment[]>([])
-  const [newComment, setNewComment] = useState({
-    name: '',
-    email: '',
-    comment: ''
-  })
-  
-  useEffect(() => {
-    loadComments()
-  }, [profileId])
-  
-  const loadComments = async () => {
-    try {
-      const response = await fetch(`/comments/${profileId}.json`)
-      if (response.ok) {
-        const data = await response.json()
-        setComments(data.comments || [])
-      }
-    } catch (error) {
-      console.error('Error loading comments:', error)
-    }
-  }
-  
-  const submitComment = async (e: React.FormEvent) => {
-    e.preventDefault()
-    
-    const comment: Comment = {
-      id: Date.now().toString(),
-      name: newComment.name,
-      email: newComment.email,
-      date: new Date().toISOString().split('T')[0],
-      comment: newComment.comment
-    }
-    
-    try {
-      const response = await fetch(`/api/comments/${profileId}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(comment)
-      })
-      
-      if (response.ok) {
-        setComments([...comments, comment])
-        setNewComment({ name: '', email: '', comment: '' })
-      }
-    } catch (error) {
-      console.error('Error submitting comment:', error)
-    }
-  }
-  
-  return (
-    <div className="comments">
-      <h3>הערות</h3>
-      
-      <form onSubmit={submitComment} className="comment-form">
-        <input
-          type="text"
-          placeholder="שם"
-          value={newComment.name}
-          onChange={(e) => setNewComment({...newComment, name: e.target.value})}
-          required
-        />
-        <input
-          type="email"
-          placeholder="אימייל"
-          value={newComment.email}
-          onChange={(e) => setNewComment({...newComment, email: e.target.value})}
-          required
-        />
-        <textarea
-          placeholder="הערה"
-          value={newComment.comment}
-          onChange={(e) => setNewComment({...newComment, comment: e.target.value})}
-          required
-        />
-        <button type="submit">שלח הערה</button>
-      </form>
-      
-      <div className="comments-list">
-        {comments.map(comment => (
-          <div key={comment.id} className="comment">
-            <h4>{comment.name}</h4>
-            <p className="date">{comment.date}</p>
-            <p>{comment.comment}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
+**פתרון**:
+```markdown
+<!-- לא טוב - יתמזג לשורה אחת -->
+*על שלשה דברים העולם עומד:*
+*על התורה, ועל העבודה, ועל גמילות חסדים*
+
+<!-- טוב - שתי רווחים בסוף השורה -->
+*על שלשה דברים העולם עומד:*  
+*על התורה, ועל העבודה, ועל גמילות חסדים*
+
+<!-- או: שורה ריקה (יוצר פסקה חדשה) -->
+*על שלשה דברים העולם עומד:*
+
+*על התורה, ועל העבודה, ועל גמילות חסדים*
+```
+
+**כלל זהב**: אם רוצים line break (ירידת שורה) בלי פסקה חדשה - **שתי רווחים בסוף השורה**!
+
+### 6.2 דוגמה מלאה
+
+```markdown
+# MOSHE HOCHMAN Introduction
+
+My grandfather Moishe was never one to keep documents...
+
+## Moishe and Tubb'l Hochman משה ויונה הוכמאן
+
+*על שלשה דברים העולם עומד:*  
+*על התורה, ועל העבודה, ועל גמילות חסדים*
+
+*פרקי אבות*
+
+Moishe was born in 1884 in Savran...
+
+![[Pasted image 20251022123649.png]]
+**_SAVRAN in THE UKRAINE (present day frontiers)._**
+
+His father, Wolf was timber merchant.
+
+> _"You are not in Russia here..."_
+>
+> _"I have a case in the Warsaw paper..."_
+
+<div class="citation-box">
+
+**Sunday Times, April 1942**
+
+_A well known Perth publican..._
+
+</div>
+
+<div class="info-box">
+
+**Comment:** The Russo-Japanese war started on 5.2.1904...
+
+</div>
 ```
 
 ---
 
-**גרסה**: 2.0  
-**תאריך**: ינואר 2025  
-**מחבר**: מערכת AI  
-**סטטוס**: מפרט מפורט ומלא
+## 7. רכיבים מותאמים אישית (Custom Components)
+
+### 7.1 NavBar
+
+**קובץ**: `site/quartz/components/NavBar.tsx`
+
+**תכונות**:
+- Top navigation bar
+- Links: Home, All Profiles, Profiles of Interest, About
+- Responsive: hamburger menu on mobile
+- Styling: inline SCSS
+
+**עיצוב**:
+- Background: white
+- Links: #1a1a1a, no underline
+- Hover: tertiary color
+- Mobile: hamburger icon, slide-in menu
+
+### 7.2 ProfileTabs
+
+**קובץ**: `site/quartz/components/ProfileTabs.tsx`
+
+**תכונות**:
+- Two tabs: Biography, Gallery
+- Gallery tab hidden if no media
+- Content loaded dynamically from `media-index.json`
+- Re-initializes on SPA navigation (event `"nav"`)
+
+**Logic**:
+1. `afterDOMLoaded`: runs on initial page load
+2. Event listener for `"nav"`: runs on SPA navigation
+3. Reads `media-index.json` to check for media
+4. Hides Gallery tab if no media
+5. Switches between tabs on click
+
+### 7.3 ArticleTitle
+
+**קובץ**: `site/quartz/components/ArticleTitle.tsx`
+
+**תכונות**:
+- Shows page title
+- Only visible on profile pages (`type: profile` in frontmatter)
+- Hidden on other pages
+
+### 7.4 PageTitle
+
+**קובץ**: `site/quartz/components/PageTitle.tsx`
+
+**תכונות**:
+- Site title: "Family History"
+- Links to homepage
+- Styled: bold, colored (secondary)
+
+### 7.5 ContentMeta
+
+**קובץ**: `site/quartz/components/ContentMeta.tsx`
+
+**תכונות**:
+- Shows metadata (date, reading time)
+- **Disabled**: `showReadingTime: false` in `quartz.layout.ts`
+- **Removed**: from `defaultContentPageLayout` and `defaultListPageLayout`
+
+### 7.6 Footer
+
+**קובץ**: `site/quartz/components/Footer.tsx`
+
+**תכונות**:
+- Footer with links
+- Links: Home, All Profiles, Profiles of Interest, About
+- Copyright notice
+
+---
+
+## 8. Cache Busting & SPA Navigation
+
+### 8.1 הבעיה
+Quartz הוא SPA (Single Page Application) - ניווט בין דפים לא עושה full page reload, אלא טוען תוכן דינמית. זה יכול לגרום לבעיות cache שבהן תוכן ישן נשאר.
+
+### 8.2 הפתרון
+
+**קובץ**: `site/quartz/components/scripts/util.ts`
+
+**שינוי**: הוספת cache busting ל-`fetchCanonical()`
+
+```typescript
+export async function fetchCanonical(url: string): Promise<string> {
+  // Add cache busting
+  const cacheBuster = `_t=${Date.now()}`
+  const separator = url.includes('?') ? '&' : '?'
+  const urlWithCacheBuster = `${url}${separator}${cacheBuster}`
+  
+  const response = await fetch(urlWithCacheBuster, {
+    cache: 'no-store',
+    headers: {
+      'Cache-Control': 'no-cache'
+    }
+  })
+  
+  return await response.text()
+}
+```
+
+**תוצאה**: תוכן תמיד טרי, ללא cache ישן
+
+### 8.3 ProfileTabs Re-initialization
+
+**בעיה**: Gallery לא נטען בניווט SPA
+
+**פתרון**: 
+1. עטיפת כל הלוגיקה ב-`initProfileTabs()`
+2. הוספת event listener ל-`"nav"` event
+3. קריאה ל-`initProfileTabs()` בכל ניווט
+
+**קוד**: `site/quartz/components/ProfileTabs.tsx`
+
+```typescript
+document.addEventListener("nav", () => {
+  initProfileTabs()
+})
+```
+
+---
+
+## 9. Git & Deployment
+
+### 9.1 .gitignore
+
+**קבצים שלא נכנסים ל-Git**:
+```
+# Generated content
+site/content/profiles/*.md
+site/content/pages/all-profiles.md
+site/content/pages/profiles-of-interest.md
+site/content/*.png
+site/content/*.jpg
+
+# Build outputs
+site/public/
+site/.quartz-cache/
+
+# Generated data
+site/quartz/static/family-data.json
+site/quartz/static/media-index.json
+site/quartz/static/documents/
+```
+
+**קבצים שכן נכנסים ל-Git**:
+- `data/tree.ged` (GEDCOM source)
+- `bios/*.md` (biographies)
+- `bios/*.png`, `bios/*.jpg` (images in bios)
+- `documents/` (media files)
+- `content/index.md`, `content/pages/` (static pages)
+- `site/quartz/` (Quartz code, components, styles)
+- `scripts/doit.py` (build script)
+
+### 9.2 Deployment Workflow
+
+```bash
+# 1. Make changes
+# Edit GEDCOM, bios, or static pages
+
+# 2. Build
+python scripts/doit.py data/tree.ged
+
+# 3. Test locally
+cd site
+npx quartz build --serve
+# Visit http://localhost:8080
+
+# 4. Commit
+git add -A
+git commit -m "Description of changes"
+
+# 5. Push
+git push
+```
+
+---
+
+## 10. מבנה קוד מפורט
+
+### 10.1 scripts/doit.py
+
+#### Functions Overview
+
+**Parsing**:
+- `parse_gedcom_file(path)` - קורא GEDCOM ל-dictionaries
+- `norm_individual(iid, d)` - מנרמל individual record
+- `norm_family(fid, d)` - מנרמל family record
+
+**Building**:
+- `build_obsidian_notes(individuals, families, out_dir, bios_dir)` - יוצר profiles
+- `build_family_tree_diagram(p, individuals, families)` - Nuclear family diagram
+- `build_ancestors_diagram(p, individuals, families, generations=2)` - Ancestors diagram
+- `build_descendants_diagram(p, individuals, families, generations=2)` - Descendants diagram
+
+**Helpers**:
+- `wl_place_html(place)` - יוצר HTML link למקום (Wikipedia)
+- `person_link_to_html(wikilink)` - ממיר `[[Name]]` ל-HTML `<a>` tag
+- `safe_filename(name)` - מנקה שם לשימוש ב-filename/URL
+
+**Indexes**:
+- `write_people_index(people_dir, pages_dir)` - יוצר `all-profiles.md`
+- `write_bios_index(people_dir, pages_dir, bios_dir)` - יוצר `profiles-of-interest.md`
+
+**Media**:
+- `create_media_index(documents_dir, static_dir)` - יוצר `media-index.json`
+- `copy_image_files(bios_dir, site_content_dir)` - מעתיק תמונות מ-bios/
+
+**Utilities**:
+- `copy_source_content(src_content_dir, dst_content_dir)` - מעתיק content/
+- `clean_project()` - מנקה קבצים גנריים
+- `generate_family_data_json(individuals, families, out_file)` - יוצר family-data.json
+
+#### Key Data Structures
+
+**individuals dictionary**:
+```python
+{
+  "@I10@": {
+    "NAME": "Moshe /Hoffman/",
+    "BIRT": {"DATE": "circa 1884", "PLAC": "Savran, Podolia..."},
+    "DEAT": {"DATE": "April 7, 1973", "PLAC": "Perth, Australia"},
+    "OCCU": "wheelwright, publican, businessman",
+    "FAMS": ["@F1@", "@F2@"],
+    "FAMC": "@F0@",
+    ...
+  }
+}
+```
+
+**normalized person**:
+```python
+{
+  "id": "@I10@",
+  "name": "Moshe משה Hoffman",
+  "birth_date": "circa 1884",
+  "birth_place": "Savran, Podolia, Odessa oblast, Ukraine",
+  "death_date": "April 7, 1973",
+  "death_place": "Perth, Australia",
+  "occupation": "wheelwright, publican, businessman",
+  "notes": "Created by: https://...",
+  "famc": "@F0@",
+  "fams": ["@F1@"]
+}
+```
+
+### 10.2 Place Mappings
+
+**מיקום**: Hardcoded in `doit.py`
+
+```python
+place_to_wiki = {
+    "Savran, Podolia, Odessa oblast, Ukraine": "Savran",
+    "Perth, Australia": "Perth",
+    "Subiaco, Perth, Western Australia, Australia": "Subiaco,_Western_Australia",
+    ...
+}
+```
+
+**שימוש**: `wl_place_html()` משתמש במיפוי ליצירת קישורי Wikipedia
+
+---
+
+## 11. עיצוב מתקדם (Advanced Styling)
+
+### 11.1 CSS Specificity & Overrides
+
+**בעיה**: Quartz יש CSS משלו שלעיתים דורס את הסגנונות המותאמים
+
+**פתרון**: שימוש ב-`!important` במקומות נדרשים
+
+**דוגמאות**:
+```scss
+// Navbar links - override global link styles
+.navbar-menu a {
+  color: #1a1a1a !important;
+  text-decoration: none !important;
+  background-color: transparent !important;
+}
+
+// Explorer links - override global link styles
+.explorer-content ul li > a {
+  color: #1a1a1a !important;
+  opacity: 1 !important;
+  text-decoration: none !important;
+}
+```
+
+### 11.2 CSS Grid for Profile Info
+
+**מטרה**: עימוד עקבי של פרטי הפרופיל, גם כשהטקסט עוטף לשורה הבאה
+
+**פתרון**: CSS Grid עם 2 columns
+
+```scss
+.profile-info-list {
+  display: grid;
+  grid-template-columns: auto 1fr; // Label auto-width, value fills rest
+  gap: 0.5rem 1rem; // Row gap, column gap
+  
+  dt {
+    color: #666;
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap; // Labels don't wrap
+  }
+  
+  dd {
+    margin: 0;
+    color: #000;
+    word-wrap: break-word; // Values wrap if needed
+    overflow-wrap: break-word;
+  }
+}
+```
+
+**תוצאה**:
+```
+Birth:        circa 1884 at Savran, Podolia, Odessa oblast, Ukraine
+Death:        April 7, 1973 at Perth, Australia
+Occupation:   wheelwright, publican, businessman
+Parents:      —
+Siblings:     —
+Spouse:       Tobl Hochman (Hoffman)
+Children:     Aaron Harry אהרון Hoffman, Bella Hoffman, Hyman Judah Hoffman,
+              Wolf Hoffman, Alyce Breazeale, Jack Hoffman
+```
+
+### 11.3 Mermaid Diagram Styling
+
+**קוד**: `scripts/doit.py`
+
+```python
+classDef current fill:#bbdefb,stroke:#1976d2,stroke-width:3px
+class {current_id} current
+```
+
+**תוצאה**: הפרופיל הנוכחי מודגש בכחול בהיר
+
+**Links**: כל node קליק ומנווט לפרופיל
+
+```python
+click {node_id} "/profiles/{encoded_name}" "Person Name"
+```
+
+---
+
+## 12. בעיות נפוצות ופתרונות
+
+### 12.1 Gallery לא נטען בניווט SPA
+
+**תסמינים**: Gallery מופיע רק אחרי F5, נעלם בניווט
+
+**סיבה**: `afterDOMLoaded` לא רץ בניווט SPA
+
+**פתרון**: 
+1. Cache busting ב-`util.ts`
+2. Re-initialization ב-`ProfileTabs.tsx` על event `"nav"`
+
+### 12.2 Links בפרופיל לא עובדים
+
+**תסמינים**: קישורים ל-persons/places לא קליקים
+
+**סיבה**: Markdown wikilinks בתוך HTML structure
+
+**פתרון**: יצירת HTML `<a>` tags ישירות ב-`doit.py`
+
+```python
+def person_link_to_html(wikilink):
+    name = wikilink.replace("[[", "").replace("]]", "")
+    encoded_name = urllib.parse.quote(name)
+    return f'<a href="/profiles/{encoded_name}">{name}</a>'
+```
+
+### 12.3 Navbar/Explorer links אפורים
+
+**תסמינים**: קישורים בnavbar/explorer נראים אפורים
+
+**סיבה**: Global link styles דורסים
+
+**פתרון**: `!important` על הצבע
+
+```scss
+.navbar-menu a {
+  color: #1a1a1a !important;
+}
+```
+
+### 12.4 שורות ארוכות בביוגרפיה
+
+**תסמינים**: טקסט רץ לכל רוחב המסך
+
+**סיבה**: אין הגבלת רוחב
+
+**פתרון**: ~~`max-width` על `article`~~ (לא הוטמע כרגע)
+
+### 12.5 Line breaks לא עובדים
+
+**תסמינים**: שורות רצופות מתמזגות לשורה אחת
+
+**סיבה**: Markdown מתמזג שורות רצופות
+
+**פתרון**: שתי רווחים בסוף השורה
+
+```markdown
+Line 1  
+Line 2
+```
+
+### 12.6 Image captions ממורכזים בטעות
+
+**תסמינים**: טקסט רגיל (italic) ממורכז כאילו הוא caption
+
+**סיבה**: CSS selector רחב מדי
+
+**פתרון**: selector ספציפי `strong > em:only-child` - רק `**_caption_**` ממורכז
+
+---
+
+## 13. תכונות שלא הוטמעו
+
+### 13.1 מערכת תגובות
+**החלטה**: לא להטמיע - אתר סטטי, אין backend
+
+### 13.2 תמיכה רב-לשונית (Multi-language)
+**החלטה**: הוטמע ואז הוסר - יותר מדי מורכב, לא נדרש
+
+**עקרון נוכחי**: GUI באנגלית, תוכן לפי המקור
+
+### 13.3 עץ משפחתי גדול אינטראקטיבי
+**סטטוס**: `family-data.json` נוצר, אבל אין רכיב שמשתמש בו כרגע
+
+### 13.4 עמודי משנה (Sub-pages) לביוגרפיות
+**סטטוס**: הוטמע ואז הוסר - לא נדרש כרגע
+
+**הערה**: הקוד קיים ב-history, אפשר להחזיר בעתיד
+
+---
+
+## 14. מפת דרכים עתידית (Future Roadmap)
+
+### 14.1 תכונות אפשריות
+- [ ] עץ משפחתי גדול אינטראקטיבי (שימוש ב-`family-data.json`)
+- [ ] חיפוש מתקדם (Quartz כבר מספק חיפוש בסיסי)
+- [ ] עמודי משנה לביוגרפיות (sub-pages)
+- [ ] תמונות פרופיל (profile photos)
+- [ ] Timeline visualization
+- [ ] Export to PDF
+- [ ] Print-friendly styling
+
+### 14.2 שיפורים אפשריים
+- [ ] Lazy loading לתמונות
+- [ ] Progressive Web App (PWA)
+- [ ] Dark mode (Quartz כבר תומך)
+- [ ] Accessibility improvements
+- [ ] SEO optimization
+- [ ] Social media preview images (OG images - Quartz כבר יוצר)
+
+---
+
+## 15. מסמכים נוספים
+
+### 15.1 קבצים קשורים
+- `README.md` - מדריך התקנה והרצה
+- `scripts/doit.py` - קוד מתועד
+- `site/quartz.config.ts` - תצורת Quartz
+- `site/quartz.layout.ts` - פריסת דפים
+
+### 15.2 משאבים חיצוניים
+- [Quartz Documentation](https://quartz.jzhao.xyz/)
+- [Mermaid Documentation](https://mermaid.js.org/)
+- [GEDCOM Specification](https://gedcom.io/)
+- [Markdown Guide](https://www.markdownguide.org/)
+
+---
+
+## 16. היסטוריית גרסאות
+
+### v3.0 (נובמבר 2025) - Current
+- ✅ Typography: Segoe UI 14px
+- ✅ Explorer: 14px font
+- ✅ Line breaks fix in Hebrew quotes
+- ✅ Image captions with `**_caption_**` format
+- ✅ ASCII art for children list
+- ✅ Blockquotes, citation boxes, info boxes styling
+
+### v2.0 (אוקטובר 2025)
+- ✅ Top navigation bar
+- ✅ Profile tabs (Biography, Gallery)
+- ✅ Cache busting for SPA
+- ✅ Profile info with CSS Grid
+- ✅ Mermaid diagrams with clickable links
+- ✅ Media index system
+
+### v1.0 (ספטמבר 2025)
+- ✅ Basic GEDCOM parsing
+- ✅ Profile generation
+- ✅ Quartz integration
+- ✅ Basic styling
+
+---
+
+**סוף המסמך**
