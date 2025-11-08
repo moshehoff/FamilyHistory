@@ -125,10 +125,10 @@ article {
 article, .tab-pane {
   // Book-like typography
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 0.8125rem !important; // 13px (one level down from 14px)
+  font-size: 0.875rem !important; // 14px (one level up from 13px)
   line-height: 1.7;
   color: #2a2a2a;
-  max-width: 545px !important; // 10% smaller than 605px
+  max-width: 627px !important; // 15% wider than 545px
   margin: 0 auto;
   
   // Images and Captions
