@@ -648,7 +648,7 @@ python scripts/doit.py data/tree.ged
 
 ### 5.4 עדכון דפים סטטיים
 
-```bash
+   ```bash
 # 1. Edit static pages
 # Edit content/index.md or content/pages/*.md
 
@@ -660,7 +660,7 @@ python scripts/doit.py data/tree.ged
 
 ### 5.5 ניקוי פרויקט
 
-```bash
+   ```bash
 # Manual clean
 python scripts/doit.py --clean
 

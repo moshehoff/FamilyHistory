@@ -5,7 +5,13 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [Component.NavBar()],
-  afterBody: [],
+  afterBody: [
+    // ProfileTabs will be moved to after article content via JavaScript
+    Component.ConditionalRender({
+      component: Component.ProfileTabs(),
+      condition: (page) => page.fileData.frontmatter?.type === "profile",
+    }),
+  ],
   footer: Component.Footer({
     links: {
       "Home": "/",
@@ -25,7 +31,7 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     Component.ArticleTitle(),
     Component.TagList(),
-    Component.ProfileTabs(),
+    // ProfileTabs will be moved to after article content via JavaScript
   ],
   left: [
     Component.PageTitle(),

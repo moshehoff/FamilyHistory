@@ -1,19 +1,3 @@
-# MOSHE HOCHMAN  Introduction
-
-My grandfather Moishe was never one to keep documents. Now and then he would tell of an episode in his life. Though he was convivial, to no one did he give a chronological account of his early life. We all loved his company, however, I was too young to realize that I would one day be sorry not to have cross examined him. I have thus included all the stories that he told me, and everything else that I reliably know of him.
-
-Lately, a large number of national, state and local newspapers have been photographed and are available on-line in TROVE. Similarly the **Australian National Archives** are being microfilmed and both these have have provided valuable data.
-
-His own personal documents have recently come to our attention, but they are very limited. However, I draw on these sources and on family. This is above all the story of a Jewish family living in Russia in a time of momentous changes, of tumult, repression and violence. Had I not described these events, the histories of Moishe and of our grandmother Tubb’l, would be next to meaningless.
-
-This biography takes us up to their landfall in Australia. They went ashore on 25th April 1910. The fifth anniversary of their arrival would be known as Anzac Day.
-
-This history takes us up to the year 1910.
-
-Whatever else anyone can tell me, and photos and documents, will be most welcome!
-
-_**Peter Hoffman, Rehovot, revised January 2023**_
-
 ## Moishe and Tubb'l Hochman משה ויונה הוכמאן
 
 *על שלשה דברים העולם עומד:*  
@@ -91,11 +75,13 @@ In the year 1881, following the assassination of Tsar Alexander II, a wave of po
 It is noteworthy that the brunt of the massacres carried out by various governments, militias and lawless factions between 1882 and 1921 was borne by the communities of  our ancestral  towns, Bershad, Savran, and many others in Podolia.
 
 In August 1911, Haim Yudl Hochman was interviewed by reporters of the _Sunday Times_ newspaper in Perth in connection with a police investigation in that city (into a man named as Peter the Painter):
-> _"You are not in Russia here. In this country if a man is arrested he is brought before the court within 24 hours, but not so in Russia. There you may be arrested and it may be five or six years before you even see the charge on which you were apprehended._
->
-> _I have a case in the Warsaw paper here in which a man was arrested in 1905, and he has only just been brought before the court and sent to Siberia. You have no conception of the difference between British and Russian law._
->
-> _Twenty-seven years ago I saw enough to prove to me that Russia was a pretty good place to get away from, and I have no wish to see it again."_
+<div class="citation-box">
+"You are not in Russia here. In this country if a man is arrested he is brought before the court within 24 hours, but not so in Russia. There you may be arrested and it may be five or six years before you even see the charge on which you were apprehended.
+
+I have a case in the Warsaw paper here in which a man was arrested in 1905, and he has only just been brought before the court and sent to Siberia. You have no conception of the difference between British and Russian law.
+
+Twenty-seven years ago I saw enough to prove to me that Russia was a pretty good place to get away from, and I have no wish to see it again."
+</div>
 
 By a simple calculation Haim Yudl, as a eighteen year-old in 1884 (the very year of Moishe's birth), was referring to pogroms that he had witnessed in Savran.  Haim Yudl's actual words wouldn't have been so grammatical or literary, but the message is clear. 
 
@@ -141,12 +127,13 @@ After completing this initial period of full-time service, conscripts passed int
 
 ### This article came in from Lane Igoudin:
 
->After 1905, the position of the Jewish soldiers in the army became precarious. Between 1906 and 1914, far-right ideologues argued in the Duma that all Jews were traitors, cowards, and useless soldiers who corrupted Russia through socialist propaganda. Hence, it was claimed, the army would benefit from banishing Jews from its ranks. A questionnaire, distributed by the War Ministry in 1911–1912, manifested a significant degree of anti-Jewish sensibility among the highest echelons of army commanders, who subscribed to far-right arguments. Books such as M. Usov’s (Moisei Trivus) _Evrei v armii_ (Jews in the Army; 1911), the anonymous _Voina i evrei_ (War and Jews; 1912), and Saul Ginsburg’s _Velikaia otechestvennaia voina 1812 goda i russkie evrei_ (The Patriotic War of 1812 and Russian Jews; 1912) that testified to Jewish patriotism, good service, and excellent combat performance, as well as the ardent apologetics articulated by liberal-minded Duma members, could hardly check the wave of anti-Jewish slander in Russian society. However, the war ministry showed a certain level of pragmatism and did not yield to the arguments of far-right politicians. The 1912 Statute of the War Ministry confirmed Jewish eligibility for military duty, although it also approved and legalized all anti-Jewish regulations that had been adopted in the 1880s and 1890s.
+<div class="citation-box">
+After 1905, the position of the Jewish soldiers in the army became precarious. Between 1906 and 1914, far-right ideologues argued in the Duma that all Jews were traitors, cowards, and useless soldiers who corrupted Russia through socialist propaganda. Hence, it was claimed, the army would benefit from banishing Jews from its ranks. A questionnaire, distributed by the War Ministry in 1911–1912, manifested a significant degree of anti-Jewish sensibility among the highest echelons of army commanders, who subscribed to far-right arguments. Books such as M. Usov’s (Moisei Trivus) _Evrei v armii_ (Jews in the Army; 1911), the anonymous _Voina i evrei_ (War and Jews; 1912), and Saul Ginsburg’s _Velikaia otechestvennaia voina 1812 goda i russkie evrei_ (The Patriotic War of 1812 and Russian Jews; 1912) that testified to Jewish patriotism, good service, and excellent combat performance, as well as the ardent apologetics articulated by liberal-minded Duma members, could hardly check the wave of anti-Jewish slander in Russian society. However, the war ministry showed a certain level of pragmatism and did not yield to the arguments of far-right politicians. The 1912 Statute of the War Ministry confirmed Jewish eligibility for military duty, although it also approved and legalized all anti-Jewish regulations that had been adopted in the 1880s and 1890s.
 
->The 1912 Statute had little impact on some 300,000 Jews who served in the Russian army during [World War I](https://yivoencyclopedia.org/article.aspx/World_War_I "World War I"). Despite a vociferous anti-alien campaign that blamed Russian military failures on Jews in general and on the Jewish population inhabiting [Galicia](https://yivoencyclopedia.org/article.aspx/Galicia) in particular, Jewish soldiers (as military censors reported) shared patriotic enthusiasm with their Russian parallels. Responding to an obviously biased general questionnaire in 1915 about Jewish traitors, deserters, and cowards within the lower ranks, regimental commanders replied that Jews “by and large fulfilled their military duty satisfactorily,” participated in combat “on par with others,” and “did not differ either positively or negatively from other lower ranks.” Russian military memoirs portrayed Jewish soldiers as excellent telegraphers, gun layers, and scouts. To fight the antisemitic bias of Russian high commanders, Maksim Gorky and Leonid Andreev compiled a collection of stories and poetry, _Shchit_ (The Shield; 1916), depicting the honesty and courage of Jewish soldiers, sharply criticizing the inherited bias of the Russian society, and arguing for complete Jewish emancipation.
+The 1912 Statute had little impact on some 300,000 Jews who served in the Russian army during [World War I](https://yivoencyclopedia.org/article.aspx/World_War_I "World War I"). Despite a vociferous anti-alien campaign that blamed Russian military failures on Jews in general and on the Jewish population inhabiting [Galicia](https://yivoencyclopedia.org/article.aspx/Galicia) in particular, Jewish soldiers (as military censors reported) shared patriotic enthusiasm with their Russian parallels. Responding to an obviously biased general questionnaire in 1915 about Jewish traitors, deserters, and cowards within the lower ranks, regimental commanders replied that Jews “by and large fulfilled their military duty satisfactorily,” participated in combat “on par with others,” and “did not differ either positively or negatively from other lower ranks.” Russian military memoirs portrayed Jewish soldiers as excellent telegraphers, gun layers, and scouts. To fight the antisemitic bias of Russian high commanders, Maksim Gorky and Leonid Andreev compiled a collection of stories and poetry, _Shchit_ (The Shield; 1916), depicting the honesty and courage of Jewish soldiers, sharply criticizing the inherited bias of the Russian society, and arguing for complete Jewish emancipation.
 
->After the [February Revolution of 1917](https://yivoencyclopedia.org/article.aspx/Russian_Revolutions_of_1917 "Russian Revolutions of 1917"), the provisional government canceled all anti-Jewish regulations in the military, allowing upper mobility to the Jews and opening the doors of officers’ schools to them. Perhaps the disproportionate number of Jews in the highest positions in the Red Army command signified that Jews tended to recompense themselves for the hundred years of service in the Russian army on the lower rank level; that they mastered the military craft and did not shun it; and that they viewed the military as a focal tool for achieving privileges denied them in a nonliberal society.
-
+After the [February Revolution of 1917](https://yivoencyclopedia.org/article.aspx/Russian_Revolutions_of_1917 "Russian Revolutions of 1917"), the provisional government canceled all anti-Jewish regulations in the military, allowing upper mobility to the Jews and opening the doors of officers’ schools to them. Perhaps the disproportionate number of Jews in the highest positions in the Red Army command signified that Jews tended to recompense themselves for the hundred years of service in the Russian army on the lower rank level; that they mastered the military craft and did not shun it; and that they viewed the military as a focal tool for achieving privileges denied them in a nonliberal society.
+</div>
 #### From [https://yivoencyclopedia.org/article.aspx/military_service_in_russia](https://yivoencyclopedia.org/article.aspx/military_service_in_russia):
 >A disproportionate number of young Jewish men were conscripted. They served as  rank and file infantry and artillerymen.  Commissions were denied them. In the history of the Imperial Army only about four  ever  became officers. One of them,  Yosef Trumpeldor was commissioned in recognition of his valour  in the Russo Japanese War.  He later achieved  fame for his exploits at Gallipoli and in Palestine.
 
@@ -170,14 +157,14 @@ As a young man from the plains of Russia, he had never seen the sea. Lake Baikal
 ![[Pasted image 20251022123932.png]]
 **_Lake Baikal_**
 
-Fortuitously, in April 1942, during the Second World War, he gave an interview to the _Sunday Times_ newspaper, and thus we know certain details, and of a remarkable incident.
+Fortuitously, in April 1942, during the Second World War, he gave an interview to the _Sunday Times_ newspaper, and thus we know certain details, and of a remarkable incident:
+<div class="citation-box">
+A well known Perth publican was once a Czarist soldier in Russia serving with a battalion of shock troops in Siberia.  As a young man in his teens Morris was the equivalent of a private in the Czarist ranks at a time when the last flickers of the Russian-Japanese conflagration were dying out. But bloodshed was no uncommon thing, even in this period of semi-peace. What with pogroms, revolutionary uprisings and provincial flare-ups the life of a young Czarist soldier was far from uneventful. 
 
->A well known Perth publican was once a Czarist soldier in Russia serving with a battalion of shock troops in Siberia.  As a young man in his teens Morris was the equivalent of a private in the Czarist ranks at a time when the last flickers of the Russian-Japanese conflagration were dying out. But bloodshed was no uncommon thing, even in this period of semi-peace. What with pogroms, revolutionary uprisings and provincial flare-ups the life of a young Czarist soldier was far from uneventful. 
+Morris spent six months in garrison in Vladivostok and then saw service in different centres, in one of which he was an eye-witness to the assassination of the local military commandant. The victim was not popular with the masses nor with his soldiers. One morning everyone was issued with a leaflet advising the the commandant was to be killed at 5 p.m. that day. Naturally the commandant received news of his approaching demise, but accepted it with the proverbial grain of salt.  But two bullets thudded into his back at 5.05 p.m, just after he had shaken hands with the adjutant in the street. Morris Hoffman saw the whole incident. Next morning a communique of the revolutionary court apologised for the five-minute delay in the execution. 
 
->Morris spent six months in garrison in Vladivostok and then saw service in different centres, in one of which he was an eye-witness to the assassination of the local military commandant. The victim was not popular with the masses nor with his soldiers. One morning everyone was issued with a leaflet advising the the commandant was to be killed at 5 p.m. that day. Naturally the commandant received news of his approaching demise, but accepted it with the proverbial grain of salt.  But two bullets thudded into his back at 5.05 p.m, just after he had shaken hands with the adjutant in the street. Morris Hoffman saw the whole incident. Next morning a communique of the revolutionary court apologised for the five-minute delay in the execution. 
-
->Siberia was seething with revolt at the time, but Morris said that more blood was shed in the much more frequent pogroms. He was far from depressed when his release from the army arrived and he was free to travel abroad, his journeys eventually bringing him to W.A.
-
+Siberia was seething with revolt at the time, but Morris said that more blood was shed in the much more frequent pogroms. He was far from depressed when his release from the army arrived and he was free to travel abroad, his journeys eventually bringing him to W.A.
+</div>
 
 <div class="info-box">
 

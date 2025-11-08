@@ -2,6 +2,7 @@ import os
 import argparse
 import urllib.parse
 import json
+import shutil
 
 
 
@@ -752,6 +753,159 @@ def create_media_index(documents_dir, static_dir):
 
 
 ##############################################################################
+# 4B) CREATE CHAPTERS INDEX
+##############################################################################
+
+def create_chapters_index(bios_dir, static_dir, individuals):
+    """
+    Scan bios/ directory for chapter subdirectories (e.g., bios/I10/).
+    Create chapters-index.json with list of chapters for each profile.
+    Copy chapter markdown files to site/quartz/static/chapters/.
+    """
+    print(f"[DEBUG] Creating chapters index from {bios_dir}")
+    
+    chapters_index = {}
+    chapters_output_dir = os.path.join(static_dir, "chapters")
+    
+    # Remove old chapters directory if it exists
+    if os.path.exists(chapters_output_dir):
+        shutil.rmtree(chapters_output_dir)
+    os.makedirs(chapters_output_dir, exist_ok=True)
+    
+    # Scan bios directory for subdirectories (chapter structures)
+    if not os.path.exists(bios_dir):
+        print(f"[DEBUG] Bios directory not found: {bios_dir}")
+        return
+    
+    for entry in os.listdir(bios_dir):
+        entry_path = os.path.join(bios_dir, entry)
+        
+        # Check if it's a directory (e.g., I10)
+        if not os.path.isdir(entry_path):
+            continue
+        
+        # Skip .obsidian and other hidden directories
+        if entry.startswith('.'):
+            continue
+        
+        profile_id = entry  # e.g., "I10"
+        print(f"[DEBUG] Found chapter directory: {profile_id}")
+        
+        # Get profile name from individuals
+        person_key = f"@{profile_id}@"
+        person = individuals.get(person_key)
+        if not person:
+            print(f"[DEBUG] Profile {profile_id} not found in GEDCOM, skipping chapters")
+            continue
+        
+        profile_name = person.get("NAME", "Unknown")
+        
+        # Find all markdown files in the directory
+        chapter_files = []
+        main_bio_file = None
+        
+        for filename in sorted(os.listdir(entry_path)):
+            if not filename.lower().endswith('.md'):
+                continue
+            
+            # Check if it's the main bio file (e.g., I10.md)
+            if filename.lower() == f"{profile_id.lower()}.md":
+                main_bio_file = filename
+                continue
+            
+            # It's a chapter file
+            chapter_files.append(filename)
+        
+        if not chapter_files and not main_bio_file:
+            print(f"[DEBUG] No chapter files found in {entry_path}")
+            continue
+        
+        # Create chapter output directory
+        profile_chapters_dir = os.path.join(chapters_output_dir, profile_id)
+        os.makedirs(profile_chapters_dir, exist_ok=True)
+        
+        # Build chapters list
+        chapters_list = []
+        
+        # Add main bio as "Introduction" if it exists
+        if main_bio_file:
+            main_bio_path = os.path.join(entry_path, main_bio_file)
+            # Read title from file
+            title = "Introduction"
+            try:
+                with open(main_bio_path, 'r', encoding='utf-8') as f:
+                    first_line = f.readline().strip()
+                    if first_line.startswith('#'):
+                        title = first_line.lstrip('#').strip()
+            except Exception as e:
+                print(f"[DEBUG] Error reading title from {main_bio_path}: {e}")
+            
+            chapters_list.append({
+                "slug": "introduction",
+                "name": "Introduction",
+                "title": title,
+                "filename": main_bio_file
+            })
+            
+            # Copy main bio file
+            dest_path = os.path.join(profile_chapters_dir, main_bio_file)
+            shutil.copy2(main_bio_path, dest_path)
+            print(f"[DEBUG]   Copied {main_bio_file} --> {profile_chapters_dir}")
+        
+        # Add other chapters
+        for filename in chapter_files:
+            chapter_path = os.path.join(entry_path, filename)
+            
+            # Generate slug from filename (remove .md, replace _ with -, lowercase)
+            slug = filename[:-3].replace('_', '-').lower()
+            
+            # Generate name from filename (remove numbers, replace _ and - with space, title case)
+            import re
+            name = re.sub(r'^\d+-', '', filename[:-3])  # Remove leading numbers
+            name = name.replace('_', ' ').replace('-', ' ').title()
+            
+            # Read title from file
+            title = name
+            try:
+                with open(chapter_path, 'r', encoding='utf-8') as f:
+                    for line in f:
+                        line = line.strip()
+                        if line.startswith('#'):
+                            title = line.lstrip('#').strip()
+                            break
+            except Exception as e:
+                print(f"[DEBUG] Error reading title from {chapter_path}: {e}")
+            
+            chapters_list.append({
+                "slug": slug,
+                "name": name,
+                "title": title,
+                "filename": filename
+            })
+            
+            # Copy chapter file
+            dest_path = os.path.join(profile_chapters_dir, filename)
+            shutil.copy2(chapter_path, dest_path)
+            print(f"[DEBUG]   Copied {filename} --> {profile_chapters_dir}")
+        
+        # Add to index
+        if chapters_list:
+            chapters_index[profile_id] = {
+                "profileName": profile_name,
+                "main": chapters_list[0] if main_bio_file else None,
+                "chapters": chapters_list[1:] if main_bio_file else chapters_list
+            }
+            print(f"[DEBUG] Added {len(chapters_list)} chapters for {profile_id}")
+    
+    # Write chapters-index.json
+    index_path = os.path.join(static_dir, "chapters-index.json")
+    with open(index_path, 'w', encoding='utf-8') as f:
+        json.dump(chapters_index, f, ensure_ascii=False, indent=2)
+    
+    print(f"[DEBUG] Created chapters index with {len(chapters_index)} profiles --> {index_path}")
+
+
+##############################################################################
 # 5) CREATE People/index.md  ### NEW
 ##############################################################################
 
@@ -1021,6 +1175,9 @@ def main():
     documents_dir = "documents"  # documents/ in project root
     static_dir = os.path.join("site", "quartz", "static")
     create_media_index(documents_dir, static_dir)
+    
+    # Create chapters index and copy chapter files
+    create_chapters_index(args.bios_dir, static_dir, individuals)
 
     debug(f"Done --> {args.output}")
 
