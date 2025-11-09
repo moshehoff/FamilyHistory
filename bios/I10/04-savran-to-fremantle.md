@@ -2,7 +2,7 @@
 
                 SAVRAN to FREMANTLE
                 
-![[bios/I10/img_moshe_uniform.png]]
+![[img_moishe.jpg]]
 
    On leaving, Moishe gave his uniform to his brother Sholem (who subsequently migrated to Pittsburgh, Pennsylvannia.
 

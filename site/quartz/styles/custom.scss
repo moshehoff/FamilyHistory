@@ -255,39 +255,117 @@ article, .tab-pane {
   }
 }
 
+// Links and styling in chapter content
+.chapter-tab-pane, .chapter-tabs-content {
+  // Regular links (make them blue like profile links)
+  a:not(.chapter-link) {
+    color: #0066cc !important;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+    
+    &:visited {
+      color: #551a8b !important;
+    }
+  }
+  
+  // Chapter links should keep their color (internal navigation)
+  a.chapter-link {
+    color: var(--secondary) !important;
+    text-decoration: none;
+    cursor: pointer;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+    
+    &:visited {
+      color: var(--secondary) !important;
+    }
+  }
+  
+  // Colored headings in biography content
+  h1, h2, h3, h4 {
+    color: var(--secondary);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+    border-bottom: 2px solid var(--lightgray);
+    padding-bottom: 0.5rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+    color: #2c5aa0; // Slightly darker blue
+  }
+  
+  h4 {
+    font-size: 1.1rem;
+    color: #2c5aa0;
+  }
+}
+
 // Chapter tabs (nested inside biography tab)
 .chapter-tabs-container {
   margin: 2rem 0;
 }
 
+// Biography heading
+.biography-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--secondary);
+}
+
 .chapter-tabs-header {
   display: flex;
-  gap: 0.5rem;
-  border-bottom: 2px solid var(--lightgray);
+  gap: 0.75rem;
+  border-bottom: 3px solid var(--lightgray);
   margin-bottom: 1.5rem;
   flex-wrap: wrap;
 }
 
 .chapter-tab-button {
-  padding: 0.5rem 1rem;
-  background: transparent;
-  border: none;
-  border-bottom: 3px solid transparent;
+  padding: 0.75rem 1.5rem;
+  background: #f5f5f5;
+  border: 2px solid #ddd;
+  border-bottom: 4px solid transparent;
+  border-radius: 8px 8px 0 0;
   cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #333; // Dark color instead of gray
+  font-size: 1rem;
+  font-weight: 600;
+  color: #555;
   transition: all 0.3s ease;
+  position: relative;
+  top: 3px; // Align with bottom border
 
   &:hover {
     color: #000;
-    background: var(--lightgray);
+    background: #e8e8e8;
+    border-color: #ccc;
+    transform: translateY(-2px);
   }
 
   &.active {
     color: var(--secondary);
-    border-bottom-color: var(--secondary);
-    font-weight: 600;
+    background: white;
+    border-color: var(--secondary);
+    border-bottom-color: white;
+    font-weight: 700;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
   }
 }
 

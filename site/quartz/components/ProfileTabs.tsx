@@ -262,6 +262,8 @@ let loadedChapters = {}; // Cache for loaded chapter content
 
 // Initialize profile tabs - runs on every navigation
 function initProfileTabs() {
+  console.log('[ProfileTabs] initProfileTabs() called');
+  
   // Clean up previous event listeners
   tabButtonCleanups.forEach(function(cleanup) {
     cleanup();
@@ -269,8 +271,10 @@ function initProfileTabs() {
   tabButtonCleanups = [];
   
   const profileTabs = document.querySelector('.profile-tabs');
+  console.log('[ProfileTabs] profileTabs element:', profileTabs);
   if (!profileTabs) {
     // Not a profile page, skip initialization
+    console.log('[ProfileTabs] No profileTabs found, skipping');
     return;
   }
   
@@ -395,44 +399,72 @@ function initProfileTabs() {
     }
     
     // Move all content before ProfileTabs to Biography tab
-    // This includes profile info and diagrams
+    // This includes profile info, diagrams, and biography content
     if (profileTabsIndex > 0) {
       const elementsToMove = [];
       for (let i = 0; i < profileTabsIndex; i++) {
         elementsToMove.push(articleChildren[i]);
       }
       
-      // Remove placeholder text "Biography chapters will be loaded here" from article before moving
-      elementsToMove.forEach(function(element) {
-        // Remove paragraphs with placeholder text
-        if (element.tagName && element.tagName.toLowerCase() === 'p') {
-          if (element.textContent && element.textContent.includes('chapters will be loaded')) {
-            element.remove();
-            return;
-          }
+      // Process elements: remove placeholders, but keep biography content
+      const cleanedElements = [];
+      let skipNext = false;
+      
+      console.log('[ProfileTabs] elementsToMove count:', elementsToMove.length);
+      
+      elementsToMove.forEach(function(element, index) {
+        console.log('[ProfileTabs] Processing element', index, ':', element.tagName, element.textContent ? element.textContent.substring(0, 50) : '');
+        
+        if (skipNext) {
+          skipNext = false;
+          return;
         }
-        // Remove h2 "Biography" headings that are just placeholders
+        
+        // Check if it's a placeholder Biography heading
         if (element.tagName && element.tagName.toLowerCase() === 'h2') {
           if (element.textContent && element.textContent.trim() === 'Biography') {
+            // Check if next element is placeholder text
             const nextSibling = element.nextElementSibling;
             if (nextSibling && nextSibling.textContent && 
                 nextSibling.textContent.includes('chapters will be loaded')) {
+              // Skip both this heading and the next placeholder
+              console.log('[ProfileTabs] Removing placeholder Biography heading and text');
+              skipNext = true;
               nextSibling.remove();
+              element.remove();
+              return;
+            } else {
+              // It's a Biography heading with real content, remove only the heading
+              console.log('[ProfileTabs] Removing Biography heading (keeping content after)');
+              element.remove();
+              return;
             }
+          }
+        }
+        
+        // Remove standalone placeholder paragraphs
+        if (element.tagName && element.tagName.toLowerCase() === 'p') {
+          if (element.textContent && element.textContent.includes('chapters will be loaded')) {
+            console.log('[ProfileTabs] Removing placeholder paragraph');
             element.remove();
             return;
           }
         }
+        
+        // Keep this element
+        console.log('[ProfileTabs] Keeping element:', element.tagName);
+        cleanedElements.push(element);
       });
       
-      // Filter out removed elements
-      const validElements = elementsToMove.filter(function(element) {
+      // Use cleanedElements (already filtered)
+      const validElements = cleanedElements.filter(function(element) {
         return element.parentElement !== null;
       });
       
-      // Sort elements: profile info first, then diagrams
+      // Sort elements: profile info first, then diagrams, then biography content (paragraphs, etc.)
       const profileInfoElements = [];
       const diagramElements = [];
+      const biographyContent = [];
       const otherElements = [];
       
       validElements.forEach(function(element) {
@@ -444,21 +476,26 @@ function initProfileTabs() {
             (tagName === 'div' && element.querySelector('dl'))) {
           profileInfoElements.push(element);
         }
-        // Check if it's a diagram (h2 with mermaid, or mermaid element, or code with mermaid)
-        else if (tagName === 'h2' || 
+        // Check if it's a diagram (h2 that's not biography, or mermaid element, or code with mermaid)
+        else if ((tagName === 'h2' && element.getAttribute('id') && !element.getAttribute('id').includes('biography')) || 
                  className.includes('mermaid') || 
                  element.querySelector('.mermaid') || 
                  element.querySelector('mermaid') ||
                  (tagName === 'code' && element.textContent && element.textContent.includes('graph'))) {
           diagramElements.push(element);
         }
+        // Check if it's biography content (p, ul, ol, blockquote, etc.)
+        else if (tagName === 'p' || tagName === 'ul' || tagName === 'ol' || 
+                 tagName === 'blockquote' || tagName === 'div' || tagName === 'pre') {
+          biographyContent.push(element);
+        }
         else {
           otherElements.push(element);
         }
       });
       
-      // Move elements in order: profile info, other elements, diagrams
-      const sortedElements = profileInfoElements.concat(otherElements).concat(diagramElements);
+      // Move elements in order: profile info, diagrams, biography content, other
+      const sortedElements = profileInfoElements.concat(diagramElements).concat(biographyContent).concat(otherElements);
       
       // Remove any remaining placeholder text from biography pane
       const biographyHeading = biographyPane.querySelector('h2');
@@ -569,6 +606,12 @@ function initProfileTabs() {
     // Create inner tabs structure for chapters inside biography tab
     const chapterTabsContainer = document.createElement('div');
     chapterTabsContainer.className = 'chapter-tabs-container';
+    
+    // Add Biography heading
+    const biographyHeading = document.createElement('h2');
+    biographyHeading.className = 'biography-heading';
+    biographyHeading.textContent = 'Biography';
+    chapterTabsContainer.appendChild(biographyHeading);
     
     // Create chapter tabs header
     const chapterTabsHeader = document.createElement('div');
@@ -914,7 +957,7 @@ function initProfileTabs() {
         targetSlug = slug.replace(/_/g, '-').toLowerCase();
       }
       
-      return '<a href="#chapter=' + targetSlug + '" class="chapter-link" data-chapter-slug="' + targetSlug + '">' + displayText + '</a>';
+      return '<a href="javascript:void(0)" class="chapter-link" data-chapter-slug="' + targetSlug + '">' + displayText + '</a>';
     });
     
     // Headers

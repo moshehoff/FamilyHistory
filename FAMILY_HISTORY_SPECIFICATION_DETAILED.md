@@ -421,6 +421,45 @@ _**Author Name, Location, Date**_
 - רשימת הפרקים משתמשת ב-wikilinks עם תחביר: `[[filename-without-md|Display Name]]`
 - הקישורים יעבדו כפתרונות לחיצה ש פותחים את הפרקים בטאבים
 
+**תצוגה באתר**:
+
+כאשר פרופיל כולל ביוגרפיה מורחבת עם פרקים, התצוגה תהיה:
+
+```
+┌─────────────────────────────────────────┐
+│ Moshe משה Hoffman                       │ ← Page Title
+├─────────────────────────────────────────┤
+│ [📖 Biography] [🖼️ Gallery]             │ ← Main Tabs
+├─────────────────────────────────────────┤
+│ Birth: circa 1884...                    │ ← Profile Info
+│ Death: April 7, 1973...                 │
+│ ...                                     │
+├─────────────────────────────────────────┤
+│ ## Nuclear Family                       │ ← Diagrams
+│ [Mermaid diagram]                       │
+├─────────────────────────────────────────┤
+│ Biography                               │ ← Heading (h2)
+│ ─────────────────────────────────────   │
+│                                         │
+│ [📖 Introduction] [📄 In Russia]        │ ← Chapter Tabs
+│ [📄 Savran Pogrom] [📄 Trans-Siberian]  │   (Bold, colored,
+│                                         │    with backgrounds)
+├─────────────────────────────────────────┤
+│ ## MOSHE HOCHMAN Introduction           │ ← Chapter Content
+│                                         │
+│ [Biography text and images...]          │
+│                                         │
+└─────────────────────────────────────────┘
+```
+
+**עיצוב הטאבים של הפרקים**:
+- רקע: `#f5f5f5` (אפור בהיר)
+- גבול: `2px solid #ddd` + `border-radius: 8px 8px 0 0` (עגול מלמעלה)
+- פונט: `1rem`, `font-weight: 600`
+- צבע: `#555` (אפור כהה)
+- Hover: רקע `#e8e8e8`, `transform: translateY(-2px)` (הרמה קלה)
+- Active: רקע לבן, גבול צבעוני (secondary), `box-shadow`, `font-weight: 700`
+
 #### 3.3.3 סינטקס Markdown לכתיבת ביוגרפיות
 
 ##### שבירת שורות (Line Breaks)
@@ -583,7 +622,7 @@ _Moishe, however, served in his trade of wheelwright._ (related to Jack)
 3. **קבצי פרקים**: צור `01-chapter.md`, `02-chapter.md`, וכו'
 4. **תמונות**: העתק תמונות ל-`bios/I10/` עם שמות ברורים (למשל `img_savran_ukraine.png`)
 5. **הרצת Build**:
-   ```bash
+```bash
    python scripts/doit.py data/tree.ged
    ```
 6. **בדיקה**: `doit.py` יודפיס:
@@ -1032,7 +1071,7 @@ _A well known Perth publican was once..._
 
 _As a young man in his teens Morris..._
 
-</div>
+      </div>
 ```
 
 **Info Box (להערות)**:
@@ -1041,7 +1080,7 @@ _As a young man in his teens Morris..._
 
 **Comment:** The Russo-Japanese war started on 5.2.1904...
 
-</div>
+          </div>
 ```
 
 #### 6.1.4 קישורים
@@ -1142,13 +1181,13 @@ His father, Wolf was timber merchant.
 
 _A well known Perth publican..._
 
-</div>
-
+      </div>
+      
 <div class="info-box">
 
 **Comment:** The Russo-Japanese war started on 5.2.1904...
 
-</div>
+      </div>
 ```
 
 ---
@@ -1176,17 +1215,36 @@ _A well known Perth publican..._
 **קובץ**: `site/quartz/components/ProfileTabs.tsx`
 
 **תכונות**:
-- Two tabs: Biography, Gallery
+- Two main tabs: Biography, Gallery
 - Gallery tab hidden if no media
-- Content loaded dynamically from `media-index.json`
+- Content loaded dynamically from `media-index.json` and `chapters-index.json`
 - Re-initializes on SPA navigation (event `"nav"`)
+
+**Extended Biography with Chapters**:
+- If profile has chapters (in `bios/{ID}/` directory):
+  - Adds "Biography" heading (h2) above chapter tabs
+  - Creates nested chapter tabs inside Biography tab
+  - First tab: "📖 Introduction" (from `{ID}.md`)
+  - Additional tabs: "📄 Chapter Name" (from `##-chapter.md` files)
+  - Chapter content loaded dynamically on tab click
+  - Supports browser back/forward navigation between chapters
+  - Parses Markdown to HTML (headings, bold, italic, images, code blocks, lists)
+  - Supports wikilinks `[[chapter-slug|Display Text]]` for internal chapter navigation
+  - Supports `<div class="citation-box">` and `<div class="info-box">` for special content
 
 **Logic**:
 1. `afterDOMLoaded`: runs on initial page load
 2. Event listener for `"nav"`: runs on SPA navigation
-3. Reads `media-index.json` to check for media
-4. Hides Gallery tab if no media
-5. Switches between tabs on click
+3. `moveProfileTabsToArticle()`: moves tabs component into article
+4. `moveContentToBiographyTab()`: moves profile info and diagrams into Biography tab
+5. `loadChaptersIndex()`: fetches chapters-index.json if exists
+6. `createChapterTabs()`: creates nested chapter tabs dynamically
+7. `loadChapter()`: fetches and parses chapter Markdown content
+8. `displayChapter()`: renders chapter HTML with wikilinks as clickable chapter navigation
+9. `switchToChapter()`: manages chapter tab activation and URL hash updates
+10. `popstate` event listener: handles browser back/forward buttons
+11. `loadMedia()`: loads gallery images from media-index.json
+12. Switches between main tabs (Biography/Gallery) on click
 
 ### 7.3 ArticleTitle
 
