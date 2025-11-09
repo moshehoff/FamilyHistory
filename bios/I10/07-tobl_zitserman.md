@@ -29,13 +29,13 @@ The family name Zitserman (or Zaitserman) is derived from the Yiddish root “zi
 ![[Bershad-ghetto-1943.jpg]]
 
 
-![[Bershad-synagogue-1991.jpg.jpg]]
+![[Bershad-synagogue-1991.jpg]]
 
 
 ![[Bershad-synagogue-2004.jpg]]
 
 
-![[Bershad-synagogue-exterior-2006.jpg.jpg]]
+![[Bershad-synagogue-exterior-2006.jpg]]
 
 
 
@@ -62,7 +62,7 @@ The four photos above are:
 #  – דבר תורה לפרשת בלק
 
 ![[Bershad-synagogue-ceiling-2004.jpg]]
-![[frontispiece-Bershad-yizkor-book-1946.jpg.jpg]]
+![[frontispiece-Bershad-yizkor-book-1946.jpg]]
 
 
      I haven't found any period photos of Bershad. During the Second War it became an internment camp for Jews from the surroundings and from Moldava.  Apart from a synagogue, all communal property was destroyed. The appended photos of the extant synagogue are from about 2006.

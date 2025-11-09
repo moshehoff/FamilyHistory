@@ -2,15 +2,15 @@ FILE D
 
     The SCHARNHORST PASSENGER MANIFESTS
 
-      The masters of ships docking in Australian ports prepare passenger manifestos for the Department of Immigration. The Western Australian records are held in the archives in Victoria Park. The following photostats, are from that source.
+      The masters of ships docking in Australian ports prepare passenger manifestos for the Department of Immigration. The Western Australian records are held in the archives in Victoria Park. The following photostats, are from that source.
 
-![[Scharnhorst manifest 1 .jpeg]]
+![[Scharnhorst-manifest-1.jpeg]]
 
-        Page 1.  of Scharnhorst passenger arrivals, 25.4.1910.
+        Page 1.  of Scharnhorst passenger arrivals, 25.4.1910.
 
-![[Scharnhorst manifest 2 .jpeg]]
+![[Scharnhorst-manifest-2.jpeg]]
 
-         Page 2.  of Scharnhorst passenger arrivals, 25.4.1910.
+         Page 2.  of Scharnhorst passenger arrivals, 25.4.1910.
 
      note:        W. Hoffmann     Russian     Hebrew    M. 25    Port Said     Laborer
 
