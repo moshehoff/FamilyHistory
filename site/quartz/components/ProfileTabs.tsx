@@ -757,6 +757,20 @@ function initProfileTabs() {
       const newUrl = window.location.pathname + '#chapter=' + chapterSlug;
       history.pushState({ chapter: chapterSlug, tab: 'biography' }, '', newUrl);
     }
+    
+    // Scroll to the Biography heading (smooth scroll)
+    setTimeout(function() {
+      const biographyHeading = document.querySelector('.biography-heading');
+      if (biographyHeading) {
+        biographyHeading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        // Fallback: scroll to chapter tabs container
+        const chapterTabsContainer = document.querySelector('.chapter-tabs-container');
+        if (chapterTabsContainer) {
+          chapterTabsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    }, 100);
   }
   
   // Load chapter content
