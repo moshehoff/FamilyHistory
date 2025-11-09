@@ -1190,6 +1190,289 @@ _A well known Perth publican..._
       </div>
 ```
 
+### 6.3 כתיבת פרקים בביוגרפיות מורחבות - Guidelines
+
+#### 6.3.1 עקרונות כלליים
+
+כאשר כותבים ביוגרפיה מורחבת עם פרקים (`bios/{ID}/`), כל פרק צריך לעמוד בסטנדרטים עיצוביים אחידים כדי ליצור חוויה קריאה עקבית ומקצועית.
+
+**מבנה תיקייה**:
+```
+bios/
+  I10/
+    I10.md              # Introduction + Table of Contents
+    01-in_russia.md     # Chapter 1
+    02-savran_pogrom.md # Chapter 2
+    03-trans_siberian.md # Chapter 3
+    04-savran-to-fremantle.md # Chapter 4
+    img_savran_ukraine.png # Images for chapters
+    img_moishe_1909.png
+```
+
+#### 6.3.2 מבנה פרק
+
+כל פרק צריך להתחיל ב-**כותרת ראשית ברמה 2** (`##`):
+
+```markdown
+## Chapter Title Here
+
+First paragraph of content...
+```
+
+**אל תשתמשו ב-**:
+- ❌ `#` (רמה 1) - שמור רק לכותרת העמוד הראשית
+- ❌ `####` ומעלה (רמות 4+) - קשה לקריאה, השתמשו רק ב-`##` ו-`###`
+
+**תתי-כותרות**:
+```markdown
+## Main Chapter Title
+
+Content...
+
+### Subsection Title
+
+More content...
+
+### Another Subsection
+
+Even more content...
+```
+
+#### 6.3.3 כיתובי תמונות - פורמט אחיד
+
+**כל כיתוב תמונה חייב להיות בפורמט**: `**_TEXT_**` (bold + italic)
+
+**דוגמה נכונה**:
+```markdown
+![[img_savran_ukraine.png]]
+**_SAVRAN in THE UKRAINE (present day frontiers)._**
+
+![[img_moishe_1909.png]]
+**_1909 Moishe (on the right in the dark uniform) with a fellow soldier._**
+```
+
+**דוגמאות שגויות**:
+```markdown
+❌ ![[img.png]]_Caption_              # רק italic - לא מספיק
+❌ ![[img.png]]**Caption**            # רק bold - לא מספיק
+❌ ![[img.png]]**_Caption_            # חסר ** בסוף
+❌ ![[img.png]]
+   _Caption_                          # רווחים מיותרים בהתחלה
+```
+
+**חוק זהב**: כיתוב תמונה = `**_TEXT_**` תמיד!
+
+#### 6.3.4 רווחים ותזמון
+
+**הסרת רווחים מיותרים**:
+```markdown
+❌ לא טוב:
+   The Trans-Siberian Railroad was...     # רווחים בהתחלה
+     On the upper deck...                  # רווחים בהתחלה
+
+✅ טוב:
+The Trans-Siberian Railroad was...
+On the upper deck...
+```
+
+**רווחים בין אלמנטים**:
+```markdown
+## Chapter Title
+                              # שורה ריקה אחת
+First paragraph...
+                              # שורה ריקה אחת
+Second paragraph...
+                              # שורה ריקה אחת
+![[image.png]]
+**_Image caption_**
+                              # שורה ריקה אחת
+Next paragraph...
+```
+
+**כלל**: שורה ריקה **אחת** בין פסקאות, כותרות, תמונות.
+
+#### 6.3.5 קווי הפרדה (Separators)
+
+**פורמט נכון**:
+```markdown
+Content before separator...
+
+---
+
+Content after separator...
+```
+
+**פורמטים שגויים**:
+```markdown
+❌ **------------------------------------------------------------------------**
+❌ ***
+❌ ___
+❌    ---    # רווחים מיותרים
+```
+
+**כלל**: השתמשו רק ב-`---` (תקן Markdown).
+
+#### 6.3.6 קישורים
+
+**קישורים חיצוניים**:
+```markdown
+✅ טוב:
+[https://example.com](https://example.com)
+**Reference**: [Article Title](https://example.com)
+
+❌ לא טוב:
+[**https://example.com**](https://example.com)**C**  # כוכביות מיותרות
+```
+
+**קישורים פנימיים לפרקים** (בתוך Introduction):
+```markdown
+## Chapters
+
+1. [[01-in_russia|Moshe Hoffman In Russia]]
+2. [[02-savran_progrom|1917 Savran Pogrom]]
+3. [[03-trans_siberian|Trans Siberian Railway]]
+```
+
+**שימו לב**: השתמשו רק בשם הקובץ (ללא `bios/I10/`).
+
+#### 6.3.7 ציטוטים מעיתונים ומקורות
+
+**Citation Box** (למאמרים, מקורות היסטוריים):
+```markdown
+### This article came in from Lane Igoudin:
+
+<div class="citation-box">
+
+After 1905, the position of the Jewish soldiers in the army became precarious...
+
+The 1912 Statute had little impact on some 300,000 Jews who served...
+
+</div>
+
+#### Source:
+> [https://yivoencyclopedia.org/article.aspx/military_service_in_russia](...)
+```
+
+**Info Box** (להערות והסברים):
+```markdown
+<div class="info-box">
+
+**Comment:** The Russo-Japanese war started on 5.2.1904. The last major engagement was the naval battle of Tsushima on 27.5.1905.
+
+</div>
+```
+
+#### 6.3.8 ניקוי Metadata
+
+**הסירו metadata מיותר** מבלוגים או אתרים אחרים:
+
+```markdown
+❌ לא טוב:
+Posted by Euphman at 7:18 AM comments
+Last updated: 2023-05-15
+Tags: history, family
+
+✅ טוב:
+[הקפיצו ישירות לתוכן בלי metadata]
+```
+
+**רק אם יש מקור חשוב** - תנו קרדיט בתחתית:
+```markdown
+**Revised on 27.6.2024 PETER HOFFMAN**
+```
+
+#### 6.3.9 שימוש ב-Bold ו-Italic
+
+**Italic** (`_text_` או `*text*`):
+- ציטוטים קצרים: `_"related to Peter"_`
+- הערות אישיות: `_Moishe did not eat pork._`
+- מידע מהעבר: `_The Scharnhorst of 8,130 tons was built..._`
+
+**Bold** (`**text**`):
+- שמות מוסדות: `**Society for Adjustment of Jewish Emigration**`
+- מונחים חשובים: `**Comment:**`, `**Source:**`
+- כותרות משנה בתוך פסקאות
+
+**Bold + Italic** (`**_text_**`):
+- כיתובי תמונות (תמיד!)
+- הדגשה חזקה במיוחד
+
+#### 6.3.10 רשימות ומספור
+
+**רשימה ממוספרת**:
+```markdown
+1. First item
+2. Second item
+3. Third item
+```
+
+**רשימה עם bullets**:
+```markdown
+- First point
+- Second point
+- Third point
+```
+
+**Code Block** (לעצי משפחה ASCII):
+```markdown
+```
+Wolf & Beile Hochman
+│
+├─ 1. Shimon Me'ir (שמעון מאיר)
+├─ 2. Haim Yudl (חיים יהודה)
+└─ 10. Yisroel (ישראל)
+``` (ללא רווח לפני ה-```)
+```
+
+#### 6.3.11 דוגמה מלאה לפרק
+
+```markdown
+## MOSHE HOCHMAN - SAVRAN to FREMANTLE
+
+![[img_moishe.jpg]]
+
+On leaving, Moishe gave his uniform to his brother Sholem (who subsequently migrated to Pittsburgh, Pennsylvania).
+
+**_related to Peter_**
+
+_Since he took his uniform home he was clearly in the Army reserves liable to be called upon in time of emergency._
+
+Moishe's character – duty, selflessness, hard work, Jewish values – was formed in the crucible of Savran.
+
+In his years as a soldier he learned to be self sufficient, independent, and to seize opportunity as it presented itself.
+
+_From 1895 to 1917, all Jewish emigration was handled in Kiev by the **Society for Adjustment of Jewish Emigration**. Its records survived and have recently been opened for study._
+
+---
+
+![[img_odessa_harbour.png]]
+**_ODESSA HARBOUR_**
+
+Moishe's 17 years-old nephew Wolfe had been entrusted to his care and travelled with them.
+
+![[img_ndl_scharnhorst.png]]
+**_NDL SCHARNHORST_**
+
+They went to Port Said and boarded the _Scharnhorst_ (Norddeutscher Lloyd), a German vessel bound for Australia.
+
+**Revised on 27.6.2024 PETER HOFFMAN**
+```
+
+#### 6.3.12 Checklist לבדיקת פרק
+
+לפני שמסיימים לכתוב פרק, בדקו:
+
+- ✅ כותרת ראשית (`##`) קיימת ונכונה
+- ✅ כל כיתובי התמונות בפורמט `**_TEXT_**`
+- ✅ אין רווחים מיותרים בתחילת שורות
+- ✅ קווי הפרדה הם `---` (ולא כוכביות)
+- ✅ שורות ריקות בין פסקאות (אחת בלבד)
+- ✅ ציטוטים ב-`<div class="citation-box">` או `<div class="info-box">`
+- ✅ קישורים נקיים (ללא כוכביות מיותרות)
+- ✅ הוסר metadata מיותר מבלוגים
+- ✅ שימוש נכון ב-bold/italic/bold+italic
+- ✅ עקביות עם שאר הפרקים
+
 ---
 
 ## 7. רכיבים מותאמים אישית (Custom Components)
