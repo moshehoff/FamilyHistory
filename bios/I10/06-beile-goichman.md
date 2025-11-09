@@ -1,4 +1,7 @@
-       Downloaded from _Mindless meanderings_ (Euphman blog)
+
+## Beila Goichman
+
+	   \Downloaded from _Mindless meanderings_ (Euphman blog)
 
 Savran entrepreneurs list from Russian Empire Business Directories by 1913
 

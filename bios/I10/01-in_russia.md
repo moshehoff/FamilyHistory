@@ -1,4 +1,6 @@
-## Moishe and Tubb'l Hochman משה ויונה הוכמאן
+
+## In Russia
+### Moishe and Tubb'l Hochman משה ויונה הוכמאן
 
 Moishe was born in 1884 in Savran, in the guvernat of Podolia in the Russian Empire. From about 1920 the provinces were rearranged and Savran is now in the Odessa Oblast. Moishe was the eighth of the ten children of Wolf זאב  and Beile  ביילא  Hochman. The name Hochman is Yiddish for “tall.”
 
@@ -110,7 +112,7 @@ _Moishe learned the craft of the cartwright and wheelwright. The family would co
 
 Much later, in Perth Moishe repaired metal pub garden furniture, and barrels. In his spare time he did many of the repair jobs at the Brisbane St. shule. A steel laminex-topped table he made for Edith was in our home in Yokine. Hymie Hoffman told of seeing his father throwing a hot iron hoop around the sawn elements of a wooden wheel.
 
-## The Tsarist army
+### The Tsarist army
 
 About 1906 Moishe was conscripted into the Tsarist army. The terms of service were changed several times during the 19th and 20th centuries.  Immediately before the outbreak of World War I, the Imperial Government imposed compulsory service of three years for entrants to infantry and artillery regiments and four years for cavalry and engineers.
 

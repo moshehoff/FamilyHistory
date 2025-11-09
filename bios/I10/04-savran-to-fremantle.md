@@ -1,4 +1,4 @@
-## MOSHE HOCHMAN - SAVRAN to FREMANTLE
+## Savran to Fremantle
 
 ![[img_moishe.jpg]]
 

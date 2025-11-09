@@ -1,6 +1,5 @@
-FILE D
+## The Scharnhorst Passangers 
 
-    The SCHARNHORST PASSENGER MANIFESTS
 
       The masters of ships docking in Australian ports prepare passenger manifestos for the Department of Immigration. The Western Australian records are held in the archives in Victoria Park. The following photostats, are from that source.
 

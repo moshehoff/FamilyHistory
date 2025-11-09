@@ -1,4 +1,4 @@
-## The Trans-Siberian Railroad & LAKE BAIKAL
+## The Trans-Siberian Railroad & Lake Baikal
 
 The Trans-Siberian Railroad, from Saint Petersburg to Vladivostok was a project of Tsar Alexander III. Work was commenced in 1895, and except for two sections the line was completed by 1900, and regular train services commenced.
 

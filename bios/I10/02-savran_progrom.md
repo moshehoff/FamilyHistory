@@ -1,9 +1,11 @@
-## Article on the Savran Pogrom of 1917
+
+## The Savran Pogrom of 1917
 
 https://mindfullmeandering.blogspot.com/
 
-I am grateful to my cousin Ruby for translating this horrific document. I'm trying to track down the original citation.
+I am grateful to my cousin Ruby for translating this horrific document. I'm trying to track down the original citation:
 
+<div class="citation-box">
 ### Savran Pogrom
 
 Growing up, my grandmother told me stories of fleeing Ukraine in the wake of the Russian revolution to the relative safety of Bucharest, Romania. My grandmother's story was that during a pogrom in their home village of Savran, Ukraine she was hidden in an oven to avoid injury. The mental image of my grandmother in an oven puzzled me: was it like the oven in my New Jersey kitchen? Or the ovens of the Nazi camps?
@@ -43,8 +45,8 @@ If you will not return our people, we will slaughter you all. Petliura slaughter
 The Alliance of Destroyers."
 
 (These are the words of Savran refugees.) and pillaged the town Jews.
-
-## Comment
+</div>
+### Comment
 
 This account is of a series of pogroms in Savran during and after the Great War. There were many others there and in all the towns and villages, including Koschchevato, Olgopol, Chichinik. The brutality of the pogroms described here was common to all of them.
 
