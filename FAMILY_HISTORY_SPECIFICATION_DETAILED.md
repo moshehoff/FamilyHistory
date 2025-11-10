@@ -1958,6 +1958,54 @@ git checkout main
 
 **Live Site**: https://moshehoff.github.io/FamilyHistory/
 
+#### 9.2.11 Initial Setup - Completed ✅
+
+**Status**: Deployment infrastructure fully implemented (November 10, 2025)
+
+**What was completed:**
+
+1. **✅ GitHub Actions Workflow**
+   - Created `.github/workflows/deploy.yml`
+   - Configured to trigger on `production` branch pushes
+   - Verifies `site/public` exists before deploying
+   - Deploys to GitHub Pages automatically
+
+2. **✅ Quartz Configuration**
+   - Updated `site/quartz.config.ts` with correct `baseUrl`
+   - Set to: `"moshehoff.github.io/FamilyHistory"`
+
+3. **✅ Production Branch**
+   - Created `production` branch
+   - Built site with `doit.py` + `quartz build`
+   - Force-added `site/public/` directory
+   - Pushed to GitHub successfully
+   - First deployment triggered
+
+4. **✅ Documentation**
+   - Created comprehensive `DEPLOYMENT.md` guide
+   - Updated `README.md` with deployment section
+   - Updated this specification with full deployment details
+
+5. **⏳ Pending: GitHub Pages Settings**
+   - Need to verify repository settings at:
+     https://github.com/moshehoff/FamilyHistory/settings/pages
+   - Ensure "Source" is set to: **GitHub Actions**
+   - Wait for first deployment to complete (~30-60 seconds)
+   - Verify site is live at: https://moshehoff.github.io/FamilyHistory/
+
+**Next Steps for User:**
+1. Visit: https://github.com/moshehoff/FamilyHistory/actions
+2. Check that the "Deploy to GitHub Pages" workflow is running/completed
+3. If needed, go to repository Settings → Pages and set Source to "GitHub Actions"
+4. Once deployed, test the live site at: https://moshehoff.github.io/FamilyHistory/
+
+**Files Created/Modified:**
+- `.github/workflows/deploy.yml` (new)
+- `DEPLOYMENT.md` (new)
+- `README.md` (updated)
+- `site/quartz.config.ts` (updated)
+- `FAMILY_HISTORY_SPECIFICATION_DETAILED.md` (this file, updated)
+
 ---
 
 ## 10. מבנה קוד מפורט
