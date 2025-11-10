@@ -1,6 +1,8 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { classNames } from "../util/lang"
 
+import { pathToRoot } from "../util/path"
+
 export default (() => {
   const ProfileTabs: QuartzComponent = ({ displayClass, fileData }: QuartzComponentProps) => {
     // Extract profile ID from frontmatter
@@ -9,12 +11,15 @@ export default (() => {
     // Check if this is a profile page
     const isProfile = fileData.frontmatter?.type === "profile"
     
+    // Get base URL for fetching resources
+    const baseDir = pathToRoot(fileData.slug!)
+    
     if (!isProfile || !profileId) {
       return null
     }
 
     return (
-      <div class={classNames(displayClass, "profile-tabs")} data-profile-id={profileId}>
+      <div class={classNames(displayClass, "profile-tabs")} data-profile-id={profileId} data-base-url={baseDir}>
         <div class="tabs-header">
           <button class="tab-button active" data-tab="biography">
             📖 Biography
@@ -279,13 +284,14 @@ function initProfileTabs() {
   }
   
   const profileId = profileTabs.getAttribute('data-profile-id');
+  const baseUrl = profileTabs.getAttribute('data-base-url') || '';
   const tabButtons = document.querySelectorAll('.tab-button');
   const tabPanes = document.querySelectorAll('.tab-pane');
   const mediaTabButton = document.getElementById('media-tab-button');
   
   let mediaLoaded = false;
   
-  console.log('[ProfileTabs] Initializing, profileId:', profileId);
+  console.log('[ProfileTabs] Initializing, profileId:', profileId, 'baseUrl:', baseUrl);
   
   if (!profileId) {
     return;
@@ -293,7 +299,7 @@ function initProfileTabs() {
   
   // Load chapters index
   function loadChaptersIndex() {
-    fetch('/static/chapters-index.json')
+    fetch(baseUrl + 'static/chapters-index.json')
       .then(function(response) {
         if (!response.ok) {
           console.log('[ProfileTabs] No chapters index found');
@@ -321,7 +327,7 @@ function initProfileTabs() {
   
   // Check if profile has media content and show/hide the gallery tab accordingly
   function checkMediaContent() {
-    fetch('/static/media-index.json')
+    fetch(baseUrl + 'static/media-index.json')
       .then(function(response) {
         if (!response.ok) {
           console.log('[ProfileTabs] No media index found');
@@ -800,7 +806,7 @@ function initProfileTabs() {
     
     // Use filename if found, otherwise use slug
     var chapterFile = chapterFilename || (chapterSlug + '.md');
-    const chapterPath = '/static/chapters/' + profileId + '/' + chapterFile;
+    const chapterPath = baseUrl + 'static/chapters/' + profileId + '/' + chapterFile;
     console.log('[ProfileTabs] Loading chapter:', chapterPath, '(slug:', chapterSlug + ')');
     
     fetch(chapterPath + '?t=' + Date.now())
@@ -1101,9 +1107,9 @@ function initProfileTabs() {
       return;
     }
     
-    const basePath = '/static/documents/' + profileId + '/';
+    const basePath = baseUrl + 'static/documents/' + profileId + '/';
     
-    fetch('/static/media-index.json')
+    fetch(baseUrl + 'static/media-index.json')
       .then(function(response) {
         if (!response.ok) throw new Error('No media index');
         return response.json();

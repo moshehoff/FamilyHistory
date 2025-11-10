@@ -3,6 +3,7 @@ import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } fro
 import { classNames } from "../util/lang"
 
 const NavBar: QuartzComponent = ({ fileData, cfg, displayClass }: QuartzComponentProps) => {
+  const baseDir = pathToRoot(fileData.slug!)
   return (
     <nav class={classNames(displayClass, "navbar")}>
       <div class="navbar-container">
@@ -13,10 +14,10 @@ const NavBar: QuartzComponent = ({ fileData, cfg, displayClass }: QuartzComponen
         </button>
         
         <ul class="navbar-menu">
-          <li><a href="/">Home</a></li>
-          <li><a href="/pages/all-profiles">All Profiles</a></li>
-          <li><a href="/pages/profiles-of-interest">Profiles of Interest</a></li>
-          <li><a href="/pages/about">About</a></li>
+          <li><a href={baseDir}>Home</a></li>
+          <li><a href={`${baseDir}pages/all-profiles`}>All Profiles</a></li>
+          <li><a href={`${baseDir}pages/profiles-of-interest`}>Profiles of Interest</a></li>
+          <li><a href={`${baseDir}pages/about`}>About</a></li>
         </ul>
       </div>
     </nav>
