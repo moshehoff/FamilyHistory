@@ -49,8 +49,12 @@ jobs:
           ls -la scripts/doit.py || echo "ERROR: scripts/doit.py not found!"
           echo "Creating output directory if it doesn't exist..."
           mkdir -p site/content/profiles
+          echo "Checking if content directory exists..."
+          ls -la content/ || echo "ERROR: content directory not found!"
+          echo "Checking if bios directory exists..."
+          ls -la bios/ || echo "ERROR: bios directory not found!"
           cd scripts
-          python doit.py ../data/tree.ged -o ../site/content/profiles
+          python doit.py ../data/tree.ged -o ../site/content/profiles --src-content-dir ../content --bios-dir ../bios
       
       - name: Build site with Quartz
         run: |
