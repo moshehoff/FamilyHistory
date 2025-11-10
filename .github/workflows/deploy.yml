@@ -1,0 +1,49 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - production  # Only deploy when pushing to production branch
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout production branch
+        uses: actions/checkout@v4
+        with:
+          ref: production
+      
+      - name: Verify site/public exists
+        run: |
+          if [ ! -d "site/public" ]; then
+            echo "ERROR: site/public directory not found!"
+            echo "Make sure to build the site locally before pushing to production"
+            exit 1
+          fi
+          echo "✅ site/public found, proceeding with deployment"
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/public
+      
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+      
+      - name: Summary
+        run: |
+          echo "🚀 Deployment complete!"
+          echo "🌐 Site URL: https://moshehoff.github.io/FamilyHistory/"
+

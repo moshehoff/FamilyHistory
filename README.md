@@ -42,8 +42,31 @@ npx quartz build --serve
 - **עץ משפחתי אינטראקטיבי** עם קישורים
 - **תמיכה דו-לשונית** (עברית + אנגלית)
 
+## 🚀 Deployment
+
+This project uses a two-branch deployment strategy:
+
+- **`main`** - Development branch for all work-in-progress
+- **`production`** - Deployment branch that triggers GitHub Pages
+
+### Publishing Updates
+
+See **[DEPLOYMENT.md](DEPLOYMENT.md)** for full workflow and commands.
+
+**Live Site:** https://moshehoff.github.io/FamilyHistory/
+
+Quick reference:
+1. Work on `main` branch as usual
+2. When ready to publish:
+   - Build: `cd scripts && python doit.py && cd ../site && npx quartz build`
+   - Test locally: `npx quartz build --serve`
+   - Merge to production and push
+3. GitHub Actions automatically deploys in ~30-60 seconds
+
 ## תיעוד מלא
 
+- **`DEPLOYMENT.md`** - 🚀 מדריך deployment ל-GitHub Pages
+- **`FAMILY_HISTORY_SPECIFICATION_DETAILED.md`** - מפרט מלא של הפרויקט
 - **`WEEK1_IMPLEMENTATION.md`** - הוראות מפורטות שבוע 1
 - **`QUARTZ_SETUP.md`** - הסבר על ההתקנה החדשה (ללא submodule)
 

@@ -1621,7 +1621,7 @@ document.addEventListener("nav", () => {
 
 ### 9.1 .gitignore
 
-**קבצים שלא נכנסים ל-Git**:
+**קבצים שלא נכנסים ל-Git (על main branch)**:
 ```
 # Generated content
 site/content/profiles/*.md
@@ -1631,45 +1631,332 @@ site/content/*.png
 site/content/*.jpg
 
 # Build outputs
-site/public/
+site/public/              # ← עולה רק על production branch!
 site/.quartz-cache/
 
 # Generated data
 site/quartz/static/family-data.json
 site/quartz/static/media-index.json
 site/quartz/static/documents/
+site/quartz/static/chapters/
+site/quartz/static/chapters-index.json
 ```
 
 **קבצים שכן נכנסים ל-Git**:
 - `data/tree.ged` (GEDCOM source)
-- `bios/*.md` (biographies)
-- `bios/*.png`, `bios/*.jpg` (images in bios)
+- `bios/*.md` (biographies and chapters)
+- `bios/**/*.png`, `bios/**/*.jpg` (images in bios subdirectories)
 - `documents/` (media files)
 - `content/index.md`, `content/pages/` (static pages)
 - `site/quartz/` (Quartz code, components, styles)
 - `scripts/doit.py` (build script)
+- `.github/workflows/deploy.yml` (GitHub Actions workflow)
 
-### 9.2 Deployment Workflow
+### 9.2 Deployment Strategy - Two Branch Model
 
-```bash
-# 1. Make changes
-# Edit GEDCOM, bios, or static pages
+#### 9.2.1 Architecture Overview
 
-# 2. Build
-python scripts/doit.py data/tree.ged
+הפרויקט משתמש באסטרטגיית **שני branches**:
 
-# 3. Test locally
-cd site
-npx quartz build --serve
-# Visit http://localhost:8080
-
-# 4. Commit
-git add -A
-git commit -m "Description of changes"
-
-# 5. Push
-git push
 ```
+┌─────────────────────────────────────────────────────────────┐
+│  LOCAL MACHINE (C:\projects\V4)                            │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  [main branch]                                              │
+│  ├─ data/tree.ged          ← GEDCOM source                 │
+│  ├─ bios/*.md              ← Biography markdown files       │
+│  ├─ bios/I10/*.jpg         ← Images in subdirectories      │
+│  ├─ scripts/doit.py        ← Content generator             │
+│  ├─ site/quartz/           ← Quartz source code            │
+│  └─ site/content/          ← Generated content (tracked)   │
+│                                                             │
+│  [production branch]                                        │
+│  └─ site/public/           ← Built website (tracked)       │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+                              ↓ git push
+┌─────────────────────────────────────────────────────────────┐
+│  GITHUB (github.com/moshehoff/FamilyHistory)               │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  [main branch]          ← Development work                  │
+│  ├─ All source files                                        │
+│  └─ NOT deployed                                            │
+│                                                             │
+│  [production branch]    ← Ready for deployment             │
+│  ├─ All source files                                        │
+│  ├─ site/public/ (built website)                           │
+│  └─ ✅ Triggers GitHub Actions                             │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+                              ↓ GitHub Actions
+┌─────────────────────────────────────────────────────────────┐
+│  GITHUB PAGES                                               │
+│  https://moshehoff.github.io/FamilyHistory/                │
+│                                                             │
+│  ✅ Live website served to users                           │
+└─────────────────────────────────────────────────────────────┘
+```
+
+#### 9.2.2 Branch Roles
+
+| Branch | Purpose | Contains `site/public/`? | Triggers Deploy? |
+|--------|---------|-------------------------|------------------|
+| `main` | Development work, WIP commits | ❌ No | ❌ No |
+| `production` | Release-ready code | ✅ Yes (forced) | ✅ Yes |
+
+**Why Two Branches?**
+1. **Control**: You decide exactly when to publish
+2. **Safety**: Never accidentally deploy broken code
+3. **Flexibility**: Make many commits without affecting live site
+4. **Testing**: Always test locally before publishing
+
+#### 9.2.3 Daily Development Workflow
+
+**Scenario 1: Regular Development (No Deploy)**
+
+```powershell
+# Work on main branch as usual
+git checkout main
+
+# Edit files (GEDCOM, bios, code, etc.)
+# Make as many commits as you want
+
+git add .
+git commit -m "WIP: working on new feature"
+git push origin main  # ← Does NOT deploy to live site
+```
+
+**Scenario 2: Ready to Publish**
+
+```powershell
+# 1. Ensure you're on main and up-to-date
+git checkout main
+git pull
+
+# 2. Build the site
+cd scripts
+python doit.py
+cd ../site
+npx quartz build
+
+# 3. Test locally (CRITICAL!)
+npx quartz build --serve
+# Open http://localhost:8080
+# Verify everything works correctly
+# Press Ctrl+C when done
+
+# 4. Commit build results
+cd C:\projects\V4
+git add .
+git commit -m "build: ready for production $(Get-Date -Format 'yyyy-MM-dd')"
+git push origin main
+
+# 5. Merge to production
+git checkout production
+git merge main -m "deploy: describe your changes here"
+
+# 6. Force-add the public directory (normally ignored)
+git add -f site/public/
+git commit --amend --no-edit
+
+# 7. Push to production - this triggers deployment!
+git push origin production
+
+# 8. Return to main for continued work
+git checkout main
+
+# 9. Check deployment status
+# Go to: https://github.com/moshehoff/FamilyHistory/actions
+# Wait 30-60 seconds for completion
+# Visit: https://moshehoff.github.io/FamilyHistory/
+```
+
+**Scenario 3: Hotfix After Deploy**
+
+```powershell
+# Fix on main
+git checkout main
+# Make your fix...
+cd scripts && python doit.py
+cd ../site && npx quartz build
+cd C:\projects\V4
+
+git add .
+git commit -m "hotfix: description"
+git push origin main
+
+# Quick redeploy
+git checkout production
+git merge main
+git add -f site/public/
+git commit --amend --no-edit
+git push origin production
+
+git checkout main
+```
+
+#### 9.2.4 GitHub Actions Workflow
+
+**File**: `.github/workflows/deploy.yml`
+
+```yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - production  # Only deploy when pushing to production
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout production branch
+        uses: actions/checkout@v4
+        with:
+          ref: production
+      
+      - name: Verify site/public exists
+        run: |
+          if [ ! -d "site/public" ]; then
+            echo "ERROR: site/public not found!"
+            exit 1
+          fi
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/public
+      
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+```
+
+**How It Works:**
+1. Workflow triggers only on push to `production` branch
+2. Checks that `site/public/` exists (verification)
+3. Uploads `site/public/` directory as artifact
+4. Deploys to GitHub Pages
+5. Site live at: https://moshehoff.github.io/FamilyHistory/
+
+**Deployment Time**: ~30-60 seconds
+
+#### 9.2.5 GitHub Pages Configuration
+
+**Repository Settings** (one-time setup):
+1. Go to: https://github.com/moshehoff/FamilyHistory/settings/pages
+2. Under "Build and deployment" → Source: **GitHub Actions**
+3. Done! No other configuration needed.
+
+#### 9.2.6 Quartz Configuration
+
+**File**: `site/quartz.config.ts`
+
+```typescript
+const config: QuartzConfig = {
+  configuration: {
+    baseUrl: "moshehoff.github.io/FamilyHistory",  // ← GitHub Pages URL
+    // ... rest of config
+  },
+}
+```
+
+**Important**: The `baseUrl` must match your GitHub Pages URL for:
+- Correct asset paths (CSS, JS, images)
+- Proper internal links
+- SPA routing
+
+#### 9.2.7 Troubleshooting
+
+**Problem: Deployment Failed**
+```powershell
+# Check GitHub Actions log:
+# https://github.com/moshehoff/FamilyHistory/actions
+
+# Common causes:
+# 1. site/public/ not found → forgot to build before pushing
+# 2. Permission denied → check Pages settings
+```
+
+**Problem: Wrong Version Deployed**
+```powershell
+# Rollback to previous version
+git checkout production
+git reset --hard HEAD~1
+git push -f origin production
+git checkout main
+```
+
+**Problem: Need to Update production without deploying**
+```powershell
+# Merge code changes but don't add site/public/
+git checkout production
+git merge main --no-ff
+# Don't run: git add -f site/public/
+git push origin production  # ← Won't deploy (no site/public/)
+git checkout main
+```
+
+**Problem: Clear All Caches**
+```powershell
+cd C:\projects\V4\site
+Remove-Item -Recurse -Force .quartz-cache
+Remove-Item -Recurse -Force public
+npx quartz build
+```
+
+#### 9.2.8 Emergency Procedures
+
+**Take Site Offline Immediately**
+1. Go to: https://github.com/moshehoff/FamilyHistory/settings/pages
+2. Under "Source" → Select "None"
+3. Site will be offline within minutes
+
+**Rollback to Known Good Version**
+```powershell
+# Find the commit hash
+git log production --oneline
+
+# Reset to that commit
+git checkout production
+git reset --hard [commit-hash]
+git push -f origin production
+git checkout main
+```
+
+#### 9.2.9 Deployment Checklist
+
+**Before Every Deploy:**
+- [ ] Built site locally: `doit.py` + `quartz build`
+- [ ] Tested locally: `npx quartz build --serve`
+- [ ] Verified all images load
+- [ ] Checked console for errors (F12)
+- [ ] Navigation works correctly
+- [ ] Chapter tabs function properly
+- [ ] Links are not broken
+
+**After Deploy:**
+- [ ] Check Actions: https://github.com/moshehoff/FamilyHistory/actions
+- [ ] Visit site: https://moshehoff.github.io/FamilyHistory/
+- [ ] Test key features
+- [ ] Verify no 404 errors in browser console
+
+#### 9.2.10 Documentation
+
+**Full deployment guide**: See `DEPLOYMENT.md` for:
+- Detailed workflows
+- Common scenarios
+- Complete troubleshooting guide
+- Emergency procedures
+
+**Live Site**: https://moshehoff.github.io/FamilyHistory/
 
 ---
 
@@ -1973,13 +2260,23 @@ Line 2
 
 ## 16. היסטוריית גרסאות
 
-### v3.0 (נובמבר 2025) - Current
+### v3.1 (נובמבר 2025) - Current
+- ✅ **GitHub Pages Deployment** with two-branch strategy
+- ✅ Smooth scroll to chapter heading when switching tabs
 - ✅ Typography: Segoe UI 14px
 - ✅ Explorer: 14px font
 - ✅ Line breaks fix in Hebrew quotes
 - ✅ Image captions with `**_caption_**` format
 - ✅ ASCII art for children list
 - ✅ Blockquotes, citation boxes, info boxes styling
+- ✅ Extended biography chapters system with navigation
+
+### v3.0 (נובמבר 2025)
+- ✅ Biography chapters with tabs
+- ✅ Image handling from subdirectories
+- ✅ Chapter navigation with internal links
+- ✅ Blue links in biography content
+- ✅ Colored headings in chapters
 
 ### v2.0 (אוקטובר 2025)
 - ✅ Top navigation bar
