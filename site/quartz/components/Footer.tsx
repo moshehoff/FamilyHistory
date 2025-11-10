@@ -11,7 +11,13 @@ interface Options {
 // Get git commit hash at build time
 let gitHash = "unknown"
 try {
-  gitHash = execSync("git rev-parse --short HEAD").toString().trim()
+  // In GitHub Actions, use GITHUB_SHA environment variable
+  if (process.env.GITHUB_SHA) {
+    gitHash = process.env.GITHUB_SHA.substring(0, 7)
+  } else {
+    // Otherwise, try to get it from git
+    gitHash = execSync("git rev-parse --short HEAD", { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }).trim()
+  }
 } catch (e) {
   // If git is not available, use timestamp
   gitHash = Date.now().toString().slice(-6)
