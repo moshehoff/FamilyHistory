@@ -42,6 +42,11 @@ jobs:
       
       - name: Generate content with doit.py
         run: |
+          echo "Current directory: $(pwd)"
+          echo "Checking if data/tree.ged exists..."
+          ls -la data/tree.ged || echo "ERROR: data/tree.ged not found!"
+          echo "Checking if scripts/doit.py exists..."
+          ls -la scripts/doit.py || echo "ERROR: scripts/doit.py not found!"
           cd scripts
           python doit.py ../data/tree.ged -o ../site/content/profiles
       
