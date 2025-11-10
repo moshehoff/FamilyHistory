@@ -265,6 +265,34 @@ let tabButtonCleanups = [];
 let chaptersData = null;
 let loadedChapters = {}; // Cache for loaded chapter content
 
+// Helper function to join path segments correctly
+function joinSegments() {
+  var args = Array.prototype.slice.call(arguments);
+  if (args.length === 0) {
+    return "";
+  }
+  
+  var joined = args
+    .filter(function(segment) { return segment !== "" && segment !== "/"; })
+    .map(function(segment) { 
+      // Strip leading/trailing slashes
+      return segment.replace(/^\\/+|\\/+$/g, "");
+    })
+    .join("/");
+  
+  // if the first segment starts with a slash, add it back
+  if (args[0] && args[0].startsWith("/")) {
+    joined = "/" + joined;
+  }
+  
+  // if the last segment is a folder, add a trailing slash
+  if (args[args.length - 1] && args[args.length - 1].endsWith("/")) {
+    joined = joined + "/";
+  }
+  
+  return joined;
+}
+
 // Initialize profile tabs - runs on every navigation
 function initProfileTabs() {
   console.log('[ProfileTabs] initProfileTabs() called');
@@ -299,7 +327,7 @@ function initProfileTabs() {
   
   // Load chapters index
   function loadChaptersIndex() {
-    fetch(baseUrl + 'static/chapters-index.json')
+    fetch(joinSegments(baseUrl, 'static/chapters-index.json'))
       .then(function(response) {
         if (!response.ok) {
           console.log('[ProfileTabs] No chapters index found');
@@ -327,7 +355,7 @@ function initProfileTabs() {
   
   // Check if profile has media content and show/hide the gallery tab accordingly
   function checkMediaContent() {
-    fetch(baseUrl + 'static/media-index.json')
+    fetch(joinSegments(baseUrl, 'static/media-index.json'))
       .then(function(response) {
         if (!response.ok) {
           console.log('[ProfileTabs] No media index found');
@@ -806,7 +834,7 @@ function initProfileTabs() {
     
     // Use filename if found, otherwise use slug
     var chapterFile = chapterFilename || (chapterSlug + '.md');
-    const chapterPath = baseUrl + 'static/chapters/' + profileId + '/' + chapterFile;
+    const chapterPath = joinSegments(baseUrl, 'static/chapters', profileId, chapterFile);
     console.log('[ProfileTabs] Loading chapter:', chapterPath, '(slug:', chapterSlug + ')');
     
     fetch(chapterPath + '?t=' + Date.now())
@@ -1107,9 +1135,9 @@ function initProfileTabs() {
       return;
     }
     
-    const basePath = baseUrl + 'static/documents/' + profileId + '/';
+    const basePath = joinSegments(baseUrl, 'static/documents', profileId) + '/';
     
-    fetch(baseUrl + 'static/media-index.json')
+    fetch(joinSegments(baseUrl, 'static/media-index.json'))
       .then(function(response) {
         if (!response.ok) throw new Error('No media index');
         return response.json();

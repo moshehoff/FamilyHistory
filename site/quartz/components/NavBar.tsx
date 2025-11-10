@@ -1,4 +1,4 @@
-import { pathToRoot } from "../util/path"
+import { pathToRoot, joinSegments } from "../util/path"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { classNames } from "../util/lang"
 
@@ -15,9 +15,9 @@ const NavBar: QuartzComponent = ({ fileData, cfg, displayClass }: QuartzComponen
         
         <ul class="navbar-menu">
           <li><a href={baseDir}>Home</a></li>
-          <li><a href={`${baseDir}pages/all-profiles`}>All Profiles</a></li>
-          <li><a href={`${baseDir}pages/profiles-of-interest`}>Profiles of Interest</a></li>
-          <li><a href={`${baseDir}pages/about`}>About</a></li>
+          <li><a href={joinSegments(baseDir, "pages/all-profiles")}>All Profiles</a></li>
+          <li><a href={joinSegments(baseDir, "pages/profiles-of-interest")}>Profiles of Interest</a></li>
+          <li><a href={joinSegments(baseDir, "pages/about")}>About</a></li>
         </ul>
       </div>
     </nav>
