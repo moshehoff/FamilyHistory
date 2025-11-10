@@ -5,12 +5,18 @@ import { classNames } from "../util/lang"
 const NavBar: QuartzComponent = ({ fileData, cfg, displayClass }: QuartzComponentProps) => {
   const baseDir = pathToRoot(fileData.slug!)
   
-  // Helper to build proper paths
+  // Helper to build proper paths - ensure ./ prefix for relative paths
   const buildPath = (path: string) => {
     if (baseDir === ".") {
       return `./${path}`
     }
-    return joinSegments(baseDir, path)
+    // For non-root paths, use joinSegments but ensure proper relative prefix
+    const joined = joinSegments(baseDir, path)
+    // If result doesn't start with . or /, add ./
+    if (!joined.startsWith('.') && !joined.startsWith('/')) {
+      return `./${joined}`
+    }
+    return joined
   }
   
   return (
