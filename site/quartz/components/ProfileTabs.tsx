@@ -272,8 +272,9 @@ function joinSegments() {
     return "";
   }
   
+  // Filter out "." as it represents current directory and shouldn't be in the path
   var joined = args
-    .filter(function(segment) { return segment !== "" && segment !== "/"; })
+    .filter(function(segment) { return segment !== "" && segment !== "/" && segment !== "."; })
     .map(function(segment) { 
       // Strip leading/trailing slashes
       return segment.replace(/^\\/+|\\/+$/g, "");
@@ -288,6 +289,11 @@ function joinSegments() {
   // if the last segment is a folder, add a trailing slash
   if (args[args.length - 1] && args[args.length - 1].endsWith("/")) {
     joined = joined + "/";
+  }
+  
+  // if result is empty, return "./"
+  if (joined === "") {
+    return "./";
   }
   
   return joined;

@@ -4,6 +4,8 @@ import { classNames } from "../util/lang"
 
 const NavBar: QuartzComponent = ({ fileData, cfg, displayClass }: QuartzComponentProps) => {
   const baseDir = pathToRoot(fileData.slug!)
+  // Fix: if baseDir is ".", treat it as current directory for proper joining
+  const base = baseDir === "." ? "./" : baseDir
   return (
     <nav class={classNames(displayClass, "navbar")}>
       <div class="navbar-container">
@@ -15,9 +17,9 @@ const NavBar: QuartzComponent = ({ fileData, cfg, displayClass }: QuartzComponen
         
         <ul class="navbar-menu">
           <li><a href={baseDir}>Home</a></li>
-          <li><a href={joinSegments(baseDir, "pages/all-profiles")}>All Profiles</a></li>
-          <li><a href={joinSegments(baseDir, "pages/profiles-of-interest")}>Profiles of Interest</a></li>
-          <li><a href={joinSegments(baseDir, "pages/about")}>About</a></li>
+          <li><a href={joinSegments(base, "pages/all-profiles")}>All Profiles</a></li>
+          <li><a href={joinSegments(base, "pages/profiles-of-interest")}>Profiles of Interest</a></li>
+          <li><a href={joinSegments(base, "pages/about")}>About</a></li>
         </ul>
       </div>
     </nav>
