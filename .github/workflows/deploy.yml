@@ -47,6 +47,8 @@ jobs:
           ls -la data/tree.ged || echo "ERROR: data/tree.ged not found!"
           echo "Checking if scripts/doit.py exists..."
           ls -la scripts/doit.py || echo "ERROR: scripts/doit.py not found!"
+          echo "Creating output directory if it doesn't exist..."
+          mkdir -p site/content/profiles
           cd scripts
           python doit.py ../data/tree.ged -o ../site/content/profiles
       
