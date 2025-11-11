@@ -256,6 +256,152 @@ export default (() => {
     }
   }
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .profile-tabs {
+    margin: 1rem 0;
+  }
+  
+  .tabs-header {
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .tab-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    flex: 1;
+    text-align: center;
+  }
+  
+  .chapter-tabs-container {
+    margin: 1rem 0;
+  }
+  
+  .chapter-tabs-header {
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .chapter-tab-button {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Better text sizing for mobile */
+  .chapter-tab-pane {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    
+    h1 {
+      font-size: 1.5rem;
+      margin: 1rem 0 0.75rem;
+    }
+    
+    h2 {
+      font-size: 1.3rem;
+      margin: 0.9rem 0 0.6rem;
+    }
+    
+    h3 {
+      font-size: 1.1rem;
+      margin: 0.8rem 0 0.5rem;
+    }
+    
+    p {
+      margin: 0.75rem 0;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 1rem 0;
+    }
+  }
+  
+  /* Mermaid diagrams - make scrollable */
+  .mermaid {
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+    
+    svg {
+      max-width: none;
+      height: auto;
+    }
+  }
+  
+  /* Profile info box */
+  .profile-info-box {
+    margin: 0.75rem 0;
+    padding: 0.75rem;
+  }
+  
+  .profile-info-list {
+    font-size: 0.85rem;
+    
+    dt {
+      font-size: 0.8rem;
+    }
+    
+    dd {
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+  
+  /* Gallery grid - smaller on mobile */
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+  }
+  
+  /* Documents list - stack better */
+  .document-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.75rem;
+    gap: 0.5rem;
+    
+    .document-download {
+      align-self: stretch;
+      text-align: center;
+    }
+  }
+  
+  /* Reduce padding everywhere */
+  .loading-message,
+  .empty-message {
+    padding: 2rem 1rem;
+    font-size: 1rem;
+  }
+  
+  .media-section h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .tab-button {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.85rem;
+  }
+  
+  .chapter-tab-button {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.7rem;
+  }
+  
+  .chapter-tab-pane {
+    font-size: 0.9rem;
+  }
+}
 `
 
   ProfileTabs.afterDOMLoaded = `
