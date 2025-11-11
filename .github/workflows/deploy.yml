@@ -1,0 +1,68 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - production  # Only deploy when pushing to production branch
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      BASE_URL: moshehoff.github.io/FamilyHistory
+    
+    steps:
+      - name: Checkout production branch
+        uses: actions/checkout@v4
+        with:
+          ref: production
+          fetch-depth: 0  # Fetch full history for git operations
+      
+      - name: Verify pre-built site exists
+        run: |
+          if [ ! -d "site/public" ]; then
+            echo "❌ ERROR: site/public directory not found!"
+            echo "Please build the site locally before pushing to production:"
+            echo "  1. Run: cd scripts && python doit.py ..."
+            echo "  2. Run: cd site && npx quartz build"
+            echo "  3. Commit site/public/ and push"
+            exit 1
+          fi
+          echo "✅ Pre-built site found in site/public/"
+          echo "Checking if chapters are included..."
+          if [ -f "site/public/static/chapters-index.json" ]; then
+            echo "✅ chapters-index.json found"
+          else
+            echo "⚠️  WARNING: chapters-index.json not found in pre-built site"
+          fi
+          if [ -d "site/public/static/chapters" ]; then
+            echo "✅ chapters directory found"
+            echo "Chapter files:"
+            find site/public/static/chapters -type f -name "*.md" | head -5
+          else
+            echo "⚠️  WARNING: chapters directory not found in pre-built site"
+          fi
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/public
+      
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+      
+      - name: Summary
+        run: |
+          echo "🚀 Deployment complete!"
+          echo "🌐 Site URL: https://moshehoff.github.io/FamilyHistory/"
+          echo "ℹ️  Note: Site was deployed from pre-built files (no build on server)"
