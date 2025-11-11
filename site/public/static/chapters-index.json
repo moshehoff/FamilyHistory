@@ -1,0 +1,61 @@
+{
+  "I10": {
+    "profileName": "Moshe משה /Hoffman/",
+    "main": {
+      "slug": "introduction",
+      "name": "Introduction",
+      "title": "MOSHE HOCHMAN  Introduction",
+      "filename": "I10.md"
+    },
+    "chapters": [
+      {
+        "slug": "01-in-russia",
+        "name": "In Russia",
+        "title": "In Russia",
+        "filename": "01-in_russia.md"
+      },
+      {
+        "slug": "02-savran-progrom",
+        "name": "Savran Progrom",
+        "title": "The Savran Pogrom of 1917",
+        "filename": "02-savran_progrom.md"
+      },
+      {
+        "slug": "03-trans-siberian",
+        "name": "Trans Siberian",
+        "title": "The Trans-Siberian Railroad & Lake Baikal",
+        "filename": "03-trans_siberian.md"
+      },
+      {
+        "slug": "04-savran-to-fremantle",
+        "name": "Savran To Fremantle",
+        "title": "Savran to Fremantle",
+        "filename": "04-savran-to-fremantle.md"
+      },
+      {
+        "slug": "05-scharnhost-passangers",
+        "name": "Scharnhost Passangers",
+        "title": "The Scharnhorst Passengers",
+        "filename": "05-scharnhost_passangers.md"
+      },
+      {
+        "slug": "06-beile-goichman",
+        "name": "Beile Goichman",
+        "title": "Beila Goichman",
+        "filename": "06-beile-goichman.md"
+      },
+      {
+        "slug": "07-tobl-zitserman",
+        "name": "Tobl Zitserman",
+        "title": "Tobl Zitserman",
+        "filename": "07-tobl_zitserman.md"
+      },
+      {
+        "slug": "08-moshe-tobl-in-perth",
+        "name": "Moshe Tobl In Perth",
+        "title": "In Perth",
+        "filename": "08-moshe_tobl_in_perth.md"
+      }
+    ]
+  }
+}
