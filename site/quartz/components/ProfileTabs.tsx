@@ -269,8 +269,8 @@ export default (() => {
   }
   
   .tab-button {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
     flex: 1;
     text-align: center;
   }
@@ -285,8 +285,8 @@ export default (() => {
   }
   
   .chapter-tab-button {
-    padding: 0.4rem 0.6rem;
-    font-size: 0.75rem;
+    padding: 0.35rem 0.5rem;
+    font-size: 0.7rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -389,13 +389,13 @@ export default (() => {
 /* Extra small devices */
 @media (max-width: 480px) {
   .tab-button {
-    padding: 0.4rem 0.6rem;
-    font-size: 0.85rem;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.8rem;
   }
   
   .chapter-tab-button {
-    padding: 0.35rem 0.5rem;
-    font-size: 0.7rem;
+    padding: 0.3rem 0.4rem;
+    font-size: 0.65rem;
   }
   
   .chapter-tab-pane {
