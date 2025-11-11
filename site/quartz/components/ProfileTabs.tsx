@@ -264,15 +264,16 @@ export default (() => {
   }
   
   .tabs-header {
-    gap: 0.25rem;
-    margin-bottom: 1rem;
+    gap: 0.2rem;
+    margin-bottom: 0.75rem;
   }
   
   .tab-button {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.85rem;
+    padding: 0.3rem 0.3rem;
+    font-size: 0.68rem;
     flex: 1;
     text-align: center;
+    border-bottom: 2px solid transparent;
   }
   
   .chapter-tabs-container {
@@ -280,16 +281,21 @@ export default (() => {
   }
   
   .chapter-tabs-header {
-    gap: 0.25rem;
-    margin-bottom: 1rem;
+    gap: 0.15rem;
+    margin-bottom: 0.75rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.25rem;
   }
   
   .chapter-tab-button {
-    padding: 0.35rem 0.5rem;
-    font-size: 0.7rem;
+    padding: 0.15rem 0.25rem;
+    font-size: 0.95rem;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    flex-shrink: 0;
+    border-bottom: 2px solid transparent;
+    min-width: fit-content;
   }
   
   /* Better text sizing for mobile */
@@ -389,17 +395,25 @@ export default (() => {
 /* Extra small devices */
 @media (max-width: 480px) {
   .tab-button {
-    padding: 0.4rem 0.5rem;
-    font-size: 0.8rem;
+    padding: 0.25rem 0.3rem;
+    font-size: 0.65rem;
   }
   
   .chapter-tab-button {
-    padding: 0.3rem 0.4rem;
-    font-size: 0.65rem;
+    padding: 0.1rem 0.2rem;
+    font-size: 0.9rem;
   }
   
   .chapter-tab-pane {
     font-size: 0.9rem;
+  }
+  
+  .tabs-header {
+    gap: 0.15rem;
+  }
+  
+  .chapter-tabs-header {
+    gap: 0.1rem;
   }
 }
 `
@@ -437,6 +451,15 @@ function initProfileTabs() {
   const tabButtons = document.querySelectorAll('.tab-button');
   const tabPanes = document.querySelectorAll('.tab-pane');
   const mediaTabButton = document.getElementById('media-tab-button');
+  
+  // Remove emojis from main tabs on mobile
+  if (window.innerWidth <= 768) {
+    tabButtons.forEach(function(button) {
+      const text = button.textContent.trim();
+      // Remove emojis (📖, 🖼️) from button text
+      button.textContent = text.replace(/📖|🖼️/g, '').trim();
+    });
+  }
   
   let mediaLoaded = false;
   
@@ -782,7 +805,8 @@ function initProfileTabs() {
       mainButton.className = 'chapter-tab-button active';
       mainButton.setAttribute('data-chapter-tab', 'introduction');
       mainButton.setAttribute('data-chapter-slug', chapters.main.slug);
-      mainButton.textContent = '📖 Introduction';
+      // Remove emoji on mobile
+      mainButton.textContent = window.innerWidth <= 768 ? 'Introduction' : '📖 Introduction';
       chapterTabsHeader.appendChild(mainButton);
       
       const mainPane = document.createElement('div');
@@ -799,7 +823,8 @@ function initProfileTabs() {
       chapterButton.className = 'chapter-tab-button';
       chapterButton.setAttribute('data-chapter-tab', 'chapter-' + (index + 1));
       chapterButton.setAttribute('data-chapter-slug', chapter.slug);
-      chapterButton.textContent = '📄 ' + chapter.title;
+      // Remove emoji on mobile
+      chapterButton.textContent = window.innerWidth <= 768 ? chapter.title : '📄 ' + chapter.title;
       chapterTabsHeader.appendChild(chapterButton);
       
       const chapterPane = document.createElement('div');

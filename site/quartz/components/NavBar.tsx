@@ -105,19 +105,25 @@ NavBar.css = `
 
 /* Mobile Styles */
 @media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 1rem;
+  }
+  
   .navbar-toggle {
     display: flex;
+    z-index: 101;
   }
   
   .navbar-menu {
-    position: absolute;
+    position: fixed;
     top: 60px;
     left: 0;
     right: 0;
+    width: 100vw;
     background: var(--light);
     flex-direction: column;
     gap: 0;
-    padding: 1rem 0;
+    padding: 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     max-height: 0;
     overflow: hidden;
@@ -125,15 +131,19 @@ NavBar.css = `
   }
   
   .navbar-menu.active {
-    max-height: 300px;
+    max-height: 500px;
   }
   
   .navbar-menu li {
     padding: 0;
+    width: 100%;
   }
   
   .navbar-menu a {
-    padding: 0.75rem 1.5rem;
+    padding: 1rem 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
   }
   
   .navbar-menu a:hover {
