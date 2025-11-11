@@ -822,7 +822,7 @@ function initProfileTabs() {
       })
       .then(function(content) {
         // Parse Markdown to HTML (simple conversion)
-        const html = parseMarkdownToHTML(content, chaptersData, profileId);
+        const html = parseMarkdownToHTML(content, chaptersData, profileId, basePath);
         loadedChapters[chapterSlug] = html;
         displayChapter(chapterSlug, html);
       })
@@ -889,7 +889,7 @@ function initProfileTabs() {
   }
   
   // Simple Markdown to HTML parser (basic conversion)
-  function parseMarkdownToHTML(markdown, chaptersDataForLinks, profileIdForImages) {
+  function parseMarkdownToHTML(markdown, chaptersDataForLinks, profileIdForImages, basePathForImages) {
     var html = markdown;
     
     // Code blocks (triple backticks) - must be processed FIRST before any other Markdown
@@ -914,9 +914,10 @@ function initProfileTabs() {
       // Images are in site/content/ and served directly by Quartz
       // Replace both spaces AND underscores with dashes to match what doit.py copies
       var filenameWithDashes = filename.replace(/[ _]/g, '-');
-      // Images are always served from root (Quartz handles baseUrl automatically)
-      var imageSrc = '/' + filenameWithDashes;
-      var imageSrcWithSpaces = '/' + encodeURIComponent(filename);
+      // Use the basePath parameter if provided (from enclosing scope)
+      var imageBasePath = basePathForImages || '';
+      var imageSrc = imageBasePath + filenameWithDashes;
+      var imageSrcWithSpaces = imageBasePath + encodeURIComponent(filename);
       // Escape quotes properly for HTML attribute
       var escapedFilename = filename.replace(/"/g, '&quot;');
       // Try with spaces if dashes fail (fallback)

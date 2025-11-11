@@ -153,8 +153,9 @@ def build_mermaid_graph(pid, p, fams, name_of):
             lines.append(f'class {node} internal-link')
         # Add click handler for navigation
         # URL-encode the name for the path
+        # Use relative path (../profiles/) to support subdirectory deployment
         encoded_name = urllib.parse.quote(name.replace(" ", "-"))
-        lines.append(f'click {node} "/profiles/{encoded_name}" "{name}"')
+        lines.append(f'click {node} "../profiles/{encoded_name}" "{name}"')
         return node
     
     # Add the central person (highlighted)
@@ -242,7 +243,7 @@ def build_descendants_diagram(pid, p, individuals, fams, name_of):
         else:
             lines.append(f'class {node} internal-link')
         encoded_name = urllib.parse.quote(name.replace(" ", "-"))
-        lines.append(f'click {node} "/profiles/{encoded_name}" "{name}"')
+        lines.append(f'click {node} "../profiles/{encoded_name}" "{name}"')
         return node
     
     # Add the central person (highlighted)
@@ -338,7 +339,7 @@ def build_ancestors_diagram(pid, p, individuals, fams, name_of):
         else:
             lines.append(f'class {node} internal-link')
         encoded_name = urllib.parse.quote(name.replace(" ", "-"))
-        lines.append(f'click {node} "/profiles/{encoded_name}" "{name}"')
+        lines.append(f'click {node} "../profiles/{encoded_name}" "{name}"')
         return node
     
     # Add the central person (current profile)
