@@ -914,7 +914,7 @@ function initProfileTabs() {
       // Images are in site/content/ and served directly by Quartz
       // Replace both spaces AND underscores with dashes to match what doit.py copies
       var filenameWithDashes = filename.replace(/[ _]/g, '-');
-      // Use root path (Quartz serves content/ directly)
+      // Images are always served from root (Quartz handles baseUrl automatically)
       var imageSrc = '/' + filenameWithDashes;
       var imageSrcWithSpaces = '/' + encodeURIComponent(filename);
       // Escape quotes properly for HTML attribute
@@ -983,17 +983,53 @@ function initProfileTabs() {
       return '<a href="javascript:void(0)" class="chapter-link" data-chapter-slug="' + targetSlug + '">' + displayText + '</a>';
     });
     
+    // Store HTML blocks (img, a, pre, code tags) before processing bold/italic
+    // to prevent markdown processing inside HTML attributes
+    var htmlBlocks = [];
+    var htmlBlockIndex = 0;
+    
+    // Replace HTML blocks with placeholders (process each type separately for safety)
+    // First, replace img tags (self-closing)
+    html = html.replace(/<img[^>]*>/g, function(match) {
+      var placeholder = '___HTML_BLOCK_' + htmlBlockIndex + '___';
+      htmlBlocks[htmlBlockIndex] = match;
+      htmlBlockIndex++;
+      return placeholder;
+    });
+    
+    // Then replace other HTML tags (with content)
+    html = html.replace(/<(a|pre|code)([^>]*)>([\\s\\S]*?)<\\/\\1>/g, function(match) {
+      var placeholder = '___HTML_BLOCK_' + htmlBlockIndex + '___';
+      htmlBlocks[htmlBlockIndex] = match;
+      htmlBlockIndex++;
+      return placeholder;
+    });
+    
     // Headers
     html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
     html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
     html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
     
-    // Bold
-    html = html.replace(/\\*\\*(.*?)\\*\\*/g, '<strong>$1</strong>');
+    // Process bold and italic only in text segments (not in placeholders)
+    // Split by placeholders, process each segment, then rejoin
+    var segments = html.split(/(___HTML_BLOCK_\\d+___)/);
+    for (var i = 0; i < segments.length; i++) {
+      // Skip placeholders (they match the pattern ___HTML_BLOCK_N___)
+      if (!segments[i].match(/^___HTML_BLOCK_\\d+___$/)) {
+        // Bold
+        segments[i] = segments[i].replace(/\\*\\*(.*?)\\*\\*/g, '<strong>$1</strong>');
+        // Italic with *
+        segments[i] = segments[i].replace(/\\*(.*?)\\*/g, '<em>$1</em>');
+        // Italic with _ (but not underscores that are part of words/filenames)
+        segments[i] = segments[i].replace(/\\b_(.*?)_\\b/g, '<em>$1</em>');
+      }
+    }
+    html = segments.join('');
     
-    // Italic
-    html = html.replace(/\\*(.*?)\\*/g, '<em>$1</em>');
-    html = html.replace(/_(.*?)_/g, '<em>$1</em>');
+    // Restore HTML blocks
+    html = html.replace(/___HTML_BLOCK_(\\d+)___/g, function(match, index) {
+      return htmlBlocks[parseInt(index)];
+    });
     
     // Ordered lists (1. item, 2. item, etc.)
     var lines = html.split('\\n');
