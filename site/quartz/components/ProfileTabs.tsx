@@ -1,5 +1,6 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { classNames } from "../util/lang"
+import { pathToRoot } from "../util/path"
 
 export default (() => {
   const ProfileTabs: QuartzComponent = ({ displayClass, fileData }: QuartzComponentProps) => {
@@ -13,8 +14,11 @@ export default (() => {
       return null
     }
 
+    // Get base path for this page (relative path to root)
+    const basePath = pathToRoot(fileData.slug!)
+
     return (
-      <div class={classNames(displayClass, "profile-tabs")} data-profile-id={profileId}>
+      <div class={classNames(displayClass, "profile-tabs")} data-profile-id={profileId} data-base-path={basePath}>
         <div class="tabs-header">
           <button class="tab-button active" data-tab="biography">
             📖 Biography
@@ -279,13 +283,18 @@ function initProfileTabs() {
   }
   
   const profileId = profileTabs.getAttribute('data-profile-id');
+  let basePath = profileTabs.getAttribute('data-base-path') || '';
+  // Ensure basePath ends with / if it's not empty
+  if (basePath && !basePath.endsWith('/')) {
+    basePath = basePath + '/';
+  }
   const tabButtons = document.querySelectorAll('.tab-button');
   const tabPanes = document.querySelectorAll('.tab-pane');
   const mediaTabButton = document.getElementById('media-tab-button');
   
   let mediaLoaded = false;
   
-  console.log('[ProfileTabs] Initializing, profileId:', profileId);
+  console.log('[ProfileTabs] Initializing, profileId:', profileId, 'basePath:', basePath);
   
   if (!profileId) {
     return;
@@ -293,7 +302,7 @@ function initProfileTabs() {
   
   // Load chapters index
   function loadChaptersIndex() {
-    fetch('/static/chapters-index.json')
+    fetch(basePath + 'static/chapters-index.json')
       .then(function(response) {
         if (!response.ok) {
           console.log('[ProfileTabs] No chapters index found');
@@ -321,7 +330,7 @@ function initProfileTabs() {
   
   // Check if profile has media content and show/hide the gallery tab accordingly
   function checkMediaContent() {
-    fetch('/static/media-index.json')
+    fetch(basePath + 'static/media-index.json')
       .then(function(response) {
         if (!response.ok) {
           console.log('[ProfileTabs] No media index found');
@@ -800,7 +809,7 @@ function initProfileTabs() {
     
     // Use filename if found, otherwise use slug
     var chapterFile = chapterFilename || (chapterSlug + '.md');
-    const chapterPath = '/static/chapters/' + profileId + '/' + chapterFile;
+    const chapterPath = basePath + 'static/chapters/' + profileId + '/' + chapterFile;
     console.log('[ProfileTabs] Loading chapter:', chapterPath, '(slug:', chapterSlug + ')');
     
     fetch(chapterPath + '?t=' + Date.now())
@@ -1101,9 +1110,15 @@ function initProfileTabs() {
       return;
     }
     
-    const basePath = '/static/documents/' + profileId + '/';
+    const profileTabs = document.querySelector('.profile-tabs');
+    let pageBasePath = profileTabs ? profileTabs.getAttribute('data-base-path') || '' : '';
+    // Ensure pageBasePath ends with / if it's not empty
+    if (pageBasePath && !pageBasePath.endsWith('/')) {
+      pageBasePath = pageBasePath + '/';
+    }
+    const documentsBasePath = pageBasePath + 'static/documents/' + profileId + '/';
     
-    fetch('/static/media-index.json')
+    fetch(pageBasePath + 'static/media-index.json')
       .then(function(response) {
         if (!response.ok) throw new Error('No media index');
         return response.json();
@@ -1132,12 +1147,12 @@ function initProfileTabs() {
           images.forEach(function(img) {
             const item = document.createElement('div');
             item.className = 'gallery-item';
-            item.innerHTML = '<img src="' + basePath + img.filename + '" alt="' + (img.caption || '') + '">' +
+            item.innerHTML = '<img src="' + documentsBasePath + img.filename + '" alt="' + (img.caption || '') + '">' +
                             (img.caption ? '<div class="image-caption">' + img.caption + '</div>' : '');
             
             // Click to open full size
             item.addEventListener('click', function() {
-              window.open(basePath + img.filename, '_blank');
+              window.open(documentsBasePath + img.filename, '_blank');
             });
             
             galleryGrid.appendChild(item);
@@ -1163,7 +1178,7 @@ function initProfileTabs() {
                             '<div class="document-name">' + (doc.title || doc.filename) + '</div>' +
                             '<div class="document-meta">' + (doc.description || '') + '</div>' +
                             '</div>' +
-                            '<a href="' + basePath + doc.filename + '" download class="document-download">Download</a>';
+                            '<a href="' + documentsBasePath + doc.filename + '" download class="document-download">Download</a>';
             
             docsList.appendChild(item);
           });

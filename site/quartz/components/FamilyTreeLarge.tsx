@@ -1,18 +1,20 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { classNames } from "../util/lang"
+import { pathToRoot } from "../util/path"
 
 export default (() => {
   const FamilyTreeLarge: QuartzComponent = ({ displayClass, fileData }: QuartzComponentProps) => {
     // Only show on profile pages
     const isProfile = fileData.frontmatter?.type === "profile"
     const profileId = fileData.frontmatter?.ID as string | undefined
+    const basePath = pathToRoot(fileData.slug!)
     
     if (!isProfile) {
       return null
     }
 
     return (
-      <div class={classNames(displayClass, "family-tree-large")} data-profile-id={profileId}>
+      <div class={classNames(displayClass, "family-tree-large")} data-profile-id={profileId} data-base-path={basePath}>
         <h3>🌳 עץ משפחתי גדול</h3>
         
         <div class="tree-controls">
@@ -37,14 +39,19 @@ export default (() => {
 console.log('[TREE DEBUG 1] FamilyTreeLarge script loaded');
 
 const profileId = '${profileId}';
-console.log('[TREE DEBUG 2] Profile ID:', profileId);
+let basePath = '${basePath}';
+// Ensure basePath ends with / if it's not empty
+if (basePath && !basePath.endsWith('/')) {
+  basePath = basePath + '/';
+}
+console.log('[TREE DEBUG 2] Profile ID:', profileId, 'basePath:', basePath);
 
 async function loadAndRenderTree() {
   console.log('[TREE DEBUG 3] Starting loadAndRenderTree');
   
   try {
-    console.log('[TREE DEBUG 4] Fetching /static/family-data.json');
-    const response = await fetch('/static/family-data.json');
+    console.log('[TREE DEBUG 4] Fetching', basePath + 'static/family-data.json');
+    const response = await fetch(basePath + 'static/family-data.json');
     console.log('[TREE DEBUG 5] Response status:', response.status);
     
     if (!response.ok) {
