@@ -243,6 +243,32 @@ article, .tab-pane {
   max-width: 658px !important; // 5% wider than 627px
   margin: 0 auto;
   
+  // Hebrew/RTL text - manual override with CSS class or inline styles
+  // For now, use dir="auto" behavior  
+  p {
+    direction: inherit;
+    unicode-bidi: -webkit-plaintext;
+    unicode-bidi: -moz-plaintext;
+    unicode-bidi: plaintext;
+    text-align: start;
+  }
+  
+  // Italic/emphasis tags in Hebrew
+  em {
+    unicode-bidi: -webkit-plaintext;
+    unicode-bidi: -moz-plaintext;
+    unicode-bidi: plaintext;
+  }
+  
+  // Standalone strong tags (like "פרקי אבות")
+  > strong {
+    display: block;
+    unicode-bidi: -webkit-plaintext;
+    unicode-bidi: -moz-plaintext;  
+    unicode-bidi: plaintext;
+    text-align: start;
+  }
+  
   // Chapter links (internal navigation between chapters)
   .chapter-link {
     color: var(--secondary);
@@ -257,6 +283,23 @@ article, .tab-pane {
 
 // Links and styling in chapter content
 .chapter-tab-pane, .chapter-tabs-content {
+  // Hebrew/RTL text auto-detection (same as article/tab-pane)
+  p {
+    unicode-bidi: plaintext;
+    text-align: start;
+  }
+  
+  em, strong {
+    unicode-bidi: plaintext;
+  }
+  
+  // Standalone strong/em tags (not inside p) should also align
+  > strong, > em {
+    display: block;
+    unicode-bidi: plaintext;
+    text-align: start;
+  }
+  
   // Regular links (make them blue like profile links)
   a:not(.chapter-link) {
     color: #0066cc !important;
