@@ -1649,27 +1649,47 @@ site/quartz/static/documents/
 - `site/quartz/` (Quartz code, components, styles)
 - `scripts/doit.py` (build script)
 
-### 9.2 Deployment Workflow
+### 9.2 Deployment Workflow (Pre-Built Deployment)
+
+**עקרון**: האתר נבנה **לוקלית** ו-`site/public/` מועלה ל-GitHub Pages. GitHub Pages רק מפרסם את האתר הבנוי, לא בונה אותו.
 
 ```bash
 # 1. Make changes
 # Edit GEDCOM, bios, or static pages
 
-# 2. Build
+# 2. Build content
 python scripts/doit.py data/tree.ged
 
-# 3. Test locally
+# 3. Build Quartz site
 cd site
+npx quartz build
+# (לא --serve אלא אם רוצים לבדוק לוקלית)
+
+# 4. Test locally (אופציונלי)
 npx quartz build --serve
 # Visit http://localhost:8080
+# בדוק שהכל עובד כראוי (במיוחד במובייל!)
 
-# 4. Commit
+# 5. Commit ALL changes (including site/public/)
+cd ..
 git add -A
+# site/public/ ב-.gitignore, אבל git add -A מוסיף אותו בכל זאת
 git commit -m "Description of changes"
 
-# 5. Push
-git push
+# 6. Push to production branch
+git push origin production
 ```
+
+**חשוב**: 
+- ✅ `site/public/` חייב להיות ב-commit (למרות ש-.gitignore מתעלם ממנו)
+- ✅ GitHub Actions workflow (`.github/workflows/deploy.yml`) מעלה את `site/public/` ישירות
+- ✅ לא צריך Python/Node.js בשרת - הכל כבר בנוי לוקלית
+- ✅ deployment מהיר (30 שניות במקום 2-3 דקות)
+
+**למה Pre-Built?**
+1. פשוט יותר - רק העתקה של תיקיה
+2. אמין יותר - בדיקה לוקלית לפני העלאה
+3. פותר באגים - פרקים, תמונות, וכל התוכן נבדקים לפני העלאה
 
 ---
 
@@ -1839,6 +1859,84 @@ class {current_id} current
 ```python
 click {node_id} "/profiles/{encoded_name}" "Person Name"
 ```
+
+### 11.4 אופטימיזציה למובייל (Mobile Responsive Design)
+
+**מטרה**: חוויית משתמש מיטבית במכשירים ניידים (smartphones, tablets)
+
+#### 11.4.1 טאבים קומפקטיים
+
+**בעיה**: טאבים גדולים מדי במובייל, לא נכנסים בשורה אחת
+
+**פתרון**:
+```scss
+/* ProfileTabs.tsx - Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .tab-button {
+    padding: 0.3rem 0.3rem;  /* צמוד לטקסט */
+    font-size: 0.68rem;      /* טקסט קטן */
+  }
+  
+  .chapter-tab-button {
+    padding: 0.15rem 0.25rem; /* ממש צמוד */
+    font-size: 0.95rem;       /* כמו טקסט הביוגרפיה */
+  }
+}
+```
+
+**הסרת אימוג'ים**: במובייל, אימוג'ים (📖, 🖼️, 📄) מוסרים כדי לחסוך מקום
+```javascript
+// ProfileTabs.tsx - afterDOMLoaded
+if (window.innerWidth <= 768) {
+  tabButtons.forEach(function(button) {
+    button.textContent = button.textContent.replace(/📖|🖼️/g, '').trim();
+  });
+}
+```
+
+#### 11.4.2 תוכן ברוחב מלא
+
+**בעיה**: תוכן מוגבל ל-658px, מבזבז מקום במובייל
+
+**פתרון**:
+```scss
+/* custom.scss */
+@media (max-width: 768px) {
+  article, .tab-pane {
+    max-width: 100% !important;  /* רוחב מלא */
+    padding: 1rem !important;    /* padding קטן */
+    margin: 0 !important;
+  }
+}
+```
+
+#### 11.4.3 תפריט ניווט משופר
+
+**בעיה**: תפריט המבורגר צר מדי, חותך טקסט
+
+**פתרון**:
+```scss
+/* NavBar.tsx */
+@media (max-width: 768px) {
+  .navbar-menu {
+    position: fixed;
+    width: 100vw;       /* רוחב מלא המסך */
+    max-height: 500px;  /* גובה מספיק */
+  }
+}
+```
+
+#### 11.4.4 תמונות וריווחים
+
+**אופטימיזציה**:
+- תמונות: `padding: 4px` (במקום 8px)
+- מרווחים: כל gap/margin/padding מופחת ב-30-40%
+- גלילה אופקית: טאבי פרקים ארוכים ניתנים לגלילה
+
+**קבצים מעורבים**:
+- `site/quartz/components/ProfileTabs.tsx` - טאבים ו-JavaScript
+- `site/quartz/components/NavBar.tsx` - תפריט ניווט
+- `site/quartz/styles/custom.scss` - CSS כללי
 
 ---
 
