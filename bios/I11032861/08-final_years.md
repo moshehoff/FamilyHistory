@@ -22,7 +22,7 @@ This little interview with Mr. Hoffman shows that there is likely to be consider
 
 </div>
 
-Hyam's second son, Aliyashiv was born at their home at the wine shop on 5.2.1911. Rivka, Hyam's eldest daughter married Aahron Bar Cohen abt. 1912. The groom was a Kaganovitch, a cousin of Lazar Moiseevitch Kaganovitch a leading Bolshevik who ultimately became Stalin's minister for industry during the Second World War.
+Hyam's second son, [[Elyashiv Hoffman|Aliyashiv]] was born at their home at the wine shop on 5.2.1911. [[Rivka Bar Cohen|Rivka]], Hyam's eldest daughter married Aahron Bar Cohen abt. 1912. The groom was a Kaganovitch, a cousin of Lazar Moiseevitch Kaganovitch a leading Bolshevik who ultimately became Stalin's minister for industry during the Second World War.
 
 Hyam's status in the community may be appreciated from the following note in THE WEST AUSTRALIAN of 15.7.1911. The choice of pallbearers was not a random matter. The others named were stalwarts of the community and respected men.
 
@@ -32,7 +32,7 @@ FUNERAL. The funeral of the late Mr. David Aarons, son of Mr. and Mrs. A. Aarons
 
 </div>
 
-Hyam and Sarah planned to return to Palestine in 1914. They had bought their ship's passage, however Hyam died suddenly before their sailing. His death was reported in the Kalgoorlie Western Argus.
+Hyam and [[Sara Hochman|Sarah]] planned to return to Palestine in 1914. They had bought their ship's passage, however Hyam died suddenly before their sailing. His death was reported in the Kalgoorlie Western Argus.
 
 <div class="citation-box">
 
@@ -56,7 +56,7 @@ A Sudden Death - The adjourned inquest touching the death of Hyam Hoffman, who c
 
 ---
 
-My grandfather, Morris, told me about his brother' death. He said that the ship was to sail on the morrow, and that he and Hyam had been conversing on a park bench in the Supreme Court Gardens. He took his leave from Hyam and walked off. After a while a man came running up and exclaimed "were you sitting with a fellow on the bench over there?.... he's dead." According to my grandfather, Sarah and her children Wolfe, Shulamit, Rosa and Aliyashiv did sail to Palestine the following day.
+My grandfather, [[Moshe משה Hoffman|Morris]], told me about his brother' death. He said that the ship was to sail on the morrow, and that he and Hyam had been conversing on a park bench in the Supreme Court Gardens. He took his leave from Hyam and walked off. After a while a man came running up and exclaimed "were you sitting with a fellow on the bench over there?.... he's dead." According to my grandfather, [[Sara Hochman|Sarah]] and her children [[Wolfe Hochman|Wolfe]], [[Shulamit Hochman|Shulamit]], [[Rosa Aron|Rosa]] and [[Elyashiv Hoffman|Aliyashiv]] did sail to Palestine the following day.
 
 Hyam is buried at Karrakatta. His epitaph reads:
 

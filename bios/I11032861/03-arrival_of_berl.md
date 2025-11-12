@@ -1,10 +1,10 @@
 ## Arrival of Berl Hochman (1904-1907)
 
-On the 24th August 1904 Berl Hochman, Hyam Yudl's nephew joined him in Perth.
+On the 24th August 1904 [[Berl Hochman]], Hyam Yudl's nephew joined him in Perth.
 
-Berl had sailed from Port Said to Fremantle on the Norddeutscher ship Stuttgart.
+[[Berl Hochman|Berl]] had sailed from Port Said to Fremantle on the Norddeutscher ship Stuttgart.
 
-On arrival he changed his name to Hoffman, and learned English, which he eventually spoke without an accent. Hyam Yudl didn't employ Berl, but he must have recommended the young man to his fellows, because Berl's first job was with David Bloomfield a fruiterer in Southern Cross. After about 12 months Berl returned to Perth and got a job with the firm Silbert and Sharp that was a major fruit provisioner from Kalgoorlie to Leonora in the eastern goldfields.
+On arrival he changed his name to Hoffman, and learned English, which he eventually spoke without an accent. Hyam Yudl didn't employ [[Berl Hochman|Berl]], but he must have recommended the young man to his fellows, because [[Berl Hochman|Berl]]'s first job was with David Bloomfield a fruiterer in Southern Cross. After about 12 months [[Berl Hochman|Berl]] returned to Perth and got a job with the firm Silbert and Sharp that was a major fruit provisioner from Kalgoorlie to Leonora in the eastern goldfields.
 
 David Bloomfield (1877-1943) was the father of Gordon and his sibs.
 
@@ -16,7 +16,7 @@ They came to Western Australia in 1894 and continued business, very successfully
 
 Joseph Sharp became a president of the Perth Hebrew Congregation.
 
-Berl's naturalization application states that he resided "between Leonora and Lawlers". This job lasted about 2 years. In 1907 he took up land at Wickepin and alone, by axe, cleared 150 acres, and commenced farming.
+[[Berl Hochman|Berl]]'s naturalization application states that he resided "between Leonora and Lawlers". This job lasted about 2 years. In 1907 he took up land at Wickepin and alone, by axe, cleared 150 acres, and commenced farming.
 
 Leonora is a town in the goldfields of Western Australia, located 518 miles northeast of Perth, and 147 miles north of the city of Kalgoorlie.
 

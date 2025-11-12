@@ -1,10 +1,10 @@
 ## Arrival of Hyam Yudl Hochman in Australia (1901-1904)
 
-Hyam and Sarah, and their children Rivka, Shulamis and Wolfe travelled to Port Said and boarded an Orient Line vessel, the Austral, bound from England to Australia.
+Hyam and [[Sara Hochman|Sarah]], and their children [[Rivka Bar Cohen|Rivka]], [[Shulamit Hochman|Shulamis]] and [[Wolfe Hochman|Wolfe]] travelled to Port Said and boarded an Orient Line vessel, the Austral, bound from England to Australia.
 
 They disembarked at Fremantle on 20.2.1901.
 
-A daughter, Rose was born in 1903. She was the first Australian-born child in the family. Otherwise the first records I have of Hyam Yudl in Perth are from 1904. He was a prominent member of the Zionist Club, and there must be more information about him in the Perth Hebrew Congregation records, but I have not searched them. His first employment is not known.
+A daughter, [[Rosa Aron|Rose]] was born in 1903. She was the first Australian-born child in the family. Otherwise the first records I have of Hyam Yudl in Perth are from 1904. He was a prominent member of the Zionist Club, and there must be more information about him in the Perth Hebrew Congregation records, but I have not searched them. His first employment is not known.
 
 In 1904 the family lived at 200 Roe St. That address is just a little east of the Milligan St. corner. Until 1958 the north side of Roe St. from Milligan St. to the Horseshoe Bridge was Perth's red light district. Hyam's daily stroll to and from work would have taken him in front of all the houses.
 
