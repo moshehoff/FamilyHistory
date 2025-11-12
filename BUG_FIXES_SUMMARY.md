@@ -1,0 +1,23 @@
+# סיכום תיקוני באגים - מ-commit 9d79d5d עד עכשיו
+
+## באג #1: baseUrl לא נכון ב-GitHub Pages
+ה-baseUrl לא היה מוגדר נכון, מה שגרם לבעיות בנתיבים ובניווט ב-GitHub Pages. תוקן ה-baseUrl ל-`moshehoff.github.io/FamilyHistory` (ללא פרוטוקול, כפי שדורש Quartz) בכמה commits עוקבים עד שהגיע לפורמט הנכון (`f334108`, `186d371`, `342a5b3`, `0ca199c`, `c11a232`, `f3c320a`).
+
+## באג #2: נתיבי ניווט לא עובדים ב-GitHub Pages
+קישורי הניווט (navbar) לא עבדו ב-GitHub Pages בגלל בעיות בנתיבים היחסיים. שונה הקוד להשתמש ב-`joinSegments` ו-`pathToRoot` כדי ליצור נתיבים יחסיים נכונים שעובדים גם ב-localhost וגם ב-GitHub Pages עם sub-path (`25c3acd`, `ace7d4e`, `898db89`, `5e406c4`, `4efb5a7`).
+
+## באג #3: טעינת ביוגרפיות לא עובדת ב-GitHub Pages
+הפרקים של הביוגרפיות לא נטענו ב-GitHub Pages בגלל בעיות בנתיבים. תוקנו הנתיבים לטעינת הפרקים כך שיעבדו עם ה-baseUrl הנכון ב-GitHub Pages (`f3c320a`, `c11a232`, `4efb5a7`, `5e406c4`).
+
+## באג #4: GitHub Actions workflow לא מריץ build
+ה-workflow לא כלל שלב build, מה שגרם לכשל ב-deployment. הוסף שלב build ל-workflow שרץ `npx quartz build` (`43723d7`).
+
+## באג #5: GitHub Actions - בעיות עם doit.py
+ה-workflow לא כלל הרצה של `doit.py` ליצירת התוכן, וגם היו בעיות עם נתיבים וארגומנטים. הוספו שלבים ל-workflow: התקנת Python, הרצת `doit.py` עם כל הארגומנטים הנכונים (`--src-content-dir`, `--bios-dir`), ויצירת תיקיות נדרשות לפני הרצה (`0f0afc6`, `6fb26a3`, `a4c9c7f`, `9e6bdcb`).
+
+## באג #6: GitHub Actions - בעיות עם Node.js ו-npm
+גרסת Node.js לא הייתה תואמת, ו-`package-lock.json` לא היה ב-git, מה שגרם לבעיות בהתקנת תלויות. עודכנה גרסת Node.js ל-22, ו-`package-lock.json` נוסף ל-git. בנוסף, הוסר npm cache כדי לפתור בעיות resolution (`3ba18c7`, `63a8b89`, `ed29048`).
+
+## באג #7: פרקי הביוגרפיה לא מופיעים ב-GitHub Pages
+הפרקים (chapters) של הביוגרפיות הופיעו ב-localhost אבל לא ב-GitHub Pages, למרות שהאתר נבנה בהצלחה. הפרקים נוצרו על ידי `doit.py` ב-`site/quartz/static/chapters/` אבל לא היה ברור אם הם מועתקים ל-`site/public/static/chapters/` במהלך ה-build בשרת. הוספנו שלבי בדיקה (verification steps) ל-GitHub Actions workflow כדי לזהות איפה הבעיה, ובנוסף שינינו את ה-workflow כך שהוא יעלה את האתר שכבר נבנה לוקלית (`site/public/`) במקום לבנות אותו מחדש בשרת, מה שפותר את הבעיה כי הפרקים כבר נבנים ונבדקים לוקלית לפני ההעלאה (`bb2ef69`, `ee757da`).
+
