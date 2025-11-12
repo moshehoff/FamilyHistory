@@ -16,7 +16,7 @@ At the Coroner's Court yesterday afternoon before Mr. A. W. Collett deputy coron
 
 **Bella Hoffman.**
 
-[[Tobl Hochman (Hoffman)|Toba Hoffman]], residing with her husband. at 411 Wellington street, said that she was in the habit of bathing her child every day, and on the day in question she took the hot water into the bedroom and went into the kitchen for the purpose of securing cold water. She took the child with her, but it wandered away, and she next heard a cry from the bedroom. Hurrying there she found the baby standing in the water and trying to climb out of the tub. Her husband took it to the Children's Hospital, where it died a couple of days afterwards. Dr. Gordon gave evidence regarding the admission of the child to the Children's Hospital, and declared that death was due to shock caused by scalds. The jury returned a verdict that the infant came to its death as the result of shock caused by accidental scalding.
+[Toba Hoffman](/profiles/Tobl-Hochman-%28Hoffman%29), residing with her husband. at 411 Wellington street, said that she was in the habit of bathing her child every day, and on the day in question she took the hot water into the bedroom and went into the kitchen for the purpose of securing cold water. She took the child with her, but it wandered away, and she next heard a cry from the bedroom. Hurrying there she found the baby standing in the water and trying to climb out of the tub. Her husband took it to the Children's Hospital, where it died a couple of days afterwards. Dr. Gordon gave evidence regarding the admission of the child to the Children's Hospital, and declared that death was due to shock caused by scalds. The jury returned a verdict that the infant came to its death as the result of shock caused by accidental scalding.
 
 After sitting on the case of Pearl Aurisch, the jury added as a rider:
 
@@ -28,7 +28,7 @@ Bella Hoffman is buried at Karrakatta in the old section, not far from the ohel,
 
 ---
 
-On 27.4.1918 [[Tobl Hochman (Hoffman)|Tobl]] gave birth to her second son Hymen Juda (by his birth certificate) at their home at 22-24 Monger St. He was named after his uncle Hyam who had welcomed [[Moshe משה Hoffman|Morris]] in his adopted land, and who had "bequeathed" him such a good-going business that he too would be wealthy within about four years. Hyam's name was commemorated in the chosen names of other infants.
+On 27.4.1918 [Tobl](/profiles/Tobl-Hochman-%28Hoffman%29) gave birth to her second son Hymen Juda (by his birth certificate) at their home at 22-24 Monger St. He was named after his uncle Hyam who had welcomed [Morris](/profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman) in his adopted land, and who had "bequeathed" him such a good-going business that he too would be wealthy within about four years. Hyam's name was commemorated in the chosen names of other infants.
 
 According to a newspaper notification in The West Australian of 1.4.1933 the property in Monger St. was registered in Tob'l's name.
 
@@ -38,11 +38,11 @@ I, Hereby Withdraw my Property, Nos. 22-24 Monger-st., Perth, from sale of all a
 
 </div>
 
-When she acquired the property, or whether [[Moshe משה Hoffman|Morris]] had it transferred to her I don't know. Either way it was a device to limit his liabilities.
+When she acquired the property, or whether [Morris](/profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman) had it transferred to her I don't know. Either way it was a device to limit his liabilities.
 
 ---
 
-1914 [[Sara Hochman|Sarah Hoffman]], with her three younger children ([[Wolfe Hochman|Wolfe]], [[Rosa Aron|Rosa]] and [[Elyashiv Hoffman|Eli [Aliyashiv]]]) had returned to Rehovot, and their home on their land in Ezra Street. In November 1917 British forces entered Rehovot during their campaign to conquer Ottoman Palestine. The ANZACs who were stationed in the area were popular with the Jewish settlement. This amusing tale came to light during my research. The girl concerned was Rosa (then aged about 15 years).
+1914 [Sarah Hoffman](/profiles/Sara-Hochman), with her three younger children ([Wolfe](/profiles/Wolfe-Hochman), [Rosa](/profiles/Rosa-Aron) and [Eli \[Aliyashiv\]](/profiles/Elyashiv-Hoffman)) had returned to Rehovot, and their home on their land in Ezra Street. In November 1917 British forces entered Rehovot during their campaign to conquer Ottoman Palestine. The ANZACs who were stationed in the area were popular with the Jewish settlement. This amusing tale came to light during my research. The girl concerned was Rosa (then aged about 15 years).
 
 <div class="citation-box">
 
@@ -70,7 +70,7 @@ The daughter of the house smiled. "Why," she said, "you may have it as a gift, b
 
 This chapter has encompassed the first twenty years of our history in Australia (1901 – 1920), during which the heads of family, viz:
 
-Hyam Yuda, [[Berl Hochman|Berl]], [[Yisrael Hochman|Israel]], [[Moshe משה Hoffman|Morris]], [[Wolfe Hochman|Wolfe]], and Hershl
+Hyam Yuda, [Berl](/profiles/Berl-Hochman), [Israel](/profiles/Yisrael-Hochman), [Morris](/profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman), [Wolfe](/profiles/Wolfe-Hochman), and Hershl
 
 had all had "gone their own ways", and were established in the community at large.
 

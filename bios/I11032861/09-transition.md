@@ -1,8 +1,8 @@
 ## Transition (1914-1916)
 
-Hyam had intended that his brother [[Moshe משה Hoffman|Morris]] take over the wine shop. [[Moshe משה Hoffman|Morris]] had to obtain a wine licence, so in the interim [[Berl Hochman|Berl]] was temporary licensee. The two were in some sort of partnership from February 1914 until March 1915. Sarah Hoffman, Hyam's widow had in some manner become the holder of the Australian Wine Licence.
+Hyam had intended that his brother [Morris](/profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman) take over the wine shop. Morris had to obtain a wine licence, so in the interim [Berl](/profiles/Berl-Hochman) was temporary licensee. The two were in some sort of partnership from February 1914 until March 1915. Sarah Hoffman, Hyam's widow had in some manner become the holder of the Australian Wine Licence.
 
-[[Sara Hochman|SARAH HOFFMAN]], of Wellington street, Perth, being the Licensee of the premises known as The Westralia Fruit Palace, at No. 411 Wellington-street, Perth, do hereby make APPLICATION for a TRANSFER of the Rights and Privileges of the Australian Wine Licence held by me in respect of the said premises, to [[Berl Hochman|BORIS HOFFMAN]], of Wellington-street, Perth, and , the said Boris Hoffman do hereby concur in such application, and request that the said transfer may be made. Dated this 24th day of February, 1914.
+[SARAH HOFFMAN](/profiles/Sara-Hochman), of Wellington street, Perth, being the Licensee of the premises known as The Westralia Fruit Palace, at No. 411 Wellington-street, Perth, do hereby make APPLICATION for a TRANSFER of the Rights and Privileges of the Australian Wine Licence held by me in respect of the said premises, to [BORIS HOFFMAN](/profiles/Berl-Hochman), of Wellington-street, Perth, and , the said Boris Hoffman do hereby concur in such application, and request that the said transfer may be made. Dated this 24th day of February, 1914.
 
 NOTICE is hereby given that the PARTNERSHIP hitherto existing between MORRIS HOFFMAN and BORIS HOFFMAN. carrying on business at 411 Welling ton-st.. Perth, under the name, style., or firm of "Hoffman and Co.," has been DISSOLVED by mutual consent as from the date hereof the said Morris Hoffman will take over the whole of the assets and pay the liabilities of the late Firm.
 
@@ -14,9 +14,9 @@ All three of the above matters were handled for the family by Morris Crawcour. s
 
 THE ESTATE OF HYAM HOCHMAN (usually known as HYAM HOFFMAN) was handled by Judah Moss Solomon, solicitor, at Surrey Chambers, St George's Terrace. The co-executor was Joseph Sharp, a president of the Perth Hebrew Congregation.
 
-Subsequent to these agreements, and the licence transfer, [[Moshe משה Hoffman|Morris]] was an independent businessman. [[Berl Hochman|Boris]] had his own interests in Westonia.
+Subsequent to these agreements, and the licence transfer, [Morris](/profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman) was an independent businessman. [Boris](/profiles/Berl-Hochman) had his own interests in Westonia.
 
-[[Moshe משה Hoffman|Moshe]], [[Tobl Hochman (Hoffman)|Tobl]] and little Harry had moved into the two family rooms at "411". Soon after, in August 1915, [[Tobl Hochman (Hoffman)|Tobl]] was delivered of a daughter, whom she named Bella after a grandmother.
+[Moshe](/profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman), [Tobl](/profiles/Tobl-Hochman-%28Hoffman%29) and little Harry had moved into the two family rooms at "411". Soon after, in August 1915, Tobl was delivered of a daughter, whom she named Bella after a grandmother.
 
 About this time Australia entered the war, and railway station and the Port of Fremantle saw an enormous flux of soldiers passing through, and departing for Egypt on the frequent reinforcement transports. Trade at the restaurant and wine shop must have boomed, but there were problems with disorderly soldiers which made the headlines. The Wellington Street riots occurred on Thursday 20.1.1916.
 
@@ -56,7 +56,7 @@ A policeman found Morris and some soldiers sitting behind the wine saloon imbibi
 
 ---
 
-on #### 1916, [[Yisrael Hochman|Israel Hoffman]] married [[Rachel Hochman|Rachel Zelzer]] (our auntie Rae, later in Cottesloe). [[Rachel Hochman|Rachel]]'s parents were Emil and Gittel. Their marriage was celebrated by the reverent Lechovski, and the other witness was Morris Ferstat.
+on #### 1916, [Israel Hoffman](/profiles/Yisrael-Hochman) married [Rachel Zelzer](/profiles/Rachel-Hochman) (our auntie Rae, later in Cottesloe). Rachel's parents were Emil and Gittel. Their marriage was celebrated by the reverent Lechovski, and the other witness was Morris Ferstat.
 
 Their first child, Bertha Evelyn was born on #### 1917.
 
@@ -66,5 +66,5 @@ This section is unfinished.
 
 Arrival of Rivka Sisselman
 
-[[Rivka Hochman|Rivka]] was sent from Palestine to be [[Berl Hochman|Berl]]'s bride. Mrs Swartz made the wedding frock and the couple were duly married in 1908 in the Perth Synagogue. [[Berl Hochman|Berl]] and [[Rivka Hochman|Rivka]] then returned to Wickepin. In 1909 their first child Mina was born there. In 1910 the family left the Wickepin farm and returned to Perth. On his return to Perth, [[Berl Hochman|Berl]] immediately started work at Gallop Gardens on the Swan River foreshore in Nedlands. The family resided on the property.
+[Rivka](/profiles/Rivka-Hochman) was sent from Palestine to be [Berl](/profiles/Berl-Hochman)'s bride. Mrs Swartz made the wedding frock and the couple were duly married in 1908 in the Perth Synagogue. Berl and Rivka then returned to Wickepin. In 1909 their first child Mina was born there. In 1910 the family left the Wickepin farm and returned to Perth. On his return to Perth, Berl immediately started work at Gallop Gardens on the Swan River foreshore in Nedlands. The family resided on the property.
 
