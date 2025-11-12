@@ -1,15 +1,15 @@
 ---
 type: profile
 title: Bella Hoffman
-ID: I13
+ID: I40779121
 ---
 <div class="profile-info-box">
 <dl class="profile-info-list">
-<dt>Birth:</dt><dd> at <a href="https://en.wikipedia.org/wiki/Perth,_Western_Australia">Perth, WA, Australia</a></dd>
-<dt>Death:</dt><dd>1917 at <a href="https://en.wikipedia.org/wiki/Perth,_Western_Australia">Perth, WA, Australia</a></dd>
+<dt>Birth:</dt><dd></dd>
+<dt>Death:</dt><dd></dd>
 <dt>Occupation:</dt><dd>—</dd>
-<dt>Parents:</dt><dd><a href="/profiles/Moshe%20%D7%9E%D7%A9%D7%94%20Hoffman">Moshe משה Hoffman</a>, <a href="/profiles/Tobl%20Hochman%20%28Hoffman%29">Tobl Hochman (Hoffman)</a></dd>
-<dt>Siblings:</dt><dd><a href="/profiles/Aaron%20Harry%20%D7%90%D7%94%D7%A8%D7%95%D7%9F%20Hoffman">Aaron Harry אהרון Hoffman</a>, <a href="/profiles/Hyman%20Judah%20Hoffman">Hyman Judah Hoffman</a>, <a href="/profiles/Wolf%20Hoffman">Wolf Hoffman</a>, <a href="/profiles/Alyce%20Breazeale">Alyce Breazeale</a>, <a href="/profiles/Jack%20Hoffman">Jack Hoffman</a></dd>
+<dt>Parents:</dt><dd><a href="/profiles/Hershl%20Hochman">Hershl Hochman</a>, <a href="/profiles/Ruchel%20Hoffman">Ruchel Hoffman</a></dd>
+<dt>Siblings:</dt><dd><a href="/profiles/Bruce%20Boruch%20Hoffman">Bruce Boruch Hoffman</a>, <a href="/profiles/Ben%20Benzion%20Hoffman">Ben Benzion Hoffman</a>, <a href="/profiles/Nate%20Hoffman">Nate Hoffman</a>, <a href="/profiles/Rose%20Lazarus">Rose Lazarus</a>, <a href="/profiles/Hammy%20Nehemiah%20Hoffman">Hammy Nehemiah Hoffman</a></dd>
 <dt>Spouse:</dt><dd>—</dd>
 <dt>Children:</dt><dd>—</dd>
 <dt>Notes:</dt><dd>Created by: https://www.geni.com/api/user-1208372</dd>
@@ -24,19 +24,19 @@ flowchart TD
 classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
 classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
 classDef current fill:#bbdefb,stroke:#1976d2,stroke-width:3px;
-idI13["Bella Hoffman"]
-class idI13 current
-click idI13 "../profiles/Bella-Hoffman" "Bella Hoffman"
-idI10["Moshe משה Hoffman"]
-class idI10 internal-link
-click idI10 "../profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman" "Moshe משה Hoffman"
-idI11["Tobl Hochman (Hoffman)"]
-class idI11 internal-link
-click idI11 "../profiles/Tobl-Hochman-%28Hoffman%29" "Tobl Hochman (Hoffman)"
-marriage_idF3((" "))
-idI10 --- marriage_idF3
-idI11 --- marriage_idF3
-marriage_idF3 --> idI13
+idI40779121["Bella Hoffman"]
+class idI40779121 current
+click idI40779121 "../profiles/Bella-Hoffman" "Bella Hoffman"
+idI39965497["Hershl Hochman"]
+class idI39965497 internal-link
+click idI39965497 "../profiles/Hershl-Hochman" "Hershl Hochman"
+idI40778657["Ruchel Hoffman"]
+class idI40778657 internal-link
+click idI40778657 "../profiles/Ruchel-Hoffman" "Ruchel Hoffman"
+marriage_idF13934435((" "))
+idI39965497 --- marriage_idF13934435
+idI40778657 --- marriage_idF13934435
+marriage_idF13934435 --> idI40779121
 ```
 
 ## Ancestors (up to 2 Gen.)
@@ -45,19 +45,29 @@ flowchart TD
 classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
 classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
 classDef current fill:#bbdefb,stroke:#1976d2,stroke-width:3px;
-idI13["Bella Hoffman"]
-class idI13 current
-click idI13 "../profiles/Bella-Hoffman" "Bella Hoffman"
-idI10["Moshe משה Hoffman"]
-class idI10 internal-link
-click idI10 "../profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman" "Moshe משה Hoffman"
-idI11["Tobl Hochman (Hoffman)"]
-class idI11 internal-link
-click idI11 "../profiles/Tobl-Hochman-%28Hoffman%29" "Tobl Hochman (Hoffman)"
-marriage_idF3((" "))
-idI10 --- marriage_idF3
-idI11 --- marriage_idF3
-marriage_idF3 --> idI13
+idI40779121["Bella Hoffman"]
+class idI40779121 current
+click idI40779121 "../profiles/Bella-Hoffman" "Bella Hoffman"
+idI39965497["Hershl Hochman"]
+class idI39965497 internal-link
+click idI39965497 "../profiles/Hershl-Hochman" "Hershl Hochman"
+idI40778657["Ruchel Hoffman"]
+class idI40778657 internal-link
+click idI40778657 "../profiles/Ruchel-Hoffman" "Ruchel Hoffman"
+marriage_idF13934435((" "))
+idI39965497 --- marriage_idF13934435
+idI40778657 --- marriage_idF13934435
+marriage_idF13934435 --> idI40779121
+idI11060285["Shimon Meir מאיר Hochman"]
+class idI11060285 internal-link
+click idI11060285 "../profiles/Shimon-Meir-%D7%9E%D7%90%D7%99%D7%A8-Hochman" "Shimon Meir מאיר Hochman"
+idI39965332["Bracha Hochman"]
+class idI39965332 internal-link
+click idI39965332 "../profiles/Bracha-Hochman" "Bracha Hochman"
+marriage_idF13655502((" "))
+idI11060285 --- marriage_idF13655502
+idI39965332 --- marriage_idF13655502
+marriage_idF13655502 --> idI39965497
 ```
 
 ## Descendants (up to 2 Gen.)
@@ -66,7 +76,7 @@ flowchart TD
 classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
 classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
 classDef current fill:#bbdefb,stroke:#1976d2,stroke-width:3px;
-idI13["Bella Hoffman"]
-class idI13 current
-click idI13 "../profiles/Bella-Hoffman" "Bella Hoffman"
+idI40779121["Bella Hoffman"]
+class idI40779121 current
+click idI40779121 "../profiles/Bella-Hoffman" "Bella Hoffman"
 ```

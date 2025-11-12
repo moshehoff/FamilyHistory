@@ -28,7 +28,7 @@ _(**A Short Travel Guide for Jewish Tourists**, Kadima Publishers, Vilno 1911. F
 
 **Revised on 27.6.2024 PETER HOFFMAN**
 
-![[bios/I10/img_odessa_harbour.png]]
+![[bios/I11052340/img_odessa_harbour.png]]
 **_ODESSA HARBOUR_**
 
 Moishe's 17 years-old nephew Wolfe (the son of Josef), had been entrusted to his care and travelled with them. From Jaffa they went to Ramla, to be precise, to Sarafand al'Amar to visit his brother Shimon Me'ir.
@@ -39,14 +39,14 @@ Their Russian passports were confiscated by the Ottoman authorities, and they re
 
 _(from a statement by Wolfe Hoffman in the Australian Archives)._
 
-![[bios/I10/img_ndl_scharnhorst.png]]
+![[bios/I11052340/img_ndl_scharnhorst.png]]
 **_NDL SCHARNHORST_**
 
 They went to Port Said (probably by sea) and boarded the _Scharnhorst_ (Norddeutscher Lloyd), a German vessel out of Bremen bound for Australia. They travelled third class in steerage, which was a communal dormitory/living quarters shared by hundreds of poor passengers.
 
 _The Scharnhorst of 8,130 tons was built in Geestemünde, Germany in 1904. The vessel plied the route Bremen – Antwerp – Southampton – Algiers - Genoa – Naples – Port Said – Aden – Colombo – Fremantle – Adelaide – Melbourne – Sydney. She was what is termed an emigrant ship. Most of the Jewish immigrants to Perth from Russia and from Palestine who came out before the Great War travelled in steerage on Norddeutscher ships._
 
-![[bios/I10/img_hochman_rouble.png]]
+![[bios/I11052340/img_hochman_rouble.png]]
 **_The HOCHMAN ROUBLE_**
 
 The Scharnhorst docked at Fremantle a few minutes after 11 a.m. on the 25.4.1910, the second day of Pesach י"ג באייר - פסח שני בחו"ל just two days before Moishe's twenty-sixth birthday (Gregorian date).
@@ -59,10 +59,10 @@ Tubb'l had a samovar, and a porcelain tea service.
 
 A single cup and a saucer have survived these hundred years.
 
-![[bios/I10/img_hochman_teacup.png]]
+![[bios/I11052340/img_hochman_teacup.png]]
 **_The HOCHMAN TEACUP_**
 
-![[bios/I10/img_fremantle_cliff_st.png]]
+![[bios/I11052340/img_fremantle_cliff_st.png]]
 **_The Cliff St entrance to Victoria Quay, Fremantle, abt 1907._**
 
 The passenger steamers are moored at Victoria Quay, and the sailing ships at the North Wharf.

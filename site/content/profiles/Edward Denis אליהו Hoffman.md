@@ -1,7 +1,7 @@
 ---
 type: profile
 title: Edward Denis אליהו Hoffman
-ID: I7
+ID: I38516763
 ---
 <div class="profile-info-box">
 <dl class="profile-info-list">
@@ -24,19 +24,19 @@ flowchart TD
 classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
 classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
 classDef current fill:#bbdefb,stroke:#1976d2,stroke-width:3px;
-idI7["Edward Denis אליהו Hoffman"]
-class idI7 current
-click idI7 "../profiles/Edward-Denis-%D7%90%D7%9C%D7%99%D7%94%D7%95-Hoffman" "Edward Denis אליהו Hoffman"
-idI2["Hyman Judah Hoffman"]
-class idI2 internal-link
-click idI2 "../profiles/Hyman-Judah-Hoffman" "Hyman Judah Hoffman"
-idI3["Edith צירל Hoffman"]
-class idI3 internal-link
-click idI3 "../profiles/Edith-%D7%A6%D7%99%D7%A8%D7%9C-Hoffman" "Edith צירל Hoffman"
-marriage_idF2((" "))
-idI2 --- marriage_idF2
-idI3 --- marriage_idF2
-marriage_idF2 --> idI7
+idI38516763["Edward Denis אליהו Hoffman"]
+class idI38516763 current
+click idI38516763 "../profiles/Edward-Denis-%D7%90%D7%9C%D7%99%D7%94%D7%95-Hoffman" "Edward Denis אליהו Hoffman"
+idI11052350["Hyman Judah Hoffman"]
+class idI11052350 internal-link
+click idI11052350 "../profiles/Hyman-Judah-Hoffman" "Hyman Judah Hoffman"
+idI38516664["Edith צירל Hoffman"]
+class idI38516664 internal-link
+click idI38516664 "../profiles/Edith-%D7%A6%D7%99%D7%A8%D7%9C-Hoffman" "Edith צירל Hoffman"
+marriage_idF13161432((" "))
+idI11052350 --- marriage_idF13161432
+idI38516664 --- marriage_idF13161432
+marriage_idF13161432 --> idI38516763
 ```
 
 ## Ancestors (up to 2 Gen.)
@@ -45,39 +45,29 @@ flowchart TD
 classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
 classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
 classDef current fill:#bbdefb,stroke:#1976d2,stroke-width:3px;
-idI7["Edward Denis אליהו Hoffman"]
-class idI7 current
-click idI7 "../profiles/Edward-Denis-%D7%90%D7%9C%D7%99%D7%94%D7%95-Hoffman" "Edward Denis אליהו Hoffman"
-idI2["Hyman Judah Hoffman"]
-class idI2 internal-link
-click idI2 "../profiles/Hyman-Judah-Hoffman" "Hyman Judah Hoffman"
-idI3["Edith צירל Hoffman"]
-class idI3 internal-link
-click idI3 "../profiles/Edith-%D7%A6%D7%99%D7%A8%D7%9C-Hoffman" "Edith צירל Hoffman"
-marriage_idF2((" "))
-idI2 --- marriage_idF2
-idI3 --- marriage_idF2
-marriage_idF2 --> idI7
-idI10["Moshe משה Hoffman"]
-class idI10 internal-link
-click idI10 "../profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman" "Moshe משה Hoffman"
-idI11["Tobl Hochman (Hoffman)"]
-class idI11 internal-link
-click idI11 "../profiles/Tobl-Hochman-%28Hoffman%29" "Tobl Hochman (Hoffman)"
-marriage_idF3((" "))
-idI10 --- marriage_idF3
-idI11 --- marriage_idF3
-marriage_idF3 --> idI2
-idI17["Eduard Isak יצחק אליהו יצחק הלוי Spielmann"]
-class idI17 internal-link
-click idI17 "../profiles/Eduard-Isak-%D7%99%D7%A6%D7%97%D7%A7-%D7%90%D7%9C%D7%99%D7%94%D7%95-%D7%99%D7%A6%D7%97%D7%A7-%D7%94%D7%9C%D7%95%D7%99-Spielmann" "Eduard Isak יצחק אליהו יצחק הלוי Spielmann"
-idI18["Theresia (Reisl) ריזל Spielmann"]
-class idI18 internal-link
-click idI18 "../profiles/Theresia-%28Reisl%29-%D7%A8%D7%99%D7%96%D7%9C-Spielmann" "Theresia (Reisl) ריזל Spielmann"
-marriage_idF4((" "))
-idI17 --- marriage_idF4
-idI18 --- marriage_idF4
-marriage_idF4 --> idI3
+idI38516763["Edward Denis אליהו Hoffman"]
+class idI38516763 current
+click idI38516763 "../profiles/Edward-Denis-%D7%90%D7%9C%D7%99%D7%94%D7%95-Hoffman" "Edward Denis אליהו Hoffman"
+idI11052350["Hyman Judah Hoffman"]
+class idI11052350 internal-link
+click idI11052350 "../profiles/Hyman-Judah-Hoffman" "Hyman Judah Hoffman"
+idI38516664["Edith צירל Hoffman"]
+class idI38516664 internal-link
+click idI38516664 "../profiles/Edith-%D7%A6%D7%99%D7%A8%D7%9C-Hoffman" "Edith צירל Hoffman"
+marriage_idF13161432((" "))
+idI11052350 --- marriage_idF13161432
+idI38516664 --- marriage_idF13161432
+marriage_idF13161432 --> idI38516763
+idI11052340["Moshe משה Hoffman"]
+class idI11052340 internal-link
+click idI11052340 "../profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman" "Moshe משה Hoffman"
+idI38735986["Tobl Hochman (Hoffman)"]
+class idI38735986 internal-link
+click idI38735986 "../profiles/Tobl-Hochman-%28Hoffman%29" "Tobl Hochman (Hoffman)"
+marriage_idF3776794((" "))
+idI11052340 --- marriage_idF3776794
+idI38735986 --- marriage_idF3776794
+marriage_idF3776794 --> idI11052350
 ```
 
 ## Descendants (up to 2 Gen.)
@@ -86,7 +76,7 @@ flowchart TD
 classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
 classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
 classDef current fill:#bbdefb,stroke:#1976d2,stroke-width:3px;
-idI7["Edward Denis אליהו Hoffman"]
-class idI7 current
-click idI7 "../profiles/Edward-Denis-%D7%90%D7%9C%D7%99%D7%94%D7%95-Hoffman" "Edward Denis אליהו Hoffman"
+idI38516763["Edward Denis אליהו Hoffman"]
+class idI38516763 current
+click idI38516763 "../profiles/Edward-Denis-%D7%90%D7%9C%D7%99%D7%94%D7%95-Hoffman" "Edward Denis אליהו Hoffman"
 ```

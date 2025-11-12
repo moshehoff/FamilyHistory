@@ -1,8 +1,14 @@
 ---
 title: Family History
 ---
+### Pages of Interest
 
-## Preface
+- [Profiles of Interest](/pages/profiles-of-interest) - Profiles with extended biographical information
+- [About](/pages/about) - About this website
+- [All Profiles](/pages/all-profiles) - Complete list of 546 family members
+
+
+### Preface
 
 I am documenting my family history and genealogy. I, Peter Hoffman, will write in the first person and the reader will have to extrapolate to his own person. I will write in standard British English but here and there will add other languages where required.
 
@@ -26,9 +32,4 @@ For one, the development of the Internet, which has enabled like-minded individu
 
 ---
 
-## Pages of Interest
-
-- [All Profiles](/pages/all-profiles) - Complete list of 546 family members
-- [Profiles of Interest](/pages/profiles-of-interest) - Profiles with extended biographical information
-- [About](/pages/about) - About this website
-
+## 

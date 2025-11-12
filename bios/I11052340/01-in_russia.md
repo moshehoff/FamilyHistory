@@ -31,10 +31,10 @@ Bobka must be a nick-name. It may be derived from the Polish word for beans, via
 
 _Savran was a small town on the bank of the Lower Bug River. Like may others in the area it had a large Jewish minority. Moishe used to say with pride that he came from Savran on the Bug._ (related to his grandson Peter)
 
-![[bios/I10/img_savran_ukraine.png]]
+![[bios/I11052340/img_savran_ukraine.png]]
 **_SAVRAN in THE UKRAINE (present day frontiers)._**
 
-![[bios/I10/img_podolia_guvernat.png]]
+![[bios/I11052340/img_podolia_guvernat.png]]
 **_PODOLIA GUVERNAT in 1884, SAVRAN marked in red._**
 
 _His father, Wolf was timber merchant._ (related to Edith Hoffman)
@@ -138,7 +138,7 @@ _Moishe did not eat pork. Before Pesach they baked matzot._ (related to Hymie)
 
 _Each soldier had a wooden spoon which he stuck down his high leather boot (see photo). Meals came in a large cooking pot. The men would gather around and dip in._ (related to Peter)
 
-![[bios/I10/img_moishe_1909.png]]
+![[bios/I11052340/img_moishe_1909.png]]
 **_1909 Moishe (on the right in the dark uniform) with a fellow soldier, whom I believe to be a relative named Moishe Rosenzvit, who resembles him._**
 
 _Moshe was sent far to the east arriving in Vladivostok in 1906 after the cessation of hostilities in the Russo-Japanese War._ (related to Jack)
@@ -147,7 +147,7 @@ _The war is considered to have lasted until the 5.9.1905. He told of crossing La
 
 As a young man from the plains of Russia, he had never seen the sea. Lake Baikal in its mountainous setting made a lasting impression. Baikal is the jewel of Siberia, today its greatest tourist attraction.
 
-![[bios/I10/img_lake_baikal.png]]
+![[bios/I11052340/img_lake_baikal.png]]
 **_Lake Baikal_**
 
 Fortuitously, in April 1942, during the Second World War, he gave an interview to the _Sunday Times_ newspaper, and thus we know certain details, and of a remarkable incident:
@@ -181,7 +181,7 @@ Moishe's personal file is somewhere in the Russian archives. To find it we would
 
 His account of crossing Baikal by ferry is consistent with the historical facts (an account of the Transsiberian railway and the Baikal ferries is appended to this biography). While the train ferry _Baikal_ was destroyed long ago, the passenger ferry _Angara_ was in service until 1962. She was then left to rust until 1989. She is now at dockside in the Transsiberian Museum at the port of Listvyanka, 70 kilometers from Irkutsk. Moishe probably crossed the lake on the passenger deck of the _Baikal_.
 
-![[bios/I10/img_railroad_map.png]]
+![[bios/I11052340/img_railroad_map.png]]
 **_Map of the Asian section of the Transsiberian railroad and ferry._**
 
 His life had taught him that there was no future for him in Russia. On returning from the army he married a young woman from another town in Podolia – Tubb’l Zitzerman from Bershad – and got out of Russia. The marriage, as was usual at that time was probably arranged. His goal was Perth in Western Australia, where his brother Haim Yudl had settled.

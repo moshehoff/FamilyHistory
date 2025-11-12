@@ -1,7 +1,7 @@
 ---
 type: profile
 title: Hyman Judah Hoffman
-ID: I2
+ID: I11052350
 ---
 <div class="profile-info-box">
 <dl class="profile-info-list">
@@ -24,37 +24,37 @@ flowchart TD
 classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
 classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
 classDef current fill:#bbdefb,stroke:#1976d2,stroke-width:3px;
-idI2["Hyman Judah Hoffman"]
-class idI2 current
-click idI2 "../profiles/Hyman-Judah-Hoffman" "Hyman Judah Hoffman"
-idI10["Moshe משה Hoffman"]
-class idI10 internal-link
-click idI10 "../profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman" "Moshe משה Hoffman"
-idI11["Tobl Hochman (Hoffman)"]
-class idI11 internal-link
-click idI11 "../profiles/Tobl-Hochman-%28Hoffman%29" "Tobl Hochman (Hoffman)"
-marriage_idF3((" "))
-idI10 --- marriage_idF3
-idI11 --- marriage_idF3
-marriage_idF3 --> idI2
-idI3["Edith צירל Hoffman"]
-class idI3 internal-link
-click idI3 "../profiles/Edith-%D7%A6%D7%99%D7%A8%D7%9C-Hoffman" "Edith צירל Hoffman"
-marriage_idF2((" "))
-idI2 --- marriage_idF2
-idI3 --- marriage_idF2
-idI7["Edward Denis אליהו Hoffman"]
-class idI7 internal-link
-click idI7 "../profiles/Edward-Denis-%D7%90%D7%9C%D7%99%D7%94%D7%95-Hoffman" "Edward Denis אליהו Hoffman"
-marriage_idF2 --> idI7
-idI1["Dr PETER פנחס HOFFMAN"]
-class idI1 internal-link
-click idI1 "../profiles/Dr-PETER-%D7%A4%D7%A0%D7%97%D7%A1-HOFFMAN" "Dr PETER פנחס HOFFMAN"
-marriage_idF2 --> idI1
-idI8["Dianne Helen דינה Kemp"]
-class idI8 internal-link
-click idI8 "../profiles/Dianne-Helen-%D7%93%D7%99%D7%A0%D7%94-Kemp" "Dianne Helen דינה Kemp"
-marriage_idF2 --> idI8
+idI11052350["Hyman Judah Hoffman"]
+class idI11052350 current
+click idI11052350 "../profiles/Hyman-Judah-Hoffman" "Hyman Judah Hoffman"
+idI11052340["Moshe משה Hoffman"]
+class idI11052340 internal-link
+click idI11052340 "../profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman" "Moshe משה Hoffman"
+idI38735986["Tobl Hochman (Hoffman)"]
+class idI38735986 internal-link
+click idI38735986 "../profiles/Tobl-Hochman-%28Hoffman%29" "Tobl Hochman (Hoffman)"
+marriage_idF3776794((" "))
+idI11052340 --- marriage_idF3776794
+idI38735986 --- marriage_idF3776794
+marriage_idF3776794 --> idI11052350
+idI38516664["Edith צירל Hoffman"]
+class idI38516664 internal-link
+click idI38516664 "../profiles/Edith-%D7%A6%D7%99%D7%A8%D7%9C-Hoffman" "Edith צירל Hoffman"
+marriage_idF13161432((" "))
+idI11052350 --- marriage_idF13161432
+idI38516664 --- marriage_idF13161432
+idI38516763["Edward Denis אליהו Hoffman"]
+class idI38516763 internal-link
+click idI38516763 "../profiles/Edward-Denis-%D7%90%D7%9C%D7%99%D7%94%D7%95-Hoffman" "Edward Denis אליהו Hoffman"
+marriage_idF13161432 --> idI38516763
+idI11052359["Dr PETER פנחס HOFFMAN"]
+class idI11052359 internal-link
+click idI11052359 "../profiles/Dr-PETER-%D7%A4%D7%A0%D7%97%D7%A1-HOFFMAN" "Dr PETER פנחס HOFFMAN"
+marriage_idF13161432 --> idI11052359
+idI38516790["Dianne Helen דינה Kemp"]
+class idI38516790 internal-link
+click idI38516790 "../profiles/Dianne-Helen-%D7%93%D7%99%D7%A0%D7%94-Kemp" "Dianne Helen דינה Kemp"
+marriage_idF13161432 --> idI38516790
 ```
 
 ## Ancestors (up to 2 Gen.)
@@ -63,19 +63,29 @@ flowchart TD
 classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
 classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
 classDef current fill:#bbdefb,stroke:#1976d2,stroke-width:3px;
-idI2["Hyman Judah Hoffman"]
-class idI2 current
-click idI2 "../profiles/Hyman-Judah-Hoffman" "Hyman Judah Hoffman"
-idI10["Moshe משה Hoffman"]
-class idI10 internal-link
-click idI10 "../profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman" "Moshe משה Hoffman"
-idI11["Tobl Hochman (Hoffman)"]
-class idI11 internal-link
-click idI11 "../profiles/Tobl-Hochman-%28Hoffman%29" "Tobl Hochman (Hoffman)"
-marriage_idF3((" "))
-idI10 --- marriage_idF3
-idI11 --- marriage_idF3
-marriage_idF3 --> idI2
+idI11052350["Hyman Judah Hoffman"]
+class idI11052350 current
+click idI11052350 "../profiles/Hyman-Judah-Hoffman" "Hyman Judah Hoffman"
+idI11052340["Moshe משה Hoffman"]
+class idI11052340 internal-link
+click idI11052340 "../profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman" "Moshe משה Hoffman"
+idI38735986["Tobl Hochman (Hoffman)"]
+class idI38735986 internal-link
+click idI38735986 "../profiles/Tobl-Hochman-%28Hoffman%29" "Tobl Hochman (Hoffman)"
+marriage_idF3776794((" "))
+idI11052340 --- marriage_idF3776794
+idI38735986 --- marriage_idF3776794
+marriage_idF3776794 --> idI11052350
+idI11032885["Wolf זאב Hochman"]
+class idI11032885 internal-link
+click idI11032885 "../profiles/Wolf-%D7%96%D7%90%D7%91-Hochman" "Wolf זאב Hochman"
+idI11032895["Beile ביילא Hochman"]
+class idI11032895 internal-link
+click idI11032895 "../profiles/Beile-%D7%91%D7%99%D7%99%D7%9C%D7%90-Hochman" "Beile ביילא Hochman"
+marriage_idF3770106((" "))
+idI11032885 --- marriage_idF3770106
+idI11032895 --- marriage_idF3770106
+marriage_idF3770106 --> idI11052340
 ```
 
 ## Descendants (up to 2 Gen.)
@@ -84,43 +94,37 @@ flowchart TD
 classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
 classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
 classDef current fill:#bbdefb,stroke:#1976d2,stroke-width:3px;
-idI2["Hyman Judah Hoffman"]
-class idI2 current
-click idI2 "../profiles/Hyman-Judah-Hoffman" "Hyman Judah Hoffman"
-idI3["Edith צירל Hoffman"]
-class idI3 internal-link
-click idI3 "../profiles/Edith-%D7%A6%D7%99%D7%A8%D7%9C-Hoffman" "Edith צירל Hoffman"
-marriage_idF2((" "))
-idI2 --- marriage_idF2
-idI3 --- marriage_idF2
-idI7["Edward Denis אליהו Hoffman"]
-class idI7 internal-link
-click idI7 "../profiles/Edward-Denis-%D7%90%D7%9C%D7%99%D7%94%D7%95-Hoffman" "Edward Denis אליהו Hoffman"
-marriage_idF2 --> idI7
-idI1["Dr PETER פנחס HOFFMAN"]
-class idI1 internal-link
-click idI1 "../profiles/Dr-PETER-%D7%A4%D7%A0%D7%97%D7%A1-HOFFMAN" "Dr PETER פנחס HOFFMAN"
-marriage_idF2 --> idI1
-idI9["Varda ורדה Hoffman"]
-class idI9 internal-link
-click idI9 "../profiles/Varda-%D7%95%D7%A8%D7%93%D7%94-Hoffman" "Varda ורדה Hoffman"
-marriage_idF1((" "))
-idI1 --- marriage_idF1
-idI9 --- marriage_idF1
-idI4["Tirza Hoffman Levi"]
-class idI4 internal-link
-click idI4 "../profiles/Tirza-Hoffman-Levi" "Tirza Hoffman Levi"
-marriage_idF1 --> idI4
-idI5["Moshe משה בועז Hoffman"]
-class idI5 internal-link
-click idI5 "../profiles/Moshe-%D7%9E%D7%A9%D7%94-%D7%91%D7%95%D7%A2%D7%96-Hoffman" "Moshe משה בועז Hoffman"
-marriage_idF1 --> idI5
-idI6["Hila Sarai הילה שרי Hoffman"]
-class idI6 internal-link
-click idI6 "../profiles/Hila-Sarai-%D7%94%D7%99%D7%9C%D7%94-%D7%A9%D7%A8%D7%99-Hoffman" "Hila Sarai הילה שרי Hoffman"
-marriage_idF1 --> idI6
-idI8["Dianne Helen דינה Kemp"]
-class idI8 internal-link
-click idI8 "../profiles/Dianne-Helen-%D7%93%D7%99%D7%A0%D7%94-Kemp" "Dianne Helen דינה Kemp"
-marriage_idF2 --> idI8
+idI11052350["Hyman Judah Hoffman"]
+class idI11052350 current
+click idI11052350 "../profiles/Hyman-Judah-Hoffman" "Hyman Judah Hoffman"
+idI38516664["Edith צירל Hoffman"]
+class idI38516664 internal-link
+click idI38516664 "../profiles/Edith-%D7%A6%D7%99%D7%A8%D7%9C-Hoffman" "Edith צירל Hoffman"
+marriage_idF13161432((" "))
+idI11052350 --- marriage_idF13161432
+idI38516664 --- marriage_idF13161432
+idI38516763["Edward Denis אליהו Hoffman"]
+class idI38516763 internal-link
+click idI38516763 "../profiles/Edward-Denis-%D7%90%D7%9C%D7%99%D7%94%D7%95-Hoffman" "Edward Denis אליהו Hoffman"
+marriage_idF13161432 --> idI38516763
+idI11052359["Dr PETER פנחס HOFFMAN"]
+class idI11052359 internal-link
+click idI11052359 "../profiles/Dr-PETER-%D7%A4%D7%A0%D7%97%D7%A1-HOFFMAN" "Dr PETER פנחס HOFFMAN"
+marriage_idF13161432 --> idI11052359
+idI38517487["Varda ורדה Hoffman"]
+class idI38517487 internal-link
+click idI38517487 "../profiles/Varda-%D7%95%D7%A8%D7%93%D7%94-Hoffman" "Varda ורדה Hoffman"
+marriage_idF13161723((" "))
+idI11052359 --- marriage_idF13161723
+idI38517487 --- marriage_idF13161723
+idI38516790["Dianne Helen דינה Kemp"]
+class idI38516790 internal-link
+click idI38516790 "../profiles/Dianne-Helen-%D7%93%D7%99%D7%A0%D7%94-Kemp" "Dianne Helen דינה Kemp"
+marriage_idF13161432 --> idI38516790
+idI38739432["Derek Kemp"]
+class idI38739432 internal-link
+click idI38739432 "../profiles/Derek-Kemp" "Derek Kemp"
+marriage_idF13237018((" "))
+idI38516790 --- marriage_idF13237018
+idI38739432 --- marriage_idF13237018
 ```

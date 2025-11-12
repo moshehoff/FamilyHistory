@@ -1,18 +1,18 @@
 ---
 type: profile
 title: Wolf Hoffman
-ID: I14
+ID: I6458385293
 ---
 <div class="profile-info-box">
 <dl class="profile-info-list">
-<dt>Birth:</dt><dd>October 11, 1920 at <a href="https://en.wikipedia.org/wiki/Perth,_Western_Australia">Perth, Western Australia, Australia</a></dd>
-<dt>Death:</dt><dd>May 14, 2001 at <a href="https://en.wikipedia.org/wiki/Perth,_Western_Australia">Perth, Western Australia, Australia</a></dd>
+<dt>Birth:</dt><dd></dd>
+<dt>Death:</dt><dd></dd>
 <dt>Occupation:</dt><dd>—</dd>
-<dt>Parents:</dt><dd><a href="/profiles/Moshe%20%D7%9E%D7%A9%D7%94%20Hoffman">Moshe משה Hoffman</a>, <a href="/profiles/Tobl%20Hochman%20%28Hoffman%29">Tobl Hochman (Hoffman)</a></dd>
-<dt>Siblings:</dt><dd><a href="/profiles/Aaron%20Harry%20%D7%90%D7%94%D7%A8%D7%95%D7%9F%20Hoffman">Aaron Harry אהרון Hoffman</a>, <a href="/profiles/Bella%20Hoffman">Bella Hoffman</a>, <a href="/profiles/Hyman%20Judah%20Hoffman">Hyman Judah Hoffman</a>, <a href="/profiles/Alyce%20Breazeale">Alyce Breazeale</a>, <a href="/profiles/Jack%20Hoffman">Jack Hoffman</a></dd>
+<dt>Parents:</dt><dd><a href="/profiles/Yisrael%20Hochman">Yisrael Hochman</a>, <a href="/profiles/Rachel%20Hochman">Rachel Hochman</a></dd>
+<dt>Siblings:</dt><dd><a href="/profiles/Bertha%20Hoffman">Bertha Hoffman</a>, <a href="/profiles/Ernest%20Hoffman">Ernest Hoffman</a>, <a href="/profiles/Myrtle%20Hadassa%20Hoffman">Myrtle Hadassa Hoffman</a>, <a href="/profiles/Nathan%20Nachman%20Hochman">Nathan Nachman Hochman</a></dd>
 <dt>Spouse:</dt><dd>—</dd>
-<dt>Children:</dt><dd>—</dd>
-<dt>Notes:</dt><dd>Created by: https://www.geni.com/api/user-837908</dd>
+<dt>Children:</dt><dd><a href="/profiles/Marie%20Hoffman">Marie Hoffman</a></dd>
+<dt>Notes:</dt><dd>Created by: https://www.geni.com/api/user-1208372</dd>
 </dl>
 </div>
 
@@ -24,19 +24,23 @@ flowchart TD
 classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
 classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
 classDef current fill:#bbdefb,stroke:#1976d2,stroke-width:3px;
-idI14["Wolf Hoffman"]
-class idI14 current
-click idI14 "../profiles/Wolf-Hoffman" "Wolf Hoffman"
-idI10["Moshe משה Hoffman"]
-class idI10 internal-link
-click idI10 "../profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman" "Moshe משה Hoffman"
-idI11["Tobl Hochman (Hoffman)"]
-class idI11 internal-link
-click idI11 "../profiles/Tobl-Hochman-%28Hoffman%29" "Tobl Hochman (Hoffman)"
-marriage_idF3((" "))
-idI10 --- marriage_idF3
-idI11 --- marriage_idF3
-marriage_idF3 --> idI14
+idI6458385293["Wolf Hoffman"]
+class idI6458385293 current
+click idI6458385293 "../profiles/Wolf-Hoffman" "Wolf Hoffman"
+idI39114550["Yisrael Hochman"]
+class idI39114550 internal-link
+click idI39114550 "../profiles/Yisrael-Hochman" "Yisrael Hochman"
+idI100527944["Rachel Hochman"]
+class idI100527944 internal-link
+click idI100527944 "../profiles/Rachel-Hochman" "Rachel Hochman"
+marriage_idF32834997((" "))
+idI39114550 --- marriage_idF32834997
+idI100527944 --- marriage_idF32834997
+marriage_idF32834997 --> idI6458385293
+idI34708906824["Marie Hoffman"]
+class idI34708906824 internal-link
+click idI34708906824 "../profiles/Marie-Hoffman" "Marie Hoffman"
+idI6458385293 --> idI34708906824
 ```
 
 ## Ancestors (up to 2 Gen.)
@@ -45,19 +49,29 @@ flowchart TD
 classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
 classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
 classDef current fill:#bbdefb,stroke:#1976d2,stroke-width:3px;
-idI14["Wolf Hoffman"]
-class idI14 current
-click idI14 "../profiles/Wolf-Hoffman" "Wolf Hoffman"
-idI10["Moshe משה Hoffman"]
-class idI10 internal-link
-click idI10 "../profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman" "Moshe משה Hoffman"
-idI11["Tobl Hochman (Hoffman)"]
-class idI11 internal-link
-click idI11 "../profiles/Tobl-Hochman-%28Hoffman%29" "Tobl Hochman (Hoffman)"
-marriage_idF3((" "))
-idI10 --- marriage_idF3
-idI11 --- marriage_idF3
-marriage_idF3 --> idI14
+idI6458385293["Wolf Hoffman"]
+class idI6458385293 current
+click idI6458385293 "../profiles/Wolf-Hoffman" "Wolf Hoffman"
+idI39114550["Yisrael Hochman"]
+class idI39114550 internal-link
+click idI39114550 "../profiles/Yisrael-Hochman" "Yisrael Hochman"
+idI100527944["Rachel Hochman"]
+class idI100527944 internal-link
+click idI100527944 "../profiles/Rachel-Hochman" "Rachel Hochman"
+marriage_idF32834997((" "))
+idI39114550 --- marriage_idF32834997
+idI100527944 --- marriage_idF32834997
+marriage_idF32834997 --> idI6458385293
+idI11032885["Wolf זאב Hochman"]
+class idI11032885 internal-link
+click idI11032885 "../profiles/Wolf-%D7%96%D7%90%D7%91-Hochman" "Wolf זאב Hochman"
+idI11032895["Beile ביילא Hochman"]
+class idI11032895 internal-link
+click idI11032895 "../profiles/Beile-%D7%91%D7%99%D7%99%D7%9C%D7%90-Hochman" "Beile ביילא Hochman"
+marriage_idF3770106((" "))
+idI11032885 --- marriage_idF3770106
+idI11032895 --- marriage_idF3770106
+marriage_idF3770106 --> idI39114550
 ```
 
 ## Descendants (up to 2 Gen.)
@@ -66,7 +80,11 @@ flowchart TD
 classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
 classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
 classDef current fill:#bbdefb,stroke:#1976d2,stroke-width:3px;
-idI14["Wolf Hoffman"]
-class idI14 current
-click idI14 "../profiles/Wolf-Hoffman" "Wolf Hoffman"
+idI6458385293["Wolf Hoffman"]
+class idI6458385293 current
+click idI6458385293 "../profiles/Wolf-Hoffman" "Wolf Hoffman"
+idI34708906824["Marie Hoffman"]
+class idI34708906824 internal-link
+click idI34708906824 "../profiles/Marie-Hoffman" "Marie Hoffman"
+idI6458385293 --> idI34708906824
 ```

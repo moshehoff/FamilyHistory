@@ -3,169 +3,131 @@
 1 SOUR Geni.com API
 1 GEDC
 2 VERS 5.5.1
-0 @I1@ INDI
-1 NAME Dr PETER פנחס /HOFFMAN/
-2 NICK Separate nicknames with a comma
+0 @I34776522165@ INDI
+1 NAME Mordechai מרדכי /Elizafan/
+2 NICK outside of Russia - Alzofen
 1 SEX M
 1 BIRT
-2 DATE November 28, 1946
-2 PLAC Subiaco, Perth, Western Australia, Australia
-1 DEAT
-2 DATE December 28, 2024
-1 RESI
-2 PLAC Rehovot, IL
-1 OCCU medical practitioner, ophthalmologist
-1 NOTE Geni profile key: profile-profile-11052359
+2 DATE between circa 1820 and 1825
+1 NOTE Geni profile key: profile-profile-34776522165
 1 NOTE Geni info:
-2 CONT GUID: 4469729831310055442
-2 CONT URL: https://www.geni.com/people/Peter-Hoffman/4469729831310055442
-2 CONT Language: en-US
+2 CONT GUID: 6000000175448463823
+2 CONT URL: https://www.geni.com/people/Mordechai-Elizafan/6000000175448463823
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I11032895@ INDI
+1 NAME Beile ביילא /Hochman/
+1 SEX F
+1 BIRT
+2 DATE circa 1847
+1 DEAT
+2 DATE 1913
+2 PLAC Eretz Yisrael
+1 NOTE Geni profile key: profile-profile-11032895
+1 NOTE Geni info:
+2 CONT GUID: 4465230465210011788
+2 CONT URL: https://www.geni.com/people/Beile-Hochman/4465230465210011788
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-1188948
+0 @I11060285@ INDI
+1 NAME Shimon Meir מאיר /Hochman/
+1 SEX M
+1 BIRT
+2 DATE 1868
+2 PLAC Savran, in Podolia district, now in Ukraine, Russian Federation
+1 DEAT
+2 DATE 1937
+2 PLAC Palestine, State of
+1 NOTE Geni profile key: profile-profile-11060285
+1 NOTE Geni info:
+2 CONT GUID: 4472585219060031042
+2 CONT URL: https://www.geni.com/people/Shimon-Hochman/4472585219060031042
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-1188948
+0 @I11032861@ INDI
+1 NAME Haim Yehuda חיים יהודה /Hochman/
+2 NICK Hyam Hoffman
+1 SEX M
+1 BIRT
+2 DATE 1866
+2 PLAC Savran, in Podolia district, now Ukraine, Russian Federation
+1 DEAT
+2 DATE January 16, 1914
+2 PLAC Perth, Australia
+1 NOTE Geni profile key: profile-profile-11032861
+1 NOTE Geni info:
+2 CONT GUID: 4464698896320011780
+2 CONT URL: https://www.geni.com/people/Haim-Yehuda-Hochman/4464698896320011780
 1 NOTE Part of the big tree
 1 NOTE Marked as deceased by Geni
 1 NOTE Birth order: 2
 1 NOTE Created by: https://www.geni.com/api/user-1188948
-1 NOTE Account type: basic
-0 @I2@ INDI
-1 NAME Hyman Judah /Hoffman/
+0 @I38740193@ INDI
+1 NAME Josef /Hochman/
 1 SEX M
 1 BIRT
-2 DATE April 28, 1918
-2 PLAC Perth, Australia
-1 DEAT
-2 DATE July 17, 2007
-2 PLAC Perth, Australia
-1 RESI
-2 PLAC Perth, Western Australia, Australia
-1 OCCU general practitioner, anaesthetist
-1 NOTE Geni profile key: profile-profile-11052350
+2 PLAC Savran, Podolia gubernat., Russia (now Ukraine).
+1 NOTE Geni profile key: profile-profile-38740193
 1 NOTE Geni info:
-2 CONT GUID: 4469726932550075213
-2 CONT URL: https://www.geni.com/people/Hyman-Judah-Hoffman/4469726932550075213
+2 CONT GUID: 6000000002217218520
+2 CONT URL: https://www.geni.com/people/Josef-Hochman/6000000002217218520
 1 NOTE Part of the big tree
 1 NOTE Marked as deceased by Geni
 1 NOTE Birth order: 3
-1 NOTE Created by: https://www.geni.com/api/user-1188948
-0 @I3@ INDI
-1 NAME Edith צירל /Hoffman/
-1 SEX F
-1 BIRT
-2 DATE November 27, 1918
-2 PLAC Wien, Austria
-1 DEAT
-2 DATE January 2, 2008
-2 PLAC Perth, Western Australia, Australia
-1 RESI
-2 PLAC Perth, Western Australia, Australia
-1 NOTE Geni profile key: profile-profile-38516664
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39114997@ INDI
+1 NAME Binyamin /Hochman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-39114997
 1 NOTE Geni info:
-2 CONT GUID: 6000000002189640474
-2 CONT URL: https://www.geni.com/people/Edith-Hoffman/6000000002189640474
+2 CONT GUID: 6000000002248636793
+2 CONT URL: https://www.geni.com/people/Binyamin-Hochman/6000000002248636793
 1 NOTE Part of the big tree
 1 NOTE Marked as deceased by Geni
 1 NOTE Birth order: 4
-1 NOTE Created by: https://www.geni.com/api/user-3443484
-0 @I4@ INDI
-1 NAME Tirza /Hoffman Levi/
-1 SEX F
-1 BIRT
-2 DATE March 9, 1980
-2 PLAC Rehovot, Israel
-1 RESI
-2 PLAC Rehovot, Center District, Israel
-1 OCCU Lawyer. Ll.B Jerusalem
-1 NOTE Geni profile key: profile-profile-38516992
-1 NOTE Geni info:
-2 CONT GUID: 6000000002189760384
-2 CONT URL: https://www.geni.com/people/Tirza-Hoffman-Levi/6000000002189760384
-2 CONT Requested merges:
-3 CONT https://www.geni.com/api/profile-34838753512
-2 CONT Language: he
-1 NOTE Part of the big tree
-1 NOTE Birth order: 1
-1 NOTE Created by: https://www.geni.com/api/user-3443484
-1 NOTE Account type: pro
-0 @I5@ INDI
-1 NAME Moshe משה בועז /Hoffman/
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39115025@ INDI
+1 NAME Kolman /Hochman/
 1 SEX M
-1 BIRT
-2 DATE March 6, 1982
-2 PLAC Rehovot, Israel
-1 OCCU M.Sc Tel Aviv Uni
-1 NOTE Geni profile key: profile-profile-34838753512
+1 NOTE Geni profile key: profile-profile-39115025
 1 NOTE Geni info:
-2 CONT GUID: 6000000214865105870
-2 CONT URL: https://www.geni.com/people/Moshe-Hoffman/6000000214865105870
-2 CONT Requested merges:
-3 CONT https://www.geni.com/api/profile-38516992
-2 CONT Language: en-US
-1 NOTE Part of the big tree
-1 NOTE Birth order: 2
-1 NOTE Created by: https://www.geni.com/api/user-3443484
-1 NOTE Account type: basic
-0 @I6@ INDI
-1 NAME Hila Sarai הילה שרי /Hoffman/
-1 SEX F
-1 BIRT
-2 DATE July 24, 1986
-2 PLAC Rehovot, Israel
-1 OCCU Physician
-1 NOTE Geni profile key: profile-profile-38517008
-1 NOTE Geni info:
-2 CONT GUID: 6000000002189773042
-2 CONT URL: https://www.geni.com/people/Hila-Sarai-Hoffman/6000000002189773042
-1 NOTE Part of the big tree
-1 NOTE Birth order: 3
-1 NOTE Created by: https://www.geni.com/api/user-3443484
-1 NOTE Account type: basic
-0 @I7@ INDI
-1 NAME Edward Denis אליהו /Hoffman/
-1 SEX M
-1 BIRT
-2 DATE December 27, 1944
-1 DEAT
-2 DATE August 20, 2017
-1 RESI
-2 PLAC Perth, Western Australia, Australia
-1 NOTE Geni profile key: profile-profile-38516763
-1 NOTE Geni info:
-2 CONT GUID: 6000000002189689489
-2 CONT URL: https://www.geni.com/people/Edward-Denis-Hoffman/6000000002189689489
+2 CONT GUID: 6000000002248507776
+2 CONT URL: https://www.geni.com/people/Kolman-Hochman/6000000002248507776
 1 NOTE Part of the big tree
 1 NOTE Marked as deceased by Geni
-1 NOTE Birth order: 1
-1 NOTE Created by: https://www.geni.com/api/user-3443484
-0 @I8@ INDI
-1 NAME Dianne Helen דינה /Kemp/
-1 SEX F
-1 BIRT
-2 DATE September 6, 1948
-2 PLAC Perth, Western Australia, Australia
-1 RESI
-2 PLAC Brisbane, Queensland, Australia
-1 NOTE Geni profile key: profile-profile-38516790
+1 NOTE Birth order: 5
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39114938@ INDI
+1 NAME Avraham /Hochman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-39114938
 1 NOTE Geni info:
-2 CONT GUID: 6000000002189688455
-2 CONT URL: https://www.geni.com/people/Dianne-Helen-Kemp/6000000002189688455
+2 CONT GUID: 6000000002248657399
+2 CONT URL: https://www.geni.com/people/Avraham-Hochman/6000000002248657399
 1 NOTE Part of the big tree
-1 NOTE Birth order: 3
-1 NOTE Created by: https://www.geni.com/api/user-3443484
-1 NOTE Account type: basic
-0 @I9@ INDI
-1 NAME Varda ורדה /Hoffman/
-2 NICK Flora
-2 NICK Parvin
-1 SEX F
-1 BIRT
-2 DATE 1949
-2 PLAC Hamedan, Iran, Islamic Republic of
-1 NOTE Geni profile key: profile-profile-38517487
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 6
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39114787@ INDI
+1 NAME Sholem /Hochman/
+1 SEX M
+1 DEAT
+2 PLAC Denver, CO, United States
+1 NOTE Geni profile key: profile-profile-39114787
 1 NOTE Geni info:
-2 CONT GUID: 6000000002189765150
-2 CONT URL: https://www.geni.com/people/Varda-Hoffman/6000000002189765150
+2 CONT GUID: 6000000002248698109
+2 CONT URL: https://www.geni.com/people/Sholem-Hochman/6000000002248698109
 1 NOTE Part of the big tree
-1 NOTE Birth order: 2
-1 NOTE Created by: https://www.geni.com/api/user-3443484
-0 @I10@ INDI
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 7
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I11052340@ INDI
 1 NAME Moshe משה /Hoffman/
 2 NICK Morrie
 2 NICK Morris
@@ -188,27 +150,364 @@
 1 NOTE Marked as deceased by Geni
 1 NOTE Birth order: 8
 1 NOTE Created by: https://www.geni.com/api/user-1188948
-0 @I11@ INDI
-1 NAME Tobl /Hochman (Hoffman)/
-2 NICK Toby Hoffman
+0 @I39114550@ INDI
+1 NAME Yisrael /Hochman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-39114550
+1 NOTE Geni info:
+2 CONT GUID: 6000000002248508634
+2 CONT URL: https://www.geni.com/people/Yisrael-Hochman/6000000002248508634
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 9
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39114448@ INDI
+1 NAME "Bobka" /Hochman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-39114448
+1 NOTE Geni info:
+2 CONT GUID: 6000000002248539711
+2 CONT URL: https://www.geni.com/people/Bobka-Hochman/6000000002248539711
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 10
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I11032885@ INDI
+1 NAME Wolf זאב /Hochman/
+1 SEX M
+1 BIRT
+2 DATE circa 1840
+2 PLAC Savran, then Russia, Ukraine
+1 DEAT
+2 DATE circa 1890
+2 PLAC Savran
+1 RESI
+2 PLAC саврань, Савранський район, Одеська область, Ukraine
+1 OCCU Timber merchant, cartwright
+1 NOTE Geni profile key: profile-profile-11032885
+1 NOTE Geni info:
+2 CONT GUID: 4465230426590055214
+2 CONT URL: https://www.geni.com/people/Wolf-Hochman/4465230426590055214
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1188948
+0 @I69829345@ INDI
+1 NAME Chaim Nissan ניסן /Achiman/
+1 SEX M
+1 BIRT
+2 DATE February 1, 1895
+2 PLAC ישראל (Israel)
+1 DEAT
+2 DATE February 24, 1991
+2 PLAC Ramat Gan, Tel Aviv District, Israel
+1 NOTE Geni profile key: profile-profile-69829345
+1 NOTE Geni info:
+2 CONT GUID: 6000000006353048023
+2 CONT URL: https://www.geni.com/people/Chaim-Achiman/6000000006353048023
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39965656@ INDI
+1 NAME Haya /Moldavsky/
 1 SEX F
 1 BIRT
-2 DATE circa 1888
-2 PLAC Bershad, Ukraine
+2 DATE circa 1900
+2 PLAC Tel Aviv-Yafo, Tel Aviv District, Israel
 1 DEAT
-2 DATE September 15, 1958
-2 PLAC Perth, Australia
+2 PLAC Ramat Gan, Tel Aviv District, Israel
 1 RESI
-2 PLAC Perth, Australia
-1 NOTE Geni profile key: profile-profile-38735986
+2 PLAC Ramat Gan, Tel Aviv District, Israel
+1 NOTE Geni profile key: profile-profile-39965656
 1 NOTE Geni info:
-2 CONT GUID: 6000000002216813716
-2 CONT URL: https://www.geni.com/people/Tobl-Hochman-Hoffman/6000000002216813716
+2 CONT GUID: 6000000002325058827
+2 CONT URL: https://www.geni.com/people/Haya-Moldavsky/6000000002325058827
 1 NOTE Part of the big tree
 1 NOTE Marked as deceased by Geni
 1 NOTE Birth order: 2
 1 NOTE Created by: https://www.geni.com/api/user-1208372
-0 @I12@ INDI
+0 @I39965615@ INDI
+1 NAME Menachem Mendel מנדל /Hochman/
+2 NICK Nechemya
+1 SEX M
+1 BIRT
+2 DATE 1900
+2 PLAC Tel Aviv-Yafo, Tel Aviv District, Israel
+1 DEAT
+2 DATE November 8, 1965
+1 NOTE Geni profile key: profile-profile-39965615
+1 NOTE Geni info:
+2 CONT GUID: 6000000002325060704
+2 CONT URL: https://www.geni.com/people/Menachem-Hochman/6000000002325060704
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 3
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39965722@ INDI
+1 NAME Elisheva /Hochman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-39965722
+1 NOTE Geni info:
+2 CONT GUID: 6000000002325064981
+2 CONT URL: https://www.geni.com/people/Elisheva-Hochman/6000000002325064981
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39965692@ INDI
+1 NAME Mordechai /Hochman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-39965692
+1 NOTE Geni info:
+2 CONT GUID: 6000000002325177129
+2 CONT URL: https://www.geni.com/people/Mordechai-Hochman/6000000002325177129
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I41031001@ INDI
+1 NAME Elchanan /Hochman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-41031001
+1 NOTE Geni info:
+2 CONT GUID: 6000000002424586339
+2 CONT URL: https://www.geni.com/people/Elchanan-Hochman/6000000002424586339
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39965449@ INDI
+1 NAME Berl /Hochman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-39965449
+1 NOTE Geni info:
+2 CONT GUID: 6000000002324917791
+2 CONT URL: https://www.geni.com/people/Berl-Hochman/6000000002324917791
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39965497@ INDI
+1 NAME Hershl /Hochman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-39965497
+1 NOTE Geni info:
+2 CONT GUID: 6000000002325183107
+2 CONT URL: https://www.geni.com/people/Hershl-Hochman/6000000002325183107
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39965387@ INDI
+1 NAME Frida /Hochman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-39965387
+1 NOTE Geni info:
+2 CONT GUID: 6000000002325109665
+2 CONT URL: https://www.geni.com/people/Frida-Hochman/6000000002325109665
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39965332@ INDI
+1 NAME Bracha /Hochman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-39965332
+1 NOTE Geni info:
+2 CONT GUID: 6000000002325073505
+2 CONT URL: https://www.geni.com/people/Bracha-Hochman/6000000002325073505
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I11029840@ INDI
+1 NAME Ze'ev /Hoffman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-11029840
+1 NOTE Geni info:
+2 CONT GUID: 4464698800540022824
+2 CONT URL: https://www.geni.com/people/Ze-ev-Hoffman/4464698800540022824
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 2
+1 NOTE Created by: https://www.geni.com/api/user-1188948
+0 @I27102630293@ INDI
+1 NAME Elyashiv /Hoffman/
+2 NICK Elik
+1 SEX M
+1 BIRT
+2 DATE February 5, 1911
+2 PLAC Perth, Western Australia, Australia
+1 DEAT
+2 DATE February 17, 1974
+1 NOTE Geni profile key: profile-profile-27102630293
+1 NOTE Geni info:
+2 CONT GUID: 6000000014135239091
+2 CONT URL: https://www.geni.com/people/Elyashiv-Hoffman/6000000014135239091
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-1188948
+0 @I11029872@ INDI
+1 NAME Rosa /Aron/
+1 SEX F
+1 BIRT
+2 PLAC Perth, WA, Australia
+1 DEAT
+2 PLAC Israel
+1 NOTE Geni profile key: profile-profile-11029872
+1 NOTE Geni info:
+2 CONT GUID: 4464705068400045141
+2 CONT URL: https://www.geni.com/people/Rosa-Aron/4464705068400045141
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 4
+1 NOTE Created by: https://www.geni.com/api/user-1188948
+0 @I10847256@ INDI
+1 NAME Rivka /Bar Cohen/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-10847256
+1 NOTE Geni info:
+2 CONT GUID: 4421107387960013595
+2 CONT URL: https://www.geni.com/people/Rivka-Bar-Cohen/4421107387960013595
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1188970
+0 @I38740400@ INDI
+1 NAME Shulamit /Hochman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-38740400
+1 NOTE Geni info:
+2 CONT GUID: 6000000002217133517
+2 CONT URL: https://www.geni.com/people/Shulamit-Hochman/6000000002217133517
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1188948
+0 @I39967468@ INDI
+1 NAME Sara /Hochman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-39967468
+1 NOTE Geni info:
+2 CONT GUID: 6000000002325288269
+2 CONT URL: https://www.geni.com/people/Sara-Hochman/6000000002325288269
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I38740219@ INDI
+1 NAME Wolfe /Hochman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-38740219
+1 NOTE Geni info:
+2 CONT GUID: 6000000002217066524
+2 CONT URL: https://www.geni.com/people/Wolfe-Hochman/6000000002217066524
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39968494@ INDI
+1 NAME Leah לאה /Hochman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-39968494
+1 NOTE Geni info:
+2 CONT GUID: 6000000002325352206
+2 CONT URL: https://www.geni.com/people/Leah-Hochman-Rosensvet/6000000002325352206
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I6453453293@ INDI
+1 NAME Golde /Hochman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-6453453293
+1 NOTE Geni info:
+2 CONT GUID: 6000000013564834674
+2 CONT URL: https://www.geni.com/people/Golde-Hochman/6000000013564834674
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I10022889293@ INDI
+1 NAME Menashe /Hochman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-10022889293
+1 NOTE Geni info:
+2 CONT GUID: 6000000013648956676
+2 CONT URL: https://www.geni.com/people/Menashe-Hochman/6000000013648956676
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I10018191293@ INDI
+1 NAME Tobl /Hochman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-10018191293
+1 NOTE Geni info:
+2 CONT GUID: 6000000013649125639
+2 CONT URL: https://www.geni.com/people/Tobl-Hochman/6000000013649125639
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I6456414293@ INDI
+1 NAME William Wolf /Hochman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-6456414293
+1 NOTE Geni info:
+2 CONT GUID: 6000000013565345240
+2 CONT URL: https://www.geni.com/people/William-Hochman/6000000013565345240
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I6456540293@ INDI
+1 NAME Belle /Hoffman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-6456540293
+1 NOTE Geni info:
+2 CONT GUID: 6000000013565525100
+2 CONT URL: https://www.geni.com/people/Belle-Hoffman/6000000013565525100
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I6456702293@ INDI
+1 NAME Sara /Reifman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-6456702293
+1 NOTE Geni info:
+2 CONT GUID: 6000000013565507091
+2 CONT URL: https://www.geni.com/people/Sara-Reifman/6000000013565507091
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I6457089293@ INDI
+1 NAME Rebecca /Hoffman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-6457089293
+1 NOTE Geni info:
+2 CONT GUID: 6000000013564974923
+2 CONT URL: https://www.geni.com/people/Rebecca-Hoffman/6000000013564974923
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I100528021@ INDI
+1 NAME Shaindel /Hochman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-100528021
+1 NOTE Geni info:
+2 CONT GUID: 6000000009670604938
+2 CONT URL: https://www.geni.com/people/Shaindel-Hochman/6000000009670604938
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I38736184@ INDI
 1 NAME Aaron Harry אהרון /Hoffman/
 1 SEX M
 1 DEAT
@@ -222,7 +521,7 @@
 1 NOTE Marked as deceased by Geni
 1 NOTE Birth order: 1
 1 NOTE Created by: https://www.geni.com/api/user-1208372
-0 @I13@ INDI
+0 @I38736293@ INDI
 1 NAME Bella /Hoffman/
 1 SEX F
 1 BIRT
@@ -240,7 +539,27 @@
 1 NOTE Marked as deceased by Geni
 1 NOTE Birth order: 2
 1 NOTE Created by: https://www.geni.com/api/user-1208372
-0 @I14@ INDI
+0 @I11052350@ INDI
+1 NAME Hyman Judah /Hoffman/
+1 SEX M
+1 BIRT
+2 DATE April 28, 1918
+2 PLAC Perth, Australia
+1 DEAT
+2 DATE July 17, 2007
+2 PLAC Perth, Australia
+1 RESI
+2 PLAC Perth, Western Australia, Australia
+1 OCCU general practitioner, anaesthetist
+1 NOTE Geni profile key: profile-profile-11052350
+1 NOTE Geni info:
+2 CONT GUID: 4469726932550075213
+2 CONT URL: https://www.geni.com/people/Hyman-Judah-Hoffman/4469726932550075213
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 3
+1 NOTE Created by: https://www.geni.com/api/user-1188948
+0 @I7293825@ INDI
 1 NAME Wolf /Hoffman/
 1 SEX M
 1 BIRT
@@ -253,11 +572,13 @@
 1 NOTE Geni info:
 2 CONT GUID: 361460021580003487
 2 CONT URL: https://www.geni.com/people/Wolf-Hoffman/361460021580003487
+2 CONT Requested merges:
+3 CONT https://www.geni.com/api/profile-34838632541
 1 NOTE Part of the big tree
 1 NOTE Marked as deceased by Geni
 1 NOTE Birth order: 4
 1 NOTE Created by: https://www.geni.com/api/user-837908
-0 @I15@ INDI
+0 @I61277011@ INDI
 1 NAME Alyce /Breazeale/
 2 NICK Alice
 1 SEX F
@@ -277,7 +598,7 @@
 1 NOTE Marked as deceased by Geni
 1 NOTE Birth order: 5
 1 NOTE Created by: https://www.geni.com/api/user-1208372
-0 @I16@ INDI
+0 @I38736559@ INDI
 1 NAME Jack /Hoffman/
 1 SEX M
 1 BIRT
@@ -295,237 +616,2401 @@
 1 NOTE Marked as deceased by Geni
 1 NOTE Birth order: 6
 1 NOTE Created by: https://www.geni.com/api/user-1208372
-0 @I17@ INDI
-1 NAME Eduard Isak יצחק אליהו יצחק הלוי /Spielmann/
-1 SEX M
-1 BIRT
-2 DATE October 19, 1875
-2 PLAC Nikolsburg (Mikulov), Moravia, Czechoslovakia
-1 DEAT
-2 DATE 1939
-2 PLAC Blackburn, Lancashire, England (United Kingdom)
-1 OCCU Accountant
-1 NOTE Geni profile key: profile-profile-29864764
-1 NOTE Geni info:
-2 CONT GUID: 6000000002189686558
-2 CONT URL: https://www.geni.com/people/Eduard/6000000002189686558
-1 NOTE Part of the big tree
-1 NOTE Marked as deceased by Geni
-1 NOTE Birth order: 11
-1 NOTE Created by: https://www.geni.com/api/user-1403714
-0 @I18@ INDI
-1 NAME Theresia (Reisl) ריזל /Spielmann/
+0 @I38735986@ INDI
+1 NAME Tobl /Hochman (Hoffman)/
+2 NICK Toby Hoffman
 1 SEX F
 1 BIRT
-2 DATE November 23, 1879
-2 PLAC Pitten or Schwarzau am Steinfeld, near Neunkirchen, Lower Austria, Austria
+2 DATE circa 1888
+2 PLAC Bershad, Ukraine
 1 DEAT
-2 DATE 1961
-2 PLAC Perth, WA, Australia
+2 DATE September 15, 1958
+2 PLAC Perth, Australia
 1 RESI
-2 PLAC Perth, WA, Australia
-1 OCCU Seamstress
-1 NOTE Geni profile key: profile-profile-29864719
+2 PLAC Perth, Australia
+1 NOTE Geni profile key: profile-profile-38735986
 1 NOTE Geni info:
-2 CONT GUID: 6000000001311623507
-2 CONT URL: https://www.geni.com/people/Theresia-Reisl-Spielmann/6000000001311623507
+2 CONT GUID: 6000000002216813716
+2 CONT URL: https://www.geni.com/people/Tobl-Hochman-Hoffman/6000000002216813716
 1 NOTE Part of the big tree
 1 NOTE Marked as deceased by Geni
 1 NOTE Birth order: 2
-1 NOTE Created by: https://www.geni.com/api/user-1403714
-0 @I19@ INDI
-1 NAME Katharina Käthe /Davis/
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I6457782293@ INDI
+1 NAME Bertha /Hoffman/
 1 SEX F
-1 BIRT
-2 DATE September 12, 1903
-2 PLAC Vienna, Vienna, Austria
-1 DEAT
-2 DATE 1967
-1 NOTE Geni profile key: profile-profile-29864822
+1 NOTE Geni profile key: profile-profile-6457782293
 1 NOTE Geni info:
-2 CONT GUID: 6000000001311737058
-2 CONT URL: https://www.geni.com/people/Katharina-K%C3%A4the-Davis/6000000001311737058
+2 CONT GUID: 6000000013565036672
+2 CONT URL: https://www.geni.com/people/Bertha-Hoffman/6000000013565036672
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I6457935293@ INDI
+1 NAME Ernest /Hoffman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-6457935293
+1 NOTE Geni info:
+2 CONT GUID: 6000000013565556134
+2 CONT URL: https://www.geni.com/people/Ernest-Hoffman/6000000013565556134
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I6458115293@ INDI
+1 NAME Myrtle Hadassa /Hoffman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-6458115293
+1 NOTE Geni info:
+2 CONT GUID: 6000000013565403175
+2 CONT URL: https://www.geni.com/people/Myrtle-Hoffman/6000000013565403175
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I6458385293@ INDI
+1 NAME Wolf /Hoffman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-6458385293
+1 NOTE Geni info:
+2 CONT GUID: 6000000013565517195
+2 CONT URL: https://www.geni.com/people/Wolf-Hoffman/6000000013565517195
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I6458664293@ INDI
+1 NAME Nathan Nachman /Hochman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-6458664293
+1 NOTE Geni info:
+2 CONT GUID: 6000000013565448456
+2 CONT URL: https://www.geni.com/people/Nathan-Hochman/6000000013565448456
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I100527944@ INDI
+1 NAME Rachel /Hochman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-100527944
+1 NOTE Geni info:
+2 CONT GUID: 6000000009670627790
+2 CONT URL: https://www.geni.com/people/Rachel-Hochman/6000000009670627790
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I34690176393@ INDI
+1 NAME Eliyahu /Hochman/
+1 SEX M
+1 BIRT
+2 DATE 1920
+2 PLAC Tel Aviv-Yafo, Tel Aviv District, Israel
+1 DEAT
+2 DATE September 3, 2017
+1 RESI
+2 PLAC Ramat Gan, Tel Aviv District, Israel
+1 NOTE Geni profile key: profile-profile-34690176393
+1 NOTE Geni info:
+2 CONT GUID: 6000000042967408689
+2 CONT URL: https://www.geni.com/people/Eliyahu-Hochman/6000000042967408689
 1 NOTE Part of the big tree
 1 NOTE Marked as deceased by Geni
 1 NOTE Birth order: 1
-1 NOTE Created by: https://www.geni.com/api/user-1403714
-0 @I20@ INDI
-1 NAME Josef יוסף יוסף בן אליהו הלוי /Spielmann/
-2 NICK Joschi
-1 SEX M
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I34634392201@ INDI
+1 NAME Elisheva /Hershkovitz/
+1 SEX F
 1 BIRT
-2 DATE 1904
-2 PLAC Vienna, Vienna, Austria
+2 DATE 1922
+2 PLAC Tel Aviv-Yafo, Tel Aviv District, Israel
 1 DEAT
-2 DATE 1970
-2 PLAC Sydney, New South Wales, Australia
+2 DATE 4, 2017
 1 RESI
-2 PLAC Sydney, New South Wales, Australia
-1 NOTE Geni profile key: profile-profile-64971099
+2 PLAC Giv'atayim, Tel Aviv District, Israel
+1 OCCU מורה
+1 NOTE Geni profile key: profile-profile-34634392201
 1 NOTE Geni info:
-2 CONT GUID: 6000000005253622369
-2 CONT URL: https://www.geni.com/people/Josef-Spielmann/6000000005253622369
+2 CONT GUID: 6000000018001398879
+2 CONT URL: https://www.geni.com/people/Elisheva-Hershkovitz/6000000018001398879
 1 NOTE Part of the big tree
 1 NOTE Marked as deceased by Geni
 1 NOTE Birth order: 2
-1 NOTE Created by: https://www.geni.com/api/user-1403714
-0 @I21@ INDI
-1 NAME Karl Ha'im חיים /Spielmann/
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I34810539811@ INDI
+1 NAME Elisha /Achiman/
 1 SEX M
-1 BIRT
-2 DATE 1908
-1 DEAT
-2 DATE 1969
-1 NOTE Geni profile key: profile-profile-38461418
+1 NOTE Geni profile key: profile-profile-34810539811
 1 NOTE Geni info:
-2 CONT GUID: 6000000002187093097
-2 CONT URL: https://www.geni.com/people/Karl-Ha-im-Spielmann/6000000002187093097
+2 CONT GUID: 6000000194200733837
+2 CONT URL: https://www.geni.com/people/Elisha-Achiman/6000000194200733837
 1 NOTE Part of the big tree
 1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-473093
+0 @I9238258@ INDI
+1 NAME Shoshana Rosa /Hochman Achiman/
+1 SEX F
+1 BIRT
+2 DATE 1894
+2 PLAC Zikhron Ya&#39;akov, Hadera, Haifa District, Israel
+1 DEAT
+2 DATE December 1, 1951
+2 PLAC Tel Aviv, Israel
+1 RESI
+2 PLAC United States
+1 NOTE Geni profile key: profile-profile-9238258
+1 NOTE Geni info:
+2 CONT GUID: 6000000006352964018
+2 CONT URL: https://www.geni.com/people/Shoshana-Rosa-Hochman-Achiman/6000000006352964018
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 6
+1 NOTE Created by: https://www.geni.com/api/user-985955
+0 @I9238271@ INDI
+1 NAME Tova /Schmidt Achiman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-9238271
+1 NOTE Geni info:
+2 CONT GUID: 6000000006352842049
+2 CONT URL: https://www.geni.com/people/Tova-Schmidt-Achiman/6000000006352842049
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-985955
+0 @I34717332829@ INDI
+1 NAME Yehudit /Achiman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-34717332829
+1 NOTE Geni info:
+2 CONT GUID: 6000000076803345894
+2 CONT URL: https://www.geni.com/people/Yehudit-Achiman/6000000076803345894
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-15015845
+0 @I34634428931@ INDI
+1 NAME Bat Sheva /Hochman/
+1 SEX F
+1 BIRT
+2 DATE 1926
+1 NOTE Geni profile key: profile-profile-34634428931
+1 NOTE Geni info:
+2 CONT GUID: 6000000018012182142
+2 CONT URL: https://www.geni.com/people/Bat-Sheva-Hochman/6000000018012182142
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I41028718@ INDI
+1 NAME Rivka Becky רבקה /Schwarz/
+1 SEX F
+1 BIRT
+2 DATE November 14, 1929
+2 PLAC Perth, Western Australia, Australia
+1 DEAT
+2 DATE 2020
+2 PLAC Ramat Gan, Tel Aviv District, Israel
+1 RESI
+2 PLAC Ramat Gan, Tel Aviv District, Israel
+1 NOTE Geni profile key: profile-profile-41028718
+1 NOTE Geni info:
+2 CONT GUID: 6000000002424516990
+2 CONT URL: https://www.geni.com/people/Rivka-Becky-Schwarz/6000000002424516990
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 2
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I41029853@ INDI
+1 NAME Ella /Sha'abi/
+1 SEX F
+1 BIRT
+2 DATE September 22, 1932
+2 PLAC Perth, Western Australia, Australia
+1 RESI
+2 PLAC Tel Aviv-Yafo, Tel Aviv District, Israel
+1 NOTE Geni profile key: profile-profile-41029853
+1 NOTE Geni info:
+2 CONT GUID: 6000000002424542333
+2 CONT URL: https://www.geni.com/people/Ella-Sha-abi/6000000002424542333
+1 NOTE Part of the big tree
+1 NOTE Birth order: 3
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I41027848@ INDI
+1 NAME Hillel /Moldavsky/
+1 SEX M
+1 DEAT
+2 PLAC Ramat Gan, Tel Aviv District, Israel
+1 RESI
+2 PLAC Ramat Gan, Tel Aviv District, Israel
+1 NOTE Geni profile key: profile-profile-41027848
+1 NOTE Geni info:
+2 CONT GUID: 6000000002424496288
+2 CONT URL: https://www.geni.com/people/Hillel-Moldavsky/6000000002424496288
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I34842724394@ INDI
+1 NAME Rina /Kaminitz/
+1 SEX F
+1 BIRT
+2 DATE April 9, 1932
+1 DEAT
+2 DATE September 2024
+1 NOTE Geni profile key: profile-profile-34842724394
+1 NOTE Geni info:
+2 CONT GUID: 6000000218200662882
+2 CONT URL: https://www.geni.com/people/Rina-Kaminitz/6000000218200662882
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I34707228510@ INDI
+1 NAME Yaakov /Harel/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-34707228510
+1 NOTE Geni info:
+2 CONT GUID: 6000000059621336134
+2 CONT URL: https://www.geni.com/people/Yaakov-Harel/6000000059621336134
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I41030493@ INDI
+1 NAME Batya /Hochman/
+1 SEX F
+1 BIRT
+2 DATE 1909
+1 DEAT
+2 DATE 1965
+1 NOTE Geni profile key: profile-profile-41030493
+1 NOTE Geni info:
+2 CONT GUID: 6000000002424485429
+2 CONT URL: https://www.geni.com/people/Batya-Hochman/6000000002424485429
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I61720688@ INDI
+1 NAME Shmariahu /Hochman/
+1 SEX M
+1 BIRT
+2 DATE 1935
+1 NOTE Geni profile key: profile-profile-61720688
+1 NOTE Geni info:
+2 CONT GUID: 6000000004588445251
+2 CONT URL: https://www.geni.com/people/Shmariahu-Hochman/6000000004588445251
+1 NOTE Part of the big tree
+1 NOTE Birth order: 1
+0 @I104097137@ INDI
+1 NAME Shimon /Hochman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-104097137
+1 NOTE Geni info:
+2 CONT GUID: 6000000010111013198
+2 CONT URL: https://www.geni.com/people/Shimon-Hochman/6000000010111013198
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I34717332929@ INDI
+1 NAME  /הוכמן/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-34717332929
+1 NOTE Geni info:
+2 CONT GUID: 6000000076802862269
+2 CONT URL: https://www.geni.com/people/%D7%94%D7%95%D7%9B%D7%9E%D7%9F/6000000076802862269
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-15015845
+0 @I34717332922@ INDI
+1 NAME Aliza /Hochman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-34717332922
+1 NOTE Geni info:
+2 CONT GUID: 6000000076802228538
+2 CONT URL: https://www.geni.com/people/Aliza-Hochman/6000000076802228538
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-15015845
+0 @I87977937@ INDI
+1 NAME Bruce /Hoffman/
+1 SEX M
+1 BIRT
+2 DATE June 16, 1911
+2 PLAC Perth, WA, Australia
+1 DEAT
+2 PLAC Perth, WA, Australia
+1 NOTE Geni profile key: profile-profile-87977937
+1 NOTE Geni info:
+2 CONT GUID: 6000000008730911516
+2 CONT URL: https://www.geni.com/people/Bruce-Hoffman/6000000008730911516
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40775931@ INDI
+1 NAME Hanna Beile חנה ביילע /Miller/
+1 SEX F
+1 BIRT
+2 DATE September 23, 1916
+2 PLAC Westonia, Shire of Westonia, Western Australia, Australia
+1 DEAT
+2 DATE July 11, 2017
+2 PLAC Sydney, New South Wales, Australia
+1 RESI
+2 PLAC Sydney, New South Wales, Australia
+1 NOTE Geni profile key: profile-profile-40775931
+1 NOTE Geni info:
+2 CONT GUID: 6000000002398050989
+2 CONT URL: https://www.geni.com/people/Hanna-Beile-Miller/6000000002398050989
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 2
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40775682@ INDI
+1 NAME Minnie Mina /Mendelovitz/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-40775682
+1 NOTE Geni info:
+2 CONT GUID: 6000000002398162321
+2 CONT URL: https://www.geni.com/people/Minnie-Mina-Mendelovitz/6000000002398162321
+1 NOTE Part of the big tree
+1 NOTE Birth order: 3
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40775871@ INDI
+1 NAME Hymie Haim /Hoffman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-40775871
+1 NOTE Geni info:
+2 CONT GUID: 6000000002398102567
+2 CONT URL: https://www.geni.com/people/Hymie-Haim-Hoffman/6000000002398102567
+1 NOTE Part of the big tree
+1 NOTE Birth order: 4
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40775621@ INDI
+1 NAME Rivka /Hochman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-40775621
+1 NOTE Geni info:
+2 CONT GUID: 6000000002398101885
+2 CONT URL: https://www.geni.com/people/Rivka-Hochman/6000000002398101885
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40778709@ INDI
+1 NAME Bruce Boruch /Hoffman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-40778709
+1 NOTE Geni info:
+2 CONT GUID: 6000000002398245924
+2 CONT URL: https://www.geni.com/people/Bruce-Boruch-Hoffman/6000000002398245924
+1 NOTE Part of the big tree
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40778886@ INDI
+1 NAME Ben Benzion /Hoffman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-40778886
+1 NOTE Geni info:
+2 CONT GUID: 6000000002398360529
+2 CONT URL: https://www.geni.com/people/Ben-Benzion-Hoffman/6000000002398360529
+1 NOTE Part of the big tree
+1 NOTE Birth order: 2
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40778933@ INDI
+1 NAME Nate /Hoffman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-40778933
+1 NOTE Geni info:
+2 CONT GUID: 6000000002398492029
+2 CONT URL: https://www.geni.com/people/Nate-Hoffman/6000000002398492029
+1 NOTE Part of the big tree
+1 NOTE Birth order: 3
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40778983@ INDI
+1 NAME Rose /Lazarus/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-40778983
+1 NOTE Geni info:
+2 CONT GUID: 6000000002398283446
+2 CONT URL: https://www.geni.com/people/Rose-Lazarus/6000000002398283446
+1 NOTE Part of the big tree
+1 NOTE Birth order: 4
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40779093@ INDI
+1 NAME Hammy Nehemiah /Hoffman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-40779093
+1 NOTE Geni info:
+2 CONT GUID: 6000000002398436277
+2 CONT URL: https://www.geni.com/people/Hammy-Nehemiah-Hoffman/6000000002398436277
+1 NOTE Part of the big tree
+1 NOTE Birth order: 5
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40779121@ INDI
+1 NAME Bella /Hoffman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-40779121
+1 NOTE Geni info:
+2 CONT GUID: 6000000002398343325
+2 CONT URL: https://www.geni.com/people/Bella-Hoffman/6000000002398343325
+1 NOTE Part of the big tree
+1 NOTE Birth order: 6
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40778657@ INDI
+1 NAME Ruchel /Hoffman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-40778657
+1 NOTE Geni info:
+2 CONT GUID: 6000000002398459359
+2 CONT URL: https://www.geni.com/people/Ruchel-Hoffman/6000000002398459359
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I11029856@ INDI
+1 NAME Hilel /Tamir (Hoffman)/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-11029856
+1 NOTE Geni info:
+2 CONT GUID: 4464702394570081596
+2 CONT URL: https://www.geni.com/people/Hilel-Tamir-Hoffman/4464702394570081596
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1188948
+0 @I11029849@ INDI
+1 NAME Miryam /Hoffman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-11029849
+1 NOTE Geni info:
+2 CONT GUID: 4464700607480074487
+2 CONT URL: https://www.geni.com/people/Miryam-Hoffman/4464700607480074487
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1188948
+0 @I39967313@ INDI
+1 NAME Amira /Plotkin/
+1 SEX F
+1 BIRT
+2 DATE August 17, 1937
+2 PLAC Rehovot, Rehovot, Center District, Israel
+1 DEAT
+2 DATE March 2, 2003
+2 PLAC Tiberias, Kinneret, North District, Israel
+1 NOTE Geni profile key: profile-profile-39967313
+1 NOTE Geni info:
+2 CONT GUID: 6000000002325216351
+2 CONT URL: https://www.geni.com/people/Amira-Plotkin/6000000002325216351
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39967018@ INDI
+1 NAME Yehuda /Hoffman/
+1 SEX M
+1 BIRT
+2 DATE November 16, 1947
+2 PLAC Degania Alef, Kinneret, North District, Israel
+1 DEAT
+2 DATE December 13, 1969
+1 NOTE Geni profile key: profile-profile-39967018
+1 NOTE Geni info:
+2 CONT GUID: 6000000002325040852
+2 CONT URL: https://www.geni.com/people/Yehuda-Hoffman/6000000002325040852
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39967210@ INDI
+1 NAME Sara /Haim/
+1 SEX F
+1 BIRT
+2 DATE October 14, 1956
+2 PLAC Israel
+1 RESI
+2 PLAC Israel
+1 NOTE Geni profile key: profile-profile-39967210
+1 NOTE Geni info:
+2 CONT GUID: 6000000002325246225
+2 CONT URL: https://www.geni.com/people/Sara-Haim/6000000002325246225
+2 CONT Language: en-US
+1 NOTE Part of the big tree
+1 NOTE Birth order: 2
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+1 NOTE Account type: basic
+0 @I39967070@ INDI
+1 NAME Yechi'el /Hoffman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-39967070
+1 NOTE Geni info:
+2 CONT GUID: 6000000002325203196
+2 CONT URL: https://www.geni.com/people/Yechi-el-Hoffman/6000000002325203196
+1 NOTE Part of the big tree
+1 NOTE Birth order: 3
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39967113@ INDI
+1 NAME Ya'akov /Hoffman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-39967113
+1 NOTE Geni info:
+2 CONT GUID: 6000000002325146647
+2 CONT URL: https://www.geni.com/people/Ya-akov-Hoffman/6000000002325146647
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I27085962293@ INDI
+1 NAME Chaya /Hoffman/
+1 SEX F
+1 BIRT
+2 DATE September 17, 1915
+2 PLAC Tiberias, Israel
+1 DEAT
+2 DATE June 14, 2012
+2 PLAC Netanya, Israel
+1 NOTE Geni profile key: profile-profile-27085962293
+1 NOTE Geni info:
+2 CONT GUID: 6000000014133372378
+2 CONT URL: https://www.geni.com/people/Chaya-Hoffman/6000000014133372378
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39966966@ INDI
+1 NAME Shoshana /Hoffman/
+1 SEX F
+1 BIRT
+2 DATE August 28, 1918
+2 PLAC Dubrovytsya, Dubrovyts&#39;kyi district, Rivne Oblast, Ukraine
+1 DEAT
+2 DATE November 23, 2003
+1 NOTE Geni profile key: profile-profile-39966966
+1 NOTE Geni info:
+2 CONT GUID: 6000000002325238335
+2 CONT URL: https://www.geni.com/people/Shoshana-Hoffman/6000000002325238335
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 2
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I6055695@ INDI
+1 NAME Sharona /Broza/
+1 SEX F
+1 BIRT
+2 DATE December 7, 1927
+2 PLAC Tel Aviv, Israel
+1 DEAT
+2 DATE June 2005
+2 PLAC Tel Aviv, Israel
+1 RESI
+2 PLAC Tel Aviv, IL
+1 NOTE Geni profile key: profile-profile-6055695
+1 NOTE Geni info:
+2 CONT GUID: 4653424166700014527
+2 CONT URL: https://www.geni.com/people/Sharona-Broza/4653424166700014527
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-695917
+0 @I11029889@ INDI
+1 NAME Ilona אילונה /Aron/
+1 SEX F
+1 BIRT
+2 DATE October 9, 1934
+1 DEAT
+2 DATE December 27, 2014
+1 NOTE Geni profile key: profile-profile-11029889
+1 NOTE Geni info:
+2 CONT GUID: 4464709032480074810
+2 CONT URL: https://www.geni.com/people/Ilona-Aron/4464709032480074810
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 2
+1 NOTE Created by: https://www.geni.com/api/user-1188948
+0 @I39968195@ INDI
+1 NAME Pinchas (Wellesley) /Aron/
+1 SEX M
+1 BIRT
+2 DATE 1901
+1 DEAT
+2 DATE 1988
+1 NOTE Geni profile key: profile-profile-39968195
+1 NOTE Geni info:
+2 CONT GUID: 6000000002325208906
+2 CONT URL: https://www.geni.com/people/Pinchas-Wellesley/6000000002325208906
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I10846045@ INDI
+1 NAME Lea /Amiran/
+1 SEX F
+1 BIRT
+2 DATE 1912
+2 PLAC Australia
+1 DEAT
+2 DATE February 26, 1997
+2 PLAC Israel
+1 NOTE Geni profile key: profile-profile-10846045
+1 NOTE Geni info:
+2 CONT GUID: 4420900263380013535
+2 CONT URL: https://www.geni.com/people/Lea-Amiran/4420900263380013535
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-1188948
+0 @I10886089@ INDI
+1 NAME Judith /Treleaven/
+1 SEX F
+1 DEAT
+2 DATE 2009
+1 RESI
+2 PLAC AU
+1 NOTE Geni profile key: profile-profile-10886089
+1 NOTE Geni info:
+2 CONT GUID: 4429997504350044208
+2 CONT URL: https://www.geni.com/people/Judith-Treleaven/4429997504350044208
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1188970
+0 @I10847248@ INDI
+1 NAME Aharon Nissan ניסן /Bar Cohen/
+1 SEX M
+1 BIRT
+2 DATE 1886
+2 PLAC הומייל, Gomel District, מחוז גומל, Belarus
+1 DEAT
+2 DATE 1934
+2 PLAC Melbourne, Victoria, Australia
+1 NOTE Geni profile key: profile-profile-10847248
+1 NOTE Geni info:
+2 CONT GUID: 4421107352950074771
+2 CONT URL: https://www.geni.com/people/Aharon-Nissan-Bar-Cohen/4421107352950074771
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-1188970
+0 @I40151932@ INDI
+1 NAME Haim Yehuda /Hoffman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-40151932
+1 NOTE Geni info:
+2 CONT GUID: 6000000002338445387
+2 CONT URL: https://www.geni.com/people/Haim-Hoffman/6000000002338445387
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I34830326039@ INDI
+1 NAME Yefim /Rosensvet/
+1 SEX M
+1 BIRT
+2 DATE 1921
+2 PLAC Russia (Russian Federation)
+1 NOTE Geni profile key: profile-profile-34830326039
+1 NOTE Geni info:
+2 CONT GUID: 6000000207553270829
+2 CONT URL: https://www.geni.com/people/Yefim-Rosensvet/6000000207553270829
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 2
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39968573@ INDI
+1 NAME Elka Dora Devora /Haimson/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-39968573
+1 NOTE Geni info:
+2 CONT GUID: 6000000002325367175
+2 CONT URL: https://www.geni.com/people/Elka-Haimson/6000000002325367175
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39968624@ INDI
+1 NAME Moshe /Rosensvet/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-39968624
+1 NOTE Geni info:
+2 CONT GUID: 6000000002325265746
+2 CONT URL: https://www.geni.com/people/Moshe-Rosensvet/6000000002325265746
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39965206@ INDI
+1 NAME Miriam /Hoffman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-39965206
+1 NOTE Geni info:
+2 CONT GUID: 6000000002325102377
+2 CONT URL: https://www.geni.com/people/Miriam-Hoffman/6000000002325102377
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39965122@ INDI
+1 NAME Trevor David /Hoffman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-39965122
+1 NOTE Geni info:
+2 CONT GUID: 6000000002325146156
+2 CONT URL: https://www.geni.com/people/Trevor-David-Hoffman/6000000002325146156
+1 NOTE Part of the big tree
+1 NOTE Birth order: 2
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39965270@ INDI
+1 NAME Judith /Hoffman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-39965270
+1 NOTE Geni info:
+2 CONT GUID: 6000000002324951889
+2 CONT URL: https://www.geni.com/people/Judith-Hoffman/6000000002324951889
+1 NOTE Part of the big tree
+1 NOTE Birth order: 3
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39965086@ INDI
+1 NAME Eileen /Hoffman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-39965086
+1 NOTE Geni info:
+2 CONT GUID: 6000000002325172034
+2 CONT URL: https://www.geni.com/people/Eileen-Hoffman/6000000002325172034
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I38516763@ INDI
+1 NAME Edward Denis אליהו /Hoffman/
+1 SEX M
+1 BIRT
+2 DATE December 27, 1944
+1 DEAT
+2 DATE August 20, 2017
+1 RESI
+2 PLAC Perth, Western Australia, Australia
+1 NOTE Geni profile key: profile-profile-38516763
+1 NOTE Geni info:
+2 CONT GUID: 6000000002189689489
+2 CONT URL: https://www.geni.com/people/Edward-Denis-Hoffman/6000000002189689489
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-3443484
+0 @I11052359@ INDI
+1 NAME Dr PETER פנחס /HOFFMAN/
+2 NICK Separate nicknames with a comma
+1 SEX M
+1 BIRT
+2 DATE November 28, 1946
+2 PLAC Subiaco, Perth, Western Australia, Australia
+1 DEAT
+2 DATE December 28, 2024
+1 RESI
+2 PLAC Rehovot, IL
+1 OCCU medical practitioner, ophthalmologist
+1 NOTE Geni profile key: profile-profile-11052359
+1 NOTE Geni info:
+2 CONT GUID: 4469729831310055442
+2 CONT URL: https://www.geni.com/people/Peter-Hoffman/4469729831310055442
+2 CONT Language: en-US
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 2
+1 NOTE Created by: https://www.geni.com/api/user-1188948
+1 NOTE Account type: basic
+0 @I38516790@ INDI
+1 NAME Dianne Helen דינה /Kemp/
+1 SEX F
+1 BIRT
+2 DATE September 6, 1948
+2 PLAC Perth, Western Australia, Australia
+1 RESI
+2 PLAC Brisbane, Queensland, Australia
+1 NOTE Geni profile key: profile-profile-38516790
+1 NOTE Geni info:
+2 CONT GUID: 6000000002189688455
+2 CONT URL: https://www.geni.com/people/Dianne-Helen-Kemp/6000000002189688455
+1 NOTE Part of the big tree
 1 NOTE Birth order: 3
 1 NOTE Created by: https://www.geni.com/api/user-3443484
-0 @F1@ FAM
-1 MARR
-2 DATE December 18, 1978
-2 PLAC Rehovot, Israel
-1 HUSB @I1@
-1 WIFE @I9@
-1 CHIL @I4@
-1 CHIL @I5@
-1 CHIL @I6@
-0 @F2@ FAM
-1 HUSB @I2@
-1 WIFE @I3@
-1 CHIL @I7@
-1 CHIL @I1@
-1 CHIL @I8@
-0 @F3@ FAM
+1 NOTE Account type: basic
+0 @I38516664@ INDI
+1 NAME Edith צירל /Hoffman/
+1 SEX F
+1 BIRT
+2 DATE November 27, 1918
+2 PLAC Wien, Austria
+1 DEAT
+2 DATE January 2, 2008
+2 PLAC Perth, Western Australia, Australia
+1 RESI
+2 PLAC Perth, Western Australia, Australia
+1 NOTE Geni profile key: profile-profile-38516664
+1 NOTE Geni info:
+2 CONT GUID: 6000000002189640474
+2 CONT URL: https://www.geni.com/people/Edith-Hoffman/6000000002189640474
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 4
+1 NOTE Created by: https://www.geni.com/api/user-3443484
+0 @I7293850@ INDI
+1 NAME Ronald Harris /Hoffman/
+1 SEX M
+1 BIRT
+2 DATE May 26, 1948
+1 DEAT
+2 DATE May 4, 2021
+1 RESI
+2 PLAC Perth, WA, Australia
+1 NOTE Geni profile key: profile-profile-7293850
+1 NOTE Geni info:
+2 CONT GUID: 361460834190004631
+2 CONT URL: https://www.geni.com/people/Ronald-Hoffman/361460834190004631
+2 CONT Requested merges:
+3 CONT https://www.geni.com/api/profile-34838632542
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-837908
+0 @I7293714@ INDI
+1 NAME Ruth Anne /Glasser/
+1 SEX F
+1 BIRT
+2 DATE October 4, 1950
+2 PLAC Perth
+1 NOTE Geni profile key: profile-profile-7293714
+1 NOTE Geni info:
+2 CONT GUID: 6000000004874276790
+2 CONT URL: https://www.geni.com/people/Ruth-Glasser/6000000004874276790
+1 NOTE Part of the big tree
+1 NOTE Birth order: 2
+1 NOTE Created by: https://www.geni.com/api/user-837908
+0 @I7293708@ INDI
+1 NAME Valda Marie /Hoffman/
+1 SEX F
+1 BIRT
+2 DATE May 16, 1926
+2 PLAC Sydney, New South Wales, Australia
+1 DEAT
+2 DATE January 4, 2015
+2 PLAC Perth, Australia
+1 NOTE Geni profile key: profile-profile-7293708
+1 NOTE Geni info:
+2 CONT GUID: 361457575790011673
+2 CONT URL: https://www.geni.com/people/Valda-Hoffman/361457575790011673
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 2
+1 NOTE Created by: https://www.geni.com/api/user-837908
+0 @I45569141@ INDI
+1 NAME Eveonne /Nisbet/
+1 SEX F
+1 BIRT
+2 DATE 1944
+1 RESI
+2 PLAC Levin, Manawatu-Wanganui, New Zealand
+1 NOTE Geni profile key: profile-profile-45569141
+1 NOTE Geni info:
+2 CONT GUID: 6000000002850756884
+2 CONT URL: https://www.geni.com/people/Eveonne-Nisbet/6000000002850756884
+1 NOTE Part of the big tree
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39964744@ INDI
+1 NAME Sandra /Kerr/
+2 NICK Sandi
+1 SEX F
+1 BIRT
+2 DATE March 26, 1948
+1 RESI
+2 PLAC Denmark, WA, Australia
+1 NOTE Geni profile key: profile-profile-39964744
+1 NOTE Geni info:
+2 CONT GUID: 6000000002325036840
+2 CONT URL: https://www.geni.com/people/Sandra-Kerr/6000000002325036840
+1 NOTE Part of the big tree
+1 NOTE Birth order: 2
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+1 NOTE Account type: basic
+0 @I61276980@ INDI
+1 NAME Edward Merle /Breazeale/
+2 NICK Eddie
+1 SEX M
+1 BIRT
+2 DATE December 10, 1919
+2 PLAC Mississippi, United States
+1 DEAT
+2 DATE April 2, 1996
+2 PLAC Perth, Australia
+1 RESI
+2 PLAC Perth, Western Australia, Australia
+1 NOTE Geni profile key: profile-profile-61276980
+1 NOTE Geni info:
+2 CONT GUID: 6000000004535880397
+2 CONT URL: https://www.geni.com/people/Edward-Breazeale/6000000004535880397
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 7
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I38739984@ INDI
+1 NAME Dan /Hoffman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-38739984
+1 NOTE Geni info:
+2 CONT GUID: 6000000002217118407
+2 CONT URL: https://www.geni.com/people/Dan-Hoffman/6000000002217118407
+1 NOTE Part of the big tree
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I38740076@ INDI
+1 NAME Toby Rachel /Freund/
+1 SEX F
+1 RESI
+2 PLAC Perth, Western Australia, Australia
+1 NOTE Geni profile key: profile-profile-38740076
+1 NOTE Geni info:
+2 CONT GUID: 6000000002217177462
+2 CONT URL: https://www.geni.com/people/Toby-Rachel/6000000002217177462
+2 CONT Requested merges:
+3 CONT https://www.geni.com/api/profile-34704901228
+1 NOTE Part of the big tree
+1 NOTE Birth order: 2
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I34633857222@ INDI
+1 NAME David /Hoffman/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-34633857222
+1 NOTE Geni info:
+2 CONT GUID: 6000000017864224122
+2 CONT URL: https://www.geni.com/people/David-Hoffman/6000000017864224122
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I38739935@ INDI
+1 NAME Louise /Hoffman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-38739935
+1 NOTE Geni info:
+2 CONT GUID: 6000000002217159668
+2 CONT URL: https://www.geni.com/people/Louise-Hoffman/6000000002217159668
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I34708906824@ INDI
+1 NAME Marie /Hoffman/
+1 SEX F
+1 DEAT
+2 DATE June 6, 2017
+1 NOTE Geni profile key: profile-profile-34708906824
+1 NOTE Geni info:
+2 CONT GUID: 6000000063211153849
+2 CONT URL: https://www.geni.com/people/Marie-Hoffman/6000000063211153849
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I34627726038@ INDI
+1 NAME Yehuda /Hershkovitz/
+1 SEX M
+1 BIRT
+2 DATE 1917
+1 DEAT
+2 DATE July 3, 2014
+1 NOTE Geni profile key: profile-profile-34627726038
+1 NOTE Geni info:
+2 CONT GUID: 6000000016238753836
+2 CONT URL: https://www.geni.com/people/Yehuda-Hershkovitz/6000000016238753836
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-5002372
+0 @I104098048@ INDI
+1 NAME Rivka Freida /Hochman/
+1 SEX F
+1 BIRT
+2 DATE 1937
+2 PLAC Tel Aviv-Yafo, Tel Aviv District, Israel
+1 RESI
+2 PLAC Giv'atayim, Tel Aviv District, Israel
+1 NOTE Geni profile key: profile-profile-104098048
+1 NOTE Geni info:
+2 CONT GUID: 6000000010111380853
+2 CONT URL: https://www.geni.com/people/Rivka-Freida-Hochman/6000000010111380853
+1 NOTE Part of the big tree
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I41030187@ INDI
+1 NAME Alex /Schwartz/
+1 SEX M
+1 BIRT
+2 DATE October 4, 1922
+2 PLAC Germany
+1 DEAT
+2 DATE March 13, 2008
+2 PLAC Ramat Gan, Tel Aviv District, Israel
+1 RESI
+2 PLAC Ramat Gan, Tel Aviv District, Israel
+1 NOTE Geni profile key: profile-profile-41030187
+1 NOTE Geni info:
+2 CONT GUID: 6000000002424458870
+2 CONT URL: https://www.geni.com/people/Alex-Schwartz/6000000002424458870
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I41030307@ INDI
+1 NAME Na'im /Sha'abi/
+1 SEX M
+1 BIRT
+2 DATE June 10, 1931
+2 PLAC Iraq
+1 DEAT
+2 PLAC Tel Aviv-Yafo, Tel Aviv District, Israel
+1 RESI
+2 PLAC Tel Aviv-Yafo, Tel Aviv District, Israel
+1 NOTE Geni profile key: profile-profile-41030307
+1 NOTE Geni info:
+2 CONT GUID: 6000000002424638113
+2 CONT URL: https://www.geni.com/people/Na-im-Sha-abi/6000000002424638113
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I34741022624@ INDI
+1 NAME Chaim /Kaminitz/
+1 SEX M
+1 BIRT
+2 DATE November 16, 1932
+1 DEAT
+2 DATE August 21, 2019
+1 NOTE Geni profile key: profile-profile-34741022624
+1 NOTE Geni info:
+2 CONT GUID: 6000000103901702016
+2 CONT URL: https://www.geni.com/people/Chaim-Kaminitz/6000000103901702016
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-473093
+0 @I41030762@ INDI
+1 NAME Haim /Keminitz/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-41030762
+1 NOTE Geni info:
+2 CONT GUID: 6000000002424379964
+2 CONT URL: https://www.geni.com/people/Haim-Keminitz/6000000002424379964
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I41030641@ INDI
+1 NAME Rivka /Hochman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-41030641
+1 NOTE Geni info:
+2 CONT GUID: 6000000002424450667
+2 CONT URL: https://www.geni.com/people/Rivka-Hochman/6000000002424450667
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I61722335@ INDI
+1 NAME Genina /Waxberg/
+2 NICK Genina /Hochman/
+1 SEX F
+1 BIRT
+2 DATE 1942
+1 NOTE Geni profile key: profile-profile-61722335
+1 NOTE Geni info:
+2 CONT GUID: 6000000004588519326
+2 CONT URL: https://www.geni.com/people/Genina-Waxberg/6000000004588519326
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 1
+0 @I104097201@ INDI
+1 NAME **** /Hochman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-104097201
+1 NOTE Geni info:
+2 CONT GUID: 6000000010111447063
+2 CONT URL: https://www.geni.com/people/Hochman/6000000010111447063
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I104097240@ INDI
+1 NAME Yehudit /Hochman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-104097240
+1 NOTE Geni info:
+2 CONT GUID: 6000000010111702674
+2 CONT URL: https://www.geni.com/people/Yehudit-Hochman/6000000010111702674
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I87977949@ INDI
+1 NAME Fanny /Hoffman/
+1 SEX F
+1 BIRT
+2 DATE February 15, 1915
+2 PLAC Perth, WA, Australia
+1 DEAT
+2 PLAC Perth, WA, Australia
+1 NOTE Geni profile key: profile-profile-87977949
+1 NOTE Geni info:
+2 CONT GUID: 6000000008730656678
+2 CONT URL: https://www.geni.com/people/Fanny-Hoffman/6000000008730656678
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40776182@ INDI
+1 NAME Morrie /Miller/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-40776182
+1 NOTE Geni info:
+2 CONT GUID: 6000000002397962989
+2 CONT URL: https://www.geni.com/people/Morrie-Miller/6000000002397962989
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40778552@ INDI
+1 NAME Graham /Lee/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-40778552
+1 NOTE Geni info:
+2 CONT GUID: 6000000002398348199
+2 CONT URL: https://www.geni.com/people/Graham-Lee/6000000002398348199
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40775955@ INDI
+1 NAME Mendel /Mendelovitz/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-40775955
+1 NOTE Geni info:
+2 CONT GUID: 6000000002398131423
+2 CONT URL: https://www.geni.com/people/Mendel-Mendelovitz/6000000002398131423
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40776047@ INDI
+1 NAME Beryl /Hoffman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-40776047
+1 NOTE Geni info:
+2 CONT GUID: 6000000002398071583
+2 CONT URL: https://www.geni.com/people/Beryl-Hoffman/6000000002398071583
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40779192@ INDI
+1 NAME Olga /Hoffman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-40779192
+1 NOTE Geni info:
+2 CONT GUID: 6000000002398367560
+2 CONT URL: https://www.geni.com/people/Olga-Hoffman/6000000002398367560
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40779402@ INDI
+1 NAME Irene /Hoffman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-40779402
+1 NOTE Geni info:
+2 CONT GUID: 6000000002398381823
+2 CONT URL: https://www.geni.com/people/Irene-Hoffman/6000000002398381823
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40779627@ INDI
+1 NAME Leah /Hoffman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-40779627
+1 NOTE Geni info:
+2 CONT GUID: 6000000002398412590
+2 CONT URL: https://www.geni.com/people/Leah-Hoffman/6000000002398412590
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40779264@ INDI
+1 NAME Ralph /Lazarus/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-40779264
+1 NOTE Geni info:
+2 CONT GUID: 6000000002398308938
+2 CONT URL: https://www.geni.com/people/Ralph-Lazarus/6000000002398308938
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40779560@ INDI
+1 NAME Gertie /Hoffman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-40779560
+1 NOTE Geni info:
+2 CONT GUID: 6000000002398537043
+2 CONT URL: https://www.geni.com/people/Gertie-Hoffman/6000000002398537043
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I38741142@ INDI
+1 NAME Devora /Tamir/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-38741142
+1 NOTE Geni info:
+2 CONT GUID: 6000000002217316137
+2 CONT URL: https://www.geni.com/people/Devora-Tamir/6000000002217316137
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39967363@ INDI
+1 NAME Shlomo /Plotkin/
+2 NICK סולה
+1 SEX M
+1 BIRT
+2 DATE December 18, 1928
+1 DEAT
+2 DATE December 16, 2018
+1 NOTE Geni profile key: profile-profile-39967363
+1 NOTE Geni info:
+2 CONT GUID: 6000000002325233832
+2 CONT URL: https://www.geni.com/people/Shlomo-Plotkin/6000000002325233832
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40102160@ INDI
+1 NAME Alon /Haim/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-40102160
+1 NOTE Geni info:
+2 CONT GUID: 6000000002335549230
+2 CONT URL: https://www.geni.com/people/Alon-Haim/6000000002335549230
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40102350@ INDI
+1 NAME Barbara /Hoffman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-40102350
+1 NOTE Geni info:
+2 CONT GUID: 6000000002335527716
+2 CONT URL: https://www.geni.com/people/Barbara-Hoffman/6000000002335527716
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I6033262@ INDI
+1 NAME Arthur /Broza/
+1 SEX M
+1 BIRT
+2 DATE June 19, 1924
+2 PLAC United Kingdom
+1 DEAT
+2 DATE May 2003
+1 RESI
+2 PLAC Tel Aviv, IL
+1 NOTE Geni profile key: profile-profile-6033262
+1 NOTE Geni info:
+2 CONT GUID: 4653424167940014528
+2 CONT URL: https://www.geni.com/people/Arthur-Broza/4653424167940014528
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-695742
+0 @I10846099@ INDI
+1 NAME Matityahu /Amiran/
+2 NICK Pugi
+1 SEX M
+1 BIRT
+2 DATE 1910
+1 DEAT
+2 DATE circa 1983
+1 NOTE Geni profile key: profile-profile-10846099
+1 NOTE Geni info:
+2 CONT GUID: 4420900264430013536
+2 CONT URL: https://www.geni.com/people/Matityahu-Amiran/4420900264430013536
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 2
+1 NOTE Created by: https://www.geni.com/api/user-1188948
+0 @I11040281@ INDI
+1 NAME Arthur /Treleaven/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-11040281
+1 NOTE Geni info:
+2 CONT GUID: 4456414177600010405
+2 CONT URL: https://www.geni.com/people/Arthur-Treleaven/4456414177600010405
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1203581
+0 @I38740670@ INDI
+1 NAME Leah /Hoffman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-38740670
+1 NOTE Geni info:
+2 CONT GUID: 6000000002217127631
+2 CONT URL: https://www.geni.com/people/Leah-Hoffman/6000000002217127631
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I34830326429@ INDI
+1 NAME Buzia /Rosensvet/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-34830326429
+1 NOTE Geni info:
+2 CONT GUID: 6000000207553644823
+2 CONT URL: https://www.geni.com/people/Buzia-Rosensvet/6000000207553644823
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I39968655@ INDI
+1 NAME Les Lazar /Haimson/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-39968655
+1 NOTE Geni info:
+2 CONT GUID: 6000000002325265754
+2 CONT URL: https://www.geni.com/people/Les-Lazar-Haimson/6000000002325265754
+1 NOTE Part of the big tree
+1 NOTE Marked as deceased by Geni
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I100527572@ INDI
+1 NAME Jenny /Parkinson/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-100527572
+1 NOTE Geni info:
+2 CONT GUID: 6000000009670644631
+2 CONT URL: https://www.geni.com/people/Jenny/6000000009670644631
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40156750@ INDI
+1 NAME Lois /Rasmussen/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-40156750
+1 NOTE Geni info:
+2 CONT GUID: 6000000002338703583
+2 CONT URL: https://www.geni.com/people/Lois-Rasmussen/6000000002338703583
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40156505@ INDI
+1 NAME Brigid /Fitzgerald/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-40156505
+1 NOTE Geni info:
+2 CONT GUID: 6000000002338749203
+2 CONT URL: https://www.geni.com/people/Brigid-Fitzgerald/6000000002338749203
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I38517487@ INDI
+1 NAME Varda ורדה /Hoffman/
+2 NICK Flora
+2 NICK Parvin
+1 SEX F
+1 BIRT
+2 DATE 1949
+2 PLAC Hamedan, Iran, Islamic Republic of
+1 NOTE Geni profile key: profile-profile-38517487
+1 NOTE Geni info:
+2 CONT GUID: 6000000002189765150
+2 CONT URL: https://www.geni.com/people/Varda-Hoffman/6000000002189765150
+1 NOTE Part of the big tree
+1 NOTE Birth order: 2
+1 NOTE Created by: https://www.geni.com/api/user-3443484
+0 @I38739432@ INDI
+1 NAME Derek /Kemp/
+1 SEX M
+1 BIRT
+2 PLAC Lancashire, England, United Kingdom
+1 RESI
+2 PLAC Brisbane, Queensland, Australia
+1 NOTE Geni profile key: profile-profile-38739432
+1 NOTE Geni info:
+2 CONT GUID: 6000000002217101487
+2 CONT URL: https://www.geni.com/people/Derek-Kemp/6000000002217101487
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I63012874@ INDI
+1 NAME Paula /Hoffman/
+1 SEX F
+1 BIRT
+2 DATE August 7, 1962
+1 NOTE Geni profile key: profile-profile-63012874
+1 NOTE Geni info:
+2 CONT GUID: 6000000004874322718
+2 CONT URL: https://www.geni.com/people/Paula-Hoffman/6000000004874322718
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-5295536
+0 @I7293880@ INDI
+1 NAME Margaret /Hoffman/
+1 SEX F
+1 BIRT
+2 DATE circa 1950
+1 NOTE Geni profile key: profile-profile-7293880
+1 NOTE Geni info:
+2 CONT GUID: 361461569490011652
+2 CONT URL: https://www.geni.com/people/Margaret-Hoffman/361461569490011652
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-837908
+0 @I7293962@ INDI
+1 NAME David /Glasser/
+1 SEX M
+1 BIRT
+2 DATE July 7, 1945
+1 NOTE Geni profile key: profile-profile-7293962
+1 NOTE Geni info:
+2 CONT GUID: 361463075430002813
+2 CONT URL: https://www.geni.com/people/David-Glasser/361463075430002813
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-837908
+0 @I45569115@ INDI
+1 NAME Michael JOHN /Nisbet/
+1 SEX M
+1 BIRT
+2 DATE November 13, 1941
+2 PLAC Wellington, New Zealand
+1 RESI
+2 PLAC LEVIN, HOR, WELLINGTON, NZ
+1 OCCU RETIRED
+1 NOTE Geni profile key: profile-profile-45569115
+1 NOTE Geni info:
+2 CONT GUID: 6000000002850821269
+2 CONT URL: https://www.geni.com/people/Michael-Nisbet/6000000002850821269
+2 CONT Requested merges:
+3 CONT https://www.geni.com/api/profile-40157732
+2 CONT Language: en-US
+1 NOTE Part of the big tree
+1 NOTE Birth order: 1
+1 NOTE Created by: https://www.geni.com/api/user-3988022
+1 NOTE Account type: basic
+0 @I40157732@ INDI
+1 NAME Michael /Nisbitt/
+1 SEX M
+1 NOTE Geni profile key: profile-profile-40157732
+1 NOTE Geni info:
+2 CONT GUID: 6000000002338672826
+2 CONT URL: https://www.geni.com/people/Michael-Nisbitt/6000000002338672826
+2 CONT Requested merges:
+3 CONT https://www.geni.com/api/profile-45569115
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40159158@ INDI
+1 NAME Henry /Wilson/
+1 SEX M
+1 BIRT
+2 DATE 1939
+1 NOTE Geni profile key: profile-profile-40159158
+1 NOTE Geni info:
+2 CONT GUID: 6000000002338861375
+2 CONT URL: https://www.geni.com/people/Henry-Wilson/6000000002338861375
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40159359@ INDI
+1 NAME Peter /Kerr/
+1 SEX M
+1 BIRT
+2 DATE March 26, 1944
+2 PLAC Perth, Western Australia, Australia
+1 RESI
+2 PLAC Denmark, Shire of Denmark, Western Australia, Australia
+1 NOTE Geni profile key: profile-profile-40159359
+1 NOTE Geni info:
+2 CONT GUID: 6000000002338846917
+2 CONT URL: https://www.geni.com/people/Peter-Kerr/6000000002338846917
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40159550@ INDI
+1 NAME Ketura /Hoffman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-40159550
+1 NOTE Geni info:
+2 CONT GUID: 6000000002338939342
+2 CONT URL: https://www.geni.com/people/Ketura-Hoffman/6000000002338939342
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I40160177@ INDI
+1 NAME Jerome Michael יעקב /Freund/
+1 SEX M
+1 BIRT
+2 PLAC Syracuse, Onondaga County, New York, United States
+1 RESI
+2 PLAC Perth, Western Australia, Australia
+1 OCCU medical practitioner
+1 NOTE Geni profile key: profile-profile-40160177
+1 NOTE Geni info:
+2 CONT GUID: 6000000002338782612
+2 CONT URL: https://www.geni.com/people/Jerome-Michael-Freund/6000000002338782612
+2 CONT Requested merges:
+3 CONT https://www.geni.com/api/profile-34704901194
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-1208372
+0 @I34633857141@ INDI
+1 NAME Eva /Hoffman/
+1 SEX F
+1 NOTE Geni profile key: profile-profile-34633857141
+1 NOTE Geni info:
+2 CONT GUID: 6000000017862866841
+2 CONT URL: https://www.geni.com/people/Eva-Hoffman/6000000017862866841
+1 NOTE Part of the big tree
+1 NOTE Birth order: 99
+1 NOTE Created by: https://www.geni.com/api/user-605175
+0 @F100124274@ FAM
+1 HUSB @I34776522165@
+1 CHIL @I11032895@
+0 @F3770106@ FAM
+1 HUSB @I11032885@
+1 WIFE @I11032895@
+1 CHIL @I11060285@
+1 CHIL @I11032861@
+1 CHIL @I38740193@
+1 CHIL @I39114997@
+1 CHIL @I39115025@
+1 CHIL @I39114938@
+1 CHIL @I39114787@
+1 CHIL @I11052340@
+1 CHIL @I39114550@
+1 CHIL @I39114448@
+0 @F13655669@ FAM
+1 HUSB @I11060285@
+1 WIFE @I39965387@
+1 CHIL @I69829345@
+1 CHIL @I39965656@
+1 CHIL @I39965615@
+1 CHIL @I39965722@
+1 CHIL @I39965692@
+1 CHIL @I41031001@
+0 @F13655502@ FAM
+1 HUSB @I11060285@
+1 WIFE @I39965332@
+1 CHIL @I39965449@
+1 CHIL @I39965497@
+0 @F3769088@ FAM
+1 HUSB @I11032861@
+1 WIFE @I39967468@
+1 CHIL @I11029840@
+1 CHIL @I27102630293@
+1 CHIL @I11029872@
+1 CHIL @I10847256@
+1 CHIL @I38740400@
+0 @F13236228@ FAM
+1 HUSB @I38740193@
+1 WIFE @I10018191293@
+1 CHIL @I38740219@
+1 CHIL @I39968494@
+1 CHIL @I6453453293@
+1 CHIL @I10022889293@
+0 @F32835019@ FAM
+1 HUSB @I39114787@
+1 WIFE @I100528021@
+1 CHIL @I6456414293@
+1 CHIL @I6456540293@
+1 CHIL @I6456702293@
+1 CHIL @I6457089293@
+0 @F3776794@ FAM
 1 MARR
 2 DATE circa 1909
-1 HUSB @I10@
-1 WIFE @I11@
-1 CHIL @I12@
-1 CHIL @I13@
-1 CHIL @I2@
-1 CHIL @I14@
-1 CHIL @I15@
-1 CHIL @I16@
-0 @F4@ FAM
-1 HUSB @I17@
-1 WIFE @I18@
-1 CHIL @I19@
-1 CHIL @I20@
-1 CHIL @I21@
-1 CHIL @I3@
-0 @F5@ FAM
-1 WIFE @I4@
-0 @F6@ FAM
-1 HUSB @I5@
-0 @F7@ FAM
-1 WIFE @I6@
-0 @F8@ FAM
-1 WIFE @I8@
-0 @F9@ FAM
-1 CHIL @I9@
-0 @F10@ FAM
-1 CHIL @I10@
-0 @F11@ FAM
-1 CHIL @I11@
-0 @F12@ FAM
-1 HUSB @I12@
-0 @F13@ FAM
+1 HUSB @I11052340@
+1 WIFE @I38735986@
+1 CHIL @I38736184@
+1 CHIL @I38736293@
+1 CHIL @I11052350@
+1 CHIL @I7293825@
+1 CHIL @I61277011@
+1 CHIL @I38736559@
+0 @F32834997@ FAM
+1 HUSB @I39114550@
+1 WIFE @I100527944@
+1 CHIL @I6457782293@
+1 CHIL @I6457935293@
+1 CHIL @I6458115293@
+1 CHIL @I6458385293@
+1 CHIL @I6458664293@
+0 @F23681200@ FAM
+1 HUSB @I69829345@
+1 WIFE @I9238258@
+1 CHIL @I34690176393@
+1 CHIL @I34634392201@
+1 CHIL @I34810539811@
+0 @F112460209@ FAM
+2 PLAC תל אביב יפו, מחוז תל אביב, Israel
+1 HUSB @I69829345@
+1 WIFE @I9238271@
+0 @F80286977@ FAM
+1 HUSB @I69829345@
+1 WIFE @I34717332829@
+0 @F14018794@ FAM
+1 HUSB @I41027848@
+1 WIFE @I39965656@
+1 CHIL @I34634428931@
+1 CHIL @I41028718@
+1 CHIL @I41029853@
+0 @F14018731@ FAM
+1 HUSB @I39965615@
+1 WIFE @I41030493@
+1 CHIL @I34842724394@
+1 CHIL @I34707228510@
+0 @F80287020@ FAM
+1 HUSB @I39965692@
+1 WIFE @I34717332929@
+0 @F76778361@ FAM
+1 HUSB @I39965692@
+1 WIFE @I34717332922@
+1 CHIL @I61720688@
+1 CHIL @I104097137@
+0 @F13932432@ FAM
+1 HUSB @I39965449@
+1 WIFE @I40775621@
+1 CHIL @I87977937@
+1 CHIL @I40775931@
+1 CHIL @I40775682@
+1 CHIL @I40775871@
+0 @F13934435@ FAM
+1 HUSB @I39965497@
+1 WIFE @I40778657@
+1 CHIL @I40778709@
+1 CHIL @I40778886@
+1 CHIL @I40778933@
+1 CHIL @I40778983@
+1 CHIL @I40779093@
+1 CHIL @I40779121@
+0 @F3769093@ FAM
+1 HUSB @I11029840@
+1 WIFE @I11029849@
+1 CHIL @I11029856@
+0 @F42847203@ FAM
+1 HUSB @I27102630293@
+1 WIFE @I27085962293@
+1 CHIL @I39967313@
+0 @F13656324@ FAM
+1 HUSB @I27102630293@
+1 WIFE @I39966966@
+1 CHIL @I39967018@
+1 CHIL @I39967210@
+1 CHIL @I39967070@
+1 CHIL @I39967113@
+0 @F3769100@ FAM
+1 HUSB @I39968195@
+1 WIFE @I11029872@
+1 CHIL @I6055695@
+1 CHIL @I11029889@
+0 @F3706214@ FAM
+1 HUSB @I10847248@
+1 WIFE @I10847256@
+1 CHIL @I10846045@
+1 CHIL @I10886089@
+0 @F13237245@ FAM
+1 HUSB @I38740219@
+1 WIFE @I38740400@
+1 CHIL @I40151932@
+0 @F13656129@ FAM
+1 CHIL @I39967468@
+0 @F13657073@ FAM
+1 HUSB @I39968624@
+1 WIFE @I39968494@
+1 CHIL @I34830326039@
+1 CHIL @I39968573@
+0 @F13655899@ FAM
+1 HUSB @I38736184@
+1 WIFE @I39965086@
+1 CHIL @I39965206@
+1 CHIL @I39965122@
+1 CHIL @I39965270@
+0 @F13161432@ FAM
+1 HUSB @I11052350@
+1 WIFE @I38516664@
+1 CHIL @I38516763@
+1 CHIL @I11052359@
+1 CHIL @I38516790@
+0 @F69008@ FAM
 1 MARR
 2 DATE February 27, 1947
 2 PLAC Sydney, NSW, Australia
-1 HUSB @I14@
-0 @F14@ FAM
-1 WIFE @I15@
-0 @F15@ FAM
-1 HUSB @I16@
-0 @F16@ FAM
-1 CHIL @I17@
-0 @F17@ FAM
-1 CHIL @I18@
-0 @F18@ FAM
+1 HUSB @I7293825@
+1 WIFE @I7293708@
+1 CHIL @I7293850@
+1 CHIL @I7293714@
+0 @F20778736@ FAM
+1 HUSB @I61276980@
+1 WIFE @I61277011@
+1 CHIL @I45569141@
+1 CHIL @I39964744@
+0 @F13236990@ FAM
+1 HUSB @I38736559@
+1 WIFE @I38739935@
+1 CHIL @I38739984@
+1 CHIL @I38740076@
+1 CHIL @I34633857222@
+0 @F78225475@ FAM
+1 CHIL @I38735986@
+0 @F77363235@ FAM
+1 HUSB @I6458385293@
+1 CHIL @I34708906824@
+0 @F48128626@ FAM
+1 HUSB @I34690176393@
+1 WIFE @I34634428931@
+0 @F48129130@ FAM
+1 HUSB @I34627726038@
+1 WIFE @I34634392201@
+0 @F112460755@ FAM
+1 HUSB @I34810539811@
+1 WIFE @I104098048@
+0 @F17073700@ FAM
+1 CHIL @I9238258@
+1 CHIL @I9238271@
+0 @F23681147@ FAM
+1 WIFE @I9238271@
+0 @F14018627@ FAM
+1 HUSB @I41030187@
+1 WIFE @I41028718@
+0 @F14019345@ FAM
+1 HUSB @I41030307@
+1 WIFE @I41029853@
+0 @F123434239@ FAM
+1 HUSB @I34741022624@
+1 WIFE @I34842724394@
+0 @F14018384@ FAM
+1 HUSB @I41030762@
+1 WIFE @I34842724394@
+0 @F14018592@ FAM
+1 HUSB @I34707228510@
+1 WIFE @I41030641@
+0 @F123434217@ FAM
+1 CHIL @I41030493@
+0 @F20933077@ FAM
+1 HUSB @I61720688@
+1 WIFE @I61722335@
+0 @F33976876@ FAM
 1 DIV
-1 WIFE @I19@
-0 @F19@ FAM
-1 WIFE @I19@
-0 @F20@ FAM
-1 WIFE @I19@
-0 @F21@ FAM
+1 HUSB @I104097137@
+1 WIFE @I104097201@
+0 @F33976889@ FAM
+1 HUSB @I104097137@
+1 WIFE @I104097240@
+0 @F29912971@ FAM
+1 HUSB @I87977937@
+1 WIFE @I87977949@
+0 @F13931964@ FAM
+1 HUSB @I40776182@
+1 WIFE @I40775931@
+0 @F13934013@ FAM
+1 HUSB @I40778552@
+1 WIFE @I40775931@
+0 @F13932531@ FAM
+1 HUSB @I40775955@
+1 WIFE @I40775682@
+0 @F13932336@ FAM
+1 HUSB @I40775871@
+1 WIFE @I40776047@
+0 @F13934082@ FAM
+1 HUSB @I40778709@
+1 WIFE @I40779192@
+0 @F13934116@ FAM
+1 HUSB @I40778886@
+1 WIFE @I40779402@
+0 @F13934232@ FAM
+1 HUSB @I40778933@
+1 WIFE @I40779627@
+0 @F13933794@ FAM
+1 HUSB @I40779264@
+1 WIFE @I40778983@
+0 @F13934717@ FAM
+1 HUSB @I40779093@
+1 WIFE @I40779560@
+0 @F13237557@ FAM
+1 HUSB @I11029856@
+1 WIFE @I38741142@
+0 @F13720645@ FAM
+1 CHIL @I11029849@
+0 @F13656219@ FAM
+1 HUSB @I39967363@
+1 WIFE @I39967313@
+0 @F13702633@ FAM
+1 HUSB @I40102160@
+1 WIFE @I39967210@
+0 @F13703425@ FAM
+1 HUSB @I39967070@
+1 WIFE @I40102350@
+0 @F81750881@ FAM
+1 WIFE @I27085962293@
+0 @F42846424@ FAM
+1 MARR
+2 DATE 1913
+2 PLAC Tiberias, Israel
+1 CHIL @I27085962293@
+0 @F58186368@ FAM
+1 CHIL @I39966966@
+0 @F4017734@ FAM
+1 HUSB @I6033262@
+1 WIFE @I6055695@
+0 @F27504093@ FAM
+1 CHIL @I39968195@
+0 @F3705804@ FAM
+1 HUSB @I10846099@
+1 WIFE @I10846045@
+0 @F3758805@ FAM
+2 PLAC Australia
+1 HUSB @I11040281@
+1 WIFE @I10886089@
+0 @F93171312@ FAM
+1 CHIL @I10847248@
+0 @F13235963@ FAM
+1 HUSB @I40151932@
+1 WIFE @I38740670@
+0 @F119162139@ FAM
+1 HUSB @I34830326039@
+1 WIFE @I34830326429@
+0 @F13656471@ FAM
+1 HUSB @I39968655@
+1 WIFE @I39968573@
+0 @F32834861@ FAM
+1 HUSB @I39965122@
+1 WIFE @I100527572@
+0 @F13721300@ FAM
+1 HUSB @I39965122@
+1 WIFE @I40156750@
+0 @F13721612@ FAM
+1 HUSB @I39965122@
+1 WIFE @I40156505@
+0 @F13161723@ FAM
+1 MARR
+2 DATE December 18, 1978
+2 PLAC Rehovot, Israel
+1 HUSB @I11052359@
+1 WIFE @I38517487@
+0 @F13237018@ FAM
+1 HUSB @I38739432@
+1 WIFE @I38516790@
+0 @F13161280@ FAM
+1 CHIL @I38516664@
+0 @F21371852@ FAM
+1 MARR
+2 DATE September 9, 2003
+2 PLAC Perth W.A.
+1 HUSB @I7293850@
+1 WIFE @I63012874@
+0 @F69152@ FAM
+1 MARR
+2 DATE March 21, 1978
+1 HUSB @I7293850@
+1 WIFE @I7293880@
+0 @F21371596@ FAM
+1 MARR
+2 DATE September 1, 1974
+2 PLAC Temple David, Perth W.A.
+1 HUSB @I7293962@
+1 WIFE @I7293714@
+0 @F66999@ FAM
+1 MARR
+2 DATE November 22, 1923
+1 CHIL @I7293708@
+0 @F15552668@ FAM
+1 HUSB @I45569115@
+1 WIFE @I45569141@
+0 @F13720844@ FAM
+1 HUSB @I40157732@
+1 WIFE @I45569141@
+0 @F13722347@ FAM
 1 DIV
-1 HUSB @I20@
-0 @F22@ FAM
-1 HUSB @I20@
-0 @F23@ FAM
-1 DIV
-1 HUSB @I21@
-0 @F24@ FAM
-1 HUSB @I21@
-0 @I1@ INDI
-1 FAMS @F1@
-1 FAMC @F2@
-0 @I9@ INDI
-1 FAMC @F9@
-1 FAMS @F1@
-0 @I4@ INDI
-1 FAMC @F1@
-1 FAMS @F5@
-0 @I5@ INDI
-1 FAMC @F1@
-1 FAMS @F6@
-0 @I6@ INDI
-1 FAMC @F1@
-1 FAMS @F7@
-0 @I2@ INDI
-1 FAMS @F2@
-1 FAMC @F3@
-0 @I3@ INDI
-1 FAMS @F2@
-1 FAMC @F4@
-0 @I7@ INDI
-1 FAMC @F2@
-0 @I8@ INDI
-1 FAMS @F8@
-1 FAMC @F2@
-0 @I10@ INDI
-1 FAMC @F10@
-1 FAMS @F3@
-0 @I11@ INDI
-1 FAMS @F3@
-1 FAMC @F11@
-0 @I12@ INDI
-1 FAMS @F12@
-1 FAMC @F3@
-0 @I13@ INDI
-1 FAMC @F3@
-0 @I14@ INDI
-1 FAMC @F3@
-1 FAMS @F13@
-0 @I15@ INDI
-1 FAMS @F14@
-1 FAMC @F3@
-0 @I16@ INDI
-1 FAMS @F15@
-1 FAMC @F3@
-0 @I17@ INDI
-1 FAMC @F16@
-1 FAMS @F4@
-0 @I18@ INDI
-1 FAMC @F17@
-1 FAMS @F4@
-0 @I19@ INDI
-1 FAMC @F4@
-1 FAMS @F20@
-1 FAMS @F18@
-1 FAMS @F19@
-0 @I20@ INDI
-1 FAMS @F21@
-1 FAMC @F4@
-1 FAMS @F22@
-0 @I21@ INDI
-1 FAMC @F4@
-1 FAMS @F24@
-1 FAMS @F23@
+1 HUSB @I40159158@
+1 WIFE @I39964744@
+0 @F13722302@ FAM
+1 HUSB @I40159359@
+1 WIFE @I39964744@
+0 @F27248557@ FAM
+1 MARR
+2 DATE December 23, 1906
+2 PLAC Lamar, MS, United States
+1 CHIL @I61276980@
+0 @F13722771@ FAM
+1 HUSB @I38739984@
+1 WIFE @I40159550@
+0 @F13721988@ FAM
+1 HUSB @I40160177@
+1 WIFE @I38740076@
+0 @F47925911@ FAM
+1 HUSB @I34633857222@
+1 WIFE @I34633857141@
+0 @F42051576@ FAM
+1 CHIL @I38739935@
+0 @F45762448@ FAM
+1 CHIL @I34627726038@
+0 @F86715086@ FAM
+1 CHIL @I104098048@
+0 @F20933200@ FAM
+1 CHIL @I61722335@
+0 @F13656498@ FAM
+1 CHIL @I38741142@
+0 @F13720622@ FAM
+1 CHIL @I39967363@
+0 @F31439727@ FAM
+1 MARR
+2 DATE January 31, 1916
+2 PLAC London, Greater London, UK
+1 CHIL @I6033262@
+0 @F3706202@ FAM
+1 CHIL @I10846099@
+0 @F13656682@ FAM
+1 CHIL @I39968655@
+0 @F13652154@ FAM
+1 CHIL @I38517487@
+0 @F88568437@ FAM
+1 CHIL @I7293880@
+0 @F15552850@ FAM
+1 CHIL @I45569115@
+0 @F77210335@ FAM
+1 HUSB @I40159359@
+0 @F118407810@ FAM
+1 CHIL @I40160177@
+0 @F47925882@ FAM
+1 CHIL @I34633857141@
+0 @I34776522165@ INDI
+1 FAMS @F100124274@
+0 @I11032895@ INDI
+1 FAMS @F3770106@
+1 FAMC @F100124274@
+0 @I11032885@ INDI
+1 FAMS @F3770106@
+0 @I11060285@ INDI
+1 FAMS @F13655502@
+1 FAMC @F3770106@
+1 FAMS @F13655669@
+0 @I11032861@ INDI
+1 FAMS @F3769088@
+1 FAMC @F3770106@
+0 @I38740193@ INDI
+1 FAMS @F13236228@
+1 FAMC @F3770106@
+0 @I39114997@ INDI
+1 FAMC @F3770106@
+0 @I39115025@ INDI
+1 FAMC @F3770106@
+0 @I39114938@ INDI
+1 FAMC @F3770106@
+0 @I39114787@ INDI
+1 FAMS @F32835019@
+1 FAMC @F3770106@
+0 @I11052340@ INDI
+1 FAMS @F3776794@
+1 FAMC @F3770106@
+0 @I39114550@ INDI
+1 FAMS @F32834997@
+1 FAMC @F3770106@
+0 @I39114448@ INDI
+1 FAMC @F3770106@
+0 @I39965387@ INDI
+1 FAMS @F13655669@
+0 @I69829345@ INDI
+1 FAMS @F112460209@
+1 FAMS @F80286977@
+1 FAMC @F13655669@
+1 FAMS @F23681200@
+0 @I39965656@ INDI
+1 FAMS @F14018794@
+1 FAMC @F13655669@
+0 @I39965615@ INDI
+1 FAMC @F13655669@
+1 FAMS @F14018731@
+0 @I39965722@ INDI
+1 FAMC @F13655669@
+0 @I39965692@ INDI
+1 FAMS @F80287020@
+1 FAMC @F13655669@
+1 FAMS @F76778361@
+0 @I41031001@ INDI
+1 FAMC @F13655669@
+0 @I39965332@ INDI
+1 FAMS @F13655502@
+0 @I39965449@ INDI
+1 FAMS @F13932432@
+1 FAMC @F13655502@
+0 @I39965497@ INDI
+1 FAMC @F13655502@
+1 FAMS @F13934435@
+0 @I39967468@ INDI
+1 FAMC @F13656129@
+1 FAMS @F3769088@
+0 @I11029840@ INDI
+1 FAMS @F3769093@
+1 FAMC @F3769088@
+0 @I27102630293@ INDI
+1 FAMS @F42847203@
+1 FAMS @F13656324@
+1 FAMC @F3769088@
+0 @I11029872@ INDI
+1 FAMC @F3769088@
+1 FAMS @F3769100@
+0 @I10847256@ INDI
+1 FAMS @F3706214@
+1 FAMC @F3769088@
+0 @I38740400@ INDI
+1 FAMS @F13237245@
+1 FAMC @F3769088@
+0 @I10018191293@ INDI
+1 FAMS @F13236228@
+0 @I38740219@ INDI
+1 FAMC @F13236228@
+1 FAMS @F13237245@
+0 @I39968494@ INDI
+1 FAMC @F13236228@
+1 FAMS @F13657073@
+0 @I6453453293@ INDI
+1 FAMC @F13236228@
+0 @I10022889293@ INDI
+1 FAMC @F13236228@
+0 @I100528021@ INDI
+1 FAMS @F32835019@
+0 @I6456414293@ INDI
+1 FAMC @F32835019@
+0 @I6456540293@ INDI
+1 FAMC @F32835019@
+0 @I6456702293@ INDI
+1 FAMC @F32835019@
+0 @I6457089293@ INDI
+1 FAMC @F32835019@
+0 @I38735986@ INDI
+1 FAMC @F78225475@
+1 FAMS @F3776794@
+0 @I38736184@ INDI
+1 FAMS @F13655899@
+1 FAMC @F3776794@
+0 @I38736293@ INDI
+1 FAMC @F3776794@
+0 @I11052350@ INDI
+1 FAMS @F13161432@
+1 FAMC @F3776794@
+0 @I7293825@ INDI
+1 FAMC @F3776794@
+1 FAMS @F69008@
+0 @I61277011@ INDI
+1 FAMS @F20778736@
+1 FAMC @F3776794@
+0 @I38736559@ INDI
+1 FAMS @F13236990@
+1 FAMC @F3776794@
+0 @I100527944@ INDI
+1 FAMS @F32834997@
+0 @I6457782293@ INDI
+1 FAMC @F32834997@
+0 @I6457935293@ INDI
+1 FAMC @F32834997@
+0 @I6458115293@ INDI
+1 FAMC @F32834997@
+0 @I6458385293@ INDI
+1 FAMC @F32834997@
+1 FAMS @F77363235@
+0 @I6458664293@ INDI
+1 FAMC @F32834997@
+0 @I9238258@ INDI
+1 FAMC @F17073700@
+1 FAMS @F23681200@
+0 @I34690176393@ INDI
+1 FAMC @F23681200@
+1 FAMS @F48128626@
+0 @I34634392201@ INDI
+1 FAMC @F23681200@
+1 FAMS @F48129130@
+0 @I34810539811@ INDI
+1 FAMS @F112460755@
+1 FAMC @F23681200@
+0 @I9238271@ INDI
+1 FAMS @F112460209@
+1 FAMC @F17073700@
+1 FAMS @F23681147@
+0 @I34717332829@ INDI
+1 FAMS @F80286977@
+0 @I41027848@ INDI
+1 FAMS @F14018794@
+0 @I34634428931@ INDI
+1 FAMC @F14018794@
+1 FAMS @F48128626@
+0 @I41028718@ INDI
+1 FAMC @F14018794@
+1 FAMS @F14018627@
+0 @I41029853@ INDI
+1 FAMS @F14019345@
+1 FAMC @F14018794@
+0 @I41030493@ INDI
+1 FAMC @F123434217@
+1 FAMS @F14018731@
+0 @I34842724394@ INDI
+1 FAMS @F123434239@
+1 FAMS @F14018384@
+1 FAMC @F14018731@
+0 @I34707228510@ INDI
+1 FAMC @F14018731@
+1 FAMS @F14018592@
+0 @I34717332929@ INDI
+1 FAMS @F80287020@
+0 @I34717332922@ INDI
+1 FAMS @F76778361@
+0 @I61720688@ INDI
+1 FAMS @F20933077@
+1 FAMC @F76778361@
+0 @I104097137@ INDI
+1 FAMS @F33976876@
+1 FAMC @F76778361@
+1 FAMS @F33976889@
+0 @I40775621@ INDI
+1 FAMS @F13932432@
+0 @I87977937@ INDI
+1 FAMC @F13932432@
+1 FAMS @F29912971@
+0 @I40775931@ INDI
+1 FAMC @F13932432@
+1 FAMS @F13934013@
+1 FAMS @F13931964@
+0 @I40775682@ INDI
+1 FAMC @F13932432@
+1 FAMS @F13932531@
+0 @I40775871@ INDI
+1 FAMC @F13932432@
+1 FAMS @F13932336@
+0 @I40778657@ INDI
+1 FAMS @F13934435@
+0 @I40778709@ INDI
+1 FAMS @F13934082@
+1 FAMC @F13934435@
+0 @I40778886@ INDI
+1 FAMC @F13934435@
+1 FAMS @F13934116@
+0 @I40778933@ INDI
+1 FAMS @F13934232@
+1 FAMC @F13934435@
+0 @I40778983@ INDI
+1 FAMC @F13934435@
+1 FAMS @F13933794@
+0 @I40779093@ INDI
+1 FAMC @F13934435@
+1 FAMS @F13934717@
+0 @I40779121@ INDI
+1 FAMC @F13934435@
+0 @I11029849@ INDI
+1 FAMC @F13720645@
+1 FAMS @F3769093@
+0 @I11029856@ INDI
+1 FAMS @F13237557@
+1 FAMC @F3769093@
+0 @I27085962293@ INDI
+1 FAMS @F42847203@
+1 FAMC @F42846424@
+1 FAMS @F81750881@
+0 @I39967313@ INDI
+1 FAMC @F42847203@
+1 FAMS @F13656219@
+0 @I39966966@ INDI
+1 FAMC @F58186368@
+1 FAMS @F13656324@
+0 @I39967018@ INDI
+1 FAMC @F13656324@
+0 @I39967210@ INDI
+1 FAMC @F13656324@
+1 FAMS @F13702633@
+0 @I39967070@ INDI
+1 FAMC @F13656324@
+1 FAMS @F13703425@
+0 @I39967113@ INDI
+1 FAMC @F13656324@
+0 @I39968195@ INDI
+1 FAMC @F27504093@
+1 FAMS @F3769100@
+0 @I6055695@ INDI
+1 FAMS @F4017734@
+1 FAMC @F3769100@
+0 @I11029889@ INDI
+1 FAMC @F3769100@
+0 @I10847248@ INDI
+1 FAMS @F3706214@
+1 FAMC @F93171312@
+0 @I10846045@ INDI
+1 FAMS @F3705804@
+1 FAMC @F3706214@
+0 @I10886089@ INDI
+1 FAMS @F3758805@
+1 FAMC @F3706214@
+0 @I40151932@ INDI
+1 FAMC @F13237245@
+1 FAMS @F13235963@
+0 @I39968624@ INDI
+1 FAMS @F13657073@
+0 @I34830326039@ INDI
+1 FAMC @F13657073@
+1 FAMS @F119162139@
+0 @I39968573@ INDI
+1 FAMS @F13656471@
+1 FAMC @F13657073@
+0 @I39965086@ INDI
+1 FAMS @F13655899@
+0 @I39965206@ INDI
+1 FAMC @F13655899@
+0 @I39965122@ INDI
+1 FAMC @F13655899@
+1 FAMS @F13721300@
+1 FAMS @F32834861@
+1 FAMS @F13721612@
+0 @I39965270@ INDI
+1 FAMC @F13655899@
+0 @I38516664@ INDI
+1 FAMC @F13161280@
+1 FAMS @F13161432@
+0 @I38516763@ INDI
+1 FAMC @F13161432@
+0 @I11052359@ INDI
+1 FAMS @F13161723@
+1 FAMC @F13161432@
+0 @I38516790@ INDI
+1 FAMS @F13237018@
+1 FAMC @F13161432@
+0 @I7293708@ INDI
+1 FAMC @F66999@
+1 FAMS @F69008@
+0 @I7293850@ INDI
+1 FAMS @F69152@
+1 FAMC @F69008@
+1 FAMS @F21371852@
+0 @I7293714@ INDI
+1 FAMS @F21371596@
+1 FAMC @F69008@
+0 @I61276980@ INDI
+1 FAMC @F27248557@
+1 FAMS @F20778736@
+0 @I45569141@ INDI
+1 FAMS @F13720844@
+1 FAMS @F15552668@
+1 FAMC @F20778736@
+0 @I39964744@ INDI
+1 FAMC @F20778736@
+1 FAMS @F13722347@
+1 FAMS @F13722302@
+0 @I38739935@ INDI
+1 FAMS @F13236990@
+1 FAMC @F42051576@
+0 @I38739984@ INDI
+1 FAMS @F13722771@
+1 FAMC @F13236990@
+0 @I38740076@ INDI
+1 FAMS @F13721988@
+1 FAMC @F13236990@
+0 @I34633857222@ INDI
+1 FAMS @F47925911@
+1 FAMC @F13236990@
+0 @I34708906824@ INDI
+1 FAMC @F77363235@
+0 @I34627726038@ INDI
+1 FAMC @F45762448@
+1 FAMS @F48129130@
+0 @I104098048@ INDI
+1 FAMC @F86715086@
+1 FAMS @F112460755@
+0 @I41030187@ INDI
+1 FAMS @F14018627@
+0 @I41030307@ INDI
+1 FAMS @F14019345@
+0 @I34741022624@ INDI
+1 FAMS @F123434239@
+0 @I41030762@ INDI
+1 FAMS @F14018384@
+0 @I41030641@ INDI
+1 FAMS @F14018592@
+0 @I61722335@ INDI
+1 FAMS @F20933077@
+1 FAMC @F20933200@
+0 @I104097201@ INDI
+1 FAMS @F33976876@
+0 @I104097240@ INDI
+1 FAMS @F33976889@
+0 @I87977949@ INDI
+1 FAMS @F29912971@
+0 @I40776182@ INDI
+1 FAMS @F13931964@
+0 @I40778552@ INDI
+1 FAMS @F13934013@
+0 @I40775955@ INDI
+1 FAMS @F13932531@
+0 @I40776047@ INDI
+1 FAMS @F13932336@
+0 @I40779192@ INDI
+1 FAMS @F13934082@
+0 @I40779402@ INDI
+1 FAMS @F13934116@
+0 @I40779627@ INDI
+1 FAMS @F13934232@
+0 @I40779264@ INDI
+1 FAMS @F13933794@
+0 @I40779560@ INDI
+1 FAMS @F13934717@
+0 @I38741142@ INDI
+1 FAMS @F13237557@
+1 FAMC @F13656498@
+0 @I39967363@ INDI
+1 FAMC @F13720622@
+1 FAMS @F13656219@
+0 @I40102160@ INDI
+1 FAMS @F13702633@
+0 @I40102350@ INDI
+1 FAMS @F13703425@
+0 @I6033262@ INDI
+1 FAMC @F31439727@
+1 FAMS @F4017734@
+0 @I10846099@ INDI
+1 FAMS @F3705804@
+1 FAMC @F3706202@
+0 @I11040281@ INDI
+1 FAMS @F3758805@
+0 @I38740670@ INDI
+1 FAMS @F13235963@
+0 @I34830326429@ INDI
+1 FAMS @F119162139@
+0 @I39968655@ INDI
+1 FAMS @F13656471@
+1 FAMC @F13656682@
+0 @I100527572@ INDI
+1 FAMS @F32834861@
+0 @I40156750@ INDI
+1 FAMS @F13721300@
+0 @I40156505@ INDI
+1 FAMS @F13721612@
+0 @I38517487@ INDI
+1 FAMS @F13161723@
+1 FAMC @F13652154@
+0 @I38739432@ INDI
+1 FAMS @F13237018@
+0 @I63012874@ INDI
+1 FAMS @F21371852@
+0 @I7293880@ INDI
+1 FAMC @F88568437@
+1 FAMS @F69152@
+0 @I7293962@ INDI
+1 FAMS @F21371596@
+0 @I45569115@ INDI
+1 FAMC @F15552850@
+1 FAMS @F15552668@
+0 @I40157732@ INDI
+1 FAMS @F13720844@
+0 @I40159158@ INDI
+1 FAMS @F13722347@
+0 @I40159359@ INDI
+1 FAMS @F13722302@
+1 FAMS @F77210335@
+0 @I40159550@ INDI
+1 FAMS @F13722771@
+0 @I40160177@ INDI
+1 FAMS @F13721988@
+1 FAMC @F118407810@
+0 @I34633857141@ INDI
+1 FAMS @F47925911@
+1 FAMC @F47925882@
 0 TRLR
