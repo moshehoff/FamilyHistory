@@ -1,6 +1,6 @@
 ## Arrival of Moishe & Wolfe Hochman (1910)
 
-Moishe and Tobl Hochman, and their nephew Wolfe arrived at Fremantle on the morning of April 25th 1910 as steerage passengers on the Norddeutscher ship Scharnhorst. It was the second day of Pesach.
+[Moishe](/profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman) and [Tobl](/profiles/Tobl-Hochman-%28Hoffman%29) Hochman, and their nephew [Wolfe](/profiles/Wolfe-Hochman) arrived at Fremantle on the morning of April 25th 1910 as steerage passengers on the Norddeutscher ship Scharnhorst. It was the second day of Pesach.
 
 <div class="citation-box">
 
@@ -8,7 +8,7 @@ G.M.S. SCHARNHORST. Only a monthly service is maintained by the vessels of the N
 
 </div>
 
-Morris and Tobl's first lodgings were at 426 William St., on the corner of Robinson Ave. behind the shule. Their home was a single room with a double mattress on the floor and a wooden crate on each side to sit on. Later Hyam added a few small odds and ends, including a treadle sewing machine, which to Tobl was a godsend. Within a few days Morris had a job in the trade his parents had put him to so early in life - wheelwright and coachwright - for Mr G. E. Grigg, coachmaker of Murray St. Nine weeks later he was sacked and he commenced work for Mr J.V. Sanders, coachmaker of Murray St. As a result of discriminatory treatment from the coachbuilders' union, he appealed to a workers' court. His brother Hyam came to court to stand by him and to translate the Yiddish. The hearing was on Friday September 30th 1910.
+[Morris](/profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman) and [Tobl](/profiles/Tobl-Hochman-%28Hoffman%29)'s first lodgings were at 426 William St., on the corner of Robinson Ave. behind the shule. Their home was a single room with a double mattress on the floor and a wooden crate on each side to sit on. Later Hyam added a few small odds and ends, including a treadle sewing machine, which to Tobl was a godsend. Within a few days Morris had a job in the trade his parents had put him to so early in life - wheelwright and coachwright - for Mr G. E. Grigg, coachmaker of Murray St. Nine weeks later he was sacked and he commenced work for Mr J.V. Sanders, coachmaker of Murray St. As a result of discriminatory treatment from the coachbuilders' union, he appealed to a workers' court. His brother Hyam came to court to stand by him and to translate the Yiddish. The hearing was on Friday September 30th 1910.
 
 The report in the pages of The West Australian newspaper is here transcribed in full.
 
@@ -28,11 +28,11 @@ Morris worked for Mr. Sanders, at 429 Murray St.( on the south side of Murray St
 
 On 12. 1 .1912 their first child, Aaron (Harry), named after a grandfather, was born in an upstairs bedroom at the Esplanade Hotel, on the corner of Marine Tce. and Collie St. in Fremantle.
 
-Morris was naturalized on 1.7.1912, when he took the Oath before magistrate Augustus Sanford Roe.
+[Morris](/profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman) was naturalized on 1.7.1912, when he took the Oath before magistrate Augustus Sanford Roe.
 
 ---
 
-Wolfe was listed on the Scharnhorst's manifest as a labourer. His first known job was as a mill hand, from about February 1912 at Hoffman Mill in Jarrahdale. The original mill has been preserved and Hoffman Mill may be visited as a heritage site. In 1914 he was working at the Jarrahdale Mill.
+[Wolfe](/profiles/Wolfe-Hochman) was listed on the Scharnhorst's manifest as a labourer. His first known job was as a mill hand, from about February 1912 at Hoffman Mill in Jarrahdale. The original mill has been preserved and Hoffman Mill may be visited as a heritage site. In 1914 he was working at the Jarrahdale Mill.
 
 His employment during his first two years in Western Australia is not known.
 

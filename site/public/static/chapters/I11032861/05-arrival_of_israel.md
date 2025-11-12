@@ -1,8 +1,8 @@
 ## Arrival of Israel Hochman and Business Expansion (1907-1909)
 
-On the 7th December 1907, Israel Hochman, Haim Yudl's youngest brother joined him and Berl in Perth. According to his testimony on his passport application, Israel had sailed from Port Said on the Norddeutscher ship Gneisenau and had disembarked at Fremantle "as Joseph Birch on my Passport." He was then a nineteen year-old which explains why he left Russia on false papers. The passenger manifest of the Gneisenau does not have a Joseph Birch, so this confession has not yet been verified.
+On the 7th December 1907, [Israel Hochman](/profiles/Yisrael-Hochman), Haim Yudl's youngest brother joined him and [Berl](/profiles/Berl-Hochman) in Perth. According to his testimony on his passport application, Israel had sailed from Port Said on the Norddeutscher ship Gneisenau and had disembarked at Fremantle "as Joseph Birch on my Passport." He was then a nineteen year-old which explains why he left Russia on false papers. The passenger manifest of the Gneisenau does not have a Joseph Birch, so this confession has not yet been verified.
 
-In Russia there was a compulsory draft for eighteen year-olds. At the time an elder brother brother, Moishe was serving in the Russian Far East (and about that time his discharge was arbitrarily delayed) so clearly Israel was on the run. Israel went to work as a fruiterer with Hyam.
+In Russia there was a compulsory draft for eighteen year-olds. At the time an elder brother brother, [Moishe](/profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman) was serving in the Russian Far East (and about that time his discharge was arbitrarily delayed) so clearly Israel was on the run. Israel went to work as a fruiterer with Hyam.
 
 <div class="citation-box">
 

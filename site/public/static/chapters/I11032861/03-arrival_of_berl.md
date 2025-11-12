@@ -1,6 +1,6 @@
 ## Arrival of Berl Hochman (1904-1907)
 
-On the 24th August 1904 Berl Hochman, Hyam Yudl's nephew joined him in Perth.
+On the 24th August 1904 [Berl Hochman](/profiles/Berl-Hochman), Hyam Yudl's nephew joined him in Perth.
 
 Berl had sailed from Port Said to Fremantle on the Norddeutscher ship Stuttgart.
 
