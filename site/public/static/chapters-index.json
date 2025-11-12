@@ -1,4 +1,75 @@
 {
+  "I11032861": {
+    "profileName": "Haim Yehuda חיים יהודה /Hochman/",
+    "main": {
+      "slug": "introduction",
+      "name": "Introduction",
+      "title": "HYAM YUDL HOCHMAN Introduction",
+      "filename": "I11032861.md"
+    },
+    "chapters": [
+      {
+        "slug": "01-background-and-introduction",
+        "name": "Background And Introduction",
+        "title": "Background and Introduction",
+        "filename": "01-background_and_introduction.md"
+      },
+      {
+        "slug": "02-arrival-of-hyam-yudl",
+        "name": "Arrival Of Hyam Yudl",
+        "title": "Arrival of Hyam Yudl Hochman in Australia (1901-1904)",
+        "filename": "02-arrival_of_hyam_yudl.md"
+      },
+      {
+        "slug": "03-arrival-of-berl",
+        "name": "Arrival Of Berl",
+        "title": "Arrival of Berl Hochman (1904-1907)",
+        "filename": "03-arrival_of_berl.md"
+      },
+      {
+        "slug": "04-business-development",
+        "name": "Business Development",
+        "title": "Business Development (1904-1907)",
+        "filename": "04-business_development.md"
+      },
+      {
+        "slug": "05-arrival-of-israel",
+        "name": "Arrival Of Israel",
+        "title": "Arrival of Israel Hochman and Business Expansion (1907-1909)",
+        "filename": "05-arrival_of_israel.md"
+      },
+      {
+        "slug": "06-partnerships-and-licenses",
+        "name": "Partnerships And Licenses",
+        "title": "Partnerships and Licenses (1909)",
+        "filename": "06-partnerships_and_licenses.md"
+      },
+      {
+        "slug": "07-arrival-of-moishe-wolfe",
+        "name": "Arrival Of Moishe Wolfe",
+        "title": "Arrival of Moishe & Wolfe Hochman (1910)",
+        "filename": "07-arrival_of_moishe_wolfe.md"
+      },
+      {
+        "slug": "08-final-years",
+        "name": "Final Years",
+        "title": "Final Years and Challenges (1911-1914)",
+        "filename": "08-final_years.md"
+      },
+      {
+        "slug": "09-transition",
+        "name": "Transition",
+        "title": "Transition (1914-1916)",
+        "filename": "09-transition.md"
+      },
+      {
+        "slug": "10-family-establishment",
+        "name": "Family Establishment",
+        "title": "Family Establishment (1916-1920)",
+        "filename": "10-family_establishment.md"
+      }
+    ]
+  },
   "I11052340": {
     "profileName": "Moshe משה /Hoffman/",
     "main": {
