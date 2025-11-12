@@ -57,23 +57,25 @@ export default (() => {
 
 .tab-button {
   padding: 0.75rem 1.5rem;
-  background: transparent;
-  border: none;
-  border-bottom: 3px solid transparent;
+  background: var(--lightgray);
+  border: 2px solid var(--lightgray);
+  border-radius: 50px;
   cursor: pointer;
   font-size: 1rem;
   font-weight: 500;
-  color: var(--gray);
+  color: var(--darkgray);
   transition: all 0.3s ease;
   
   &:hover {
-    color: var(--darkgray);
-    background: var(--lightgray);
+    background: var(--gray);
+    border-color: var(--gray);
+    color: var(--light);
   }
   
   &.active {
-    color: var(--secondary);
-    border-bottom-color: var(--secondary);
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: white;
   }
 }
 
@@ -269,11 +271,11 @@ export default (() => {
   }
   
   .tab-button {
-    padding: 0.3rem 0.3rem;
-    font-size: 0.68rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
     flex: 1;
     text-align: center;
-    border-bottom: 2px solid transparent;
+    border-radius: 50px;
   }
   
   .chapter-tabs-container {
@@ -290,11 +292,11 @@ export default (() => {
   }
   
   .chapter-tab-button {
-    padding: 0.15rem 0.25rem;
-    font-size: 0.95rem;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
     white-space: nowrap;
     flex-shrink: 0;
-    border-bottom: 2px solid transparent;
+    border-radius: 50px;
     min-width: fit-content;
   }
   
@@ -395,13 +397,15 @@ export default (() => {
 /* Extra small devices */
 @media (max-width: 480px) {
   .tab-button {
-    padding: 0.25rem 0.3rem;
-    font-size: 0.65rem;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.7rem;
+    border-radius: 50px;
   }
   
   .chapter-tab-button {
-    padding: 0.1rem 0.2rem;
-    font-size: 0.9rem;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.8rem;
+    border-radius: 50px;
   }
   
   .chapter-tab-pane {
@@ -409,11 +413,11 @@ export default (() => {
   }
   
   .tabs-header {
-    gap: 0.15rem;
+    gap: 0.25rem;
   }
   
   .chapter-tabs-header {
-    gap: 0.1rem;
+    gap: 0.25rem;
   }
 }
 `
