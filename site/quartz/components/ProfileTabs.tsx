@@ -427,6 +427,7 @@ export default (() => {
 let tabButtonCleanups = [];
 let chaptersData = null;
 let loadedChapters = {}; // Cache for loaded chapter content
+let isInitialChapterLoad = true; // Track if this is the first chapter load to avoid duplicate history
 
 // Helper: Detect if text contains Hebrew characters
 function containsHebrew(text) {
@@ -452,6 +453,9 @@ function initProfileTabs() {
   
   // Fix Hebrew alignment after DOM is ready
   setTimeout(fixHebrewAlignment, 100);
+  
+  // Reset initial chapter load flag for new profile
+  isInitialChapterLoad = true;
   
   // Clean up previous event listeners
   tabButtonCleanups.forEach(function(cleanup) {
@@ -960,7 +964,15 @@ function initProfileTabs() {
     // Update URL hash ONLY if not from popstate (to avoid double history entry)
     if (!fromPopstate) {
       const newUrl = window.location.pathname + '#chapter=' + chapterSlug;
-      history.pushState({ chapter: chapterSlug, tab: 'biography' }, '', newUrl);
+      
+      // Use replaceState for initial load (to avoid duplicate history entry)
+      // Use pushState for user-initiated chapter changes
+      if (isInitialChapterLoad) {
+        history.replaceState({ chapter: chapterSlug, tab: 'biography' }, '', newUrl);
+        isInitialChapterLoad = false; // Mark that we've done initial load
+      } else {
+        history.pushState({ chapter: chapterSlug, tab: 'biography' }, '', newUrl);
+      }
     }
     
     // Scroll to the Biography heading (smooth scroll)
