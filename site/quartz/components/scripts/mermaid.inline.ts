@@ -202,6 +202,107 @@ document.addEventListener("nav", async () => {
   document.addEventListener("themechange", renderMermaid)
   window.addCleanup(() => document.removeEventListener("themechange", renderMermaid))
 
+  // Add drag-to-scroll to all mermaid diagrams AFTER rendering
+  function addDragToScroll() {
+    for (const node of nodes) {
+      const pre = node.parentElement as HTMLPreElement
+      if (!pre) continue
+      
+      let isDragging = false
+      let startX = 0
+      let startY = 0
+      let scrollLeft = 0
+      let scrollTop = 0
+      
+      const mouseDownHandler = (e: MouseEvent) => {
+        // Only handle left click and not on links/buttons
+        const target = e.target as HTMLElement
+        if (e.button !== 0 || target.tagName === 'A' || target.closest('button')) return
+        
+        isDragging = true
+        startX = e.clientX
+        startY = e.clientY
+        scrollLeft = pre.scrollLeft
+        scrollTop = pre.scrollTop
+        pre.style.cursor = 'grabbing'
+        e.preventDefault()
+      }
+      
+      const mouseMoveHandler = (e: MouseEvent) => {
+        if (!isDragging) return
+        e.preventDefault()
+        
+        const dx = e.clientX - startX
+        const dy = e.clientY - startY
+        pre.scrollLeft = scrollLeft - dx
+        pre.scrollTop = scrollTop - dy
+      }
+      
+      const mouseUpHandler = () => {
+        if (isDragging) {
+          isDragging = false
+          pre.style.cursor = 'grab'
+        }
+      }
+      
+      const mouseLeaveHandler = () => {
+        if (isDragging) {
+          isDragging = false
+          pre.style.cursor = 'grab'
+        }
+      }
+      
+      // Touch support for mobile
+      const touchStartHandler = (e: TouchEvent) => {
+        const target = e.target as HTMLElement
+        if (target.tagName === 'A' || target.closest('button')) return
+        
+        const touch = e.touches[0]
+        isDragging = true
+        startX = touch.clientX
+        startY = touch.clientY
+        scrollLeft = pre.scrollLeft
+        scrollTop = pre.scrollTop
+      }
+      
+      const touchMoveHandler = (e: TouchEvent) => {
+        if (!isDragging) return
+        e.preventDefault()
+        
+        const touch = e.touches[0]
+        const dx = touch.clientX - startX
+        const dy = touch.clientY - startY
+        pre.scrollLeft = scrollLeft - dx
+        pre.scrollTop = scrollTop - dy
+      }
+      
+      const touchEndHandler = () => {
+        isDragging = false
+      }
+      
+      pre.addEventListener('mousedown', mouseDownHandler)
+      document.addEventListener('mousemove', mouseMoveHandler)
+      document.addEventListener('mouseup', mouseUpHandler)
+      pre.addEventListener('mouseleave', mouseLeaveHandler)
+      pre.addEventListener('touchstart', touchStartHandler, { passive: false })
+      pre.addEventListener('touchmove', touchMoveHandler, { passive: false })
+      pre.addEventListener('touchend', touchEndHandler)
+      pre.style.cursor = 'grab'
+      
+      window.addCleanup(() => {
+        pre.removeEventListener('mousedown', mouseDownHandler)
+        document.removeEventListener('mousemove', mouseMoveHandler)
+        document.removeEventListener('mouseup', mouseUpHandler)
+        pre.removeEventListener('mouseleave', mouseLeaveHandler)
+        pre.removeEventListener('touchstart', touchStartHandler)
+        pre.removeEventListener('touchmove', touchMoveHandler)
+        pre.removeEventListener('touchend', touchEndHandler)
+      })
+    }
+  }
+
+  addDragToScroll()
+
   for (let i = 0; i < nodes.length; i++) {
     const codeBlock = nodes[i] as HTMLElement
     const pre = codeBlock.parentElement as HTMLPreElement

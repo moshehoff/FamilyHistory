@@ -37,6 +37,19 @@ body:has([data-slug*="profiles/People/"]) {
 }
 
 /* Mermaid Diagram Enhancement */
+pre:has(> code.mermaid) {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  cursor: grab;
+  user-select: none;
+  
+  &:active {
+    cursor: grabbing;
+  }
+}
+
 .mermaid {
   background: var(--light);
   padding: 2rem;
@@ -58,6 +71,7 @@ body:has([data-slug*="profiles/People/"]) {
   a {
     color: #0066cc !important;
     text-decoration: none;
+    cursor: pointer !important;
     
     &:hover {
       text-decoration: underline;
@@ -67,6 +81,12 @@ body:has([data-slug*="profiles/People/"]) {
   // Also style the text inside nodes
   .nodeLabel {
     color: #0066cc !important;
+  }
+  
+  // Ensure SVG doesn't overflow
+  svg {
+    max-width: none;
+    height: auto;
   }
 }
 

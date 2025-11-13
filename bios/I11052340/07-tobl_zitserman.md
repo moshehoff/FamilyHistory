@@ -1,8 +1,8 @@
 ## Tobl Zitserman
 
-Tubb'l was one of six children of Aaron and Elke Zitserman of Bershad. Her name Tubb'l is the Yiddish diminutive for a dove. She also lived through the pogroms, and her childhood was very hard. At the age of nine years she worked with her sisters as a seamstress. Bershad was a centre of woollen tallith (prayer shawl) weaving. She learned tallith making too and later in Perth she tailored tallitot for her family and grandchildren.
+[Tubb'l](/profiles/Tobl-Hochman-%28Hoffman%29) was one of six children of Aaron and Elke Zitserman of Bershad. Her name Tubb'l is the Yiddish diminutive for a dove. She also lived through the pogroms, and her childhood was very hard. At the age of nine years she worked with her sisters as a seamstress. Bershad was a centre of woollen tallith (prayer shawl) weaving. She learned tallith making too and later in Perth she tailored tallitot for her family and grandchildren.
 
-Aaron died sometime before 1912, as Harry Aaron received his name. 
+Aaron died sometime before 1912, as [Harry Aaron](/profiles/Aaron-Harry-אהרון-Hoffman) received his name. 
 
 The family name Zitserman (or Zaitserman) is derived from the Yiddish root "zits" - "to sit". A zaitser is a rabbinical court judge, or dayan; as he is one who sits in judgement on a panel, or on a bench in a court.
 
@@ -15,7 +15,7 @@ Aaron & Elke Zitserman
 │
 ├─ Arcadia (daughter)
 ├─ Frida m. Pesach
-├─ Tubb'l m. Moshe Hochman יונה ★
+├─ Tubb'l m. Moshe Hochman יונה ★  → Tobl Hochman m. Moshe משה Hoffman
 ├─ Basya (Pessy) m. Pinchas Shwartz בתיה
 ├─ Mariam m. Moshe Greenberg מרים
 └─ Yaakov Z יעקב

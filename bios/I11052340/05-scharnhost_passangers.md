@@ -18,7 +18,7 @@ Joseph  Morris      Austrien   Austrien   M. 12     Port Said     none
 Abram  Shapira  Austrien   Austrien    M. 18    Port Said    Watchmaker
 Hanna  Shapira   Austrien   Austrien    F.  19    Port Said      none
 
-**Comment:** The list was prepared by Sheffens, the assistant purser. His passenger lists confirm to the way a German national would spell the names. They show that Moishe knew that his family in Australia had adopted the name Hoffman. His brother Hyam Hoffman was already using the name Hoffman in 1904. Sheffens has mistakenly written **W.** Hoffman for **M.** Hoffman, and **M.** Hoffman for **W.** Hoffman.
+**Comment:** The list was prepared by Sheffens, the assistant purser. His passenger lists confirm to the way a German national would spell the names. They show that Moishe knew that his family in Australia had adopted the name Hoffman. His brother [Hyam Hoffman](/profiles/Haim-Yehuda-חיים-יהודה-Hochman) was already using the name Hoffman in 1904. Sheffens has mistakenly written **W.** Hoffman for **M.** Hoffman (should be [Moshe](/profiles/Moshe-משה-Hoffman)), and **M.** Hoffman for **W.** Hoffman (should be [Wolfe](/profiles/Wolfe-Hochman)).
 
 The above listed seven youngsters were the only Jews on the boat. The nationality "Austrien" indicates that the last four were from Galicia, the easternmost province of the Austrian Empire. The truth is somewhat different....
 
@@ -34,6 +34,6 @@ They all disembarked at Fremantle. The Shapiras adopted the Sharp in Western Aus
 
 They are all members of the Zines family.
 
-Moishe and Tobl and Wolfe must have made seder pesach with them somewhere in the Indian Ocean, two days before their landfall.
+[Moishe](/profiles/Moshe-משה-Hoffman) and [Tobl](/profiles/Tobl-Hochman-%28Hoffman%29) and [Wolfe](/profiles/Wolfe-Hochman) must have made seder pesach with them somewhere in the Indian Ocean, two days before their landfall.
 
 **Peter Hoffman    September 2021**

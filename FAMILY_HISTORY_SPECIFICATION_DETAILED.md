@@ -547,24 +547,9 @@ Wolf & Beile Hochman
 
 ##### קישורים לפרופילים (Profile Links)
 
-**חשוב מאוד**: יש שני אופנים לכתוב קישורים לפרופילים, ושניהם עובדים גם בלוקלי וגם באתר החיצוני!
+**⚠️ חשוב מאוד**: הדרך **היחידה** הנכונה לכתוב קישורים לפרופילים בתוך פרקי הביוגרפיה היא בפורמט **Markdown Links רגילים**!
 
-**אופן 1: Wikilinks (מומלץ)**
-```markdown
-[[Person Name]]
-```
-
-**דוגמה**:
-```markdown
-Hyam and [[Sara Hochman]], and their children [[Rivka Bar Cohen]], [[Shulamit Hochman]] and [[Wolfe Hochman]] travelled to Port Said.
-```
-
-**יתרונות**:
-- ✅ פשוט וקריא
-- ✅ לא צריך להתעסק עם encoding
-- ✅ עובד אוטומטית גם בלוקלי וגם באתר החיצוני
-
-**אופן 2: Markdown Links (עובד אוטומטית)**
+**הפורמט הנכון (החובה)**:
 ```markdown
 [Display Text](/profiles/Person-Name)
 ```
@@ -575,8 +560,8 @@ Hyam and [Sarah](/profiles/Sara-Hochman), and their children [Rivka](/profiles/R
 ```
 
 **חשוב לדעת**:
-- ✅ הנתיב צריך להיות `/profiles/...` (עם `/` בהתחלה)
-- ✅ השם יכול להיות עם **מקפים** או **רווחים** (Quartz ממיר אוטומטית)
+- ✅ הנתיב **חייב** להתחיל ב-`/profiles/...` (עם `/` בהתחלה)
+- ✅ השם בנתיב צריך להיות עם **מקפים** (לא רווחים)
 - ✅ `ProfileTabs.tsx` מוסיף אוטומטית את ה-base path (`/FamilyHistory/`) כשצריך
 - ✅ עובד גם בלוקלי (`localhost:8080`) וגם ב-GitHub Pages
 
@@ -596,21 +581,27 @@ Hyam and [Sarah](/profiles/Sara-Hochman), and their children [Rivka](/profiles/R
 
 **דוגמאות נכונות**:
 ```markdown
-✅ [[Wolfe Hochman]]
-✅ [[Sara Hochman]]
 ✅ [Wolfe](/profiles/Wolfe-Hochman)
 ✅ [Sarah](/profiles/Sara-Hochman)
-✅ [Rivka](/profiles/Rivka%20Bar%20Cohen)
+✅ [Rivka](/profiles/Rivka-Bar-Cohen)
+✅ [Beile](/profiles/Beile-ביילא-Hochman)
+✅ [Haim Yudl](/profiles/Haim-Yehuda-חיים-יהודה-Hochman)
 ```
 
 **דוגמאות שגויות**:
 ```markdown
+❌ [[Wolfe Hochman]]                         # Wikilinks לא מומלץ בפרקים
 ❌ [Wolfe](profiles/Wolfe-Hochman)           # חסר / בהתחלה
 ❌ [Wolfe](./profiles/Wolfe-Hochman)         # נתיב יחסי לא עובד
 ❌ [Wolfe](/FamilyHistory/profiles/Wolfe-Hochman)  # לא צריך base path ידני
+❌ [Wolfe](/profiles/Wolfe Hochman)          # רווחים במקום מקפים
 ```
 
-**המלצה**: השתמש ב-**wikilinks** (`[[...]]`) לפשטות, אלא אם אתה צריך טקסט תצוגה שונה משם הפרופיל.
+**שים לב**: אם השם כולל תווים עבריים, השתמש במקפים לחיבור:
+```markdown
+✅ [Beile](/profiles/Beile-ביילא-Hochman)
+✅ [Haim Yudl](/profiles/Haim-Yehuda-חיים-יהודה-Hochman)
+```
 
 ##### עיצוב טקסט
 ```markdown

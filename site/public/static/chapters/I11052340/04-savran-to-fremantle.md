@@ -2,7 +2,7 @@
 
 ![[img_moishe.jpg]]
 
-On leaving, Moishe gave his uniform to his brother Sholem (who subsequently migrated to Pittsburgh, Pennsylvannia.
+On leaving, Moishe gave his uniform to his brother [Sholem](/profiles/Sholem-Hochman) (who subsequently migrated to Pittsburgh, Pennsylvannia.
 
 **_related to Peter_**
 
@@ -31,13 +31,13 @@ _(**A Short Travel Guide for Jewish Tourists**, Kadima Publishers, Vilno 1911. F
 ![[bios/I11052340/img_odessa_harbour.png]]
 **_ODESSA HARBOUR_**
 
-Moishe's 17 years-old nephew Wolfe (the son of Josef), had been entrusted to his care and travelled with them. From Jaffa they went to Ramla, to be precise, to Sarafand al'Amar to visit his brother Shimon Me'ir.
+Moishe's 17 years-old nephew [Wolfe](/profiles/Wolfe-Hochman) (the son of [Josef](/profiles/Josef-Hochman)), had been entrusted to his care and travelled with them. From Jaffa they went to Ramla, to be precise, to Sarafand al'Amar to visit his brother [Shimon Me'ir](/profiles/Shimon-Meir-מאיר-Hochman).
 
-Sarafand al'Amar was an Arab village where a small number of Jewish families lodged. The site is today's Tzrifin. As in Ottoman Palestine there were few prospects, Moishe continued on to join his other brother, Haim Yudl and his nephew Ber'l (son of Shimon Me'ir) in Australia (Haim Yudl had arrived in Fremantle in 1901, Ber'l in 1904).
+Sarafand al'Amar was an Arab village where a small number of Jewish families lodged. The site is today's Tzrifin. As in Ottoman Palestine there were few prospects, Moishe continued on to join his other brother, [Haim Yudl](/profiles/Haim-Yehuda-חיים-יהודה-Hochman) and his nephew [Ber'l](/profiles/Berl-Hochman) (son of [Shimon Me'ir](/profiles/Shimon-Meir-מאיר-Hochman)) in Australia ([Haim Yudl](/profiles/Haim-Yehuda-חיים-יהודה-Hochman) had arrived in Fremantle in 1901, [Ber'l](/profiles/Berl-Hochman) in 1904).
 
 Their Russian passports were confiscated by the Ottoman authorities, and they received Turkish travel documents. They retained these latter documents on arriving in Australia.
 
-_(from a statement by Wolfe Hoffman in the Australian Archives)._
+_(from a statement by [Wolfe Hoffman](/profiles/Wolf-Hoffman) in the Australian Archives)._
 
 ![[bios/I11052340/img_ndl_scharnhorst.png]]
 **_NDL SCHARNHORST_**
