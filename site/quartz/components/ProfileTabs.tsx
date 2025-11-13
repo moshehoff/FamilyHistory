@@ -1123,6 +1123,28 @@ function initProfileTabs() {
       return '<img src="' + imageSrc + '" alt="' + escapedFilename + '" onerror="this.src=&quot;' + imageSrcWithSpaces + '&quot;">';
     });
     
+    // Regular Markdown links [text](/profiles/...) - fix absolute paths to include base path
+    // Detect base path from current URL (e.g., /FamilyHistory/ for GitHub Pages)
+    var siteBasePath = '';
+    if (typeof window !== 'undefined') {
+      var currentPath = window.location.pathname;
+      // Extract base path: if path is /FamilyHistory/profiles/..., extract /FamilyHistory
+      if (currentPath.indexOf('/profiles/') > 0) {
+        var beforeProfiles = currentPath.substring(0, currentPath.indexOf('/profiles/'));
+        // If beforeProfiles is not empty and not just '/', it's our base path
+        if (beforeProfiles && beforeProfiles !== '' && beforeProfiles !== '/') {
+          siteBasePath = beforeProfiles;
+        }
+      }
+    }
+    
+    // Fix absolute profile links by adding base path
+    // Pattern: [text](/profiles/something) -> capture text and path
+    var linkPattern = new RegExp('\\\\[([^\\\\]]+)\\\\]\\\\((\\\\/profiles\\\\/[^)]+)\\\\)', 'g');
+    html = html.replace(linkPattern, function(match, text, path) {
+      return '<a href="' + siteBasePath + path + '">' + text + '</a>';
+    });
+    
     // Links [[slug|Display Text]] or [[slug]] - convert to chapter links (MUST be after images, before bold/italic)
     html = html.replace(/\\[\\[([^\\]]+)\\]\\]/g, function(match, text) {
       // Split by | to get slug and display text
