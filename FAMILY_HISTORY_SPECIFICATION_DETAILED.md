@@ -545,6 +545,73 @@ Wolf & Beile Hochman
 
 **התנהגות**: לחיצה על הקישור תעביר לפרק המבוקש (ללא טעינה מחדש של העמוד).
 
+##### קישורים לפרופילים (Profile Links)
+
+**חשוב מאוד**: יש שני אופנים לכתוב קישורים לפרופילים, ושניהם עובדים גם בלוקלי וגם באתר החיצוני!
+
+**אופן 1: Wikilinks (מומלץ)**
+```markdown
+[[Person Name]]
+```
+
+**דוגמה**:
+```markdown
+Hyam and [[Sara Hochman]], and their children [[Rivka Bar Cohen]], [[Shulamit Hochman]] and [[Wolfe Hochman]] travelled to Port Said.
+```
+
+**יתרונות**:
+- ✅ פשוט וקריא
+- ✅ לא צריך להתעסק עם encoding
+- ✅ עובד אוטומטית גם בלוקלי וגם באתר החיצוני
+
+**אופן 2: Markdown Links (עובד אוטומטית)**
+```markdown
+[Display Text](/profiles/Person-Name)
+```
+
+**דוגמה**:
+```markdown
+Hyam and [Sarah](/profiles/Sara-Hochman), and their children [Rivka](/profiles/Rivka-Bar-Cohen) travelled to Port Said.
+```
+
+**חשוב לדעת**:
+- ✅ הנתיב צריך להיות `/profiles/...` (עם `/` בהתחלה)
+- ✅ השם יכול להיות עם **מקפים** או **רווחים** (Quartz ממיר אוטומטית)
+- ✅ `ProfileTabs.tsx` מוסיף אוטומטית את ה-base path (`/FamilyHistory/`) כשצריך
+- ✅ עובד גם בלוקלי (`localhost:8080`) וגם ב-GitHub Pages
+
+**איך זה עובד?**
+
+כשהאתר רץ **לוקלית**:
+- קישור: `[Wolfe](/profiles/Wolfe-Hochman)` 
+- נשאר: `/profiles/Wolfe-Hochman`
+- תוצאה: `http://localhost:8080/profiles/Wolfe-Hochman` ✅
+
+כשהאתר רץ **ב-GitHub Pages**:
+- קישור: `[Wolfe](/profiles/Wolfe-Hochman)`
+- הופך ל: `/FamilyHistory/profiles/Wolfe-Hochman` (אוטומטית!)
+- תוצאה: `https://moshehoff.github.io/FamilyHistory/profiles/Wolfe-Hochman` ✅
+
+**קוד שמטפל בזה**: `site/quartz/components/ProfileTabs.tsx` (שורות 1126-1146)
+
+**דוגמאות נכונות**:
+```markdown
+✅ [[Wolfe Hochman]]
+✅ [[Sara Hochman]]
+✅ [Wolfe](/profiles/Wolfe-Hochman)
+✅ [Sarah](/profiles/Sara-Hochman)
+✅ [Rivka](/profiles/Rivka%20Bar%20Cohen)
+```
+
+**דוגמאות שגויות**:
+```markdown
+❌ [Wolfe](profiles/Wolfe-Hochman)           # חסר / בהתחלה
+❌ [Wolfe](./profiles/Wolfe-Hochman)         # נתיב יחסי לא עובד
+❌ [Wolfe](/FamilyHistory/profiles/Wolfe-Hochman)  # לא צריך base path ידני
+```
+
+**המלצה**: השתמש ב-**wikilinks** (`[[...]]`) לפשטות, אלא אם אתה צריך טקסט תצוגה שונה משם הפרופיל.
+
 ##### עיצוב טקסט
 ```markdown
 *italic*
@@ -1514,6 +1581,7 @@ They went to Port Said and boarded the _Scharnhorst_ (Norddeutscher Lloyd), a Ge
   - Parses Markdown to HTML (headings, bold, italic, images, code blocks, lists)
   - Supports wikilinks `[[chapter-slug|Display Text]]` for internal chapter navigation
   - Supports `<div class="citation-box">` and `<div class="info-box">` for special content
+  - **Automatic Base Path Handling**: קישורים מהצורה `[text](/profiles/...)` מתוקנים אוטומטית לעבוד גם בלוקלי וגם ב-GitHub Pages
 
 **Logic**:
 1. `afterDOMLoaded`: runs on initial page load
@@ -1528,6 +1596,41 @@ They went to Port Said and boarded the _Scharnhorst_ (Norddeutscher Lloyd), a Ge
 10. `popstate` event listener: handles browser back/forward buttons
 11. `loadMedia()`: loads gallery images from media-index.json
 12. Switches between main tabs (Biography/Gallery) on click
+
+**Profile Links Handling** (שורות 1126-1146):
+
+הפונקציה `parseMarkdownToHTML` מטפלת אוטומטית בקישורים לפרופילים:
+
+```typescript
+// Detect base path from current URL (e.g., /FamilyHistory/ for GitHub Pages)
+var siteBasePath = '';
+if (typeof window !== 'undefined') {
+  var currentPath = window.location.pathname;
+  if (currentPath.indexOf('/profiles/') > 0) {
+    var beforeProfiles = currentPath.substring(0, currentPath.indexOf('/profiles/'));
+    if (beforeProfiles && beforeProfiles !== '' && beforeProfiles !== '/') {
+      siteBasePath = beforeProfiles;  // e.g., '/FamilyHistory'
+    }
+  }
+}
+
+// Fix absolute profile links by adding base path
+var linkPattern = new RegExp('\\[([^\\]]+)\\]\\((\\/profiles\\/[^)]+)\\)', 'g');
+html = html.replace(linkPattern, function(match, text, path) {
+  return '<a href="' + siteBasePath + path + '">' + text + '</a>';
+});
+```
+
+**איך זה עובד**:
+1. **זיהוי אוטומטי**: הקוד בודק את ה-URL הנוכחי ומזהה אם יש base path (למשל `/FamilyHistory/`)
+2. **לוקלי**: אם `localhost:8080/profiles/...` - אין base path, הקישור נשאר `/profiles/...`
+3. **GitHub Pages**: אם `moshehoff.github.io/FamilyHistory/profiles/...` - מזהה `/FamilyHistory` ומוסיף אותו
+4. **תוצאה**: קישורים עובדים אוטומטית בשתי הסביבות ✅
+
+**דוגמה**:
+- קישור בפרק: `[Wolfe](/profiles/Wolfe-Hochman)`
+- בלוקלי: `<a href="/profiles/Wolfe-Hochman">Wolfe</a>`
+- ב-GitHub Pages: `<a href="/FamilyHistory/profiles/Wolfe-Hochman">Wolfe</a>`
 
 ### 7.3 ArticleTitle
 
