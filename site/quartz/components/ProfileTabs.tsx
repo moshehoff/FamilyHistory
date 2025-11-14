@@ -811,10 +811,18 @@ function initProfileTabs() {
     const chapterTabsContent = document.createElement('div');
     chapterTabsContent.className = 'chapter-tabs-content';
     
+    // Determine which chapter should be active initially
+    const hash = window.location.hash;
+    const initialChapterSlug = hash && hash.startsWith('#chapter=') 
+      ? hash.substring(9) 
+      : (chapters.main ? chapters.main.slug : null);
+    
     // Add main chapter tab (Introduction) if exists
     if (chapters.main) {
       const mainButton = document.createElement('button');
-      mainButton.className = 'chapter-tab-button active';
+      // Only set active if this is the initial chapter
+      const isInitialChapter = initialChapterSlug === chapters.main.slug;
+      mainButton.className = 'chapter-tab-button' + (isInitialChapter ? ' active' : '');
       mainButton.setAttribute('data-chapter-tab', 'introduction');
       mainButton.setAttribute('data-chapter-slug', chapters.main.slug);
       // Remove emoji on mobile
@@ -832,7 +840,9 @@ function initProfileTabs() {
     // Add chapter tabs
     chapters.chapters.forEach(function(chapter, index) {
       const chapterButton = document.createElement('button');
-      chapterButton.className = 'chapter-tab-button';
+      // Set active if this is the initial chapter from URL
+      const isInitialChapter = initialChapterSlug === chapter.slug;
+      chapterButton.className = 'chapter-tab-button' + (isInitialChapter ? ' active' : '');
       chapterButton.setAttribute('data-chapter-tab', 'chapter-' + (index + 1));
       chapterButton.setAttribute('data-chapter-slug', chapter.slug);
       // Remove emoji on mobile
@@ -883,18 +893,10 @@ function initProfileTabs() {
       });
     }, 50);
     
-    // Check URL hash for initial chapter
-    const hash = window.location.hash;
-    if (hash && hash.startsWith('#chapter=')) {
-      const chapterSlug = hash.substring(9);
-      setTimeout(function() {
-        switchToChapter(chapterSlug);
-      }, 100);
-    } else if (chapters.main) {
-      // Default to introduction if exists
-      setTimeout(function() {
-        switchToChapter(chapters.main.slug);
-      }, 100);
+    // Load the initial chapter immediately (no setTimeout to avoid visual jump)
+    if (initialChapterSlug) {
+      // Load the chapter right away
+      switchToChapter(initialChapterSlug);
     }
   }
   
