@@ -42,3 +42,9 @@ On 20.3.1915 he enlisted in the AIF, and did his basic training at Blackboy Hill
 
 Wolfe's army service is recounted in a separate chapter.
 
+---
+
+### Continue Reading
+
+➤ **Next Chapter:** [[08-final_years|Final Years and Challenges (1911-1914)]]
+

@@ -42,3 +42,9 @@ During the the Russo Japanese War (Feb 1904 – Sept 1905), this single-line Tra
 **This reference has many period photos of the BAIKAL:**
 
 [https://en.topwar.ru/38382-istoriya-ledokola-baykal.html](https://en.topwar.ru/38382-istoriya-ledokola-baykal.html)
+
+---
+
+### Continue Reading
+
+➤ **Next Chapter:** [[04-savran-to-fremantle|Savran to Fremantle]]

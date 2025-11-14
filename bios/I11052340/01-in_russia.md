@@ -186,10 +186,13 @@ His account of crossing Baikal by ferry is consistent with the historical facts 
 
 His life had taught him that there was no future for him in Russia. On returning from the army he married a young woman from another town in Podolia – [Tubb'l Zitzerman](/profiles/Tobl-Hochman-%28Hoffman%29) from Bershad – and got out of Russia. The marriage, as was usual at that time was probably arranged. His goal was Perth in Western Australia, where his brother [Haim Yudl](/profiles/Haim-Yehuda-חיים-יהודה-Hochman) had settled.
 
-    **Peter Hoffman   Rehovot    February 2023**
+    **Peter Hoffman   Rehovot    February 2023**
 
+---
 
+### Continue Reading
 
+➤ **Next Chapter:** [[02-savran_progrom|1917 Savran Pogrom]]
 
 
 

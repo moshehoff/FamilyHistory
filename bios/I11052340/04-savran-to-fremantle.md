@@ -66,3 +66,9 @@ A single cup and a saucer have survived these hundred years.
 **_The Cliff St entrance to Victoria Quay, Fremantle, abt 1907._**
 
 The passenger steamers are moored at Victoria Quay, and the sailing ships at the North Wharf.
+
+---
+
+### Continue Reading
+
+➤ **Next Chapter:** [[05-scharnhost_passangers|Scharnhorst Passengers]]

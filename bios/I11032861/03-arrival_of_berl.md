@@ -30,3 +30,9 @@ Wickepin is a town in the Wheatbelt region of Western Australia,133 miles south-
 
 On the 17th December 1904 at the Perth Hebrew School Prize Distribution a child named Hoffman in Miss Esther Zukeman's class received a 10th award. There was a four way tie for 8th place so this was an eleventh prize! It is not clear which of Hyam's children this was, but whichever it was, he was a rather middling pupil.
 
+---
+
+### Continue Reading
+
+➤ **Next Chapter:** [[04-business_development|Business Development (1904-1907)]]
+

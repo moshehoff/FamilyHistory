@@ -152,3 +152,9 @@ Only Best Fruit Stocked.
 
 </div>
 
+---
+
+### Continue Reading
+
+➤ **Next Chapter:** [[07-arrival_of_moishe_wolfe|Arrival of Moishe & Wolfe Hochman (1910)]]
+

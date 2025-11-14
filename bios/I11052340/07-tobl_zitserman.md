@@ -42,3 +42,9 @@ Aaron & Elke Zitserman
 I haven't found any period photos of Bershad. During the Second War it became an internment camp for Jews from the surroundings and from Moldava. Apart from a synagogue, all communal property was destroyed. The appended photos of the extant synagogue are from about 2006.
 
 **PETER HOFFMAN    27.6.2024**
+
+---
+
+### Continue Reading
+
+➤ **Next Chapter:** [[08-moshe_tobl_in_perth|Moshe and Tobl in Perth]]

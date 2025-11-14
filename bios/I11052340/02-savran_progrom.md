@@ -57,3 +57,9 @@ Shimon Elizepan (sic) was a member of my great grandmother [Beile](/profiles/Bei
 ---
 
 **27.6.2024    PETER HOFFMAN**
+
+---
+
+### Continue Reading
+
+➤ **Next Chapter:** [[03-trans_siberian|Trans-Siberian Railway]]
