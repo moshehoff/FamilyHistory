@@ -1495,9 +1495,25 @@ function initProfileTabs() {
     window.addEventListener('popstate', function(event) {
       console.log('[ProfileTabs] Popstate event:', event.state, 'hash:', window.location.hash);
       
+      // Check if we're still on the same profile
+      const currentProfileTabs = document.querySelector('.profile-tabs');
+      if (!currentProfileTabs) {
+        console.log('[ProfileTabs] No profile-tabs element found, skipping popstate');
+        return;
+      }
+      
+      const currentProfileId = currentProfileTabs.getAttribute('data-profile-id');
+      console.log('[ProfileTabs] Current profileId from DOM:', currentProfileId, 'Cached profileId:', profileId);
+      
+      // If profile changed, let the 'nav' event handler deal with it
+      if (currentProfileId !== profileId) {
+        console.log('[ProfileTabs] Profile changed! Skipping popstate, letting nav event handle it');
+        return;
+      }
+      
       const hash = window.location.hash;
       
-      // Handle chapter navigation
+      // Handle chapter navigation (only if we're on the same profile)
       if (hash && hash.startsWith('#chapter=')) {
         const chapterSlug = hash.substring(9);
         console.log('[ProfileTabs] Restoring chapter from popstate:', chapterSlug);
