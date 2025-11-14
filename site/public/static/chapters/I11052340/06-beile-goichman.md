@@ -16,3 +16,9 @@ In the second column there is a list of general store owners.
 The fifth name is **Beile Mordk. Goichman**.
 
 Beile Mordkovna Goichman, my great grandmother.
+
+---
+
+### Continue Reading
+
+➤ **Next Chapter:** [[07-tobl_zitserman|Tobl Zitserman]]

@@ -11,3 +11,9 @@ The handwriting appears to be that of Julius Lewis Glick JP. He was born in Russ
      
 ![[Morris-and-Tobl-abt-1910.jpg]]
 **_Moishe and Tobl, abt 1910 (photographed in Perth)._**
+
+---
+
+### End of Biography
+
+Thank you for reading the story of Moshe and Tobl Hochman.

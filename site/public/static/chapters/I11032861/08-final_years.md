@@ -68,3 +68,9 @@ Hyam leased the wine saloon, he was certainly not the proprietor.
 
 The Supreme Court Gardens and the Government Gardens are one and the same. The main entrance was from the corner of Barrack St. and St. Georges Terrace. The gardens are behind the court building towards Adelaide Terrace and the Swan River foreshore. At that time the court building was a Jewish home! Joseph Hyman Myslis, who was caretaker of the building, lived there with his wife and children.
 
+---
+
+### Continue Reading
+
+➤ **Next Chapter:** [[09-transition|Transition (1914-1916)]]
+

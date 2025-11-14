@@ -37,3 +37,9 @@ They are all members of the Zines family.
 [Moishe](/profiles/Moshe-משה-Hoffman) and [Tobl](/profiles/Tobl-Hochman-%28Hoffman%29) and [Wolfe](/profiles/Wolfe-Hochman) must have made seder pesach with them somewhere in the Indian Ocean, two days before their landfall.
 
 **Peter Hoffman    September 2021**
+
+---
+
+### Continue Reading
+
+➤ **Next Chapter:** [[06-beile-goichman|Beile Goichman]]

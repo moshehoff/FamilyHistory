@@ -74,3 +74,9 @@ Hyam Yuda, [Berl](/profiles/Berl-Hochman), [Israel](/profiles/Yisrael-Hochman), 
 
 had all had "gone their own ways", and were established in the community at large.
 
+---
+
+### End of Biography
+
+Thank you for reading the story of the Hochman family in Australia.
+

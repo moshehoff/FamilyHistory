@@ -44,3 +44,9 @@ This episode demonstrates that the retail fruit business in the City was very mu
 
 He was the father of Hymie Shpigl who became the WA Government astronomer. Hymie married Anne (sister of Louise), a daughter of David and Rachel Cohen. Again we note the Gunzberg family in the fruiterers' business. Solomon Silbert was the cousin and brother-in-law of Abraham Silbert (who was in partnership with Joseph Sharp – Ted's family).
 
+---
+
+### Continue Reading
+
+➤ **Next Chapter:** [[03-arrival_of_berl|Arrival of Berl Hochman (1904-1907)]]
+

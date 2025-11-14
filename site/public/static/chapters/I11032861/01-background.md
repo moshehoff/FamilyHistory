@@ -60,3 +60,9 @@ Their dealings were contracted in Yiddish, sealed with a handshake and honoured.
 
 Beginning with Hyam, the family maintained close ties with other Jewish fruiterers who were successful in that business and others, and all very prominent members of the community. Two families merit mention: the Ferstats and the Silberts. I shall write some pertinent notes on them in an appendix. In addition, I am preparing some notes on others who contributed to the family's success: Augustus Roe, and the Beard family.
 
+---
+
+### Continue Reading
+
+➤ **Next Chapter:** [[02-arrival_of_hyam_yudl|Arrival of Hyam Yudl Hochman (1901-1904)]]
+

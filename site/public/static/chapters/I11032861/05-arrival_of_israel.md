@@ -138,3 +138,9 @@ The engagement of a police pimp, and sneak should be simply impossible impossibl
 
 Fizgig was slang for a police informer. The Sunday Times journalese form – phizgig - suggests a Greek origin. Likewise the spelling "dhirty" suggests a Sanskrit or Hindi origin for the common English word!
 
+---
+
+### Continue Reading
+
+➤ **Next Chapter:** [[06-partnerships_and_licenses|Partnerships and Licenses (1909)]]
+

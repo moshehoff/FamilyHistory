@@ -38,3 +38,9 @@ Next, Hyam moved out of his premises at the Globe Hotel, and opened a licensed r
 
 This was on the eastern corner of Wellington and William Sts.
 
+---
+
+### Continue Reading
+
+➤ **Next Chapter:** [[05-arrival_of_israel|Arrival of Israel Hochman (1907-1909)]]
+
