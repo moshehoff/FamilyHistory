@@ -8,8 +8,8 @@ ID: I40779121
 <dt>Birth:</dt><dd></dd>
 <dt>Death:</dt><dd></dd>
 <dt>Occupation:</dt><dd>—</dd>
-<dt>Parents:</dt><dd><a href="/profiles/Hershl%20Hochman">Hershl Hochman</a>, <a href="/profiles/Ruchel%20Hoffman">Ruchel Hoffman</a></dd>
-<dt>Siblings:</dt><dd><a href="/profiles/Bruce%20Boruch%20Hoffman">Bruce Boruch Hoffman</a>, <a href="/profiles/Ben%20Benzion%20Hoffman">Ben Benzion Hoffman</a>, <a href="/profiles/Nate%20Hoffman">Nate Hoffman</a>, <a href="/profiles/Rose%20Lazarus">Rose Lazarus</a>, <a href="/profiles/Hammy%20Nehemiah%20Hoffman">Hammy Nehemiah Hoffman</a></dd>
+<dt>Parents:</dt><dd><a href="/profiles/Hershl-Hochman">Hershl Hochman</a>, <a href="/profiles/Ruchel-Hoffman">Ruchel Hoffman</a></dd>
+<dt>Siblings:</dt><dd><a href="/profiles/Bruce-Boruch-Hoffman">Bruce Boruch Hoffman</a>, <a href="/profiles/Ben-Benzion-Hoffman">Ben Benzion Hoffman</a>, <a href="/profiles/Nate-Hoffman">Nate Hoffman</a>, <a href="/profiles/Rose-Lazarus">Rose Lazarus</a>, <a href="/profiles/Hammy-Nehemiah-Hoffman">Hammy Nehemiah Hoffman</a></dd>
 <dt>Spouse:</dt><dd>—</dd>
 <dt>Children:</dt><dd>—</dd>
 <dt>Notes:</dt><dd>Created by: https://www.geni.com/api/user-1208372</dd>

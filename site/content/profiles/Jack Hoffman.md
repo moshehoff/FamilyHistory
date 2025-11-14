@@ -8,10 +8,10 @@ ID: I38736559
 <dt>Birth:</dt><dd>May 18, 1927 at <a href="https://en.wikipedia.org/wiki/Perth,_Western_Australia">Perth, Western Australia, Australia</a></dd>
 <dt>Death:</dt><dd>July 4, 2019 at <a href="https://en.wikipedia.org/wiki/Perth,_Western_Australia">Perth, Western Australia, Australia</a></dd>
 <dt>Occupation:</dt><dd>medical practitioner</dd>
-<dt>Parents:</dt><dd><a href="/profiles/Moshe%20%D7%9E%D7%A9%D7%94%20Hoffman">Moshe משה Hoffman</a>, <a href="/profiles/Tobl%20Hochman%20%28Hoffman%29">Tobl Hochman (Hoffman)</a></dd>
-<dt>Siblings:</dt><dd><a href="/profiles/Aaron%20Harry%20%D7%90%D7%94%D7%A8%D7%95%D7%9F%20Hoffman">Aaron Harry אהרון Hoffman</a>, <a href="/profiles/Bella%20Hoffman">Bella Hoffman</a>, <a href="/profiles/Hyman%20Judah%20Hoffman">Hyman Judah Hoffman</a>, <a href="/profiles/Wolf%20Hoffman">Wolf Hoffman</a>, <a href="/profiles/Alyce%20Breazeale">Alyce Breazeale</a></dd>
-<dt>Spouse:</dt><dd><a href="/profiles/Louise%20Hoffman">Louise Hoffman</a></dd>
-<dt>Children:</dt><dd><a href="/profiles/Dan%20Hoffman">Dan Hoffman</a>, <a href="/profiles/Toby%20Rachel%20Freund">Toby Rachel Freund</a>, <a href="/profiles/David%20Hoffman">David Hoffman</a></dd>
+<dt>Parents:</dt><dd><a href="/profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman">Moshe משה Hoffman</a>, <a href="/profiles/Tobl-Hochman-%28Hoffman%29">Tobl Hochman (Hoffman)</a></dd>
+<dt>Siblings:</dt><dd><a href="/profiles/Aaron-Harry-%D7%90%D7%94%D7%A8%D7%95%D7%9F-Hoffman">Aaron Harry אהרון Hoffman</a>, <a href="/profiles/Bella-Hoffman">Bella Hoffman</a>, <a href="/profiles/Hyman-Judah-Hoffman">Hyman Judah Hoffman</a>, <a href="/profiles/Wolf-Hoffman">Wolf Hoffman</a>, <a href="/profiles/Alyce-Breazeale">Alyce Breazeale</a></dd>
+<dt>Spouse:</dt><dd><a href="/profiles/Louise-Hoffman">Louise Hoffman</a></dd>
+<dt>Children:</dt><dd><a href="/profiles/Dan-Hoffman">Dan Hoffman</a>, <a href="/profiles/Toby-Rachel-Freund">Toby Rachel Freund</a>, <a href="/profiles/David-Hoffman">David Hoffman</a></dd>
 <dt>Notes:</dt><dd>Created by: https://www.geni.com/api/user-1208372</dd>
 </dl>
 </div>

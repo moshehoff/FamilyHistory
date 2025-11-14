@@ -536,9 +536,13 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
                 return wikilink
             # Remove [[ and ]]
             name = wikilink.replace("[[", "").replace("]]", "")
+            # Apply safe_filename to match actual file names
+            safe_name = safe_filename(name)
+            # Replace spaces with hyphens to match Quartz's URL slugs
+            slug = safe_name.replace(" ", "-")
             # Encode name for URL
             import urllib.parse
-            encoded_name = urllib.parse.quote(name)
+            encoded_name = urllib.parse.quote(slug)
             return f'<a href="/profiles/{encoded_name}">{name}</a>'
         
         # Generate Mermaid diagrams

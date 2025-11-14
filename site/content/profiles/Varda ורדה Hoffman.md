@@ -10,7 +10,7 @@ ID: I38517487
 <dt>Occupation:</dt><dd>—</dd>
 <dt>Parents:</dt><dd>—</dd>
 <dt>Siblings:</dt><dd>—</dd>
-<dt>Spouse:</dt><dd><a href="/profiles/Dr%20PETER%20%D7%A4%D7%A0%D7%97%D7%A1%20HOFFMAN">Dr PETER פנחס HOFFMAN</a></dd>
+<dt>Spouse:</dt><dd><a href="/profiles/Dr-PETER-%D7%A4%D7%A0%D7%97%D7%A1-HOFFMAN">Dr PETER פנחס HOFFMAN</a></dd>
 <dt>Children:</dt><dd>—</dd>
 <dt>Notes:</dt><dd>Created by: https://www.geni.com/api/user-3443484</dd>
 </dl>

@@ -8,10 +8,10 @@ ID: I38736184
 <dt>Birth:</dt><dd></dd>
 <dt>Death:</dt><dd>1974 at <a href="https://en.wikipedia.org/wiki/Perth,_Western_Australia">Perth, Western Australia, Australia</a></dd>
 <dt>Occupation:</dt><dd>—</dd>
-<dt>Parents:</dt><dd><a href="/profiles/Moshe%20%D7%9E%D7%A9%D7%94%20Hoffman">Moshe משה Hoffman</a>, <a href="/profiles/Tobl%20Hochman%20%28Hoffman%29">Tobl Hochman (Hoffman)</a></dd>
-<dt>Siblings:</dt><dd><a href="/profiles/Bella%20Hoffman">Bella Hoffman</a>, <a href="/profiles/Hyman%20Judah%20Hoffman">Hyman Judah Hoffman</a>, <a href="/profiles/Wolf%20Hoffman">Wolf Hoffman</a>, <a href="/profiles/Alyce%20Breazeale">Alyce Breazeale</a>, <a href="/profiles/Jack%20Hoffman">Jack Hoffman</a></dd>
-<dt>Spouse:</dt><dd><a href="/profiles/Eileen%20Hoffman">Eileen Hoffman</a></dd>
-<dt>Children:</dt><dd><a href="/profiles/Miriam%20Hoffman">Miriam Hoffman</a>, <a href="/profiles/Trevor%20David%20Hoffman">Trevor David Hoffman</a>, <a href="/profiles/Judith%20Hoffman">Judith Hoffman</a></dd>
+<dt>Parents:</dt><dd><a href="/profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman">Moshe משה Hoffman</a>, <a href="/profiles/Tobl-Hochman-%28Hoffman%29">Tobl Hochman (Hoffman)</a></dd>
+<dt>Siblings:</dt><dd><a href="/profiles/Bella-Hoffman">Bella Hoffman</a>, <a href="/profiles/Hyman-Judah-Hoffman">Hyman Judah Hoffman</a>, <a href="/profiles/Wolf-Hoffman">Wolf Hoffman</a>, <a href="/profiles/Alyce-Breazeale">Alyce Breazeale</a>, <a href="/profiles/Jack-Hoffman">Jack Hoffman</a></dd>
+<dt>Spouse:</dt><dd><a href="/profiles/Eileen-Hoffman">Eileen Hoffman</a></dd>
+<dt>Children:</dt><dd><a href="/profiles/Miriam-Hoffman">Miriam Hoffman</a>, <a href="/profiles/Trevor-David-Hoffman">Trevor David Hoffman</a>, <a href="/profiles/Judith-Hoffman">Judith Hoffman</a></dd>
 <dt>Notes:</dt><dd>Created by: https://www.geni.com/api/user-1208372</dd>
 </dl>
 </div>

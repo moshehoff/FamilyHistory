@@ -10,8 +10,8 @@ ID: I38735986
 <dt>Occupation:</dt><dd>—</dd>
 <dt>Parents:</dt><dd>—</dd>
 <dt>Siblings:</dt><dd>—</dd>
-<dt>Spouse:</dt><dd><a href="/profiles/Moshe%20%D7%9E%D7%A9%D7%94%20Hoffman">Moshe משה Hoffman</a></dd>
-<dt>Children:</dt><dd><a href="/profiles/Aaron%20Harry%20%D7%90%D7%94%D7%A8%D7%95%D7%9F%20Hoffman">Aaron Harry אהרון Hoffman</a>, <a href="/profiles/Bella%20Hoffman">Bella Hoffman</a>, <a href="/profiles/Hyman%20Judah%20Hoffman">Hyman Judah Hoffman</a>, <a href="/profiles/Wolf%20Hoffman">Wolf Hoffman</a>, <a href="/profiles/Alyce%20Breazeale">Alyce Breazeale</a>, <a href="/profiles/Jack%20Hoffman">Jack Hoffman</a></dd>
+<dt>Spouse:</dt><dd><a href="/profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman">Moshe משה Hoffman</a></dd>
+<dt>Children:</dt><dd><a href="/profiles/Aaron-Harry-%D7%90%D7%94%D7%A8%D7%95%D7%9F-Hoffman">Aaron Harry אהרון Hoffman</a>, <a href="/profiles/Bella-Hoffman">Bella Hoffman</a>, <a href="/profiles/Hyman-Judah-Hoffman">Hyman Judah Hoffman</a>, <a href="/profiles/Wolf-Hoffman">Wolf Hoffman</a>, <a href="/profiles/Alyce-Breazeale">Alyce Breazeale</a>, <a href="/profiles/Jack-Hoffman">Jack Hoffman</a></dd>
 <dt>Notes:</dt><dd>Created by: https://www.geni.com/api/user-1208372</dd>
 </dl>
 </div>

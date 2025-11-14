@@ -10,8 +10,8 @@ ID: I38516664
 <dt>Occupation:</dt><dd>—</dd>
 <dt>Parents:</dt><dd>—</dd>
 <dt>Siblings:</dt><dd>—</dd>
-<dt>Spouse:</dt><dd><a href="/profiles/Hyman%20Judah%20Hoffman">Hyman Judah Hoffman</a></dd>
-<dt>Children:</dt><dd><a href="/profiles/Edward%20Denis%20%D7%90%D7%9C%D7%99%D7%94%D7%95%20Hoffman">Edward Denis אליהו Hoffman</a>, <a href="/profiles/Dr%20PETER%20%D7%A4%D7%A0%D7%97%D7%A1%20HOFFMAN">Dr PETER פנחס HOFFMAN</a>, <a href="/profiles/Dianne%20Helen%20%D7%93%D7%99%D7%A0%D7%94%20Kemp">Dianne Helen דינה Kemp</a></dd>
+<dt>Spouse:</dt><dd><a href="/profiles/Hyman-Judah-Hoffman">Hyman Judah Hoffman</a></dd>
+<dt>Children:</dt><dd><a href="/profiles/Edward-Denis-%D7%90%D7%9C%D7%99%D7%94%D7%95-Hoffman">Edward Denis אליהו Hoffman</a>, <a href="/profiles/Dr-PETER-%D7%A4%D7%A0%D7%97%D7%A1-HOFFMAN">Dr PETER פנחס HOFFMAN</a>, <a href="/profiles/Dianne-Helen-%D7%93%D7%99%D7%A0%D7%94-Kemp">Dianne Helen דינה Kemp</a></dd>
 <dt>Notes:</dt><dd>Created by: https://www.geni.com/api/user-3443484</dd>
 </dl>
 </div>

@@ -8,10 +8,10 @@ ID: I6458385293
 <dt>Birth:</dt><dd></dd>
 <dt>Death:</dt><dd></dd>
 <dt>Occupation:</dt><dd>—</dd>
-<dt>Parents:</dt><dd><a href="/profiles/Yisrael%20Hochman">Yisrael Hochman</a>, <a href="/profiles/Rachel%20Hochman">Rachel Hochman</a></dd>
-<dt>Siblings:</dt><dd><a href="/profiles/Bertha%20Hoffman">Bertha Hoffman</a>, <a href="/profiles/Ernest%20Hoffman">Ernest Hoffman</a>, <a href="/profiles/Myrtle%20Hadassa%20Hoffman">Myrtle Hadassa Hoffman</a>, <a href="/profiles/Nathan%20Nachman%20Hochman">Nathan Nachman Hochman</a></dd>
+<dt>Parents:</dt><dd><a href="/profiles/Yisrael-Hochman">Yisrael Hochman</a>, <a href="/profiles/Rachel-Hochman">Rachel Hochman</a></dd>
+<dt>Siblings:</dt><dd><a href="/profiles/Bertha-Hoffman">Bertha Hoffman</a>, <a href="/profiles/Ernest-Hoffman">Ernest Hoffman</a>, <a href="/profiles/Myrtle-Hadassa-Hoffman">Myrtle Hadassa Hoffman</a>, <a href="/profiles/Nathan-Nachman-Hochman">Nathan Nachman Hochman</a></dd>
 <dt>Spouse:</dt><dd>—</dd>
-<dt>Children:</dt><dd><a href="/profiles/Marie%20Hoffman">Marie Hoffman</a></dd>
+<dt>Children:</dt><dd><a href="/profiles/Marie-Hoffman">Marie Hoffman</a></dd>
 <dt>Notes:</dt><dd>Created by: https://www.geni.com/api/user-1208372</dd>
 </dl>
 </div>

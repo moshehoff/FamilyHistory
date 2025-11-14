@@ -8,9 +8,9 @@ ID: I11052359
 <dt>Birth:</dt><dd>November 28, 1946 at <a href="https://en.wikipedia.org/wiki/Subiaco,_Western_Australia">Subiaco, Perth, Western Australia, Australia</a></dd>
 <dt>Death:</dt><dd>December 28, 2024</dd>
 <dt>Occupation:</dt><dd>medical practitioner, ophthalmologist</dd>
-<dt>Parents:</dt><dd><a href="/profiles/Hyman%20Judah%20Hoffman">Hyman Judah Hoffman</a>, <a href="/profiles/Edith%20%D7%A6%D7%99%D7%A8%D7%9C%20Hoffman">Edith צירל Hoffman</a></dd>
-<dt>Siblings:</dt><dd><a href="/profiles/Edward%20Denis%20%D7%90%D7%9C%D7%99%D7%94%D7%95%20Hoffman">Edward Denis אליהו Hoffman</a>, <a href="/profiles/Dianne%20Helen%20%D7%93%D7%99%D7%A0%D7%94%20Kemp">Dianne Helen דינה Kemp</a></dd>
-<dt>Spouse:</dt><dd><a href="/profiles/Varda%20%D7%95%D7%A8%D7%93%D7%94%20Hoffman">Varda ורדה Hoffman</a></dd>
+<dt>Parents:</dt><dd><a href="/profiles/Hyman-Judah-Hoffman">Hyman Judah Hoffman</a>, <a href="/profiles/Edith-%D7%A6%D7%99%D7%A8%D7%9C-Hoffman">Edith צירל Hoffman</a></dd>
+<dt>Siblings:</dt><dd><a href="/profiles/Edward-Denis-%D7%90%D7%9C%D7%99%D7%94%D7%95-Hoffman">Edward Denis אליהו Hoffman</a>, <a href="/profiles/Dianne-Helen-%D7%93%D7%99%D7%A0%D7%94-Kemp">Dianne Helen דינה Kemp</a></dd>
+<dt>Spouse:</dt><dd><a href="/profiles/Varda-%D7%95%D7%A8%D7%93%D7%94-Hoffman">Varda ורדה Hoffman</a></dd>
 <dt>Children:</dt><dd>—</dd>
 <dt>Notes:</dt><dd>Account type: basic</dd>
 </dl>
