@@ -36,11 +36,23 @@ class DiagramPanZoom {
     document.addEventListener("mouseup", mouseUpHandler)
     window.addEventListener("resize", resizeHandler)
 
+    // Touch drag events for mobile
+    const touchStartHandler = this.onTouchStart.bind(this)
+    const touchMoveHandler = this.onTouchMove.bind(this)
+    const touchEndHandler = this.onTouchEnd.bind(this)
+
+    this.container.addEventListener("touchstart", touchStartHandler, { passive: false })
+    document.addEventListener("touchmove", touchMoveHandler, { passive: false })
+    document.addEventListener("touchend", touchEndHandler)
+
     this.cleanups.push(
       () => this.container.removeEventListener("mousedown", mouseDownHandler),
       () => document.removeEventListener("mousemove", mouseMoveHandler),
       () => document.removeEventListener("mouseup", mouseUpHandler),
       () => window.removeEventListener("resize", resizeHandler),
+      () => this.container.removeEventListener("touchstart", touchStartHandler),
+      () => document.removeEventListener("touchmove", touchMoveHandler),
+      () => document.removeEventListener("touchend", touchEndHandler),
     )
   }
 
@@ -97,6 +109,30 @@ class DiagramPanZoom {
   private onMouseUp() {
     this.isDragging = false
     this.container.style.cursor = "grab"
+  }
+
+  private onTouchStart(e: TouchEvent) {
+    if (e.touches.length !== 1) return // Only handle single touch for panning
+    this.isDragging = true
+    const touch = e.touches[0]
+    this.startPan = { x: touch.clientX - this.currentPan.x, y: touch.clientY - this.currentPan.y }
+  }
+
+  private onTouchMove(e: TouchEvent) {
+    if (!this.isDragging || e.touches.length !== 1) return
+    e.preventDefault()
+
+    const touch = e.touches[0]
+    this.currentPan = {
+      x: touch.clientX - this.startPan.x,
+      y: touch.clientY - this.startPan.y,
+    }
+
+    this.updateTransform()
+  }
+
+  private onTouchEnd() {
+    this.isDragging = false
   }
 
   private zoom(delta: number) {

@@ -63,6 +63,14 @@ pre {
     height: 80vh;
     width: 80vw;
     overflow: hidden;
+    
+    // Enable scrolling on mobile devices
+    @media (max-width: 768px) {
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      height: 90vh;
+      width: 95vw;
+    }
 
     & > .mermaid-content {
       padding: 2rem;
