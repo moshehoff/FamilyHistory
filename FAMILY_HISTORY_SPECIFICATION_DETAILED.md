@@ -549,58 +549,271 @@ Wolf & Beile Hochman
 
 **⚠️ חשוב מאוד**: הדרך **היחידה** הנכונה לכתוב קישורים לפרופילים בתוך פרקי הביוגרפיה היא בפורמט **Markdown Links רגילים**!
 
-**הפורמט הנכון (החובה)**:
-```markdown
-[Display Text](/profiles/Person-Name)
+---
+
+#### מתודולוגיה מלאה לעבודה עם קישורים לפרופילים
+
+##### 1. איך Quartz ממיר שמות לURL slugs
+
+Quartz (Static Site Generator) ממיר את שמות קבצי ה-Markdown ל-URL slugs בצורה הבאה:
+- **רווחים (` `)** → **מקפים (`-`)**
+- תווים מיוחדים נשארים או מקודדים
+
+**דוגמאות**:
+```
+שם קובץ Markdown          →  URL slug (HTML)
+_Bobka_ Hochman.md        →  _Bobka_-Hochman.html
+Tobl Hochman (Hoffman).md →  Tobl-Hochman-(Hoffman).html
+Moshe משה Hoffman.md      →  Moshe-משה-Hoffman.html
 ```
 
-**דוגמה**:
-```markdown
-Hyam and [Sarah](/profiles/Sara-Hochman), and their children [Rivka](/profiles/Rivka-Bar-Cohen) travelled to Port Said.
+**חשוב**: כל קישור בפרקים **חייב** להתאים ל-URL slug הזה!
+
+---
+
+##### 2. איך `doit.py` יוצר קישורים אוטומטית
+
+הסקריפט `doit.py` יוצר קישורים בשני מקומות:
+
+**א. בשדות הפרופיל (Parents, Siblings, Children, Spouse)**
+
+הפונקציה `person_link_to_html()` (שורות 533-546):
+```python
+def person_link_to_html(wikilink):
+    """Convert [[Person Name]] to HTML link"""
+    if not wikilink or wikilink == "—":
+        return wikilink
+    # Remove [[ and ]]
+    name = wikilink.replace("[[", "").replace("]]", "")
+    # Apply safe_filename to match actual file names
+    safe_name = safe_filename(name)
+    # Replace spaces with hyphens to match Quartz's URL slugs
+    slug = safe_name.replace(" ", "-")
+    # Encode name for URL
+    import urllib.parse
+    encoded_name = urllib.parse.quote(slug)
+    return f'<a href="/profiles/{encoded_name}">{name}</a>'
 ```
 
-**חשוב לדעת**:
-- ✅ הנתיב **חייב** להתחיל ב-`/profiles/...` (עם `/` בהתחלה)
-- ✅ השם בנתיב צריך להיות עם **מקפים** (לא רווחים)
-- ✅ `ProfileTabs.tsx` מוסיף אוטומטית את ה-base path (`/FamilyHistory/`) כשצריך
-- ✅ עובד גם בלוקלי (`localhost:8080`) וגם ב-GitHub Pages
+**מה זה עושה?**
+1. לוקח את השם מה-GEDCOM (למשל: `"Bobka" Hochman`)
+2. מריץ `safe_filename()` → ממיר תווים לא חוקיים (למשל: `"` → `_`)
+3. מחליף רווחים במקפים → `_Bobka_-Hochman`
+4. מקודד ל-URL (`urllib.parse.quote`) → סוגריים הופכים ל-`%28` `%29`
+5. יוצר HTML link: `<a href="/profiles/_Bobka_-Hochman">"Bobka" Hochman</a>`
+
+**תוצאה**: הקישורים בשדות הפרופיל **תמיד נכונים אוטומטית**! ✅
+
+---
+
+##### 3. איך לכתוב קישורים ידניים בפרקי ביוגרפיה
+
+כשאתה כותב קישורים ידנית בקבצי `.md` בתיקיית `bios/`, **חובה** לעקוב אחר הכללים הבאים:
+
+**הפורמט הנכון**:
+```markdown
+[Display Text](/profiles/Person-Name-With-Hyphens)
+```
+
+**שלבים ליצירת קישור נכון**:
+
+**שלב 1**: מצא את השם המדויק מה-GEDCOM
+- פתח את `data/tree.ged`
+- חפש `1 NAME ...`
+- דוגמה: `1 NAME "Bobka" /Hochman/`
+
+**שלב 2**: החל את `safe_filename()` (זהה ל-`doit.py`)
+- מרכאות `"` → קו תחתון `_`
+- כוכביות `*` → קו תחתון `_`
+- סוגריים `()` נשארים (יקודדו אחר כך)
+- דוגמה: `"Bobka" Hochman` → `_Bobka_ Hochman`
+
+**שלב 3**: החלף רווחים במקפים
+- דוגמה: `_Bobka_ Hochman` → `_Bobka_-Hochman`
+
+**שלב 4**: אם יש סוגריים או תווים מיוחדים אחרים - השאר אותם (לא צריך URL encoding ידני)
+- דוגמה: `Tobl Hochman (Hoffman)` → `Tobl-Hochman-(Hoffman)`
+
+**שלב 5**: צור את הקישור
+```markdown
+[Bobka](/profiles/_Bobka_-Hochman)
+[Tobl](/profiles/Tobl-Hochman-(Hoffman))
+```
+
+---
+
+##### 4. דוגמאות מעשיות - שמות עם תווים בעייתיים
+
+| שם ב-GEDCOM | שם קובץ `.md` | קישור נכון |
+|-------------|---------------|------------|
+| `"Bobka" /Hochman/` | `_Bobka_ Hochman.md` | `[Bobka](/profiles/_Bobka_-Hochman)` |
+| `**** /Hochman/` | `____ Hochman.md` | `[Unknown](/profiles/____-Hochman)` |
+| `Tobl /Hochman (Hoffman)/` | `Tobl Hochman (Hoffman).md` | `[Tobl](/profiles/Tobl-Hochman-(Hoffman))` |
+| `Pinchas (Wellesley) /Aron/` | `Pinchas (Wellesley) Aron.md` | `[Pinchas](/profiles/Pinchas-(Wellesley)-Aron)` |
+| `Moshe משה /Hoffman/` | `Moshe משה Hoffman.md` | `[Moshe](/profiles/Moshe-משה-Hoffman)` |
+| `Wolf זאב /Hochman/` | `Wolf זאב Hochman.md` | `[Wolf](/profiles/Wolf-זאב-Hochman)` |
+
+**כלל זהב**: **כל רווח הופך למקף `-`**, תווים מיוחדים אחרים נשארים כפי שהם (אלא אם הומרו ב-`safe_filename`).
+
+---
+
+##### 5. איך ProfileTabs.tsx מטפל בקישורים
+
+`ProfileTabs.tsx` מוסיף אוטומטית את ה-**base path** לכל הקישורים (שורות 1126-1146):
+
+**לוקלית** (`localhost:8080`):
+```
+קישור בפרק:      [Wolfe](/profiles/Wolfe-Hochman)
+מה שהדפדפן רואה:  http://localhost:8080/profiles/Wolfe-Hochman
+```
+
+**GitHub Pages** (`moshehoff.github.io/FamilyHistory`):
+```
+קישור בפרק:      [Wolfe](/profiles/Wolfe-Hochman)
+base path מתגלה:  /FamilyHistory
+מה שהדפדפן רואה:  https://moshehoff.github.io/FamilyHistory/profiles/Wolfe-Hochman
+```
 
 **איך זה עובד?**
+```javascript
+// Detect base path from current URL
+var siteBasePath = '';
+if (typeof window !== 'undefined') {
+  var currentPath = window.location.pathname;
+  if (currentPath.indexOf('/profiles/') > 0) {
+    var beforeProfiles = currentPath.substring(0, currentPath.indexOf('/profiles/'));
+    if (beforeProfiles && beforeProfiles !== '' && beforeProfiles !== '/') {
+      siteBasePath = beforeProfiles;  // e.g., '/FamilyHistory'
+    }
+  }
+}
 
-כשהאתר רץ **לוקלית**:
-- קישור: `[Wolfe](/profiles/Wolfe-Hochman)` 
-- נשאר: `/profiles/Wolfe-Hochman`
-- תוצאה: `http://localhost:8080/profiles/Wolfe-Hochman` ✅
+// Fix absolute profile links by adding base path
+var linkPattern = new RegExp('\\[([^\\]]+)\\]\\((\\/profiles\\/[^)]+)\\)', 'g');
+html = html.replace(linkPattern, function(match, text, path) {
+  return '<a href="' + siteBasePath + path + '">' + text + '</a>';
+});
+```
 
-כשהאתר רץ **ב-GitHub Pages**:
-- קישור: `[Wolfe](/profiles/Wolfe-Hochman)`
-- הופך ל: `/FamilyHistory/profiles/Wolfe-Hochman` (אוטומטית!)
-- תוצאה: `https://moshehoff.github.io/FamilyHistory/profiles/Wolfe-Hochman` ✅
+**תוצאה**: אתה כותב רק `/profiles/...` והקוד מוסיף את `/FamilyHistory` אוטומטית כשצריך! ✅
 
-**קוד שמטפל בזה**: `site/quartz/components/ProfileTabs.tsx` (שורות 1126-1146)
+---
 
-**דוגמאות נכונות**:
+##### 6. דוגמאות נכונות
+
 ```markdown
 ✅ [Wolfe](/profiles/Wolfe-Hochman)
 ✅ [Sarah](/profiles/Sara-Hochman)
 ✅ [Rivka](/profiles/Rivka-Bar-Cohen)
+✅ [Bobka](/profiles/_Bobka_-Hochman)
+✅ [Tobl](/profiles/Tobl-Hochman-(Hoffman))
+✅ [Pinchas](/profiles/Pinchas-(Wellesley)-Aron)
 ✅ [Beile](/profiles/Beile-ביילא-Hochman)
 ✅ [Haim Yudl](/profiles/Haim-Yehuda-חיים-יהודה-Hochman)
+✅ [Moshe](/profiles/Moshe-משה-Hoffman)
+✅ [Wolf](/profiles/Wolf-זאב-Hochman)
 ```
 
-**דוגמאות שגויות**:
+---
+
+##### 7. דוגמאות שגויות (וכיצד לתקן)
+
 ```markdown
-❌ [[Wolfe Hochman]]                         # Wikilinks לא מומלץ בפרקים
-❌ [Wolfe](profiles/Wolfe-Hochman)           # חסר / בהתחלה
-❌ [Wolfe](./profiles/Wolfe-Hochman)         # נתיב יחסי לא עובד
-❌ [Wolfe](/FamilyHistory/profiles/Wolfe-Hochman)  # לא צריך base path ידני
-❌ [Wolfe](/profiles/Wolfe Hochman)          # רווחים במקום מקפים
+❌ [[Wolfe Hochman]]                               # Wikilinks - לא עובד בפרקים
+✅ [Wolfe](/profiles/Wolfe-Hochman)                 # תקן כך
+
+❌ [Wolfe](profiles/Wolfe-Hochman)                 # חסר / בהתחלה
+✅ [Wolfe](/profiles/Wolfe-Hochman)                 # תקן כך
+
+❌ [Wolfe](./profiles/Wolfe-Hochman)               # נתיב יחסי לא עובד
+✅ [Wolfe](/profiles/Wolfe-Hochman)                 # תקן כך
+
+❌ [Wolfe](/FamilyHistory/profiles/Wolfe-Hochman)  # base path ידני - יישבר בלוקלי
+✅ [Wolfe](/profiles/Wolfe-Hochman)                 # תקן כך
+
+❌ [Wolfe](/profiles/Wolfe Hochman)                # רווחים במקום מקפים
+✅ [Wolfe](/profiles/Wolfe-Hochman)                 # תקן כך
+
+❌ [Bobka](/profiles/"Bobka" Hochman)              # מרכאות לא מומרות
+✅ [Bobka](/profiles/_Bobka_-Hochman)               # תקן כך
+
+❌ [Tobl](/profiles/Tobl Hochman (Hoffman))        # רווחים לא מומרים
+✅ [Tobl](/profiles/Tobl-Hochman-(Hoffman))         # תקן כך
 ```
 
-**שים לב**: אם השם כולל תווים עבריים, השתמש במקפים לחיבור:
-```markdown
-✅ [Beile](/profiles/Beile-ביילא-Hochman)
-✅ [Haim Yudl](/profiles/Haim-Yehuda-חיים-יהודה-Hochman)
+---
+
+##### 8. איך לבדוק שהקישור נכון
+
+**שיטה 1: בדיקה ויזואלית**
+1. בנה את האתר: `cd site && npx quartz build --serve`
+2. פתח בדפדפן: `http://localhost:8080`
+3. נווט לפרופיל → לחץ על הקישור → האם הוא עובד?
+
+**שיטה 2: בדיקת שם קובץ**
+1. לך ל-`site/content/profiles/`
+2. חפש את שם הקובץ `.md` של האדם
+3. וודא שהקישור שלך תואם (אבל עם מקפים במקום רווחים!)
+
+**דוגמה**:
+```
+קובץ: site/content/profiles/_Bobka_ Hochman.md
+קישור נכון: [Bobka](/profiles/_Bobka_-Hochman)
+                                       ↑ מקף!
+```
+
+---
+
+##### 9. Checklist לפני שמוסיפים קישורים לפרק
+
+- [ ] וידאתי את השם המדויק מה-GEDCOM
+- [ ] המרתי תווים מיוחדים לפי `safe_filename` (מרכאות→קו תחתון, כוכביות→קו תחתון)
+- [ ] החלפתי **כל רווח** במקף `-`
+- [ ] הקישור מתחיל ב-`/profiles/...` (עם `/` בהתחלה)
+- [ ] לא הוספתי `/FamilyHistory` ידנית
+- [ ] בדקתי שהקישור עובד לוקלית
+
+---
+
+##### 10. שאלות ותשובות נפוצות
+
+**ש: למה לא להשתמש ב-Wikilinks `[[...]]` בפרקים?**  
+ת: Wikilinks לא עוברים דרך `ProfileTabs.tsx`, אז הם לא מקבלים את ה-base path (`/FamilyHistory`) ונשברים ב-GitHub Pages.
+
+**ש: מה אם יש במצאות תווים מיוחדים כמו `/`, `?`, `#`?**  
+ת: `safe_filename()` ממיר אותם לקו תחתון `_`. אבל בפועל זה נדיר מאוד ב-GEDCOM.
+
+**ש: איך אני יודע אם השם כולל מרכאות או כוכביות?**  
+ת: פשוט תסתכל על השם בקובץ `data/tree.ged` - אם יש `"Bobka"` או `****` זה בדיוק ככה שהוא מופיע.
+
+**ש: מה עם תווים עבריים?**  
+ת: עובדים מצוין! פשוט השתמש בהם כמו שהם, עם מקפים בין מילים: `Moshe-משה-Hoffman`
+
+**ש: האם צריך URL encoding ידני לסוגריים?**  
+ת: **לא!** הדפדפן עושה את זה אוטומטית. כתוב `(Hoffman)` ולא `%28Hoffman%29`.
+
+---
+
+##### סיכום - הנוסחה הפשוטה
+
+```
+שם מGEDCOM
+    ↓
+safe_filename (מרכאות/כוכביות → קו תחתון)
+    ↓
+החלף רווחים במקפים
+    ↓
+/profiles/{התוצאה}
+    ↓
+קישור מוכן! ✅
+```
+
+**דוגמה מלאה**:
+```
+GEDCOM:     "Bobka" /Hochman/
+safe_name:  _Bobka_ Hochman
+slug:       _Bobka_-Hochman
+קישור:     [Bobka](/profiles/_Bobka_-Hochman)
 ```
 
 ##### עיצוב טקסט
@@ -1613,15 +1826,59 @@ html = html.replace(linkPattern, function(match, text, path) {
 ```
 
 **איך זה עובד**:
-1. **זיהוי אוטומטי**: הקוד בודק את ה-URL הנוכחי ומזהה אם יש base path (למשל `/FamilyHistory/`)
+1. **זיהוי אוטומטי של Base Path**: הקוד בודק את ה-URL הנוכחי ומזהה אם יש base path (למשל `/FamilyHistory/`)
 2. **לוקלי**: אם `localhost:8080/profiles/...` - אין base path, הקישור נשאר `/profiles/...`
 3. **GitHub Pages**: אם `moshehoff.github.io/FamilyHistory/profiles/...` - מזהה `/FamilyHistory` ומוסיף אותו
 4. **תוצאה**: קישורים עובדים אוטומטית בשתי הסביבות ✅
 
-**דוגמה**:
+**דוגמאות**:
 - קישור בפרק: `[Wolfe](/profiles/Wolfe-Hochman)`
 - בלוקלי: `<a href="/profiles/Wolfe-Hochman">Wolfe</a>`
 - ב-GitHub Pages: `<a href="/FamilyHistory/profiles/Wolfe-Hochman">Wolfe</a>`
+
+**חשוב**: 
+- ✅ הקוד מזהה קישורים רגילים מהצורה `[text](/profiles/...)`
+- ✅ הקוד **לא** דורש URL encoding ידני - הדפדפן מטפל בזה אוטומטית
+- ✅ תווים מיוחדים כמו סוגריים `()`, עברית, וקווים תחתונים `_` עובדים כצפוי
+- ✅ רווחים **חייבים** להיות מומרים למקפים `-` בקישור (כי Quartz ממיר את שמות הקבצים כך)
+
+**Browser History Handling** (שורות 430, 458, 967-972):
+
+הקומפוננטה מטפלת בהיסטוריית הדפדפן כדי למנוע כניסות כפולות:
+
+```typescript
+let isInitialChapterLoad = true;  // Line 430
+
+function initProfileTabs() {
+  isInitialChapterLoad = true;  // Line 458 - reset on new profile
+  // ...
+}
+
+function switchToChapter(chapterSlug, fromPopstate) {
+  // ...
+  if (!fromPopstate) {
+    const newUrl = window.location.pathname + '#chapter=' + chapterSlug;
+    
+    // Use replaceState for initial load (avoid duplicate history entry)
+    // Use pushState for user-initiated chapter changes
+    if (isInitialChapterLoad) {
+      history.replaceState({ chapter: chapterSlug, tab: 'biography' }, '', newUrl);
+      isInitialChapterLoad = false;
+    } else {
+      history.pushState({ chapter: chapterSlug, tab: 'biography' }, '', newUrl);
+    }
+  }
+}
+```
+
+**מה זה מונע?**
+- ❌ **לפני התיקון**: נווט לפרופיל → פרק נטען → לחץ חזרה → חזרה לאותו פרופיל (כניסה כפולה!)
+- ✅ **אחרי התיקון**: נווט לפרופיל → פרק נטען (`replaceState`) → לחץ חזרה → חזרה לעמוד הקודם
+
+**איך זה עובד?**
+1. **טעינה ראשונית של פרק**: משתמש ב-`history.replaceState` (מחליף את הכניסה הנוכחית)
+2. **מעבר בין פרקים**: משתמש ב-`history.pushState` (מוסיף כניסה חדשה)
+3. **תוצאה**: חווית משתמש טובה יותר עם כפתור ה-back
 
 ### 7.3 ArticleTitle
 
