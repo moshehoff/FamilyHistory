@@ -158,9 +158,13 @@ class DiagramPanZoom {
   private resetTransform() {
     this.scale = 1
     const svg = this.content.querySelector("svg")!
+    const svgRect = svg.getBoundingClientRect()
+    const containerRect = this.container.getBoundingClientRect()
+    
+    // Center the diagram in the container
     this.currentPan = {
-      x: svg.getBoundingClientRect().width / 2,
-      y: svg.getBoundingClientRect().height / 2,
+      x: (containerRect.width - svgRect.width) / 2,
+      y: (containerRect.height - svgRect.height) / 2,
     }
     this.updateTransform()
   }
