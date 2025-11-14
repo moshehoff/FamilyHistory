@@ -37,36 +37,42 @@ marriage_idF3770106((" "))
 idI11032885 --- marriage_idF3770106
 idI11032895 --- marriage_idF3770106
 marriage_idF3770106 --> idI11052340
-idI38735986["Tobl Hochman (Hoffman)"]
-class idI38735986 internal-link
-click idI38735986 "../profiles/Tobl-Hochman-%28Hoffman%29" "Tobl Hochman (Hoffman)"
-marriage_idF3776794((" "))
-idI11052340 --- marriage_idF3776794
-idI38735986 --- marriage_idF3776794
-idI38736184["Aaron Harry אהרון Hoffman"]
-class idI38736184 internal-link
-click idI38736184 "../profiles/Aaron-Harry-%D7%90%D7%94%D7%A8%D7%95%D7%9F-Hoffman" "Aaron Harry אהרון Hoffman"
-marriage_idF3776794 --> idI38736184
-idI38736293["Bella Hoffman"]
-class idI38736293 internal-link
-click idI38736293 "../profiles/Bella-Hoffman" "Bella Hoffman"
-marriage_idF3776794 --> idI38736293
-idI11052350["Hyman Judah Hoffman"]
-class idI11052350 internal-link
-click idI11052350 "../profiles/Hyman-Judah-Hoffman" "Hyman Judah Hoffman"
-marriage_idF3776794 --> idI11052350
-idI7293825["Wolf Hoffman"]
-class idI7293825 internal-link
-click idI7293825 "../profiles/Wolf-Hoffman" "Wolf Hoffman"
-marriage_idF3776794 --> idI7293825
-idI61277011["Alyce Breazeale"]
-class idI61277011 internal-link
-click idI61277011 "../profiles/Alyce-Breazeale" "Alyce Breazeale"
-marriage_idF3776794 --> idI61277011
-idI38736559["Jack Hoffman"]
-class idI38736559 internal-link
-click idI38736559 "../profiles/Jack-Hoffman" "Jack Hoffman"
-marriage_idF3776794 --> idI38736559
+idI11060285["Shimon Meir מאיר Hochman"]
+class idI11060285 internal-link
+click idI11060285 "../profiles/Shimon-Meir-%D7%9E%D7%90%D7%99%D7%A8-Hochman" "Shimon Meir מאיר Hochman"
+marriage_idF3770106 --> idI11060285
+idI11032861["Haim Yehuda חיים יהודה Hochman"]
+class idI11032861 internal-link
+click idI11032861 "../profiles/Haim-Yehuda-%D7%97%D7%99%D7%99%D7%9D-%D7%99%D7%94%D7%95%D7%93%D7%94-Hochman" "Haim Yehuda חיים יהודה Hochman"
+marriage_idF3770106 --> idI11032861
+idI38740193["Josef Hochman"]
+class idI38740193 internal-link
+click idI38740193 "../profiles/Josef-Hochman" "Josef Hochman"
+marriage_idF3770106 --> idI38740193
+idI39114997["Binyamin Hochman"]
+class idI39114997 internal-link
+click idI39114997 "../profiles/Binyamin-Hochman" "Binyamin Hochman"
+marriage_idF3770106 --> idI39114997
+idI39115025["Kolman Hochman"]
+class idI39115025 internal-link
+click idI39115025 "../profiles/Kolman-Hochman" "Kolman Hochman"
+marriage_idF3770106 --> idI39115025
+idI39114938["Avraham Hochman"]
+class idI39114938 internal-link
+click idI39114938 "../profiles/Avraham-Hochman" "Avraham Hochman"
+marriage_idF3770106 --> idI39114938
+idI39114787["Sholem Hochman"]
+class idI39114787 internal-link
+click idI39114787 "../profiles/Sholem-Hochman" "Sholem Hochman"
+marriage_idF3770106 --> idI39114787
+idI39114550["Yisrael Hochman"]
+class idI39114550 internal-link
+click idI39114550 "../profiles/Yisrael-Hochman" "Yisrael Hochman"
+marriage_idF3770106 --> idI39114550
+idI39114448["'Bobka' Hochman"]
+class idI39114448 internal-link
+click idI39114448 "../profiles/%27Bobka%27-Hochman" "'Bobka' Hochman"
+marriage_idF3770106 --> idI39114448
 ```
 
 ## Ancestors (up to 2 Gen.)

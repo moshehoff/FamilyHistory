@@ -161,7 +161,7 @@ def build_mermaid_graph(pid, p, fams, name_of):
     # Add the central person (highlighted)
     person_node = make_node(pid, is_current=True)
     
-    # Add parents and their relationship
+    # Add parents and siblings
     if p["famc"] in fams:
         fam = fams[p["famc"]]
         if fam.get("husband") or fam.get("wife"):
@@ -173,49 +173,31 @@ def build_mermaid_graph(pid, p, fams, name_of):
             if fam.get("wife"):
                 mother_node = make_node(fam["wife"])
             
-            # Marriage connection
+            # Marriage connection between parents
             if father_node and mother_node:
                 marriage_node = f'marriage_{node_id(fam["id"])}'
                 lines.append(f'{marriage_node}((" "))')
                 lines.append(f'{father_node} --- {marriage_node}')
                 lines.append(f'{mother_node} --- {marriage_node}')
+                
+                # Connect to person
                 lines.append(f'{marriage_node} --> {person_node}')
+                
+                # Add siblings (all children in the same family except the person)
+                for child_id in fam.get("children", []):
+                    if child_id != pid:  # Don't add the person as their own sibling
+                        sibling_node = make_node(child_id)
+                        lines.append(f'{marriage_node} --> {sibling_node}')
             else:
                 # Single parent
                 parent_node = father_node or mother_node
                 lines.append(f'{parent_node} --> {person_node}')
-    
-    # Add spouses and children
-    for fid in p["fams"]:
-        if fid not in fams:
-            continue
-        fam = fams[fid]
-        
-        # Add spouse
-        spouse_id = None
-        if fam.get("husband") == pid and fam.get("wife"):
-            spouse_id = fam["wife"]
-        elif fam.get("wife") == pid and fam.get("husband"):
-            spouse_id = fam["husband"]
-        
-        if spouse_id:
-            spouse_node = make_node(spouse_id)
-            
-            # Marriage connection
-            marriage_node = f'marriage_{node_id(fid)}'
-            lines.append(f'{marriage_node}((" "))')
-            lines.append(f'{person_node} --- {marriage_node}')
-            lines.append(f'{spouse_node} --- {marriage_node}')
-            
-            # Add children
-            for child_id in fam.get("children", []):
-                child_node = make_node(child_id)
-                lines.append(f'{marriage_node} --> {child_node}')
-        else:
-            # Single parent with children
-            for child_id in fam.get("children", []):
-                child_node = make_node(child_id)
-                lines.append(f'{person_node} --> {child_node}')
+                
+                # Add siblings with single parent
+                for child_id in fam.get("children", []):
+                    if child_id != pid:
+                        sibling_node = make_node(child_id)
+                        lines.append(f'{parent_node} --> {sibling_node}')
     
     lines.append("```")
     return "\n".join(lines)

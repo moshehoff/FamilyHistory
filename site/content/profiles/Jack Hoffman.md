@@ -37,24 +37,26 @@ marriage_idF3776794((" "))
 idI11052340 --- marriage_idF3776794
 idI38735986 --- marriage_idF3776794
 marriage_idF3776794 --> idI38736559
-idI38739935["Louise Hoffman"]
-class idI38739935 internal-link
-click idI38739935 "../profiles/Louise-Hoffman" "Louise Hoffman"
-marriage_idF13236990((" "))
-idI38736559 --- marriage_idF13236990
-idI38739935 --- marriage_idF13236990
-idI38739984["Dan Hoffman"]
-class idI38739984 internal-link
-click idI38739984 "../profiles/Dan-Hoffman" "Dan Hoffman"
-marriage_idF13236990 --> idI38739984
-idI38740076["Toby Rachel Freund"]
-class idI38740076 internal-link
-click idI38740076 "../profiles/Toby-Rachel-Freund" "Toby Rachel Freund"
-marriage_idF13236990 --> idI38740076
-idI34633857222["David Hoffman"]
-class idI34633857222 internal-link
-click idI34633857222 "../profiles/David-Hoffman" "David Hoffman"
-marriage_idF13236990 --> idI34633857222
+idI38736184["Aaron Harry אהרון Hoffman"]
+class idI38736184 internal-link
+click idI38736184 "../profiles/Aaron-Harry-%D7%90%D7%94%D7%A8%D7%95%D7%9F-Hoffman" "Aaron Harry אהרון Hoffman"
+marriage_idF3776794 --> idI38736184
+idI38736293["Bella Hoffman"]
+class idI38736293 internal-link
+click idI38736293 "../profiles/Bella-Hoffman" "Bella Hoffman"
+marriage_idF3776794 --> idI38736293
+idI11052350["Hyman Judah Hoffman"]
+class idI11052350 internal-link
+click idI11052350 "../profiles/Hyman-Judah-Hoffman" "Hyman Judah Hoffman"
+marriage_idF3776794 --> idI11052350
+idI7293825["Wolf Hoffman"]
+class idI7293825 internal-link
+click idI7293825 "../profiles/Wolf-Hoffman" "Wolf Hoffman"
+marriage_idF3776794 --> idI7293825
+idI61277011["Alyce Breazeale"]
+class idI61277011 internal-link
+click idI61277011 "../profiles/Alyce-Breazeale" "Alyce Breazeale"
+marriage_idF3776794 --> idI61277011
 ```
 
 ## Ancestors (up to 2 Gen.)

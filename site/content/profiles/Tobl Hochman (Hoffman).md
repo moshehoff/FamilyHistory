@@ -27,36 +27,6 @@ classDef current fill:#bbdefb,stroke:#1976d2,stroke-width:3px;
 idI38735986["Tobl Hochman (Hoffman)"]
 class idI38735986 current
 click idI38735986 "../profiles/Tobl-Hochman-%28Hoffman%29" "Tobl Hochman (Hoffman)"
-idI11052340["Moshe משה Hoffman"]
-class idI11052340 internal-link
-click idI11052340 "../profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman" "Moshe משה Hoffman"
-marriage_idF3776794((" "))
-idI38735986 --- marriage_idF3776794
-idI11052340 --- marriage_idF3776794
-idI38736184["Aaron Harry אהרון Hoffman"]
-class idI38736184 internal-link
-click idI38736184 "../profiles/Aaron-Harry-%D7%90%D7%94%D7%A8%D7%95%D7%9F-Hoffman" "Aaron Harry אהרון Hoffman"
-marriage_idF3776794 --> idI38736184
-idI38736293["Bella Hoffman"]
-class idI38736293 internal-link
-click idI38736293 "../profiles/Bella-Hoffman" "Bella Hoffman"
-marriage_idF3776794 --> idI38736293
-idI11052350["Hyman Judah Hoffman"]
-class idI11052350 internal-link
-click idI11052350 "../profiles/Hyman-Judah-Hoffman" "Hyman Judah Hoffman"
-marriage_idF3776794 --> idI11052350
-idI7293825["Wolf Hoffman"]
-class idI7293825 internal-link
-click idI7293825 "../profiles/Wolf-Hoffman" "Wolf Hoffman"
-marriage_idF3776794 --> idI7293825
-idI61277011["Alyce Breazeale"]
-class idI61277011 internal-link
-click idI61277011 "../profiles/Alyce-Breazeale" "Alyce Breazeale"
-marriage_idF3776794 --> idI61277011
-idI38736559["Jack Hoffman"]
-class idI38736559 internal-link
-click idI38736559 "../profiles/Jack-Hoffman" "Jack Hoffman"
-marriage_idF3776794 --> idI38736559
 ```
 
 ## Ancestors (up to 2 Gen.)

@@ -9,10 +9,10 @@
     },
     "chapters": [
       {
-        "slug": "01-background-and-introduction",
-        "name": "Background And Introduction",
-        "title": "Background and Introduction",
-        "filename": "01-background_and_introduction.md"
+        "slug": "01-introduction",
+        "name": "Introduction",
+        "title": "Introduction",
+        "filename": "01-introduction.md"
       },
       {
         "slug": "02-arrival-of-hyam-yudl",

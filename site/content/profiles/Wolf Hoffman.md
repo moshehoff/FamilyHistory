@@ -37,10 +37,22 @@ marriage_idF32834997((" "))
 idI39114550 --- marriage_idF32834997
 idI100527944 --- marriage_idF32834997
 marriage_idF32834997 --> idI6458385293
-idI34708906824["Marie Hoffman"]
-class idI34708906824 internal-link
-click idI34708906824 "../profiles/Marie-Hoffman" "Marie Hoffman"
-idI6458385293 --> idI34708906824
+idI6457782293["Bertha Hoffman"]
+class idI6457782293 internal-link
+click idI6457782293 "../profiles/Bertha-Hoffman" "Bertha Hoffman"
+marriage_idF32834997 --> idI6457782293
+idI6457935293["Ernest Hoffman"]
+class idI6457935293 internal-link
+click idI6457935293 "../profiles/Ernest-Hoffman" "Ernest Hoffman"
+marriage_idF32834997 --> idI6457935293
+idI6458115293["Myrtle Hadassa Hoffman"]
+class idI6458115293 internal-link
+click idI6458115293 "../profiles/Myrtle-Hadassa-Hoffman" "Myrtle Hadassa Hoffman"
+marriage_idF32834997 --> idI6458115293
+idI6458664293["Nathan Nachman Hochman"]
+class idI6458664293 internal-link
+click idI6458664293 "../profiles/Nathan-Nachman-Hochman" "Nathan Nachman Hochman"
+marriage_idF32834997 --> idI6458664293
 ```
 
 ## Ancestors (up to 2 Gen.)

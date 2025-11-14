@@ -27,24 +27,6 @@ classDef current fill:#bbdefb,stroke:#1976d2,stroke-width:3px;
 idI38516664["Edith צירל Hoffman"]
 class idI38516664 current
 click idI38516664 "../profiles/Edith-%D7%A6%D7%99%D7%A8%D7%9C-Hoffman" "Edith צירל Hoffman"
-idI11052350["Hyman Judah Hoffman"]
-class idI11052350 internal-link
-click idI11052350 "../profiles/Hyman-Judah-Hoffman" "Hyman Judah Hoffman"
-marriage_idF13161432((" "))
-idI38516664 --- marriage_idF13161432
-idI11052350 --- marriage_idF13161432
-idI38516763["Edward Denis אליהו Hoffman"]
-class idI38516763 internal-link
-click idI38516763 "../profiles/Edward-Denis-%D7%90%D7%9C%D7%99%D7%94%D7%95-Hoffman" "Edward Denis אליהו Hoffman"
-marriage_idF13161432 --> idI38516763
-idI11052359["Dr PETER פנחס HOFFMAN"]
-class idI11052359 internal-link
-click idI11052359 "../profiles/Dr-PETER-%D7%A4%D7%A0%D7%97%D7%A1-HOFFMAN" "Dr PETER פנחס HOFFMAN"
-marriage_idF13161432 --> idI11052359
-idI38516790["Dianne Helen דינה Kemp"]
-class idI38516790 internal-link
-click idI38516790 "../profiles/Dianne-Helen-%D7%93%D7%99%D7%A0%D7%94-Kemp" "Dianne Helen דינה Kemp"
-marriage_idF13161432 --> idI38516790
 ```
 
 ## Ancestors (up to 2 Gen.)
@@ -98,9 +80,3 @@ marriage_idF13237018((" "))
 idI38516790 --- marriage_idF13237018
 idI38739432 --- marriage_idF13237018
 ```
-
----
-
-## Biography
-נולדה בוינה  
-** savta **

@@ -37,12 +37,14 @@ marriage_idF13161432((" "))
 idI11052350 --- marriage_idF13161432
 idI38516664 --- marriage_idF13161432
 marriage_idF13161432 --> idI38516790
-idI38739432["Derek Kemp"]
-class idI38739432 internal-link
-click idI38739432 "../profiles/Derek-Kemp" "Derek Kemp"
-marriage_idF13237018((" "))
-idI38516790 --- marriage_idF13237018
-idI38739432 --- marriage_idF13237018
+idI38516763["Edward Denis אליהו Hoffman"]
+class idI38516763 internal-link
+click idI38516763 "../profiles/Edward-Denis-%D7%90%D7%9C%D7%99%D7%94%D7%95-Hoffman" "Edward Denis אליהו Hoffman"
+marriage_idF13161432 --> idI38516763
+idI11052359["Dr PETER פנחס HOFFMAN"]
+class idI11052359 internal-link
+click idI11052359 "../profiles/Dr-PETER-%D7%A4%D7%A0%D7%97%D7%A1-HOFFMAN" "Dr PETER פנחס HOFFMAN"
+marriage_idF13161432 --> idI11052359
 ```
 
 ## Ancestors (up to 2 Gen.)

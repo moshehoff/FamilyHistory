@@ -37,6 +37,14 @@ marriage_idF13161432((" "))
 idI11052350 --- marriage_idF13161432
 idI38516664 --- marriage_idF13161432
 marriage_idF13161432 --> idI38516763
+idI11052359["Dr PETER פנחס HOFFMAN"]
+class idI11052359 internal-link
+click idI11052359 "../profiles/Dr-PETER-%D7%A4%D7%A0%D7%97%D7%A1-HOFFMAN" "Dr PETER פנחס HOFFMAN"
+marriage_idF13161432 --> idI11052359
+idI38516790["Dianne Helen דינה Kemp"]
+class idI38516790 internal-link
+click idI38516790 "../profiles/Dianne-Helen-%D7%93%D7%99%D7%A0%D7%94-Kemp" "Dianne Helen דינה Kemp"
+marriage_idF13161432 --> idI38516790
 ```
 
 ## Ancestors (up to 2 Gen.)

@@ -11,16 +11,16 @@ The children, as they were known by their Yiddish and Hebrew names were:
 ```
 Wolf & Beile Hochman
 │
-├─ 1. Shimon Me'ir (שמעון מאיר)        → Shimon Meir מאיר Hochman
-├─ 2. Haim Yudl (חיים יהודה)          → Haim Yehuda חיים יהודה Hochman
-├─ 3. Avram (אברהם)                   → Avraham Hochman
-├─ 4. Yosef (יוסף)                    → Josef Hochman
-├─ 5. Kolman (קלמן)                   → Kolman Hochman
-├─ 6. Binyamin (בנימין)               → Binyamin Hochman
-├─ 7. Sholem (שלום)                   → Sholem Hochman
-├─ 8. Moishe (משה) ★                  → Moshe משה Hoffman
-├─ 9. Bobka (the only daughter)       → "Bobka" Hochman
-└─ 10. Yisroel (ישראל)                → Yisrael Hochman
+├─ 1. Shimon Me'ir (שמעון מאיר)       
+├─ 2. Haim Yudl (חיים יהודה)        
+├─ 3. Avram (אברהם)                  
+├─ 4. Yosef (יוסף)                   
+├─ 5. Kolman (קלמן)                  
+├─ 6. Binyamin (בנימין)              
+├─ 7. Sholem (שלום)                   
+├─ 8. Moishe (משה) ★                 
+├─ 9. Bobka (the only daughter)      
+└─ 10. Yisroel (ישראל)               
 ```
 
 **_This list, in chronological order, was written by my aunt Valda._**

@@ -37,6 +37,26 @@ marriage_idF13934435((" "))
 idI39965497 --- marriage_idF13934435
 idI40778657 --- marriage_idF13934435
 marriage_idF13934435 --> idI40779121
+idI40778709["Bruce Boruch Hoffman"]
+class idI40778709 internal-link
+click idI40778709 "../profiles/Bruce-Boruch-Hoffman" "Bruce Boruch Hoffman"
+marriage_idF13934435 --> idI40778709
+idI40778886["Ben Benzion Hoffman"]
+class idI40778886 internal-link
+click idI40778886 "../profiles/Ben-Benzion-Hoffman" "Ben Benzion Hoffman"
+marriage_idF13934435 --> idI40778886
+idI40778933["Nate Hoffman"]
+class idI40778933 internal-link
+click idI40778933 "../profiles/Nate-Hoffman" "Nate Hoffman"
+marriage_idF13934435 --> idI40778933
+idI40778983["Rose Lazarus"]
+class idI40778983 internal-link
+click idI40778983 "../profiles/Rose-Lazarus" "Rose Lazarus"
+marriage_idF13934435 --> idI40778983
+idI40779093["Hammy Nehemiah Hoffman"]
+class idI40779093 internal-link
+click idI40779093 "../profiles/Hammy-Nehemiah-Hoffman" "Hammy Nehemiah Hoffman"
+marriage_idF13934435 --> idI40779093
 ```
 
 ## Ancestors (up to 2 Gen.)

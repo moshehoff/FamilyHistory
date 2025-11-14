@@ -37,24 +37,26 @@ marriage_idF3776794((" "))
 idI11052340 --- marriage_idF3776794
 idI38735986 --- marriage_idF3776794
 marriage_idF3776794 --> idI11052350
-idI38516664["Edith צירל Hoffman"]
-class idI38516664 internal-link
-click idI38516664 "../profiles/Edith-%D7%A6%D7%99%D7%A8%D7%9C-Hoffman" "Edith צירל Hoffman"
-marriage_idF13161432((" "))
-idI11052350 --- marriage_idF13161432
-idI38516664 --- marriage_idF13161432
-idI38516763["Edward Denis אליהו Hoffman"]
-class idI38516763 internal-link
-click idI38516763 "../profiles/Edward-Denis-%D7%90%D7%9C%D7%99%D7%94%D7%95-Hoffman" "Edward Denis אליהו Hoffman"
-marriage_idF13161432 --> idI38516763
-idI11052359["Dr PETER פנחס HOFFMAN"]
-class idI11052359 internal-link
-click idI11052359 "../profiles/Dr-PETER-%D7%A4%D7%A0%D7%97%D7%A1-HOFFMAN" "Dr PETER פנחס HOFFMAN"
-marriage_idF13161432 --> idI11052359
-idI38516790["Dianne Helen דינה Kemp"]
-class idI38516790 internal-link
-click idI38516790 "../profiles/Dianne-Helen-%D7%93%D7%99%D7%A0%D7%94-Kemp" "Dianne Helen דינה Kemp"
-marriage_idF13161432 --> idI38516790
+idI38736184["Aaron Harry אהרון Hoffman"]
+class idI38736184 internal-link
+click idI38736184 "../profiles/Aaron-Harry-%D7%90%D7%94%D7%A8%D7%95%D7%9F-Hoffman" "Aaron Harry אהרון Hoffman"
+marriage_idF3776794 --> idI38736184
+idI38736293["Bella Hoffman"]
+class idI38736293 internal-link
+click idI38736293 "../profiles/Bella-Hoffman" "Bella Hoffman"
+marriage_idF3776794 --> idI38736293
+idI7293825["Wolf Hoffman"]
+class idI7293825 internal-link
+click idI7293825 "../profiles/Wolf-Hoffman" "Wolf Hoffman"
+marriage_idF3776794 --> idI7293825
+idI61277011["Alyce Breazeale"]
+class idI61277011 internal-link
+click idI61277011 "../profiles/Alyce-Breazeale" "Alyce Breazeale"
+marriage_idF3776794 --> idI61277011
+idI38736559["Jack Hoffman"]
+class idI38736559 internal-link
+click idI38736559 "../profiles/Jack-Hoffman" "Jack Hoffman"
+marriage_idF3776794 --> idI38736559
 ```
 
 ## Ancestors (up to 2 Gen.)

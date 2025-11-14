@@ -159,20 +159,13 @@ class DiagramPanZoom {
     const svg = this.content.querySelector("svg")!
     const svgRect = svg.getBoundingClientRect()
     const containerRect = this.container.getBoundingClientRect()
-    
-    // Calculate optimal scale to fit the diagram in the container
-    // Use 90% of container to leave some margin
-    const scaleX = (containerRect.width * 0.9) / svgRect.width
-    const scaleY = (containerRect.height * 0.9) / svgRect.height
-    
-    // Use the smaller scale to ensure the entire diagram fits
-    // But don't go below 1.0 or above MAX_SCALE
-    this.scale = Math.min(Math.max(Math.min(scaleX, scaleY), 1.0), this.MAX_SCALE)
-    
-    // Center the diagram in the container with the new scale
+
+    this.scale = 1
+
+    // Center the diagram in the container
     const scaledWidth = svgRect.width * this.scale
     const scaledHeight = svgRect.height * this.scale
-    
+
     this.currentPan = {
       x: (containerRect.width - scaledWidth) / 2,
       y: (containerRect.height - scaledHeight) / 2,

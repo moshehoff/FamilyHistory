@@ -37,24 +37,26 @@ marriage_idF3776794((" "))
 idI11052340 --- marriage_idF3776794
 idI38735986 --- marriage_idF3776794
 marriage_idF3776794 --> idI38736184
-idI39965086["Eileen Hoffman"]
-class idI39965086 internal-link
-click idI39965086 "../profiles/Eileen-Hoffman" "Eileen Hoffman"
-marriage_idF13655899((" "))
-idI38736184 --- marriage_idF13655899
-idI39965086 --- marriage_idF13655899
-idI39965206["Miriam Hoffman"]
-class idI39965206 internal-link
-click idI39965206 "../profiles/Miriam-Hoffman" "Miriam Hoffman"
-marriage_idF13655899 --> idI39965206
-idI39965122["Trevor David Hoffman"]
-class idI39965122 internal-link
-click idI39965122 "../profiles/Trevor-David-Hoffman" "Trevor David Hoffman"
-marriage_idF13655899 --> idI39965122
-idI39965270["Judith Hoffman"]
-class idI39965270 internal-link
-click idI39965270 "../profiles/Judith-Hoffman" "Judith Hoffman"
-marriage_idF13655899 --> idI39965270
+idI38736293["Bella Hoffman"]
+class idI38736293 internal-link
+click idI38736293 "../profiles/Bella-Hoffman" "Bella Hoffman"
+marriage_idF3776794 --> idI38736293
+idI11052350["Hyman Judah Hoffman"]
+class idI11052350 internal-link
+click idI11052350 "../profiles/Hyman-Judah-Hoffman" "Hyman Judah Hoffman"
+marriage_idF3776794 --> idI11052350
+idI7293825["Wolf Hoffman"]
+class idI7293825 internal-link
+click idI7293825 "../profiles/Wolf-Hoffman" "Wolf Hoffman"
+marriage_idF3776794 --> idI7293825
+idI61277011["Alyce Breazeale"]
+class idI61277011 internal-link
+click idI61277011 "../profiles/Alyce-Breazeale" "Alyce Breazeale"
+marriage_idF3776794 --> idI61277011
+idI38736559["Jack Hoffman"]
+class idI38736559 internal-link
+click idI38736559 "../profiles/Jack-Hoffman" "Jack Hoffman"
+marriage_idF3776794 --> idI38736559
 ```
 
 ## Ancestors (up to 2 Gen.)
@@ -117,18 +119,18 @@ click idI40156750 "../profiles/Lois-Rasmussen" "Lois Rasmussen"
 marriage_idF13721300((" "))
 idI39965122 --- marriage_idF13721300
 idI40156750 --- marriage_idF13721300
-idI100527572["Jenny Parkinson"]
-class idI100527572 internal-link
-click idI100527572 "../profiles/Jenny-Parkinson" "Jenny Parkinson"
-marriage_idF32834861((" "))
-idI39965122 --- marriage_idF32834861
-idI100527572 --- marriage_idF32834861
 idI40156505["Brigid Fitzgerald"]
 class idI40156505 internal-link
 click idI40156505 "../profiles/Brigid-Fitzgerald" "Brigid Fitzgerald"
 marriage_idF13721612((" "))
 idI39965122 --- marriage_idF13721612
 idI40156505 --- marriage_idF13721612
+idI100527572["Jenny Parkinson"]
+class idI100527572 internal-link
+click idI100527572 "../profiles/Jenny-Parkinson" "Jenny Parkinson"
+marriage_idF32834861((" "))
+idI39965122 --- marriage_idF32834861
+idI100527572 --- marriage_idF32834861
 idI39965270["Judith Hoffman"]
 class idI39965270 internal-link
 click idI39965270 "../profiles/Judith-Hoffman" "Judith Hoffman"

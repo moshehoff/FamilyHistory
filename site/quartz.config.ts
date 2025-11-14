@@ -8,7 +8,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Family History",
+    pageTitle: "Hoffman Family History",
     pageTitleSuffix: " | משפחה",
     enableSPA: true,
     enablePopovers: true,

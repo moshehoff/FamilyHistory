@@ -1,18 +1,5 @@
-## Background and Introduction
+## Introduction
 
-### OUR FAMILY HISTORY
-
-HYAM YUDL HOCHMAN in RUSSIA and PALESTINE
-
-Hyam was born in Savran in Podolia, Russia, the second son in a large family. On 15.8.1891 he married [Sarah Bersharda](/profiles/Sara-Hochman) in Balta. Hyam was a member of an early Zionist movement known as Hovevei Zion. חובבי ציון While still in Russia, probably from an agent in Odessa, he purchased land in Doran (later known as Rehovot) from Yehoshua Hankin. He soon left Russia and made his home there. Their children, [Rivka](/profiles/Rivka-Bar-Cohen) 1892, [Shulamis](/profiles/Shulamit-Hochman) abt. 1894, and [Wolfe](/profiles/Wolfe-Hochman) abt.1896, were among the first of the colony. Hyam worked at the Mikve Yisrael מקווה ישראל agricultural school near Jaffa. The school was founded by the Alliance Israelite movement. For many years it had an active winery. Conditions in Palestine were difficult, and Hyam and [Sarah](/profiles/Sara-Hochman), just as other families they knew in the area, decided to try their luck in Western Australia.
-
-### THE HOFFMAN HISTORY IN AUSTRALIA
-
-THE FIRST TWENTY YEARS
-
-Our family history in Australia begins in February 1901 when Hyam Yudl and his family landed at the port of Fremantle. After an introduction, I elaborate the histories as I have interpreted them. The first chapter of these histories deal with his earliest years in Australia, and the arrivals and histories of his brothers and nephews in Western Australia. Their stories are intimately related, as a dominant theme is the assistance and partnerships of one and the other in the new country. As such, in "The First Twenty Years" all their stories intertwined. After about 1920, all were independently employed or private businessmen, and each has his own chapter.
-
-### Introduction
 
 On the 1st of January 1901 the Commonwealth of Australia was inaugurated. Those were exciting times. The population and economy of Western Australia were growing fast after the gold discoveries of the early 1890's. The Jewish community of Perth was also growing fast, replacing Fremantle as the largest. There were also communities in the goldfields: Coolgardie, Kalgoorlie, Leonora and elsewhere; and in Broome, Geraldton and other towns. A number of Jewish families arrived from Victoria where some already had business experience and capital. These were mostly Yiddish-speakers from the Russian Empire, which stretched from Estonia to the Black Sea. The turn of the century saw an influx of Russian Jews, either directly from European ports, or by way of Ottoman Palestine where they had sojourned for a few years.. There were Jewish agriculturists, prospectors and dealers in the country. In Perth and Fremantle and elsewhere, the poorest Jews earned their livings as hawkers, as bottle-O's, and rag- and- bone dealers Some of these had pawn shops, and loaned money. A number opened kiosks, restaurants, and sold fruit from stalls. There were Jewish fruiterers in the goldfields, and their contribution to the gold industry has not been recognised.
 

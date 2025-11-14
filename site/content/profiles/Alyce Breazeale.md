@@ -37,20 +37,26 @@ marriage_idF3776794((" "))
 idI11052340 --- marriage_idF3776794
 idI38735986 --- marriage_idF3776794
 marriage_idF3776794 --> idI61277011
-idI61276980["Edward Merle Breazeale"]
-class idI61276980 internal-link
-click idI61276980 "../profiles/Edward-Merle-Breazeale" "Edward Merle Breazeale"
-marriage_idF20778736((" "))
-idI61277011 --- marriage_idF20778736
-idI61276980 --- marriage_idF20778736
-idI45569141["Eveonne Nisbet"]
-class idI45569141 internal-link
-click idI45569141 "../profiles/Eveonne-Nisbet" "Eveonne Nisbet"
-marriage_idF20778736 --> idI45569141
-idI39964744["Sandra Kerr"]
-class idI39964744 internal-link
-click idI39964744 "../profiles/Sandra-Kerr" "Sandra Kerr"
-marriage_idF20778736 --> idI39964744
+idI38736184["Aaron Harry אהרון Hoffman"]
+class idI38736184 internal-link
+click idI38736184 "../profiles/Aaron-Harry-%D7%90%D7%94%D7%A8%D7%95%D7%9F-Hoffman" "Aaron Harry אהרון Hoffman"
+marriage_idF3776794 --> idI38736184
+idI38736293["Bella Hoffman"]
+class idI38736293 internal-link
+click idI38736293 "../profiles/Bella-Hoffman" "Bella Hoffman"
+marriage_idF3776794 --> idI38736293
+idI11052350["Hyman Judah Hoffman"]
+class idI11052350 internal-link
+click idI11052350 "../profiles/Hyman-Judah-Hoffman" "Hyman Judah Hoffman"
+marriage_idF3776794 --> idI11052350
+idI7293825["Wolf Hoffman"]
+class idI7293825 internal-link
+click idI7293825 "../profiles/Wolf-Hoffman" "Wolf Hoffman"
+marriage_idF3776794 --> idI7293825
+idI38736559["Jack Hoffman"]
+class idI38736559 internal-link
+click idI38736559 "../profiles/Jack-Hoffman" "Jack Hoffman"
+marriage_idF3776794 --> idI38736559
 ```
 
 ## Ancestors (up to 2 Gen.)
@@ -119,16 +125,16 @@ idI39964744["Sandra Kerr"]
 class idI39964744 internal-link
 click idI39964744 "../profiles/Sandra-Kerr" "Sandra Kerr"
 marriage_idF20778736 --> idI39964744
-idI40159158["Henry Wilson"]
-class idI40159158 internal-link
-click idI40159158 "../profiles/Henry-Wilson" "Henry Wilson"
-marriage_idF13722347((" "))
-idI39964744 --- marriage_idF13722347
-idI40159158 --- marriage_idF13722347
 idI40159359["Peter Kerr"]
 class idI40159359 internal-link
 click idI40159359 "../profiles/Peter-Kerr" "Peter Kerr"
 marriage_idF13722302((" "))
 idI39964744 --- marriage_idF13722302
 idI40159359 --- marriage_idF13722302
+idI40159158["Henry Wilson"]
+class idI40159158 internal-link
+click idI40159158 "../profiles/Henry-Wilson" "Henry Wilson"
+marriage_idF13722347((" "))
+idI39964744 --- marriage_idF13722347
+idI40159158 --- marriage_idF13722347
 ```
