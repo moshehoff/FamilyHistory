@@ -283,14 +283,29 @@ article, .tab-pane {
 
 // Links and styling in chapter content
 .chapter-tab-pane, .chapter-tabs-content {
-  // Hebrew/RTL text auto-detection (same as article/tab-pane)
+  // Force LTR direction for English content with embedded Hebrew
+  direction: ltr;
+  
   p {
-    unicode-bidi: plaintext;
-    text-align: start;
+    direction: ltr;
+    text-align: left;
+    unicode-bidi: embed;
   }
   
   em, strong {
-    unicode-bidi: plaintext;
+    unicode-bidi: embed;
+  }
+  
+  // Hebrew paragraphs - use <div class="rtl-paragraph"> or <div dir="rtl">
+  .rtl-paragraph, [dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+    unicode-bidi: embed;
+    
+    p {
+      direction: rtl;
+      text-align: right;
+    }
   }
   
   // Standalone strong/em tags (not inside p) should also align

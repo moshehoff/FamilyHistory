@@ -429,33 +429,16 @@ let chaptersData = null;
 let loadedChapters = {}; // Cache for loaded chapter content
 let isInitialChapterLoad = true; // Track if this is the first chapter load to avoid duplicate history
 
-// Helper: Detect if text contains Hebrew characters
-function containsHebrew(text) {
-  // Hebrew Unicode range: \u0590-\u05FF
-  return /[\u0590-\u05FF]/.test(text);
-}
-
-// Helper: Add dir="rtl" to elements with Hebrew text
-function fixHebrewAlignment() {
-  const elements = document.querySelectorAll('.chapter-tab-pane p, .chapter-tab-pane strong, .chapter-tab-pane em, article p, article strong, article em');
-  elements.forEach(function(el) {
-    const text = el.textContent || '';
-    if (containsHebrew(text)) {
-      el.setAttribute('dir', 'rtl');
-      el.style.textAlign = 'right';
-    }
-  });
-}
-
 // Initialize profile tabs - runs on every navigation
 function initProfileTabs() {
   console.log('[ProfileTabs] initProfileTabs() called');
   
-  // Fix Hebrew alignment after DOM is ready
-  setTimeout(fixHebrewAlignment, 100);
-  
   // Reset initial chapter load flag for new profile
   isInitialChapterLoad = true;
+  
+  // Clear cached chapters and data from previous profile
+  loadedChapters = {};
+  chaptersData = null;
   
   // Clean up previous event listeners
   tabButtonCleanups.forEach(function(cleanup) {
@@ -1049,9 +1032,6 @@ function initProfileTabs() {
     const pane = document.querySelector('.chapter-tab-pane[data-chapter-slug="' + chapterSlug + '"]');
     if (pane) {
       pane.innerHTML = html;
-      
-      // Fix Hebrew alignment after loading chapter
-      setTimeout(fixHebrewAlignment, 50);
       
       // Convert chapter links to clickable buttons
       const chapterLinks = pane.querySelectorAll('.chapter-link');

@@ -4,15 +4,15 @@
     "main": {
       "slug": "introduction",
       "name": "Introduction",
-      "title": "HYAM YUDL HOCHMAN Introduction",
+      "title": "Hyam Yudl Hochman Introduction",
       "filename": "I11032861.md"
     },
     "chapters": [
       {
-        "slug": "01-introduction",
-        "name": "Introduction",
-        "title": "Introduction",
-        "filename": "01-introduction.md"
+        "slug": "01-background",
+        "name": "Background",
+        "title": "Historic Background",
+        "filename": "01-background.md"
       },
       {
         "slug": "02-arrival-of-hyam-yudl",
@@ -75,7 +75,7 @@
     "main": {
       "slug": "introduction",
       "name": "Introduction",
-      "title": "MOSHE HOCHMAN  Introduction",
+      "title": "Introduction",
       "filename": "I11052340.md"
     },
     "chapters": [
