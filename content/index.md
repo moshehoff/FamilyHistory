@@ -3,10 +3,10 @@ title: Family History
 ---
 ### Pages of Interest
 
-* [Our Family History](/pages/hoffman_history) 
-- [Profiles of Interest](/pages/profiles-of-interest) - Profiles with extended biographical information
-- [About](/pages/about) - About this website
-- [All Profiles](/pages/all-profiles) - Complete list of 546 family members
+* [Our Family History](pages/hoffman_history) 
+- [Profiles of Interest](pages/profiles-of-interest) - Profiles with extended biographical information
+- [About](pages/about) - About this website
+- [All Profiles](pages/all-profiles) - Complete list of 546 family members
 
 
 ### Preface by Peter Hoffman
