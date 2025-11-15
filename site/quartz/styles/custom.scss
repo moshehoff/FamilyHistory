@@ -535,11 +535,25 @@ article, .tab-pane {
     padding: 4px;
     margin: 1rem auto;
   }
+  
+  // Reduce citation box padding on mobile
+  .citation-box, .info-box {
+    padding: 0.75rem !important;
+    margin: 1rem 0 !important;
+    font-size: 0.85rem;
+  }
 }
 
 // Extra small devices - even less padding
 @media (max-width: 480px) {
   article, .tab-pane, .chapter-tab-pane {
     padding: 0.75rem !important;
+  }
+  
+  // Even smaller padding for citation boxes on tiny screens
+  .citation-box, .info-box {
+    padding: 0.5rem !important;
+    margin: 0.75rem 0 !important;
+    font-size: 0.8rem;
   }
 }
