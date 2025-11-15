@@ -1,17 +1,29 @@
 ---
 title: Family History
 ---
+
+<div dir="rtl">
+זְכֹר יְמוֹת עוֹלָם, בִּינוּ שְׁנוֹת דֹּר וָדֹר;    
+שְׁאַל אָבִיךָ וְיַגֵּדְךָ, זְקֵנֶיךָ וְיֹאמְרוּ לָךְ.    
+
+(דברים ל״ב, ז)  
+</div>
+
+**“Remember the days of old,  
+consider the years of many generations;  
+ask your father, and he will tell you,  
+your elders, and they will explain to you.”**  
+(Deuteronomy 32:7)
+
 ### Pages of Interest
 
-* [Our Family History](pages/hoffman_history) 
+* [The Hoffman history in Australia](pages/hoffman_history) 
 - [Profiles of Interest](pages/profiles-of-interest) - Profiles with extended biographical information
 - [About](pages/about) - About this website
 - [All Profiles](pages/all-profiles) - Complete list of 546 family members
 
 
 ### Preface by Peter Hoffman
-
-I am documenting my family history and genealogy. I, Peter Hoffman, will write in the first person and the reader will have to extrapolate to his own person. I will write in standard British English but here and there will add other languages where required.
 
 As a child I had no greater interest in family history and genealogy than others of my age, however, I listened to my parents' conversations, and without effort learned - and apparently faithfully memorised - little by little, a mass of data. Both my parents were in touch with and/or visited a large number of relatives both in Australia and overseas, and quite a few used to drop in at all hours to while away their time. So I overheard quite a lot. My grandfather Morrie Hoffman told us a few stories, but to my everlasting regret I never interrogated him with intent. In my teens I saw a genealogy of the Hoffman family which my father prepared for a relative in Melbourne, another Hymie Hoffman, who suffered from polycythaemia, and who considered consanguinity as a possibility. A few years later I came across a brief outline of my grandmother Theresia's ancestors, which she had written in the 1950's. It so interested me that I copied it, and fortunately I kept my copy, because the original has been lost. It is clear that my interest to know more about my family was already kindled.
 

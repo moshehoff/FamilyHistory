@@ -540,8 +540,8 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
         siblings_value_html = ", ".join([person_link_to_html(s) for s in siblings]) if siblings else "—"
         spouse_value_html = ", ".join([person_link_to_html(sp) for sp in spouses]) if spouses else "—"
         children_value_html = ", ".join([person_link_to_html(c) for c in children]) if children else "—"
-        notes_value = p['notes'] or "—"
 
+        # Build info lines dynamically - only include fields with data
         lines = [
             "---",
             "type: profile",
@@ -550,14 +550,29 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
             "---",
             '<div class="profile-info-box">',
             '<dl class="profile-info-list">',
-            f'<dt>Birth:</dt><dd>{birth_value}</dd>',
-            f'<dt>Death:</dt><dd>{death_value}</dd>',
-            f'<dt>Occupation:</dt><dd>{occupation_value}</dd>',
+        ]
+
+        # Birth - always show (most profiles have it)
+        if birth_value:
+            lines.append(f'<dt>Birth:</dt><dd>{birth_value}</dd>')
+
+        # Death - only show if we have death date
+        if p['death_date']:
+            lines.append(f'<dt>Death:</dt><dd>{death_value}</dd>')
+
+        # Occupation - only show if exists
+        if occupation_value and occupation_value != '—':
+            lines.append(f'<dt>Occupation:</dt><dd>{occupation_value}</dd>')
+
+        # Always show family relationships (with — if empty)
+        lines.extend([
             f'<dt>Parents:</dt><dd>{parents_value_html}</dd>',
             f'<dt>Siblings:</dt><dd>{siblings_value_html}</dd>',
             f'<dt>Spouse:</dt><dd>{spouse_value_html}</dd>',
             f'<dt>Children:</dt><dd>{children_value_html}</dd>',
-            f'<dt>Notes:</dt><dd>{notes_value}</dd>',
+        ])
+
+        lines.extend([
             '</dl>',
             "</div>",
             "",
@@ -571,7 +586,7 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
             "",
             "## Descendants (up to 2 Gen.)",
             descendants_diagram,
-        ]
+        ])
 
         if bio_text:
             lines += ["", "---", "", "## Biography", bio_text]
