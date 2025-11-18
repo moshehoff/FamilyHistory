@@ -497,6 +497,7 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
         bio_text = ""
         verbose_debug(f"Looking for bio for ID: {clean_id}")
         for ext in ("md", "MD"):
+            # First try: bios/{ID}.md (simple bio)
             bio_path = os.path.join(bios_dir, f"{clean_id}.{ext}")
             verbose_debug(f"Checking bio path: {bio_path}")
             verbose_debug(f"Bio file exists: {os.path.isfile(bio_path)}")
@@ -504,6 +505,16 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
                 with open(bio_path, encoding="utf-8") as bf:
                     bio_text = bf.read().replace('\r', '').strip()
                 verbose_debug(f"Found bio for {p['name']} at {bio_path}")
+                break
+            
+            # Second try: bios/{ID}/{ID}.md (extended bio with chapters)
+            bio_path_in_dir = os.path.join(bios_dir, clean_id, f"{clean_id}.{ext}")
+            verbose_debug(f"Checking bio path in directory: {bio_path_in_dir}")
+            verbose_debug(f"Bio file in directory exists: {os.path.isfile(bio_path_in_dir)}")
+            if os.path.isfile(bio_path_in_dir):
+                with open(bio_path_in_dir, encoding="utf-8") as bf:
+                    bio_text = bf.read().replace('\r', '').strip()
+                verbose_debug(f"Found bio for {p['name']} at {bio_path_in_dir}")
                 break
 
         bp_link_md = wl_place(p["birth_place"]) if p["birth_place"] else ""
