@@ -21,22 +21,22 @@ Aaron & Elke Zitserman
 └─ Yaakov Z יעקב
 ```
 
-![[Bershad-ghetto-1943.jpg]]
+![[bios/I11052340/Bershad-ghetto-1943.jpg]]
 **_Ghetto Bershad in 1943. In these houses the Jews dwelt._**
 
-![[Bershad-synagogue-1991.jpg]]
+![[bios/I11052340/Bershad-synagogue-1991.jpg]]
 **_Pews, lecterns and the torah ark in the synagogue._**
 
-![[Bershad-synagogue-2004.jpg]]
+![[bios/I11052340/Bershad-synagogue-2004.jpg]]
 **_Synagogue interior._**
 
-![[Bershad-synagogue-exterior-2006.jpg]]
+![[bios/I11052340/Bershad-synagogue-exterior-2006.jpg]]
 **_The synagogue as it looked in 2006, and is being preserved as such._**
 
-![[frontispiece-Bershad-yizkor-book-1946.jpg]]
+![[bios/I11052340/frontispiece-Bershad-yizkor-book-1946.jpg]]
 **_Frontispiece of the Memorial book of the Jewish community of Bershad, depicting a tallith._**
 
-![[Bershad-synagogue-ceiling-2004.jpg]]
+![[bios/I11052340/Bershad-synagogue-ceiling-2004.jpg]]
 **_Synagogue ceiling: Ma tovu ohalecha Ya'akov (מה טובו אוהליך יעקב)._**
 
 I haven't found any period photos of Bershad. During the Second War it became an internment camp for Jews from the surroundings and from Moldava. Apart from a synagogue, all communal property was destroyed. The appended photos of the extant synagogue are from about 2006.
@@ -47,4 +47,4 @@ I haven't found any period photos of Bershad. During the Second War it became an
 
 ### Continue Reading
 
-➤ **Next Chapter:** [[08-moshe_tobl_in_perth|Moshe and Tobl in Perth]]
+➤ **Next Chapter:** [[bios/I11052340/08-moshe_tobl_in_perth|Moshe and Tobl in Perth]]

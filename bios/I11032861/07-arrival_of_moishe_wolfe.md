@@ -46,5 +46,5 @@ Wolfe's army service is recounted in a separate chapter.
 
 ### Continue Reading
 
-➤ **Next Chapter:** [[08-final_years|Final Years and Challenges (1911-1914)]]
+➤ **Next Chapter:** [[bios/I11032861/08-final_years|Final Years and Challenges (1911-1914)]]
 

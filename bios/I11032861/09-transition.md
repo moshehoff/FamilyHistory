@@ -72,5 +72,5 @@ Arrival of Rivka Sisselman
 
 ### Continue Reading
 
-➤ **Next Chapter:** [[10-family_establishment|Family Establishment (1916-1920)]]
+➤ **Next Chapter:** [[bios/I11032861/10-family_establishment|Family Establishment (1916-1920)]]
 

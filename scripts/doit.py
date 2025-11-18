@@ -494,27 +494,17 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
             children.extend(ptr(c) for c in fam["children"] if c != pid)
 
         clean_id = pid.strip("@")
-        bio_text = ""
-        verbose_debug(f"Looking for bio for ID: {clean_id}")
+        # Only support extended biographies: bios/{ID}/{ID}.md (with chapters)
+        # Simple bios (bios/{ID}.md) are no longer supported
+        bio_exists = False
+        verbose_debug(f"Looking for extended bio for ID: {clean_id}")
         for ext in ("md", "MD"):
-            # First try: bios/{ID}.md (simple bio)
-            bio_path = os.path.join(bios_dir, f"{clean_id}.{ext}")
-            verbose_debug(f"Checking bio path: {bio_path}")
-            verbose_debug(f"Bio file exists: {os.path.isfile(bio_path)}")
-            if os.path.isfile(bio_path):
-                with open(bio_path, encoding="utf-8") as bf:
-                    bio_text = bf.read().replace('\r', '').strip()
-                verbose_debug(f"Found bio for {p['name']} at {bio_path}")
-                break
-            
-            # Second try: bios/{ID}/{ID}.md (extended bio with chapters)
             bio_path_in_dir = os.path.join(bios_dir, clean_id, f"{clean_id}.{ext}")
-            verbose_debug(f"Checking bio path in directory: {bio_path_in_dir}")
-            verbose_debug(f"Bio file in directory exists: {os.path.isfile(bio_path_in_dir)}")
+            verbose_debug(f"Checking bio path: {bio_path_in_dir}")
+            verbose_debug(f"Bio file exists: {os.path.isfile(bio_path_in_dir)}")
             if os.path.isfile(bio_path_in_dir):
-                with open(bio_path_in_dir, encoding="utf-8") as bf:
-                    bio_text = bf.read().replace('\r', '').strip()
-                verbose_debug(f"Found bio for {p['name']} at {bio_path_in_dir}")
+                bio_exists = True
+                verbose_debug(f"Found extended bio for {p['name']} at {bio_path_in_dir}")
                 break
 
         bp_link_md = wl_place(p["birth_place"]) if p["birth_place"] else ""
@@ -599,8 +589,9 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
             descendants_diagram,
         ])
 
-        if bio_text:
-            lines += ["", "---", "", "## Biography", bio_text]
+        # Biography content is NOT added to the profile Markdown
+        # All biographies are extended (with chapters) and handled by Quartz ProfileTabs
+        # which loads content from bios/{ID}/{ID}.md and chapter files
 
         # no body-level GEDCOM ID; it now lives in frontmatter as `ID`
 

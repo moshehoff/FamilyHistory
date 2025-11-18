@@ -18,6 +18,7 @@ your elders, and they will explain to you.”**
 ### Pages of Interest
 
 * [The Hoffman history in Australia](pages/hoffman_history) 
+* [Hoffman?? Hochman?? The Story of a Family Name](pages/the_names) 
 - [Profiles of Interest](pages/profiles-of-interest) - Profiles with extended biographical information
 - [About](pages/about) - About this website
 - [All Profiles](pages/all-profiles) - Complete list of 546 family members
@@ -25,9 +26,9 @@ your elders, and they will explain to you.”**
 
 ### Preface by Peter Hoffman
 
-As a child I had no greater interest in family history and genealogy than others of my age, however, I listened to my parents' conversations, and without effort learned - and apparently faithfully memorised - little by little, a mass of data. Both my parents were in touch with and/or visited a large number of relatives both in Australia and overseas, and quite a few used to drop in at all hours to while away their time. So I overheard quite a lot. My grandfather Morrie Hoffman told us a few stories, but to my everlasting regret I never interrogated him with intent. In my teens I saw a genealogy of the Hoffman family which my father prepared for a relative in Melbourne, another Hymie Hoffman, who suffered from polycythaemia, and who considered consanguinity as a possibility. A few years later I came across a brief outline of my grandmother Theresia's ancestors, which she had written in the 1950's. It so interested me that I copied it, and fortunately I kept my copy, because the original has been lost. It is clear that my interest to know more about my family was already kindled.
+As a child I had no greater interest in family history and genealogy than others of my age, however, I listened to my parents' conversations, and without effort learned - and apparently faithfully memorised - little by little, a mass of data. Both my parents were in touch with and/or visited a large number of relatives both in Australia and overseas, and quite a few used to drop in at all hours to while away their time. So I overheard quite a lot. My grandfather Morrie Hoffman told us a few stories, but to my everlasting regret I never interrogated him with intent. In my teens I saw a genealogy of the Hoffman family which my father prepared for a relative in Melbourne, another Hymie Hoffman. A few years later I came across a brief outline of my grandmother Theresia's ancestors, which she had written in the 1950's. It so interested me that I copied it, and fortunately I kept my copy, because the original has been lost. It is clear that my interest to know more about my family was already kindled.
 
-Later I saw and preserved genealogies prepared by my mother Edith, my aunt Val Hoffman, and more recently my father's cousin Norm Hoffman, and my second cousin Philip Dzenciol, and others. Yet another genealogy was prepared in the 1970's when a relative Marie Hoffman developed Hodgkin's leukaemia, and a marrow donor had to be found.
+Later I saw and preserved genealogies prepared by my mother Edith, my aunt Val Hoffman, and more recently my father's cousin Norm Hoffman, and my second cousin Philip Dzenciol, and others. Yet another genealogy was prepared in the 1970's when a relative developed Hodgkin's leukaemia, and a marrow donor had to be found.
 
 In recent years I have made an effort to collect biographical material, however the sources whom I now know held the answers - our forebears - are long deceased. With regard to my grandparents, I woke up to this too late. It is a fact that whatever one doesn't commit to paper in his lifetime will be lost forever. In fact, a paper record has become more durable than a digital record which is subject to the whims of the managers of the site. For that reason I now make every effort to avoid that error, and record relevant material and trivia alike. It is through the trivia that a person's character will be appreciated.
 

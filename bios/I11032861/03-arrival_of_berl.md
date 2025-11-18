@@ -34,5 +34,5 @@ On the 17th December 1904 at the Perth Hebrew School Prize Distribution a child 
 
 ### Continue Reading
 
-➤ **Next Chapter:** [[04-business_development|Business Development (1904-1907)]]
+➤ **Next Chapter:** [[bios/I11032861/04-business_development|Business Development (1904-1907)]]
 

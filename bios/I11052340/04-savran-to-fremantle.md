@@ -1,6 +1,6 @@
 ## Savran to Fremantle
 
-![[img_moishe.jpg]]
+![[bios/I11052340/img_moishe.jpg]]
 
 On leaving, Moishe gave his uniform to his brother [Sholem](/profiles/Sholem-Hochman) (who subsequently migrated to Pittsburgh, Pennsylvannia.
 
@@ -71,4 +71,4 @@ The passenger steamers are moored at Victoria Quay, and the sailing ships at the
 
 ### Continue Reading
 
-➤ **Next Chapter:** [[05-scharnhost_passangers|Scharnhorst Passengers]]
+➤ **Next Chapter:** [[bios/I11052340/05-scharnhost_passangers|Scharnhorst Passengers]]

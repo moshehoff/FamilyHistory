@@ -73,7 +73,7 @@
    - Frontmatter עם type, title, ID
    - HTML structure עם `<dl>` לפרטי הפרופיל
    - 3 דיאגרמות Mermaid: Nuclear Family, Ancestors, Descendants
-   - שילוב ביוגרפיה מפורטת מ-`bios/{ID}.md` אם קיימת
+   - ביוגרפיות מורחבות (מ-`bios/{ID}/{ID}.md`) מטופלות על ידי Quartz
 5. **Generate Indexes**: יצירת `pages/all-profiles.md` ו-`pages/profiles-of-interest.md`
 6. **Create Media Index**: סריקת `documents/` ויצירת `media-index.json`
 7. **Copy Documents**: העתקת `documents/` ל-`site/quartz/static/documents/`
@@ -92,10 +92,16 @@ V4/
 │   └── tree.ged.backup2
 │
 ├── bios/                           # Extended biographies (Markdown)
-│   ├── I10.md                      # Moshe Hoffman's biography
-│   ├── I3.md                       # Edith Hoffman's biography
-│   ├── Pasted image 20251022123649.png  # Images used in bios
-│   ├── Pasted image 20251022123726.png
+│   ├── I11052340/                  # Moshe Hoffman's biography
+│   │   ├── I11052340.md            # Introduction
+│   │   ├── 01-in_russia.md        # Chapter 1
+│   │   ├── 02-savran_progrom.md   # Chapter 2
+│   │   ├── img_savran_ukraine.png # Images
+│   │   └── ...
+│   ├── I11032861/                  # Hyam Yudl's biography
+│   │   ├── I11032861.md            # Introduction
+│   │   ├── 01-background.md       # Chapter 1
+│   │   └── ...
 │   └── ...
 │
 ├── documents/                      # Media files for profiles
@@ -244,10 +250,9 @@ V4/
 │                                      │
 │ ## Descendants (up to 2 Gen.)        │
 │ [Mermaid diagram]                    │
-├──────────────────────────────────────┤
-│ ## Biography                         │ ← Extended biography (if exists)
-│ Biography text from bios/I10.md...   │
 └──────────────────────────────────────┘
+│ ← Biographies are handled by Quartz ProfileTabs
+│ ← Content loaded from bios/{ID}/{ID}.md + chapters
 ```
 
 #### 4.4.2 Profile Info Structure
@@ -358,30 +363,14 @@ ID: I10
 ---
 
 ## Biography
-[Biography text from bios/I10.md if exists]
+[Extended biography with chapters - see section 3.3]
 ```
 
 ### 3.3 Biography Files
 
-#### 3.3.1 Biography פשוטה (Single File)
+**⚠️ חשוב**: האתר תומך **רק** בביוגרפיות מורחבת עם תיקייה ופרקים. ביוגרפיות פשוטות (קובץ יחיד) **אינן נתמכות**.
 
-**מיקום**: `bios/{ID}.md`
-
-**פורמט**: Markdown טהור (ללא frontmatter)
-
-**תוכן**:
-- כותרות: `#`, `##`, `###`
-- פסקאות: טקסט רגיל
-- תמונות: `![[image.png]]` (Obsidian format)
-- קישורים: `[text](url)` או wikilinks `[[Name]]`
-- ציטוטים: `> quote text`
-- רשימות: `-`, `1.`, etc.
-- טבלאות: Markdown tables או ASCII art
-- קוד: ` ```code``` `
-
-**שילוב**: `doit.py` מעתיק את התוכן לסוף הפרופיל תחת `## Biography`
-
-#### 3.3.2 Biography מורחבת עם פרקים (Extended Biography with Chapters)
+#### 3.3.1 Biography מורחבת עם פרקים (Extended Biography with Chapters)
 
 **מבנה תיקיות**:
 ```
@@ -1270,17 +1259,23 @@ python scripts/doit.py data/tree.ged
 ### 5.2 הוספת ביוגרפיה
 
 ```bash
-# 1. Create biography file
-# Create bios/{ID}.md (e.g., bios/I10.md)
+# 1. Create biography directory
+mkdir bios/{ID}/                        # e.g., bios/I11052340/
 
-# 2. Write content in Markdown
-# Use Markdown syntax, Obsidian image links, etc.
+# 2. Create introduction file
+# Create bios/{ID}/{ID}.md              # e.g., bios/I11052340/I11052340.md
+# Add introduction text and chapter list with wikilinks
 
-# 3. Add images (if any)
-# Place images in bios/ directory
-# Reference with ![[image.png]]
+# 3. Create chapter files
+# Create bios/{ID}/01-chapter_name.md  # e.g., 01-in_russia.md
+# Create bios/{ID}/02-chapter_name.md  # e.g., 02-savran_pogrom.md
+# ...
 
-# 4. Run build script
+# 4. Add images
+# Place images in bios/{ID}/ directory
+# Reference with ![[bios/{ID}/image.png]]
+
+# 5. Run build script
 python scripts/doit.py data/tree.ged
 ```
 
@@ -1507,11 +1502,11 @@ _A well known Perth publican..._
       </div>
 ```
 
-### 6.3 כתיבת פרקים בביוגרפיות מורחבות - Guidelines
+### 6.3 כתיבת פרקים בביוגרפיות - Guidelines
 
 #### 6.3.1 עקרונות כלליים
 
-כאשר כותבים ביוגרפיה מורחבת עם פרקים (`bios/{ID}/`), כל פרק צריך לעמוד בסטנדרטים עיצוביים אחידים כדי ליצור חוויה קריאה עקבית ומקצועית.
+כאשר כותבים ביוגרפיה עם פרקים (`bios/{ID}/`), כל פרק צריך לעמוד בסטנדרטים עיצוביים אחידים כדי ליצור חוויה קריאה עקבית ומקצועית.
 
 **מבנה תיקייה**:
 ```

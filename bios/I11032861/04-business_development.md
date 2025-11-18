@@ -42,5 +42,5 @@ This was on the eastern corner of Wellington and William Sts.
 
 ### Continue Reading
 
-➤ **Next Chapter:** [[05-arrival_of_israel|Arrival of Israel Hochman (1907-1909)]]
+➤ **Next Chapter:** [[bios/I11032861/05-arrival_of_israel|Arrival of Israel Hochman (1907-1909)]]
 

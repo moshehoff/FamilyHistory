@@ -142,5 +142,5 @@ Fizgig was slang for a police informer. The Sunday Times journalese form – phi
 
 ### Continue Reading
 
-➤ **Next Chapter:** [[06-partnerships_and_licenses|Partnerships and Licenses (1909)]]
+➤ **Next Chapter:** [[bios/I11032861/06-partnerships_and_licenses|Partnerships and Licenses (1909)]]
 
