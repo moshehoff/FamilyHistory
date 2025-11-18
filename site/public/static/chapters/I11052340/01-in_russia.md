@@ -192,7 +192,7 @@ His life had taught him that there was no future for him in Russia. On returning
 
 ### Continue Reading
 
-➤ **Next Chapter:** [[02-savran_progrom|1917 Savran Pogrom]]
+➤ **Next Chapter:** [[bios/I11052340/02-savran_progrom|1917 Savran Pogrom]]
 
 
 

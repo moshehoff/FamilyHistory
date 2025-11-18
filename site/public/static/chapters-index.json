@@ -128,5 +128,25 @@
         "filename": "08-moshe_tobl_in_perth.md"
       }
     ]
+  },
+  "I11060285": {
+    "profileName": "Shimon Meir מאיר /Hochman/",
+    "main": {
+      "slug": "introduction",
+      "name": "Introduction",
+      "title": "Introduction",
+      "filename": "I11060285.md"
+    },
+    "chapters": []
+  },
+  "I39965497": {
+    "profileName": "Hershl /Hochman/",
+    "main": {
+      "slug": "introduction",
+      "name": "Introduction",
+      "title": "Introduction",
+      "filename": "I39965497.md"
+    },
+    "chapters": []
   }
 }

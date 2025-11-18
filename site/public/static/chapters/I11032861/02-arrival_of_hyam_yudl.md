@@ -48,5 +48,5 @@ He was the father of Hymie Shpigl who became the WA Government astronomer. Hymie
 
 ### Continue Reading
 
-➤ **Next Chapter:** [[03-arrival_of_berl|Arrival of Berl Hochman (1904-1907)]]
+➤ **Next Chapter:** [[bios/I11032861/03-arrival_of_berl|Arrival of Berl Hochman (1904-1907)]]
 

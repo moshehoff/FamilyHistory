@@ -64,5 +64,5 @@ Beginning with Hyam, the family maintained close ties with other Jewish fruitere
 
 ### Continue Reading
 
-➤ **Next Chapter:** [[02-arrival_of_hyam_yudl|Arrival of Hyam Yudl Hochman (1901-1904)]]
+➤ **Next Chapter:** [[bios/I11032861/02-arrival_of_hyam_yudl|Arrival of Hyam Yudl Hochman (1901-1904)]]
 

@@ -72,5 +72,5 @@ The Supreme Court Gardens and the Government Gardens are one and the same. The m
 
 ### Continue Reading
 
-➤ **Next Chapter:** [[09-transition|Transition (1914-1916)]]
+➤ **Next Chapter:** [[bios/I11032861/09-transition|Transition (1914-1916)]]
 

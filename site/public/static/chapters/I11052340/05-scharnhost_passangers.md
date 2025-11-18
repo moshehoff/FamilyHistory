@@ -2,10 +2,10 @@
 
 The masters of ships docking in Australian ports prepare passenger manifestos for the Department of Immigration. The Western Australian records are held in the archives in Victoria Park. The following photostats, are from that source.
 
-![[Scharnhorst-manifest-1.jpeg]]
+![[bios/I11052340/Scharnhorst-manifest-1.jpeg]]
 **_Page 1 of Scharnhorst passenger arrivals, 25.4.1910._**
 
-![[Scharnhorst-manifest-2.jpeg]]
+![[bios/I11052340/Scharnhorst-manifest-2.jpeg]]
 **_Page 2 of Scharnhorst passenger arrivals, 25.4.1910._**
 
 **Note:**
@@ -42,4 +42,4 @@ They are all members of the Zines family.
 
 ### Continue Reading
 
-➤ **Next Chapter:** [[06-beile-goichman|Beile Goichman]]
+➤ **Next Chapter:** [[bios/I11052340/06-beile-goichman|Beile Goichman]]

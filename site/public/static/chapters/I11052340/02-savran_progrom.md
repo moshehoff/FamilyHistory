@@ -62,4 +62,4 @@ Shimon Elizepan (sic) was a member of my great grandmother [Beile](/profiles/Bei
 
 ### Continue Reading
 
-➤ **Next Chapter:** [[03-trans_siberian|Trans-Siberian Railway]]
+➤ **Next Chapter:** [[bios/I11052340/03-trans_siberian|Trans-Siberian Railway]]
