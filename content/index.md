@@ -17,7 +17,7 @@ your elders, and they will explain to you.”**
 
 ### Pages of Interest
 
-* [The founding Generation](founders.md)
+* [The Founding Generation](/pages/founders)
 * [The Hoffman history in Australia](pages/hoffman_history) 
 * [Hoffman?? Hochman?? The Story of a Family Name](pages/the_names) 
 - [Profiles of Interest](pages/profiles-of-interest) - Profiles with extended biographical information
