@@ -1,4 +1,3 @@
-## Disclaimer
 
 The information on this website is based on material that my father, Peter Hoffman, collected, researched, and compiled over many years. When uploading the information to this website, I made every effort to remain faithful to the source.
 
