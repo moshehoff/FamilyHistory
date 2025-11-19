@@ -66,7 +66,7 @@ This section is unfinished.
 
 Arrival of Rivka Sisselman
 
-[Rivka](/profiles/Rivka-Hochman) was sent from Palestine to be [Berl](/profiles/Berl-Hochman)'s bride. Mrs Swartz made the wedding frock and the couple were duly married in 1908 in the Perth Synagogue. Berl and Rivka then returned to Wickepin. In 1909 their first child Mina was born there. In 1910 the family left the Wickepin farm and returned to Perth. On his return to Perth, Berl immediately started work at Gallop Gardens on the Swan River foreshore in Nedlands. The family resided on the property.
+[Rivka](/profiles/Rivka-Hochman-Berl) was sent from Palestine to be [Berl](/profiles/Berl-Hochman)'s bride. Mrs Swartz made the wedding frock and the couple were duly married in 1908 in the Perth Synagogue. Berl and Rivka then returned to Wickepin. In 1909 their first child Mina was born there. In 1910 the family left the Wickepin farm and returned to Perth. On his return to Perth, Berl immediately started work at Gallop Gardens on the Swan River foreshore in Nedlands. The family resided on the property.
 
 ---
 

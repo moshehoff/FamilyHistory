@@ -53,7 +53,7 @@ An account of the 1917 pogroms in Savran mentions Simon Elitzafan who was whippe
 
 _[Beile](/profiles/Beile-ביילא-Hochman) came to Palestine and is buried on the Mount of Olives._ (related to his son [Hymie](/profiles/Hymie-Haim-Hoffman)) 
 
-She must have arrived at the earliest in 1910, and passed away in 1915 at the latest. We know this because a grand daughter born in Perth in 1915 bore her name ([Bella](/profiles/Bella-Hoffman)).
+She must have arrived at the earliest in 1910, and passed away in 1915 at the latest. We know this because a grand daughter born in Perth in 1915 bore her name ([Bella](/profiles/Bella-Hoffman-Moshe)).
 
 Until 1793, Podolia was part of the extensive Kingdom of Poland. Its Jewish population was about sixty thousand. Savran was in the Bratslav administrative district. In that year, in the second partition of Poland, Podolia became part of Tsarist Russia. Orthodox Russia now had a large Jewish population in her western lands, and dealt with the situation by  restricting them to the former Polish lands and formulating a great body of legislation pertinent and discriminatory to them. This area was known as the Pale of Jewish Settlement. Many of the shtetels of Podolia  were seminal to the development of hassidic Judaism - among them, Bratslav, Uman, Tulchin and Mezhibozh. The majority of the population was Ukrainian of the Orthodox Catholic persuasion. From childhood, in home and church, they were raised on antisemitism.
 

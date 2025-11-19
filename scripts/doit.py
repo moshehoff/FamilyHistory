@@ -129,8 +129,10 @@ def norm_family(fid, d):
     return {"id": fid, "husband": d.get("HUSB", ""), "wife": d.get("WIFE", ""), "children": kids}
 
 
-def build_mermaid_graph(pid, p, fams, name_of):
+def build_mermaid_graph(pid, p, fams, name_of, id_to_slug=None):
     """Build a Mermaid graph showing the person's immediate family relationships."""
+    if id_to_slug is None:
+        id_to_slug = {}
     lines = ["```mermaid", "flowchart TD", 
             "classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;",
             "classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;",
@@ -152,9 +154,12 @@ def build_mermaid_graph(pid, p, fams, name_of):
         else:
             lines.append(f'class {node} internal-link')
         # Add click handler for navigation
-        # URL-encode the name for the path
-        # Use relative path (../profiles/) to support subdirectory deployment
-        encoded_name = urllib.parse.quote(name.replace(" ", "-"))
+        # Use unique slug if available, otherwise use regular name
+        if iid in id_to_slug:
+            slug = id_to_slug[iid]
+        else:
+            slug = safe_filename(name).replace(" ", "-")
+        encoded_name = urllib.parse.quote(slug)
         lines.append(f'click {node} "../profiles/{encoded_name}" "{name}"')
         return node
     
@@ -203,8 +208,10 @@ def build_mermaid_graph(pid, p, fams, name_of):
     return "\n".join(lines)
 
 
-def build_descendants_diagram(pid, p, individuals, fams, name_of):
+def build_descendants_diagram(pid, p, individuals, fams, name_of, id_to_slug=None):
     """Build a Mermaid graph showing 2 generations of descendants."""
+    if id_to_slug is None:
+        id_to_slug = {}
     lines = ["```mermaid", "flowchart TD", 
             "classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;",
             "classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;",
@@ -224,7 +231,12 @@ def build_descendants_diagram(pid, p, individuals, fams, name_of):
             lines.append(f'class {node} current')
         else:
             lines.append(f'class {node} internal-link')
-        encoded_name = urllib.parse.quote(name.replace(" ", "-"))
+        # Use unique slug if available, otherwise use regular name
+        if iid in id_to_slug:
+            slug = id_to_slug[iid]
+        else:
+            slug = safe_filename(name).replace(" ", "-")
+        encoded_name = urllib.parse.quote(slug)
         lines.append(f'click {node} "../profiles/{encoded_name}" "{name}"')
         return node
     
@@ -299,8 +311,10 @@ def build_descendants_diagram(pid, p, individuals, fams, name_of):
     return "\n".join(lines)
 
 
-def build_ancestors_diagram(pid, p, individuals, fams, name_of):
+def build_ancestors_diagram(pid, p, individuals, fams, name_of, id_to_slug=None):
     """Build a Mermaid graph showing 2 generations of ancestors (parents and grandparents)."""
+    if id_to_slug is None:
+        id_to_slug = {}
     lines = ["```mermaid", "flowchart TD", 
             "classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;",
             "classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;",
@@ -320,7 +334,12 @@ def build_ancestors_diagram(pid, p, individuals, fams, name_of):
             lines.append(f'class {node} current')
         else:
             lines.append(f'class {node} internal-link')
-        encoded_name = urllib.parse.quote(name.replace(" ", "-"))
+        # Use unique slug if available, otherwise use regular name
+        if iid in id_to_slug:
+            slug = id_to_slug[iid]
+        else:
+            slug = safe_filename(name).replace(" ", "-")
+        encoded_name = urllib.parse.quote(slug)
         lines.append(f'click {node} "../profiles/{encoded_name}" "{name}"')
         return node
     
@@ -448,6 +467,164 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
     fams = {f: norm_family(f, d) for f, d in families.items()}
     name_of = {i: info["name"] or i for i, info in inds.items()}
 
+    # Build mapping of name -> list of IDs to detect duplicate names
+    name_to_ids = {}
+    for pid, p in inds.items():
+        name = p["name"] or pid
+        if name not in name_to_ids:
+            name_to_ids[name] = []
+        name_to_ids[name].append(pid)
+    
+    # Identify duplicate names
+    duplicate_names = {name: ids for name, ids in name_to_ids.items() if len(ids) > 1}
+    if duplicate_names:
+        print(f"\n{'='*70}")
+        print(f"[DUPLICATES] Found {len(duplicate_names)} names with duplicates:")
+        print(f"{'='*70}")
+        for dup_name, dup_ids in sorted(duplicate_names.items()):
+            print(f"  '{dup_name}' appears {len(dup_ids)} times: {dup_ids}")
+        print(f"{'='*70}\n")
+    
+    # Build mapping: ID -> unique slug
+    # For duplicate names, create unique slug based on spouse name or ID
+    id_to_slug = {}
+    profiles_with_unique_slugs = []  # Track which profiles got unique slugs
+    
+    for pid, p in inds.items():
+        name = p["name"] or pid
+        clean_id = pid.strip("@")
+        
+        # If name is not duplicate, use regular name
+        if name not in duplicate_names:
+            slug = safe_filename(name)
+        else:
+            # Duplicate name - need to create unique slug
+            unique_suffix = None
+            suffix_source = None  # Track where the suffix came from
+            
+            # Try to find spouse to create unique identifier
+            for fid in p["fams"]:
+                fam = fams.get(fid)
+                if not fam:
+                    continue
+                if fam.get("husband") == pid and fam.get("wife"):
+                    spouse_id = fam["wife"]
+                    spouse_name = name_of.get(spouse_id, spouse_id)
+                    # Take first name of spouse
+                    spouse_first_name = spouse_name.split()[0] if spouse_name and " " in spouse_name else spouse_name
+                    if spouse_first_name and spouse_first_name != name:
+                        unique_suffix = spouse_first_name
+                        suffix_source = f"spouse: {spouse_name}"
+                        break
+                elif fam.get("wife") == pid and fam.get("husband"):
+                    spouse_id = fam["husband"]
+                    spouse_name = name_of.get(spouse_id, spouse_id)
+                    spouse_first_name = spouse_name.split()[0] if spouse_name and " " in spouse_name else spouse_name
+                    if spouse_first_name and spouse_first_name != name:
+                        unique_suffix = spouse_first_name
+                        suffix_source = f"spouse: {spouse_name}"
+                        break
+            
+            # If no spouse found, try parent name
+            if not unique_suffix and p.get("famc"):
+                parent_fam = fams.get(p["famc"])
+                if parent_fam:
+                    # Try father first
+                    if parent_fam.get("husband"):
+                        father_id = parent_fam["husband"]
+                        father_name = name_of.get(father_id, "")
+                        father_first = father_name.split()[0] if father_name and " " in father_name else father_name
+                        if father_first:
+                            unique_suffix = father_first
+                            suffix_source = f"parent: {father_name}"
+                    # If no father, try mother
+                    if not unique_suffix and parent_fam.get("wife"):
+                        mother_id = parent_fam["wife"]
+                        mother_name = name_of.get(mother_id, "")
+                        mother_first = mother_name.split()[0] if mother_name and " " in mother_name else mother_name
+                        if mother_first:
+                            unique_suffix = mother_first
+                            suffix_source = f"parent: {mother_name}"
+            
+            # If still no suffix, try birth year
+            if not unique_suffix and p.get("birth_date"):
+                birth_year = p["birth_date"].split()[-1] if p["birth_date"] else None
+                if birth_year and birth_year.isdigit():
+                    unique_suffix = birth_year
+                    suffix_source = f"birth year"
+            
+            # Last resort: use ID
+            if not unique_suffix:
+                unique_suffix = clean_id
+                suffix_source = "ID"
+            
+            # Create slug: "Leah-Hoffman-Nate" or "Bella-Hoffman-Hershl"
+            slug = f"{safe_filename(name)}-{safe_filename(unique_suffix)}"
+            
+            # Track this profile with unique slug
+            profiles_with_unique_slugs.append({
+                'id': pid,
+                'name': name,
+                'slug': slug,
+                'suffix': unique_suffix,
+                'source': suffix_source
+            })
+        
+        id_to_slug[pid] = slug
+    
+    # Print unique slugs report
+    if profiles_with_unique_slugs:
+        print(f"\n{'='*70}")
+        print(f"[UNIQUE SLUGS] Created {len(profiles_with_unique_slugs)} unique slugs:")
+        print(f"{'='*70}")
+        for item in profiles_with_unique_slugs:
+            print(f"  {item['id']}: '{item['name']}' => '{item['slug']}'")
+            print(f"      (suffix '{item['suffix']}' from {item['source']})")
+        print(f"{'='*70}\n")
+    
+    # Check for slug collisions and fix them
+    slug_to_ids = {}
+    for pid, slug in id_to_slug.items():
+        if slug not in slug_to_ids:
+            slug_to_ids[slug] = []
+        slug_to_ids[slug].append(pid)
+    
+    # Fix any slug collisions
+    slug_collisions = {slug: ids for slug, ids in slug_to_ids.items() if len(ids) > 1}
+    if slug_collisions:
+        print(f"\n{'='*70}")
+        print(f"[SLUG COLLISIONS] Found {len(slug_collisions)} slug collisions, fixing...")
+        print(f"{'='*70}")
+        
+        for slug, pids in slug_collisions.items():
+            print(f"\n  Collision on slug '{slug}':")
+            for i, pid in enumerate(pids):
+                p = inds[pid]
+                clean_id = pid.strip("@")
+                old_slug = slug
+                
+                # Add birth year if available
+                if p.get("birth_date"):
+                    birth_year = p["birth_date"].split()[-1] if p["birth_date"] else None
+                    if birth_year and birth_year.isdigit():
+                        new_slug = f"{slug}-{birth_year}"
+                        # Check if this new slug is also taken
+                        counter = 1
+                        final_slug = new_slug
+                        while final_slug in id_to_slug.values() and id_to_slug.get(pid) != final_slug:
+                            final_slug = f"{new_slug}-{counter}"
+                            counter += 1
+                        id_to_slug[pid] = final_slug
+                        print(f"    {pid}: '{p['name']}' => '{old_slug}' => '{final_slug}' (added birth year)")
+                        continue
+                
+                # Otherwise append ID
+                new_slug = f"{slug}-{clean_id}"
+                id_to_slug[pid] = new_slug
+                print(f"    {pid}: '{p['name']}' => '{old_slug}' => '{new_slug}' (added ID)")
+        
+        print(f"{'='*70}\n")
+    
     wl = lambda lbl: f"[[{lbl or 'Unknown'}]]"  # For person links
     def wl_place(place):
         if not place:   
@@ -476,22 +653,27 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
         verbose_debug(f"Listing files in bios directory: {os.listdir(bios_dir)}")
 
     for pid, p in inds.items():
-        parents, siblings = [], []
+        # Store both IDs and wikilinks for relationships
+        parents_ids, siblings_ids = [], []
         if p["famc"] and p["famc"] in fams:
             fam = fams[p["famc"]]
-            parents  = [ptr(x) for x in (fam.get("husband"), fam.get("wife")) if x]
-            siblings = [ptr(c) for c in fam["children"] if c != pid]
+            parents_ids  = [x for x in (fam.get("husband"), fam.get("wife")) if x]
+            siblings_ids = [c for c in fam["children"] if c != pid]
+            parents  = [ptr(x) for x in parents_ids]
+            siblings = [ptr(c) for c in siblings_ids]
 
-        spouses, children = [], []
+        spouses_ids, children_ids = [], []
         for fid in p["fams"]:
             fam = fams.get(fid)
             if not fam:
                 continue
             if fam.get("husband") == pid and fam.get("wife"):
-                spouses.append(ptr(fam["wife"]))
+                spouses_ids.append(fam["wife"])
             elif fam.get("wife") == pid and fam.get("husband"):
-                spouses.append(ptr(fam["husband"]))
-            children.extend(ptr(c) for c in fam["children"] if c != pid)
+                spouses_ids.append(fam["husband"])
+            children_ids.extend([c for c in fam["children"] if c != pid])
+        spouses = [ptr(sp) for sp in spouses_ids]
+        children = [ptr(c) for c in children_ids]
 
         clean_id = pid.strip("@")
         # Only support extended biographies: bios/{ID}/{ID}.md (with chapters)
@@ -512,35 +694,69 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
         bp_link_html = wl_place_html(p["birth_place"]) if p["birth_place"] else ""
         dp_link_html = wl_place_html(p["death_place"]) if p["death_place"] else ""
 
-        # Convert person links from [[name]] to HTML <a> tags
+        # Convert person ID directly to HTML link (more reliable for duplicates)
+        def person_id_to_html(person_id):
+            """Convert person ID to HTML link using unique slug"""
+            if not person_id:
+                return "—"
+            person_info = inds.get(person_id)
+            if not person_info:
+                return "—"
+            name = person_info["name"] or person_id
+            
+            # Use unique slug if available, otherwise use regular name
+            if person_id in id_to_slug:
+                slug = id_to_slug[person_id]
+            else:
+                # Fallback to regular name
+                slug = safe_filename(name).replace(" ", "-")
+            
+            # Encode slug for URL
+            import urllib.parse
+            encoded_name = urllib.parse.quote(slug)
+            return f'<a href="/profiles/{encoded_name}">{name}</a>'
+        
+        # Convert person links from [[name]] to HTML <a> tags (for backward compatibility)
         def person_link_to_html(wikilink):
-            """Convert [[Person Name]] to HTML link"""
+            """Convert [[Person Name]] to HTML link using unique slug"""
             if not wikilink or wikilink == "—":
                 return wikilink
             # Remove [[ and ]]
             name = wikilink.replace("[[", "").replace("]]", "")
-            # Apply safe_filename to match actual file names
-            safe_name = safe_filename(name)
-            # Replace spaces with hyphens to match Quartz's URL slugs
-            slug = safe_name.replace(" ", "-")
-            # Encode name for URL
+            
+            # Find the person ID by name (may find first match for duplicates)
+            person_id = None
+            for pid, p in inds.items():
+                if p["name"] == name:
+                    person_id = pid
+                    break
+            
+            # Use unique slug if available, otherwise use regular name
+            if person_id and person_id in id_to_slug:
+                slug = id_to_slug[person_id]
+            else:
+                # Fallback to regular name
+                slug = safe_filename(name).replace(" ", "-")
+            
+            # Encode slug for URL
             import urllib.parse
             encoded_name = urllib.parse.quote(slug)
             return f'<a href="/profiles/{encoded_name}">{name}</a>'
         
         # Generate Mermaid diagrams
-        mermaid_diagram = build_mermaid_graph(pid, p, fams, name_of)
-        descendants_diagram = build_descendants_diagram(pid, p, inds, fams, name_of)
-        ancestors_diagram = build_ancestors_diagram(pid, p, inds, fams, name_of)
+        mermaid_diagram = build_mermaid_graph(pid, p, fams, name_of, id_to_slug)
+        descendants_diagram = build_descendants_diagram(pid, p, inds, fams, name_of, id_to_slug)
+        ancestors_diagram = build_ancestors_diagram(pid, p, inds, fams, name_of, id_to_slug)
 
         # Build profile info with proper indentation structure (for HTML)
         birth_value = p['birth_date'] + (f" at {bp_link_html}" if bp_link_html else "")
         death_value = p['death_date'] + (f" at {dp_link_html}" if dp_link_html else "")
         occupation_value = p['occupation'] or '—'
-        parents_value_html = ", ".join([person_link_to_html(p) for p in parents]) if parents else "—"
-        siblings_value_html = ", ".join([person_link_to_html(s) for s in siblings]) if siblings else "—"
-        spouse_value_html = ", ".join([person_link_to_html(sp) for sp in spouses]) if spouses else "—"
-        children_value_html = ", ".join([person_link_to_html(c) for c in children]) if children else "—"
+        # Use person_id_to_html for accurate linking (handles duplicates correctly)
+        parents_value_html = ", ".join([person_id_to_html(pid) for pid in parents_ids]) if parents_ids else "—"
+        siblings_value_html = ", ".join([person_id_to_html(sid) for sid in siblings_ids]) if siblings_ids else "—"
+        spouse_value_html = ", ".join([person_id_to_html(spid) for spid in spouses_ids]) if spouses_ids else "—"
+        children_value_html = ", ".join([person_id_to_html(cid) for cid in children_ids]) if children_ids else "—"
 
         # Build info lines dynamically - only include fields with data
         lines = [
@@ -595,7 +811,9 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
 
         # no body-level GEDCOM ID; it now lives in frontmatter as `ID`
 
-        out_path = os.path.join(people_dir, safe_filename(p["name"] or pid) + ".md")
+        # Use unique slug for filename
+        slug = id_to_slug.get(pid, safe_filename(p["name"] or pid))
+        out_path = os.path.join(people_dir, slug + ".md")
         with open(out_path, "w", encoding="utf-8") as f:
             f.write("\n".join(lines) + "\n")
 
@@ -1123,6 +1341,12 @@ def clean_project():
     """Remove all generated files and build outputs."""
     import shutil
     import glob
+    import stat
+    
+    def handle_remove_readonly(func, path, exc):
+        """Error handler for Windows readonly files."""
+        os.chmod(path, stat.S_IWRITE)
+        func(path)
     
     paths_to_remove = [
         "site/content",  # All content (profiles, index.md, pages/)
@@ -1132,6 +1356,7 @@ def clean_project():
         "site/quartz/static/family-data.json",  # Generated family data
         "site/quartz/static/media-index.json",  # Generated media index
         "site/quartz/static/documents",  # Copied documents directory
+        "site/quartz/static/chapters",  # Copied chapters directory
     ]
     
     print("Cleaning project...")
@@ -1139,11 +1364,17 @@ def clean_project():
         full_path = os.path.abspath(path)
         if os.path.exists(full_path):
             if os.path.isdir(full_path):
-                shutil.rmtree(full_path)
-                print(f"  Removed directory: {path}")
+                try:
+                    shutil.rmtree(full_path, onerror=handle_remove_readonly)
+                    print(f"  Removed directory: {path}")
+                except Exception as e:
+                    print(f"  WARNING: Could not remove {path}: {e}")
             else:
-                os.remove(full_path)
-                print(f"  Removed file: {path}")
+                try:
+                    os.remove(full_path)
+                    print(f"  Removed file: {path}")
+                except Exception as e:
+                    print(f"  WARNING: Could not remove {path}: {e}")
         else:
             print(f"  (not found, skipping: {path})")
     

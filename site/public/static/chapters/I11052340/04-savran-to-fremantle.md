@@ -37,7 +37,7 @@ Sarafand al'Amar was an Arab village where a small number of Jewish families lod
 
 Their Russian passports were confiscated by the Ottoman authorities, and they received Turkish travel documents. They retained these latter documents on arriving in Australia.
 
-_(from a statement by [Wolfe Hoffman](/profiles/Wolf-Hoffman) in the Australian Archives)._
+_(from a statement by [Wolfe Hoffman](/profiles/Wolfe-Hochman) in the Australian Archives)._
 
 ![[bios/I11052340/img_ndl_scharnhorst.png]]
 **_NDL SCHARNHORST_**
