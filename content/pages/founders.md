@@ -52,7 +52,7 @@ Wolf זאב & Beile
 Wolf and Beile raised **ten children** in Savran during a time of increasing persecution and violence against Jews:
 
 **1. [Shimon Meir מאיר Hochman](/profiles/Shimon-Meir-מאיר-Hochman)** (b. circa 1865)
-The eldest son. Shimon and his young family left Savran for Palestine around **1890**, fleeing pogroms with his infant son. He settled in Sarafand al-'Amar (later Tzrifin) and worked in Baron Rothschild's winery in Rishon LeZion. After his first wife Bracha died en route or shortly after arrival, he remarried Frieda Sisselman, daughter of a prominent rabbi in Jaffa.
+The eldest son. Shimon and his young family left Savran for Palestine around **1890**, fleeing pogroms with his infant son. He settled in Sarafand al-'Amar (later Tzrifin) and worked in Baron Rothschild's winery in Rishon LeZion. After his first wife [Bracha](/profiles/Bracha-Hochman) died en route or shortly after arrival, he remarried [Frieda Sisselman](/profiles/Frida-Hochman), daughter of a prominent rabbi in Jaffa.
 
 **Destination:** Palestine  
 
@@ -70,7 +70,7 @@ He was the first of the family to arrive in Western Australia, coming with Sarah
 Little is known about Avraham. He may have perished in Russia or emigrated without leaving records.
 
  **4. [Josef Hochman](/profiles/Josef-Hochman)** (b. circa 1875)
-Josef married Tubb'l and had children. His daughter Devora (Elka Dora) arrived in Melbourne in the 1920s, reporting that the remnant of the family still in Russia had been killed during the terrible pogroms of 1919.
+Josef married [Tubb'l](/profiles/Tobl-Hochman) and had children. His daughter Devora (Elka Dora) arrived in Melbourne in the 1920s, reporting that the remnant of the family still in Russia had been killed during the terrible pogroms of 1919.
 
 **5. [Kolman Hochman](/profiles/Kolman-Hochman)** (b. circa 1878)
 Very little information is available about Kolman. He may have perished in Russia or emigrated without leaving records.
@@ -85,7 +85,7 @@ Sholem married Shaindl Schutte. He may have emigrated to the United States (Pitt
 Born in Savran, Moshe (Moishe) trained as a wheelwright. He was conscripted into the Tsarist army around 1906 and served as a military wheelwright. He witnessed horrific pogroms, including mounted Cossacks decapitating Jews with swords.
 
 **→ Australia: 25 April 1910** (Fremantle, aboard the *Scharnhorst*)  
-Moshe arrived with Tobl and his 17-year-old nephew Wolfe. He became a successful fruiterer, publican, and businessman in Perth, establishing the family's reputation in Western Australia.
+Moshe arrived with [Tobl](/profiles/Tobl-Hochman-(Hoffman)) and his 17-year-old nephew [Wolfe](/profiles/Wolfe-Hochman). He became a successful fruiterer, publican, and businessman in Perth, establishing the family's reputation in Western Australia.
 
 *[Read Moshe's full biography →](/profiles/Moshe-משה-Hoffman)*
 
@@ -93,7 +93,7 @@ Moshe arrived with Tobl and his 17-year-old nephew Wolfe. He became a successful
 The only daughter among ten children. "Bobka" was likely a nickname derived from the Yiddish word for "beans," also used to denote something small—perhaps "our kid sister." She met her death in the river during a pogrom in Savran.
 
  **10. [Yisrael Hochman](/profiles/Yisrael-Hochman)** (b. 1889, d. 1958)
-The youngest son, known as Israel or Jack. He married Rachel Zelzer.
+The youngest son, known as Israel or Jack. He married [Rachel Zelzer](/profiles/Rachel-Hochman).
 
 **→ Australia: 1907**  
 Yisrael arrived in Western Australia in 1907, joining his brother Hyam Yudl in the fruit trade and hospitality business.
@@ -101,6 +101,7 @@ Yisrael arrived in Western Australia in 1907, joining his brother Hyam Yudl in t
 ### The Next Generation: Berl and Hershl
 
 Though technically the next generation, **Berl** and **Hershl**—the sons of Shimon Meir—were born in **Savran** and were roughly the same age as some of their younger uncles. They experienced the same harsh conditions and persecution, and they too became founding members of the Australian family.
+
  **11. [Berl Hochman](/profiles/Berl-Hochman)** (b. circa 1885 in Savran, d. 1950)
 Born in Savran before his family fled to Palestine. Berl grew up in harsh conditions and decided to seek his fortune in Australia.
 
