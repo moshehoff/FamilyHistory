@@ -1140,7 +1140,42 @@ function initProfileTabs() {
       return '<a href="' + siteBasePath + path + '">' + text + '</a>';
     });
     
-    // Links [[slug|Display Text]] or [[slug]] - convert to chapter links (MUST be after images, before bold/italic)
+    // Ordered lists (1. item, 2. item, etc.) - MUST be processed BEFORE converting [[links]]
+    // Otherwise the links will be converted to HTML and the list detection won't work properly
+    var lines = html.split('\\n');
+    var inList = false;
+    var listHtml = '';
+    var processedLines = [];
+    
+    for (var i = 0; i < lines.length; i++) {
+      var line = lines[i];
+      var listMatch = line.match(/^(\\d+)\\.\\s+(.*)$/);
+      
+      if (listMatch) {
+        if (!inList) {
+          inList = true;
+          listHtml = '<ol>';
+        }
+        listHtml += '<li>' + listMatch[2] + '</li>';
+      } else {
+        if (inList) {
+          listHtml += '</ol>';
+          processedLines.push(listHtml);
+          listHtml = '';
+          inList = false;
+        }
+        processedLines.push(line);
+      }
+    }
+    
+    if (inList) {
+      listHtml += '</ol>';
+      processedLines.push(listHtml);
+    }
+    
+    html = processedLines.join('\\n');
+    
+    // Links [[slug|Display Text]] or [[slug]] - convert to chapter links (MUST be after lists, before bold/italic)
     html = html.replace(/\\[\\[([^\\]]+)\\]\\]/g, function(match, text) {
       // Split by | to get slug and display text
       var parts = text.split('|');
@@ -1215,7 +1250,7 @@ function initProfileTabs() {
     });
     
     // Then replace other HTML tags (with content)
-    html = html.replace(/<(a|pre|code)([^>]*)>([\\s\\S]*?)<\\/\\1>/g, function(match) {
+    html = html.replace(/<(a|pre|code)([^>]*)>([\\s\\S]*?)<\\/(a|pre|code)>/g, function(match) {
       var placeholder = '___HTML_BLOCK_' + htmlBlockIndex + '___';
       htmlBlocks[htmlBlockIndex] = match;
       htmlBlockIndex++;
@@ -1247,40 +1282,6 @@ function initProfileTabs() {
     html = html.replace(/___HTML_BLOCK_(\\d+)___/g, function(match, index) {
       return htmlBlocks[parseInt(index)];
     });
-    
-    // Ordered lists (1. item, 2. item, etc.)
-    var lines = html.split('\\n');
-    var inList = false;
-    var listHtml = '';
-    var processedLines = [];
-    
-    for (var i = 0; i < lines.length; i++) {
-      var line = lines[i];
-      var listMatch = line.match(/^(\\d+)\\.\\s+(.*)$/);
-      
-      if (listMatch) {
-        if (!inList) {
-          inList = true;
-          listHtml = '<ol>';
-        }
-        listHtml += '<li>' + listMatch[2] + '</li>';
-      } else {
-        if (inList) {
-          listHtml += '</ol>';
-          processedLines.push(listHtml);
-          listHtml = '';
-          inList = false;
-        }
-        processedLines.push(line);
-      }
-    }
-    
-    if (inList) {
-      listHtml += '</ol>';
-      processedLines.push(listHtml);
-    }
-    
-    html = processedLines.join('\\n');
     
 
     

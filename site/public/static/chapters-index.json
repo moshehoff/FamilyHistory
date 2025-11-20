@@ -139,6 +139,59 @@
     },
     "chapters": []
   },
+  "I39965449": {
+    "profileName": "Berl /Hochman/",
+    "main": {
+      "slug": "introduction",
+      "name": "Introduction",
+      "title": "Introduction",
+      "filename": "I39965449.md"
+    },
+    "chapters": [
+      {
+        "slug": "01-early-life",
+        "name": "Early Life",
+        "title": "Early Life and Palestine Years (1885-1904)",
+        "filename": "01-early_life.md"
+      },
+      {
+        "slug": "02-arrival-australia",
+        "name": "Arrival Australia",
+        "title": "Arrival in Australia (1904-1907)",
+        "filename": "02-arrival_australia.md"
+      },
+      {
+        "slug": "03-marriage",
+        "name": "Marriage",
+        "title": "Marriage (1908)",
+        "filename": "03-marriage.md"
+      },
+      {
+        "slug": "04-perth-gallop-gardens",
+        "name": "Perth Gallop Gardens",
+        "title": "Perth Years (1909-1913)",
+        "filename": "04-perth_gallop_gardens.md"
+      },
+      {
+        "slug": "05-westonia-business",
+        "name": "Westonia Business",
+        "title": "Westonia Business (1913-1921)",
+        "filename": "05-westonia_business.md"
+      },
+      {
+        "slug": "06-hotel-years",
+        "name": "Hotel Years",
+        "title": "Hotel Years (1921-1925)",
+        "filename": "06-hotel_years.md"
+      },
+      {
+        "slug": "07-final-years",
+        "name": "Final Years",
+        "title": "Final Years (1925-1950)",
+        "filename": "07-final_years.md"
+      }
+    ]
+  },
   "I39965497": {
     "profileName": "Hershl /Hochman/",
     "main": {
