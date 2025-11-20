@@ -111,28 +111,90 @@ class DiagramPanZoom {
     this.container.style.cursor = "grab"
   }
 
+  // Pinch-to-zoom support
+  private isPinching = false
+  private initialPinchDistance = 0
+
   private onTouchStart(e: TouchEvent) {
-    if (e.touches.length !== 1) return // Only handle single touch for panning
-    this.isDragging = true
-    const touch = e.touches[0]
-    this.startPan = { x: touch.clientX - this.currentPan.x, y: touch.clientY - this.currentPan.y }
+    if (e.touches.length === 2) {
+      // Two-finger pinch
+      this.isPinching = true
+      this.isDragging = false
+      
+      const touch1 = e.touches[0]
+      const touch2 = e.touches[1]
+      this.initialPinchDistance = Math.hypot(
+        touch2.clientX - touch1.clientX,
+        touch2.clientY - touch1.clientY
+      )
+      e.preventDefault()
+    } else if (e.touches.length === 1 && !this.isPinching) {
+      // Single touch for panning
+      this.isDragging = true
+      const touch = e.touches[0]
+      this.startPan = { x: touch.clientX - this.currentPan.x, y: touch.clientY - this.currentPan.y }
+    }
   }
 
   private onTouchMove(e: TouchEvent) {
-    if (!this.isDragging || e.touches.length !== 1) return
-    e.preventDefault()
+    if (e.touches.length === 2 && this.isPinching) {
+      // Handle pinch-to-zoom
+      e.preventDefault()
+      
+      const touch1 = e.touches[0]
+      const touch2 = e.touches[1]
+      const currentDistance = Math.hypot(
+        touch2.clientX - touch1.clientX,
+        touch2.clientY - touch1.clientY
+      )
+      
+      // Calculate scale change
+      const scaleChange = currentDistance / this.initialPinchDistance
+      const newScale = this.scale * scaleChange
+      
+      // Limit scale
+      const limitedScale = Math.min(Math.max(newScale, this.MIN_SCALE), this.MAX_SCALE)
+      
+      // Apply zoom (pinch zooms around center of container)
+      const rect = this.container.getBoundingClientRect()
+      const centerX = rect.width / 2
+      const centerY = rect.height / 2
+      
+      const scaleDiff = limitedScale - this.scale
+      this.currentPan.x -= centerX * scaleDiff
+      this.currentPan.y -= centerY * scaleDiff
+      
+      this.scale = limitedScale
+      
+      // Update for next move
+      this.initialPinchDistance = currentDistance
+      this.updateTransform()
+    } else if (this.isDragging && e.touches.length === 1 && !this.isPinching) {
+      // Handle single-touch drag
+      e.preventDefault()
 
-    const touch = e.touches[0]
-    this.currentPan = {
-      x: touch.clientX - this.startPan.x,
-      y: touch.clientY - this.startPan.y,
+      const touch = e.touches[0]
+      this.currentPan = {
+        x: touch.clientX - this.startPan.x,
+        y: touch.clientY - this.startPan.y,
+      }
+
+      this.updateTransform()
     }
-
-    this.updateTransform()
   }
 
-  private onTouchEnd() {
-    this.isDragging = false
+  private onTouchEnd(e: TouchEvent) {
+    if (e.touches.length === 0) {
+      // All touches ended
+      this.isDragging = false
+      this.isPinching = false
+    } else if (e.touches.length === 1 && this.isPinching) {
+      // Went from 2 touches to 1 touch - restart as drag
+      this.isPinching = false
+      this.isDragging = true
+      const touch = e.touches[0]
+      this.startPan = { x: touch.clientX - this.currentPan.x, y: touch.clientY - this.currentPan.y }
+    }
   }
 
   private zoom(delta: number) {
@@ -442,6 +504,9 @@ document.addEventListener("nav", async () => {
       // Show container
       popupContainer.classList.add("active")
       container.style.cursor = "grab"
+      
+      // Prevent body scroll when modal is open
+      document.body.style.overflow = "hidden"
 
       // Initialize pan-zoom after showing the popup
       panZoom = new DiagramPanZoom(container, content)
@@ -451,14 +516,27 @@ document.addEventListener("nav", async () => {
       popupContainer.classList.remove("active")
       panZoom?.cleanup()
       panZoom = null
+      
+      // Restore body scroll
+      document.body.style.overflow = ""
     }
 
     expandBtn.addEventListener("click", showMermaid)
     registerEscapeHandler(popupContainer, hideMermaid)
+    
+    // Close modal when clicking on the overlay (outside the diagram)
+    const overlayClickHandler = (e: MouseEvent) => {
+      // Only close if clicking directly on the overlay, not on the content
+      if (e.target === popupContainer) {
+        hideMermaid()
+      }
+    }
+    popupContainer.addEventListener("click", overlayClickHandler)
 
     window.addCleanup(() => {
       panZoom?.cleanup()
       expandBtn.removeEventListener("click", showMermaid)
+      popupContainer.removeEventListener("click", overlayClickHandler)
     })
   }
 })
