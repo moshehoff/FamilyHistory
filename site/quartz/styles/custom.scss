@@ -276,7 +276,7 @@ article, .tab-pane {
   
   // Chapter links (internal navigation between chapters)
   .chapter-link {
-    color: var(--secondary);
+    color: #0066cc;
     text-decoration: none;
     cursor: pointer;
     
@@ -334,9 +334,9 @@ article, .tab-pane {
     }
   }
   
-  // Chapter links should keep their color (internal navigation)
+  // Chapter links should be blue like profile links
   a.chapter-link {
-    color: var(--secondary) !important;
+    color: #0066cc !important;
     text-decoration: none;
     cursor: pointer;
     
@@ -345,7 +345,7 @@ article, .tab-pane {
     }
     
     &:visited {
-      color: var(--secondary) !important;
+      color: #551a8b !important;  // Purple for visited links
     }
   }
   

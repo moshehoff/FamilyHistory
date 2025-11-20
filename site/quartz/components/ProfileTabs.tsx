@@ -1278,8 +1278,9 @@ function initProfileTabs() {
         segments[i] = segments[i].replace(/\\*\\*(.*?)\\*\\*/g, '<strong>$1</strong>');
         // Italic with *
         segments[i] = segments[i].replace(/\\*(.*?)\\*/g, '<em>$1</em>');
-        // Italic with _ (but not underscores that are part of words/filenames)
-        segments[i] = segments[i].replace(/\\b_(.*?)_\\b/g, '<em>$1</em>');
+        // Italic with _ (match underscores not preceded/followed by word characters)
+        // Captures: $1 = prefix (space/punctuation/start), $2 = content, $3 = suffix (space/punctuation/end)
+        segments[i] = segments[i].replace(/(^|[^_\\w])_([^_]+)_((?=[^_\\w])|$)/g, '$1<em>$2</em>$3');
       }
     }
     html = segments.join('');
