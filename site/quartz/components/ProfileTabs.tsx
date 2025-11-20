@@ -1182,6 +1182,12 @@ function initProfileTabs() {
       var slug = parts[0].trim();
       var displayText = parts.length > 1 ? parts[1].trim() : slug;
       
+      // Extract filename from full path if present (e.g., "bios/I39965449/02-arrival_australia" -> "02-arrival_australia")
+      if (slug.includes('/')) {
+        var pathParts = slug.split('/');
+        slug = pathParts[pathParts.length - 1];
+      }
+      
       // Try to find matching chapter by name or slug
       var targetSlug = null;
       if (chaptersDataForLinks) {
