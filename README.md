@@ -67,3 +67,5 @@ V4/
 ---
 *פותח לפי מפרט FAMILY_HISTORY_SPECIFICATION_DETAILED.md*
 
+<!-- Test GitHub Actions deployment -->
+
