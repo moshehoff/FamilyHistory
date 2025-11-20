@@ -496,7 +496,7 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
         
         # If name is not duplicate, use regular name
         if name not in duplicate_names:
-            slug = safe_filename(name)
+            slug = safe_filename(name).replace(" ", "-")
         else:
             # Duplicate name - need to create unique slug
             unique_suffix = None
@@ -559,7 +559,7 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
                 suffix_source = "ID"
             
             # Create slug: "Leah-Hoffman-Nate" or "Bella-Hoffman-Hershl"
-            slug = f"{safe_filename(name)}-{safe_filename(unique_suffix)}"
+            slug = f"{safe_filename(name).replace(' ', '-')}-{safe_filename(unique_suffix).replace(' ', '-')}"
             
             # Track this profile with unique slug
             profiles_with_unique_slugs.append({
@@ -812,7 +812,7 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
         # no body-level GEDCOM ID; it now lives in frontmatter as `ID`
 
         # Use unique slug for filename
-        slug = id_to_slug.get(pid, safe_filename(p["name"] or pid))
+        slug = id_to_slug.get(pid, safe_filename(p["name"] or pid).replace(" ", "-"))
         out_path = os.path.join(people_dir, slug + ".md")
         with open(out_path, "w", encoding="utf-8") as f:
             f.write("\n".join(lines) + "\n")

@@ -767,9 +767,89 @@ function initProfileTabs() {
           if (window.mermaid && typeof window.mermaid.run === 'function') {
             window.mermaid.run();
           }
+          
+          // Add pinch-to-zoom support for mobile after rendering
+          setTimeout(function() {
+            addPinchToZoomToMermaid(biographyPane);
+          }, 200);
         }
       }, 500);
     }
+  }
+  
+  // Add pinch-to-zoom support to Mermaid diagrams for mobile
+  function addPinchToZoomToMermaid(container) {
+    if (!container) return;
+    
+    const mermaidElements = container.querySelectorAll('.mermaid[data-processed="true"]');
+    
+    mermaidElements.forEach(function(mermaidEl) {
+      const svg = mermaidEl.querySelector('svg');
+      if (!svg) return;
+      
+      let initialPinchDistance = 0;
+      let currentScale = 1;
+      let isPinching = false;
+      
+      const touchStartHandler = function(e) {
+        const target = e.target;
+        if (target.tagName === 'A' || target.closest('button')) return;
+        
+        // Check if it's a pinch gesture (2 fingers)
+        if (e.touches.length === 2) {
+          isPinching = true;
+          
+          // Calculate initial distance between two fingers
+          const touch1 = e.touches[0];
+          const touch2 = e.touches[1];
+          initialPinchDistance = Math.hypot(
+            touch2.clientX - touch1.clientX,
+            touch2.clientY - touch1.clientY
+          );
+          e.preventDefault();
+        }
+      };
+      
+      const touchMoveHandler = function(e) {
+        // Handle pinch-to-zoom
+        if (e.touches.length === 2 && isPinching) {
+          e.preventDefault();
+          
+          const touch1 = e.touches[0];
+          const touch2 = e.touches[1];
+          const currentDistance = Math.hypot(
+            touch2.clientX - touch1.clientX,
+            touch2.clientY - touch1.clientY
+          );
+          
+          // Calculate scale factor
+          const scaleChange = currentDistance / initialPinchDistance;
+          const newScale = currentScale * scaleChange;
+          
+          // Limit scale between 0.5x and 3x
+          const limitedScale = Math.min(Math.max(newScale, 0.5), 3);
+          
+          // Apply scale transform
+          svg.style.transform = 'scale(' + limitedScale + ')';
+          svg.style.transformOrigin = 'center center';
+          svg.style.transition = 'none';
+          
+          // Update for next move
+          initialPinchDistance = currentDistance;
+          currentScale = limitedScale;
+        }
+      };
+      
+      const touchEndHandler = function() {
+        if (isPinching) {
+          isPinching = false;
+        }
+      };
+      
+      mermaidEl.addEventListener('touchstart', touchStartHandler, { passive: false });
+      mermaidEl.addEventListener('touchmove', touchMoveHandler, { passive: false });
+      mermaidEl.addEventListener('touchend', touchEndHandler);
+    });
   }
   
   // Move ProfileTabs to article and content to Biography tab
@@ -1076,6 +1156,11 @@ function initProfileTabs() {
               console.log('[ProfileTabs] Error initializing Mermaid:', e);
             }
           });
+          
+          // Add pinch-to-zoom support after initializing Mermaid
+          setTimeout(function() {
+            addPinchToZoomToMermaid(pane);
+          }, 200);
         }
       }, 100);
     }

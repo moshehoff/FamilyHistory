@@ -296,21 +296,76 @@ document.addEventListener("nav", async () => {
         }
       }
       
-      // Touch support for mobile
+      // Touch support for mobile (drag and pinch-to-zoom)
+      let initialPinchDistance = 0
+      let currentScale = 1
+      let isPinching = false
+      
       const touchStartHandler = (e: TouchEvent) => {
         const target = e.target as HTMLElement
         if (target.tagName === 'A' || target.closest('button')) return
         
-        const touch = e.touches[0]
-        isDragging = true
-        startX = touch.clientX
-        startY = touch.clientY
-        scrollLeft = pre.scrollLeft
-        scrollTop = pre.scrollTop
+        // Check if it's a pinch gesture (2 fingers)
+        if (e.touches.length === 2) {
+          isPinching = true
+          isDragging = false
+          
+          // Calculate initial distance between two fingers
+          const touch1 = e.touches[0]
+          const touch2 = e.touches[1]
+          initialPinchDistance = Math.hypot(
+            touch2.clientX - touch1.clientX,
+            touch2.clientY - touch1.clientY
+          )
+          e.preventDefault()
+        } else if (e.touches.length === 1) {
+          // Single finger - drag
+          const touch = e.touches[0]
+          isDragging = true
+          isPinching = false
+          startX = touch.clientX
+          startY = touch.clientY
+          scrollLeft = pre.scrollLeft
+          scrollTop = pre.scrollTop
+        }
       }
       
       const touchMoveHandler = (e: TouchEvent) => {
-        if (!isDragging) return
+        // Handle pinch-to-zoom
+        if (e.touches.length === 2 && isPinching) {
+          e.preventDefault()
+          
+          const touch1 = e.touches[0]
+          const touch2 = e.touches[1]
+          const currentDistance = Math.hypot(
+            touch2.clientX - touch1.clientX,
+            touch2.clientY - touch1.clientY
+          )
+          
+          // Calculate scale factor
+          const scaleChange = currentDistance / initialPinchDistance
+          const newScale = currentScale * scaleChange
+          
+          // Limit scale between 0.5x and 3x
+          const limitedScale = Math.min(Math.max(newScale, 0.5), 3)
+          
+          // Find the SVG element inside the code block
+          const svg = node.querySelector('svg') as SVGElement
+          if (svg) {
+            svg.style.transform = `scale(${limitedScale})`
+            svg.style.transformOrigin = 'center center'
+            svg.style.transition = 'none' // Disable transition during pinch
+          }
+          
+          // Update for next move
+          initialPinchDistance = currentDistance
+          currentScale = limitedScale
+          
+          return
+        }
+        
+        // Handle drag with single finger
+        if (!isDragging || e.touches.length !== 1) return
         e.preventDefault()
         
         const touch = e.touches[0]
@@ -322,6 +377,12 @@ document.addEventListener("nav", async () => {
       
       const touchEndHandler = () => {
         isDragging = false
+        
+        // If pinching ended, keep the current scale
+        if (isPinching) {
+          isPinching = false
+          // Scale is already applied, just reset the flag
+        }
       }
       
       pre.addEventListener('mousedown', mouseDownHandler)
