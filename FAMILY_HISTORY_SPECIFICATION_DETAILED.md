@@ -2441,7 +2441,9 @@ Line 2
 - [ ] Dark mode (Quartz כבר תומך)
 - [ ] Accessibility improvements
 - [ ] SEO optimization
-- [ ] Social media preview images (OG images - Quartz כבר יוצר)
+- [x] Social media preview images (OG images - **מושבת זמנית** ב-`quartz.config.ts` לביצועים)
+  - הפלאגין `CustomOgImages` מושבת לשיפור מהירות בנייה (90%+ מהיר יותר)
+  - ניתן להפעיל מחדש לפרסום אם נדרש שיתוף ברשתות חברתיות
 
 ---
 
@@ -2470,6 +2472,7 @@ Line 2
 - ✅ Image captions with `**_caption_**` format
 - ✅ ASCII art for children list
 - ✅ Blockquotes, citation boxes, info boxes styling
+- ✅ Build optimization: CustomOgImages disabled (90%+ faster builds)
 
 ### v2.0 (אוקטובר 2025)
 - ✅ Top navigation bar

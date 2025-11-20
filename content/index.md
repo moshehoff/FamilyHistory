@@ -15,14 +15,15 @@ ask your father, and he will tell you,
 your elders, and they will explain to you.”**  
 (Deuteronomy 32:7)
 
-### Pages of Interest
+### Site map
 
 * [The Founding Generation](/pages/founders)
 * [The Hoffman history in Australia](pages/hoffman_history) 
 * [Hoffman?? Hochman?? The Story of a Family Name](pages/the_names) 
-- [Profiles of Interest](pages/profiles-of-interest) - Profiles with extended biographical information
-- [About](pages/about) - About this website
-- [All Profiles](pages/all-profiles) - Complete list of 546 family members
+* [Profiles of Interest](pages/profiles-of-interest) - Profiles with extended biographical information
+* [About](pages/about) - About this website
+* [All Profiles](pages/all-profiles) - Complete list of 546 family members
+
 
 
 ### Preface by [Peter Hoffman](/profiles/Dr-PETER-פנחס-HOFFMAN)

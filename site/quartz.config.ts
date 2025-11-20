@@ -89,8 +89,10 @@ const config: QuartzConfig = {
       Plugin.Static(),
       Plugin.Favicon(),
       Plugin.NotFoundPage(),
-      // Comment out CustomOgImages to speed up build time
-      Plugin.CustomOgImages(),
+      // DISABLED: CustomOgImages - speeds up build time significantly (90%+ faster)
+      // Generates social media preview images but takes very long with 546+ profiles
+      // Re-enable for production if needed: Plugin.CustomOgImages(),
+      // Plugin.CustomOgImages(),
     ],
   },
 }
