@@ -654,11 +654,27 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
 
     for pid, p in inds.items():
         # Store both IDs and wikilinks for relationships
-        parents_ids, siblings_ids = [], []
+        parents_ids, siblings_ids, half_siblings_ids = [], [], []
         if p["famc"] and p["famc"] in fams:
             fam = fams[p["famc"]]
             parents_ids  = [x for x in (fam.get("husband"), fam.get("wife")) if x]
+            
+            # Full siblings from same family
             siblings_ids = [c for c in fam["children"] if c != pid]
+            
+            # Half siblings: children from other marriages of the parents
+            for parent_id in parents_ids:
+                parent = inds.get(parent_id)
+                if parent:
+                    # Check all families where this parent is a spouse
+                    for other_fam_id in parent.get("fams", []):
+                        if other_fam_id != p["famc"] and other_fam_id in fams:
+                            other_fam = fams[other_fam_id]
+                            # Add children from other family (half siblings)
+                            for child_id in other_fam.get("children", []):
+                                if child_id != pid and child_id not in siblings_ids and child_id not in half_siblings_ids:
+                                    half_siblings_ids.append(child_id)
+            
             parents  = [ptr(x) for x in parents_ids]
             siblings = [ptr(c) for c in siblings_ids]
 
@@ -755,6 +771,7 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
         # Use person_id_to_html for accurate linking (handles duplicates correctly)
         parents_value_html = ", ".join([person_id_to_html(pid) for pid in parents_ids]) if parents_ids else "—"
         siblings_value_html = ", ".join([person_id_to_html(sid) for sid in siblings_ids]) if siblings_ids else "—"
+        half_siblings_value_html = ", ".join([person_id_to_html(sid) for sid in half_siblings_ids]) if half_siblings_ids else "—"
         spouse_value_html = ", ".join([person_id_to_html(spid) for spid in spouses_ids]) if spouses_ids else "—"
         children_value_html = ", ".join([person_id_to_html(cid) for cid in children_ids]) if children_ids else "—"
 
@@ -782,9 +799,14 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
             lines.append(f'<dt>Occupation:</dt><dd>{occupation_value}</dd>')
 
         # Always show family relationships (with — if empty)
+        lines.append(f'<dt>Parents:</dt><dd>{parents_value_html}</dd>')
+        lines.append(f'<dt>Siblings:</dt><dd>{siblings_value_html}</dd>')
+        
+        # Only show half siblings if they exist
+        if half_siblings_ids:
+            lines.append(f'<dt>Half Siblings:</dt><dd>{half_siblings_value_html}</dd>')
+        
         lines.extend([
-            f'<dt>Parents:</dt><dd>{parents_value_html}</dd>',
-            f'<dt>Siblings:</dt><dd>{siblings_value_html}</dd>',
             f'<dt>Spouse:</dt><dd>{spouse_value_html}</dd>',
             f'<dt>Children:</dt><dd>{children_value_html}</dd>',
         ])
@@ -795,7 +817,7 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
             "",
             "---",
             "",
-            "## Nuclear Family",
+            "## Immediate Family",
             mermaid_diagram,
             "",
             "## Ancestors (up to 2 Gen.)",
