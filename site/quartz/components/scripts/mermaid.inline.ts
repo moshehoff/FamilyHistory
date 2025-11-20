@@ -114,6 +114,7 @@ class DiagramPanZoom {
   // Pinch-to-zoom support
   private isPinching = false
   private initialPinchDistance = 0
+  private lastPinchCenter: Position = { x: 0, y: 0 }
 
   private onTouchStart(e: TouchEvent) {
     if (e.touches.length === 2) {
@@ -127,6 +128,13 @@ class DiagramPanZoom {
         touch2.clientX - touch1.clientX,
         touch2.clientY - touch1.clientY
       )
+      
+      // Store the center point between the two fingers
+      this.lastPinchCenter = {
+        x: (touch1.clientX + touch2.clientX) / 2,
+        y: (touch1.clientY + touch2.clientY) / 2,
+      }
+      
       e.preventDefault()
     } else if (e.touches.length === 1 && !this.isPinching) {
       // Single touch for panning
@@ -148,6 +156,12 @@ class DiagramPanZoom {
         touch2.clientY - touch1.clientY
       )
       
+      // Calculate current center point between fingers
+      const currentCenter = {
+        x: (touch1.clientX + touch2.clientX) / 2,
+        y: (touch1.clientY + touch2.clientY) / 2,
+      }
+      
       // Calculate scale change
       const scaleChange = currentDistance / this.initialPinchDistance
       const newScale = this.scale * scaleChange
@@ -155,19 +169,29 @@ class DiagramPanZoom {
       // Limit scale
       const limitedScale = Math.min(Math.max(newScale, this.MIN_SCALE), this.MAX_SCALE)
       
-      // Apply zoom (pinch zooms around center of container)
-      const rect = this.container.getBoundingClientRect()
-      const centerX = rect.width / 2
-      const centerY = rect.height / 2
+      // Get container position
+      const containerRect = this.container.getBoundingClientRect()
       
+      // Calculate pinch center relative to container
+      const pinchX = this.lastPinchCenter.x - containerRect.left
+      const pinchY = this.lastPinchCenter.y - containerRect.top
+      
+      // Calculate the point in content space before zoom
+      const contentX = (pinchX - this.currentPan.x) / this.scale
+      const contentY = (pinchY - this.currentPan.y) / this.scale
+      
+      // Apply new scale
       const scaleDiff = limitedScale - this.scale
-      this.currentPan.x -= centerX * scaleDiff
-      this.currentPan.y -= centerY * scaleDiff
-      
       this.scale = limitedScale
+      
+      // Adjust pan to keep the pinch point stable
+      this.currentPan.x = pinchX - contentX * this.scale
+      this.currentPan.y = pinchY - contentY * this.scale
       
       // Update for next move
       this.initialPinchDistance = currentDistance
+      this.lastPinchCenter = currentCenter
+      
       this.updateTransform()
     } else if (this.isDragging && e.touches.length === 1 && !this.isPinching) {
       // Handle single-touch drag
