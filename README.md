@@ -1,4 +1,5 @@
 # Family History Website - V4
+Test deployment with new permissions
 
 אתר היסטוריה משפחתית מבוסס Quartz 4 + GEDCOM
 
