@@ -1288,7 +1288,8 @@ function initProfileTabs() {
     
     // Handle line breaks (two spaces at end of line = <br>)
     // This must be done BEFORE paragraph processing
-    html = html.replace(/  \\n/g, '<br>\\n');
+    // Support both Unix and Windows line endings
+    html = html.replace(/  \\r?\\n/g, '<br>\\n');
     
     // First, extract and preserve multi-line HTML blocks (div, blockquote, etc.)
     // This prevents them from being broken by paragraph splitting
