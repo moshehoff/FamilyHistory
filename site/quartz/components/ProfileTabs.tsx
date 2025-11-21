@@ -112,46 +112,73 @@ export default (() => {
   }
 }
 
+/* Gallery styles - High specificity to override custom.scss */
+/* Masonry layout using CSS Multi-column for true masonry effect */
+.tab-pane .gallery-grid,
+[data-tab-content="media"] .gallery-grid,
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
-  padding: 1rem 0;
+  column-count: 2 !important; /* 2 columns for masonry */
+  column-gap: 0.75rem !important; /* Gap between columns */
+  padding: 0 !important; /* No padding */
+  margin-top: 1rem !important;
+  break-inside: avoid !important; /* Prevent items from breaking across columns */
 }
 
+.tab-pane .gallery-item,
+[data-tab-content="media"] .gallery-item,
 .gallery-item {
-  display: flex;
-  flex-direction: column;
-  border-radius: 8px;
-  overflow: hidden;
-  background: var(--light);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block !important; /* Required for column-count masonry */
+  width: 100% !important; /* Full width of column */
+  vertical-align: top !important; /* Align items to top */
+  border-radius: 0 !important; /* No border radius - cleaner look */
+  overflow: visible !important; /* Ensure border and shadow are visible */
+  background: transparent !important; /* No background */
+  transition: transform 0.2s ease !important;
+  margin: 0 0 0.75rem 0 !important; /* Margin bottom for spacing between items */
+  cursor: pointer !important;
+  break-inside: avoid !important; /* Prevent breaking across columns */
+  page-break-inside: avoid !important; /* For older browsers */
   
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: scale(1.01) !important; /* Subtle hover */
+    z-index: 10 !important;
   }
   
   img {
-    width: 100%;
-    height: 200px;
-    object-fit: contain;
-    cursor: pointer;
-    background: var(--lightgray);
+    width: 100% !important;
+    height: auto !important; /* Natural image height */
+    cursor: pointer !important;
+    background: white !important;
+    display: block !important;
+    border: 2px solid #333 !important;
+    border-radius: 4px 4px 0 0 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    padding: 0 !important; /* No padding */
+    margin: 0 !important; /* No margin */
+    object-fit: contain !important; /* Show full image */
+    max-width: 100% !important; /* Override base.scss */
+    content-visibility: auto !important; /* Override base.scss */
   }
   
   .image-caption {
-    padding: 0.75rem;
-    font-size: 0.85rem;
-    line-height: 1.4;
-    background: var(--light);
+    padding: 0.35rem 0.5rem !important; /* Very tight padding */
+    font-size: 0.85rem !important;
+    line-height: 1.3 !important; /* Tighter line height */
+    background: #ffffff !important;
+    margin: 0 !important; /* No margin */
+    border: 1px solid #e1e4e8 !important;
+    border-top: none !important; /* No border on top - attached to image */
+    border-radius: 0 0 4px 4px !important;
+    text-align: left !important;
+    color: #666 !important;
     
     a {
-      color: var(--secondary);
-      text-decoration: none;
+      color: #0066cc !important;
+      text-decoration: underline !important;
       
       &:hover {
-        text-decoration: underline;
+        text-decoration: none !important;
+        color: #0052a3 !important;
       }
     }
   }
@@ -371,14 +398,14 @@ export default (() => {
   
   /* Gallery grid - smaller on mobile */
   .gallery-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1rem;
-    padding: 0.5rem 0;
+    column-count: 2 !important; /* Keep 2 columns on mobile */
+    column-gap: 0.5rem !important; /* Even tighter on mobile */
+    padding: 0 !important;
   }
   
   .gallery-item .image-caption {
-    font-size: 0.75rem;
-    padding: 0.5rem;
+    font-size: 0.75rem !important;
+    padding: 0.3rem 0.4rem !important; /* Very tight on mobile */
   }
   
   /* Documents list - stack better */
