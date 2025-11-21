@@ -1,8 +1,10 @@
 # מפרט מפורט - אתר היסטוריה משפחתית
 
-**גרסה**: 3.0  
+**גרסה**: 3.1  
 **תאריך**: נובמבר 2025  
 **סטטוס**: מימוש פעיל
+
+**עדכון אחרון**: Gallery System - תיוג רב-פרופילים וקישורים אוטומטיים
 
 ---
 
@@ -1022,25 +1024,132 @@ Wolf & Beile Hochman
 ```
 (ללא שורה ריקה בינהם, והשתמש ב-`**_text_**`)
 
-### 3.4 Media Index
+### 3.4 Media Index & Gallery System
 
 **מיקום**: `site/quartz/static/media-index.json` (generated)
 
-**מבנה**:
+#### 3.4.1 סקירה כללית
+
+מערכת הגלריה מאפשרת:
+- **תיוג רב-פרופילים**: תמונה אחת יכולה להופיע בגלריות של מספר אנשים
+- **קישורים אוטומטיים**: שמות בכיתובים הופכים אוטומטית לקישורים
+- **ארגון פשוט**: קבצי תמונה + קבצי `.md` לכיתובים
+- **גמישות**: תמונות עם/בלי כיתוב, עם/בלי תיוגים
+
+#### 3.4.2 מבנה תיקיות
+
+```
+documents/
+├── I11052340/                    # Moshe Hoffman (primary owner)
+│   ├── family-gathering-1960.jpg
+│   ├── family-gathering-1960.md  # Caption with tags
+│   ├── portrait-1965.jpg
+│   ├── portrait-1965.md          # Caption without tags
+│   └── house-photo.jpg           # Image without caption
+├── I11032861/                    # Haim Yehuda Hochman
+│   ├── business-partners-1920.jpg
+│   └── business-partners-1920.md
+└── I39965449/                    # Berl Hochman
+    ├── wedding-day.jpg
+    └── wedding-day.md
+```
+
+**עקרונות**:
+- כל פרופיל יכול לקבל תיקיה `documents/{ID}/`
+- תמונה נשמרת בתיקייה של ה"בעלים העיקרי" (primary owner)
+- קובץ `.md` עם אותו שם מכיל את הכיתוב
+- אם אין קובץ `.md`, התמונה תוצג ללא כיתוב
+
+#### 3.4.3 פורמט קבצי Caption (.md)
+
+**דוגמה 1**: כיתוב עם תיוגים (cross-tagging)
+
+```markdown
+משפחה התאספה ב-1960
+
+שורה קדמית (משמאל לימין): I11052340, I11032861
+
+מיקום: פרת׳, אוסטרליה
+```
+
+**דוגמה 2**: כיתוב ללא תיוגים
+
+```markdown
+בית המשפחה ברחוב קליף, פרמנטל
+
+צולם בערך ב-1965
+```
+
+**עקרונות**:
+- טקסט חופשי ב-Markdown
+- **תיוגים**: כל מחרוזת מהצורה `I` + מספרים (למשל `I11052340`) מזוהה כתיוג
+- `doit.py` ממיר אוטומטית את התיוגים ל-HTML links עם שם האדם
+- ירידות שורה (`\n`) מומרות ל-`<br>` בתצוגה
+
+#### 3.4.4 מבנה media-index.json
+
+**פורמט**:
 ```json
 {
-  "I10": {
-    "images": [
+  "images": {
+    "I11052340": [
       {
-        "filename": "Tubble & Moishe 1957.jpg",
-        "path": "/documents/I10/Tubble & Moishe 1957.jpg",
-        "caption": "*Tubble & Moishe 1957*..."
+        "filename": "family-gathering-1960.jpg",
+        "path": "/static/documents/I11052340/family-gathering-1960.jpg",
+        "caption": "משפחה התאספה ב-1960<br><br>שורה קדמית: <a href=\"/profiles/Moshe-משה-Hoffman\">Moshe משה Hoffman</a>, <a href=\"/profiles/Haim-Yehuda-חיים-יהודה-Hochman\">Haim Yehuda חיים יהודה Hochman</a>",
+        "people": ["@I11052340@", "@I11032861@"],
+        "owner": "I11052340"
+      },
+      {
+        "filename": "portrait-1965.jpg",
+        "path": "/static/documents/I11052340/portrait-1965.jpg",
+        "caption": "בית המשפחה ברחוב קליף",
+        "people": [],
+        "owner": "I11052340"
       }
     ],
-    "documents": []
-  }
+    "I11032861": [
+      {
+        "filename": "family-gathering-1960.jpg",
+        "path": "/static/documents/I11052340/family-gathering-1960.jpg",
+        "caption": "משפחה התאספה ב-1960<br><br>שורה קדמית: <a href=\"/profiles/Moshe-משה-Hoffman\">Moshe משה Hoffman</a>, <a href=\"/profiles/Haim-Yehuda-חיים-יהודה-Hochman\">Haim Yehuda חיים יהודה Hochman</a>",
+        "people": ["@I11052340@", "@I11032861@"],
+        "owner": "I11052340"
+      }
+    ]
+  },
+  "documents": {}
 }
 ```
+
+**הסבר שדות**:
+- **`filename`**: שם הקובץ המקורי
+- **`path`**: נתיב מלא מה-root של האתר (לשימוש ב-frontend)
+- **`caption`**: כיתוב מעובד עם HTML links (null אם אין)
+- **`people`**: רשימת IDs של כל מי שמתויג בתמונה (פורמט GEDCOM: `@I...@`)
+- **`owner`**: ה-ID של הבעלים העיקרי (המופיע בנתיב הקובץ)
+
+**Cross-Tagging**: אם תמונה מתייגת 3 אנשים, היא תופיע ברשימת `images` של שלושתם, אבל תמיד עם אותו `path` (מה-`owner` המקורי).
+
+#### 3.4.5 תהליך העיבוד ב-doit.py
+
+1. **סריקת תיקיות**: `create_media_index()` סורק את `documents/` ומוצא כל קבצי תמונה
+2. **קריאת captions**: לכל תמונה, מחפש קובץ `.md` מקביל
+3. **זיהוי תיוגים**: regex `\bI\d+\b` מזהה כל ID בטקסט
+4. **המרת IDs**: `convert_ids_to_links()` הופך `I11052340` ל-`<a href="/profiles/Moshe-משה-Hoffman">Moshe משה Hoffman</a>`
+5. **המרת שורות**: `\n` → `<br>`
+6. **Cross-tagging**: לכל אדם ברשימת `people`, הקובץ מתווסף גם לגלריה שלו
+7. **שמירה**: הכל נשמר ב-`media-index.json`
+
+#### 3.4.6 תצוגה ב-Frontend (ProfileTabs.tsx)
+
+- **טעינה**: `ProfileTabs.tsx` קורא את `media-index.json`
+- **בדיקת נראות**: Tab "Gallery" מוצג רק אם יש `images.length > 0`
+- **רינדור**: 
+  - תמונה: נטענת מה-`path`
+  - כיתוב: מוצג כ-HTML מעובד (כבר עם links)
+  - לחיצה על תמונה: פותחת בחלון חדש
+  - לחיצה על קישור בכיתוב: ניווט לפרופיל (לא פותח את התמונה)
 
 **שימוש**: `ProfileTabs.tsx` קורא את הקובץ ומציג Gallery רק אם יש מדיה
 
@@ -1174,7 +1283,11 @@ article, .tab-pane {
 
 ### 4.6 Images & Captions
 
-#### Images
+#### 4.6.1 תמונות בביוגרפיה (Embedded Images)
+
+**שימוש**: תמונות המוטמעות בתוך פרקי הביוגרפיה
+
+**Images**
 - **Display**: block, centered
 - **Margin**: 2rem auto
 - **Border**: 2px solid #333 (black frame)
@@ -1184,7 +1297,7 @@ article, .tab-pane {
 - **Background**: white
 - **Max Width**: 100%
 
-#### Captions
+**Captions**
 - **Format in Markdown**: `**_caption text_**` (bold + italic)
 - **Rendering**: `<strong><em>caption</em></strong>`
 - **Styling**:
@@ -1200,6 +1313,55 @@ article, .tab-pane {
 **CSS Selector**: `strong > em:only-child`
 
 **קוד**: `site/quartz/styles/custom.scss`
+
+#### 4.6.2 גלריה (Gallery Tab)
+
+**שימוש**: תמונות המוצגות ב-Gallery tab של פרופילים
+
+**Gallery Grid**
+- **Display**: CSS Grid
+- **Columns**: `repeat(auto-fill, minmax(200px, 1fr))`
+- **Gap**: 1.5rem
+- **Margin Top**: 1rem
+
+**Gallery Items**
+- **Border**: 2px solid #333 (black frame)
+- **Border Radius**: 4px (top) + 0 0 4px 4px (caption)
+- **Box Shadow**: 0 2px 8px rgba(0, 0, 0, 0.15)
+- **Background**: white
+- **Margin**: 8px (prevents clipping)
+- **Overflow**: visible
+- **Cursor**: pointer
+- **Hover**: `transform: scale(1.05)`
+
+**Images in Gallery**
+- **Width**: 100%
+- **Height**: auto
+- **Object Fit**: cover (default) או contain (for full view)
+- **Display**: block
+- **Padding**: 8px
+- **Background**: white
+
+**Gallery Captions (Option B - Selected)**
+- **Border**: 1px solid #e1e4e8 (subtle gray)
+- **Border Radius**: 0 0 4px 4px (rounded bottom only)
+- **Padding**: 0.5rem 0.75rem
+- **Background**: `linear-gradient(to bottom, #ffffff, #f6f8fa)` (subtle gradient)
+- **Margin Top**: 0.05rem (tight to image)
+- **Text Align**: left
+- **Font Size**: 0.9rem
+- **Color**: #666 (gray text)
+- **Line Height**: 1.3
+
+**Caption Links**
+- **Color**: #0066cc (blue)
+- **Text Decoration**: underline
+- **Hover Color**: #0052a3 (darker blue)
+- **Hover Text Decoration**: none
+
+**קוד**: 
+- `site/quartz/styles/custom.scss` - Gallery styles
+- `site/quartz/components/ProfileTabs.tsx` - Gallery rendering logic
 
 ### 4.7 Blockquotes
 
@@ -1237,6 +1399,34 @@ article, .tab-pane {
 - Border Top: 2px solid #e0e0e0
 - Margin: 3rem 0
 - Width: 60%
+
+### 4.10 Biography Banner
+
+**שימוש**: באנר אינטראקטיבי בראש הפרופיל, מופיע רק בפרופילים עם ביוגרפיה מורחבת (פרקים)
+
+**Styling**:
+- **Background**: var(--secondary) (theme color)
+- **Color**: var(--light) (white/light text)
+- **Padding**: 0.75rem 1rem
+- **Margin Bottom**: 1.5rem
+- **Border Radius**: 8px
+- **Text Align**: center
+- **Font Size**: 1.1rem
+- **Font Weight**: 500
+- **Cursor**: pointer
+- **Transition**: background-color 0.3s ease
+- **Hover Background**: var(--secondary-dark)
+
+**Content**: "📖 View Biography Chapters Below ⬇️"
+
+**Behavior**:
+- לחיצה על הבאנר גוללת בצורה חלקה (smooth scroll) למיקום הביוגרפיה
+- מופיע רק אם יש פרקי ביוגרפיה (נקבע דינמית ב-JS)
+- ממוקם **לפני** ה-ProfileTabs (לפני רשימת הפרטים)
+
+**קוד**: 
+- `site/quartz/styles/custom.scss` - `.biography-banner-top`
+- `site/quartz/components/ProfileTabs.tsx` - Banner creation and click handler
 - Centered (margin-left/right: auto)
 
 ---
@@ -1281,18 +1471,87 @@ python scripts/doit.py data/tree.ged
 
 ### 5.3 הוספת מדיה (תמונות/מסמכים)
 
+#### 5.3.1 הוספת תמונה פשוטה (ללא כיתוב)
+
 ```bash
-# 1. Create directory for profile
-mkdir documents/{ID}/
+# 1. Create directory for profile (if doesn't exist)
+mkdir documents/I11052340/
 
-# 2. Add media files
-cp photo.jpg documents/{ID}/
+# 2. Add image file
+cp my-photo.jpg documents/I11052340/
 
-# 3. Add caption/description (optional)
-# Create documents/{ID}/photo.md with caption
-
-# 4. Run build script
+# 3. Run build script
 python scripts/doit.py data/tree.ged
+
+# 4. Build site
+cd site
+npx quartz build
+```
+
+התמונה תופיע בגלריה של הפרופיל ללא כיתוב.
+
+#### 5.3.2 הוספת תמונה עם כיתוב (ללא תיוגים)
+
+```bash
+# 1. Add image file
+cp my-photo.jpg documents/I11052340/
+
+# 2. Create caption file with same name
+cat > documents/I11052340/my-photo.md << 'EOF'
+בית המשפחה ברחוב קליף, פרמנטל
+
+צולם בערך ב-1965
+EOF
+
+# 3. Run build script
+python scripts/doit.py data/tree.ged
+cd site
+npx quartz build
+```
+
+#### 5.3.3 הוספת תמונה עם תיוגים (Cross-tagging)
+
+```bash
+# 1. Add image to primary owner's directory
+cp family-photo.jpg documents/I11052340/
+
+# 2. Create caption with person IDs
+cat > documents/I11052340/family-photo.md << 'EOF'
+משפחה התאספה ב-1960
+
+שורה קדמית (משמאל לימין): I11052340, I11032861, I39965449
+
+מיקום: פרת׳, אוסטרליה
+EOF
+
+# 3. Run build script
+python scripts/doit.py data/tree.ged
+cd site
+npx quartz build
+```
+
+**תוצאה**: התמונה תופיע בגלריות של שלושת הפרופילים המתויגים, עם קישורים אוטומטיים לשמותיהם.
+
+#### 5.3.4 מציאת ID של פרופיל
+
+**דרך 1**: דרך האתר
+```
+1. פתח פרופיל באתר
+2. הID מופיע ב-URL: /profiles/Moshe-משה-Hoffman
+3. חפש בקובץ GEDCOM או ב-doit.py logs
+```
+
+**דרך 2**: חיפוש ב-GEDCOM
+```bash
+grep -n "Moshe.*Hoffman" data/tree.ged
+# Output: 
+# 123:1 NAME Moshe משה /Hoffman/
+# קודם לכך יופיע: 0 @I11052340@ INDI
+```
+
+**דרך 3**: חיפוש בקבצי Markdown שנוצרו
+```bash
+grep -r "data-profile-id" site/content/profiles/ | grep "Moshe"
 ```
 
 ### 5.4 עדכון דפים סטטיים
@@ -1339,11 +1598,14 @@ python scripts/doit.py --clean
 - **Italic**: `_text_` או `*text*`
 - **Bold + Italic**: `**_text_**` או `_**text**_`
 
-#### 6.1.2 תמונות
+#### 6.1.2 תמונות בביוגרפיה
+
+**שימוש**: תמונות המוטמעות ישירות בתוך טקסט הביוגרפיה (לא בגלריה)
 
 **פורמט Obsidian**:
 ```markdown
 ![[Pasted image 20251022123649.png]]
+
 **_SAVRAN in THE UKRAINE (present day frontiers)._**
 ```
 
@@ -1356,6 +1618,14 @@ python scripts/doit.py --clean
 - התמונה והcaption חייבים להיות בפסקאות נפרדות (שורה ריקה ביניהם)
 - Caption חייב להיות `**_text_**` (bold + italic) כדי להיות ממורכז
 - אם רוצים caption רגיל (לא ממורכז), השתמשו רק ב-`_text_` (italic)
+
+**מיקום הקבצים**:
+- תמונות בביוגרפיות נשמרות ב-`bios/{ID}/`
+- `doit.py` מעתיק אותן ל-`site/content/` בזמן הבנייה
+
+**הבדל מגלריה**:
+- תמונות כאן = חלק מהטקסט, מוטמעות בפרקים
+- תמונות בגלריה = מוצגות ב-tab "Gallery", מ-`documents/{ID}/`
 
 #### 6.1.3 ציטוטים
 
@@ -1550,7 +1820,9 @@ More content...
 Even more content...
 ```
 
-#### 6.3.3 כיתובי תמונות - פורמט אחיד
+#### 6.3.3 כיתובי תמונות בביוגרפיה - פורמט אחיד
+
+**שימוש**: סעיף זה מתייחס לתמונות **בתוך פרקי הביוגרפיה** (`bios/{ID}/`), לא לתמונות בגלריה.
 
 **כל כיתוב תמונה חייב להיות בפורמט**: `**_TEXT_**` (bold + italic)
 

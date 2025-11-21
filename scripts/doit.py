@@ -838,17 +838,69 @@ def build_obsidian_notes(individuals, families, out_dir, bios_dir):
         out_path = os.path.join(people_dir, slug + ".md")
         with open(out_path, "w", encoding="utf-8") as f:
             f.write("\n".join(lines) + "\n")
+    
+    # Return id_to_slug for use in other functions
+    return id_to_slug
 
 
 ##############################################################################
 # 4) CREATE media-index.json for ProfileTabs
 ##############################################################################
 
-def create_media_index(documents_dir, static_dir):
-    """Create a JSON index of all images and documents for each profile."""
+def create_media_index(documents_dir, static_dir, individuals=None, id_to_slug=None):
+    """Create a JSON index of all images and documents for each profile.
+    
+    Args:
+        documents_dir: Path to documents directory
+        static_dir: Path to static output directory
+        individuals: Dictionary of individuals from GEDCOM (for ID->name mapping)
+        id_to_slug: Dictionary mapping person IDs to their profile slugs
+    """
     import json
+    import re
     
     print(f"[DEBUG] Starting media index creation from {documents_dir}")
+    
+    # Normalize individuals dictionary (same as build_obsidian_notes)
+    inds = {}
+    if individuals:
+        inds = {i: norm_individual(i, d) for i, d in individuals.items()}
+    
+    def extract_person_ids(text):
+        """Extract all person IDs from text (format: I followed by digits)."""
+        if not text:
+            return []
+        return re.findall(r'\bI\d+\b', text)
+    
+    def convert_ids_to_links(text, owner_id):
+        """Convert I123456 → <a href='/profiles/...'>Name</a>"""
+        if not text or not inds or not id_to_slug:
+            return text
+        
+        def replace_id(match):
+            raw_id = match.group(0)  # e.g., "I11052340"
+            person_id = '@' + raw_id + '@'  # Convert to GEDCOM format
+            
+            person_info = inds.get(person_id)
+            if not person_info:
+                return raw_id  # Keep as-is if not found
+            
+            # Access name using array index (same way as in person_id_to_html)
+            name = person_info["name"] if "name" in person_info else raw_id
+            if not name:
+                name = raw_id
+            
+            # Get slug for this person
+            if person_id in id_to_slug:
+                slug = id_to_slug[person_id]
+            else:
+                slug = safe_filename(name).replace(" ", "-")
+            
+            # Create HTML link
+            encoded_slug = urllib.parse.quote(slug)
+            return f'<a href="/profiles/{encoded_slug}">{name}</a>'
+        
+        return re.sub(r'\bI\d+\b', replace_id, text)
     
     # documents/ is in project root, not in profiles/
     # Contains both images and documents for each profile
@@ -857,6 +909,9 @@ def create_media_index(documents_dir, static_dir):
         "images": {},
         "documents": {}
     }
+    
+    # Temporary storage for all media items before distributing to tagged people
+    all_media_items = []  # List of (owner_id, filename, caption, people_ids, item_type, title, description)
     
     # Scan documents directory (contains both images and documents for each profile)
     if os.path.exists(documents_dir):
@@ -867,9 +922,6 @@ def create_media_index(documents_dir, static_dir):
         for profile_id in profile_dirs:
             profile_dir = os.path.join(documents_dir, profile_id)
             print(f"[DEBUG] Processing profile {profile_id}")
-            
-            images = []
-            documents = []
             
             files_in_dir = os.listdir(profile_dir)
             print(f"[DEBUG]   Files in {profile_id}: {files_in_dir}")
@@ -886,19 +938,24 @@ def create_media_index(documents_dir, static_dir):
                 if filename.lower().endswith(('.jpg', '.jpeg', '.png', '.gif', '.webp')):
                     print(f"[DEBUG]   Found image: {filename}")
                     # Try to read caption from metadata file
-                    caption = ""
+                    caption_raw = ""
                     for ext in ['.txt', '.md']:
                         caption_file = os.path.join(profile_dir, base_name + ext)
                         if os.path.exists(caption_file):
                             with open(caption_file, 'r', encoding='utf-8') as f:
-                                caption = f.read().strip()
-                            print(f"[DEBUG]     Caption from {base_name}{ext}: {caption[:50]}...")
+                                caption_raw = f.read().strip()
+                            print(f"[DEBUG]     Caption from {base_name}{ext}: {caption_raw[:50]}...")
                             break
                     
-                    images.append({
-                        "filename": filename,
-                        "caption": caption
-                    })
+                    # Extract person IDs from caption
+                    people_ids = extract_person_ids(caption_raw)
+                    if people_ids:
+                        print(f"[DEBUG]     Found tagged people: {people_ids}")
+                    
+                    # Convert IDs to links in caption
+                    caption_html = convert_ids_to_links(caption_raw, profile_id)
+                    
+                    all_media_items.append((profile_id, filename, caption_html, people_ids, 'image', None, None))
                 
                 # Otherwise, it's a document
                 else:
@@ -918,18 +975,46 @@ def create_media_index(documents_dir, static_dir):
                             print(f"[DEBUG]     Metadata from {base_name}{ext}: title='{title}', desc='{description[:30]}...'")
                             break
                     
-                    documents.append({
-                        "filename": filename,
-                        "title": title,
-                        "description": description
-                    })
+                    all_media_items.append((profile_id, filename, None, [], 'document', title, description))
+        
+        # Now distribute media items to all tagged people
+        print(f"[DEBUG] Distributing {len(all_media_items)} media items to tagged profiles")
+        for owner_id, filename, caption_or_none, people_ids, item_type, title, description in all_media_items:
+            # Create the media item object
+            if item_type == 'image':
+                item = {
+                    "filename": filename,
+                    "caption": caption_or_none,
+                    "people": people_ids,
+                    "owner": owner_id,
+                    "path": f"/static/documents/{owner_id}/{filename}"
+                }
+                
+                # Add image to owner
+                if owner_id not in index["images"]:
+                    index["images"][owner_id] = []
+                index["images"][owner_id].append(item)
+                
+                # Add image to all tagged people
+                for person_id_raw in people_ids:
+                    person_id_gedcom = '@' + person_id_raw + '@'
+                    if person_id_gedcom != '@' + owner_id + '@':  # Don't duplicate for owner
+                        if person_id_raw not in index["images"]:
+                            index["images"][person_id_raw] = []
+                        index["images"][person_id_raw].append(item)
+                        print(f"[DEBUG]   Added image {filename} to {person_id_raw}'s gallery")
             
-            if images:
-                index["images"][profile_id] = images
-                print(f"[DEBUG]   Added {len(images)} images for {profile_id}")
-            if documents:
-                index["documents"][profile_id] = documents
-                print(f"[DEBUG]   Added {len(documents)} documents for {profile_id}")
+            else:  # document
+                item = {
+                    "filename": filename,
+                    "title": title,
+                    "description": description
+                }
+                if owner_id not in index["documents"]:
+                    index["documents"][owner_id] = []
+                index["documents"][owner_id].append(item)
+        
+        print(f"[DEBUG]   Final: {len(index['images'])} profiles with images, {len(index['documents'])} profiles with documents")
     else:
         print(f"[DEBUG] Documents directory does not exist: {documents_dir}")
     
@@ -1438,7 +1523,7 @@ def main():
     # Copy source content to site/content/
     copy_source_content(args.src_content_dir, os.path.dirname(args.output))
 
-    build_obsidian_notes(individuals, families, args.output, args.bios_dir)
+    id_to_slug = build_obsidian_notes(individuals, families, args.output, args.bios_dir)
 
     # Write index pages to pages/ directory (under site/content/pages/)
     people_dir = args.output  # profiles are directly in output
@@ -1452,7 +1537,7 @@ def main():
     # Create media index for ProfileTabs
     documents_dir = "documents"  # documents/ in project root
     static_dir = os.path.join("site", "quartz", "static")
-    create_media_index(documents_dir, static_dir)
+    create_media_index(documents_dir, static_dir, individuals, id_to_slug)
     
     # Create chapters index and copy chapter files
     create_chapters_index(args.bios_dir, static_dir, individuals)

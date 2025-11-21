@@ -114,39 +114,46 @@ export default (() => {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
   padding: 1rem 0;
 }
 
 .gallery-item {
-  position: relative;
-  aspect-ratio: 1;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+  overflow: hidden;
+  background: var(--light);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   
   &:hover {
-    transform: scale(1.05);
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
   
   img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: 200px;
+    object-fit: contain;
+    cursor: pointer;
+    background: var(--lightgray);
   }
   
   .image-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 0.5rem;
-    font-size: 0.9rem;
-    text-align: center;
+    padding: 0.75rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    background: var(--light);
+    
+    a {
+      color: var(--secondary);
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
 
@@ -364,9 +371,14 @@ export default (() => {
   
   /* Gallery grid - smaller on mobile */
   .gallery-grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
     padding: 0.5rem 0;
+  }
+  
+  .gallery-item .image-caption {
+    font-size: 0.75rem;
+    padding: 0.5rem;
   }
   
   /* Documents list - stack better */
@@ -454,6 +466,8 @@ function initProfileTabs() {
     return;
   }
   
+  // Add biography banner will be added later, after we know where profile-tabs is
+  
   const profileId = profileTabs.getAttribute('data-profile-id');
   let basePath = profileTabs.getAttribute('data-base-path') || '';
   // Ensure basePath ends with / if it's not empty
@@ -498,6 +512,37 @@ function initProfileTabs() {
         
         if (chaptersData) {
           console.log('[ProfileTabs] Found chapters for profile', profileId, chaptersData);
+          
+          // Add biography banner ONLY if this profile has chapters
+          setTimeout(function() {
+            const article = document.querySelector('article');
+            const profileTabs = document.querySelector('.profile-tabs');
+            const existingBanner = document.querySelector('.biography-banner-top');
+            
+            if (article && profileTabs && !existingBanner) {
+              const banner = document.createElement('div');
+              banner.className = 'biography-banner-top';
+              banner.innerHTML = '📖 View Biography Chapters Below ⬇️';
+              banner.style.cursor = 'pointer';
+              banner.addEventListener('click', function() {
+                const biographyHeading = document.querySelector('.biography-heading');
+                if (biographyHeading) {
+                  biographyHeading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                  // Fallback: scroll to biography tab content
+                  const bioTab = document.querySelector('[data-tab-content="biography"]');
+                  if (bioTab) {
+                    bioTab.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }
+              });
+              
+              // Insert banner before ProfileTabs in article
+              article.insertBefore(banner, profileTabs);
+              console.log('[ProfileTabs] Added biography banner');
+            }
+          }, 150);
+          
           // Wait a bit to ensure content has been moved to Biography tab
           setTimeout(function() {
             createChapterTabs(chaptersData);
@@ -961,19 +1006,7 @@ function initProfileTabs() {
       }
     }
     
-    // Scroll to the Biography heading (smooth scroll)
-    setTimeout(function() {
-      const biographyHeading = document.querySelector('.biography-heading');
-      if (biographyHeading) {
-        biographyHeading.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      } else {
-        // Fallback: scroll to chapter tabs container
-        const chapterTabsContainer = document.querySelector('.chapter-tabs-container');
-        if (chapterTabsContainer) {
-          chapterTabsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
-    }, 100);
+    // Don't auto-scroll - let user click the banner to scroll
   }
   
   // Load chapter content
@@ -1409,12 +1442,32 @@ function initProfileTabs() {
           images.forEach(function(img) {
             const item = document.createElement('div');
             item.className = 'gallery-item';
-            item.innerHTML = '<img src="' + documentsBasePath + img.filename + '" alt="' + (img.caption || '') + '">' +
-                            (img.caption ? '<div class="image-caption">' + img.caption + '</div>' : '');
+            
+            // Build the correct path for the image
+            let imagePath;
+            if (img.path) {
+              // img.path is like "/static/documents/ID/filename.jpg"
+              // Remove leading slash and prepend pageBasePath
+              imagePath = pageBasePath + (img.path.startsWith('/') ? img.path.substring(1) : img.path);
+            } else {
+              // Fallback to constructing from filename (for images without path)
+              imagePath = documentsBasePath + img.filename;
+            }
+            const imageAlt = img.caption ? img.caption.replace(/<[^>]*>/g, '') : ''; // Strip HTML for alt text
+            // Convert newlines to <br> tags for line breaks in caption
+            const newlineChar = String.fromCharCode(10);
+            const formattedCaption = img.caption ? img.caption.split(newlineChar).join('<br>') : '';
+            
+            item.innerHTML = '<img src="' + imagePath + '" alt="' + imageAlt + '">' +
+                            (formattedCaption ? '<div class="image-caption">' + formattedCaption + '</div>' : '');
             
             // Click to open full size
-            item.addEventListener('click', function() {
-              window.open(documentsBasePath + img.filename, '_blank');
+            item.addEventListener('click', function(e) {
+              // Don't open if clicking on a link in the caption
+              if (e.target.tagName.toLowerCase() === 'a') {
+                return;
+              }
+              window.open(imagePath, '_blank');
             });
             
             galleryGrid.appendChild(item);

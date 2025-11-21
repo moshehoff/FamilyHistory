@@ -100,6 +100,8 @@ article {
   .gallery-item {
     cursor: pointer;
     transition: transform 0.2s ease;
+    margin: 8px; // Add margin instead of padding to prevent clipping
+    overflow: visible; // Ensure border and shadow are fully visible
     
     &:hover {
       transform: scale(1.05);
@@ -113,14 +115,29 @@ article {
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
       padding: 8px;
       background: white;
+      display: block;
     }
     
     .image-caption {
-      margin-top: 0.5rem;
-      text-align: center;
+      border: 1px solid #e1e4e8;
+      border-radius: 0 0 4px 4px;
+      padding: 0.5rem 0.75rem;
+      background: linear-gradient(to bottom, #ffffff, #f6f8fa);
+      margin-top: 0.05rem;
+      text-align: left;
       font-size: 0.9rem;
       color: #666;
-      font-style: italic;
+      line-height: 1.3;
+      
+      a {
+        color: #0066cc !important; // Blue color for links
+        text-decoration: underline;
+        
+        &:hover {
+          text-decoration: none;
+          color: #0052a3 !important; // Darker blue on hover
+        }
+      }
     }
   }
   
@@ -384,6 +401,33 @@ article, .tab-pane {
 }
 
 // Biography heading
+.biography-banner,
+.biography-banner-top {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  margin: 1rem 0 1.5rem 0;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #24292f;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  
+  &:hover {
+    background: linear-gradient(135deg, #e8ebf0 0%, #b3bfd1 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+}
+
 .biography-heading {
   font-size: 1.5rem;
   font-weight: 600;
