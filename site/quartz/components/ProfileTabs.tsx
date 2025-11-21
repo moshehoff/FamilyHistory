@@ -552,16 +552,40 @@ function initProfileTabs() {
               banner.innerHTML = '📖 View Biography Chapters Below ⬇️';
               banner.style.cursor = 'pointer';
               banner.addEventListener('click', function() {
-                const biographyHeading = document.querySelector('.biography-heading');
-                if (biographyHeading) {
-                  biographyHeading.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                } else {
-                  // Fallback: scroll to biography tab content
-                  const bioTab = document.querySelector('[data-tab-content="biography"]');
-                  if (bioTab) {
-                    bioTab.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }
+                // First, switch to Biography tab if not already active
+                const biographyButton = document.querySelector('[data-tab="biography"]');
+                const biographyPane = document.querySelector('[data-tab-content="biography"]');
+                const currentActiveTab = document.querySelector('.tab-button.active');
+                
+                // Check if Biography tab is not active
+                if (biographyButton && biographyPane && 
+                    (!currentActiveTab || currentActiveTab.getAttribute('data-tab') !== 'biography')) {
+                  // Remove active from all tabs
+                  document.querySelectorAll('.tab-button').forEach(function(btn) {
+                    btn.classList.remove('active');
+                  });
+                  document.querySelectorAll('.tab-pane').forEach(function(pane) {
+                    pane.classList.remove('active');
+                  });
+                  
+                  // Activate Biography tab
+                  biographyButton.classList.add('active');
+                  biographyPane.classList.add('active');
                 }
+                
+                // Wait a bit for tab switch animation, then scroll
+                setTimeout(function() {
+                  const biographyHeading = document.querySelector('.biography-heading');
+                  if (biographyHeading) {
+                    biographyHeading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  } else {
+                    // Fallback: scroll to biography tab content
+                    const bioTab = document.querySelector('[data-tab-content="biography"]');
+                    if (bioTab) {
+                      bioTab.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }
+                }, 100);
               });
               
               // Insert banner before ProfileTabs in article
