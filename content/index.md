@@ -20,7 +20,8 @@ your elders, and they will explain to you.”**
 * [The Founding Generation](/pages/founders)
 * [The Hoffman history in Australia](pages/hoffman_history) 
 * [Hoffman?? Hochman?? The Story of a Family Name](pages/the_names) 
-* [Profiles of Interest](pages/profiles-of-interest) - Profiles with extended biographical information
+* [Profiles with Biographies](pages/profiles-of-interest) - Profiles with extended biographical information
+* [Profiles with Galleries](pages/profiles-with-gallery) - Profiles with images in their gallery
 * [About](pages/about) - About this website
 * [All Profiles](pages/all-profiles) - Complete list of 546 family members
 

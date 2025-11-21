@@ -1375,6 +1375,77 @@ def write_bios_index(people_dir, bios_dir, pages_dir):
     with open(os.path.join(pages_dir, "profiles-of-interest.md"), "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
 
+def write_gallery_index(people_dir, static_dir, pages_dir):
+    """Create/overwrite pages/profiles-with-gallery.md with links to profiles that have images."""
+    # Read media-index.json to get profiles with images
+    media_index_path = os.path.join(static_dir, "media-index.json")
+    
+    if not os.path.exists(media_index_path):
+        print(f"[DEBUG] media-index.json not found at {media_index_path}, creating empty gallery index")
+        # Create empty page
+        lines = [
+            "## Profiles with Gallery\n",
+            "This page lists family members who have images in their gallery.\n",
+            "*No gallery images available yet.*"
+        ]
+        os.makedirs(pages_dir, exist_ok=True)
+        with open(os.path.join(pages_dir, "profiles-with-gallery.md"), "w", encoding="utf-8") as f:
+            f.write("\n".join(lines) + "\n")
+        return
+    
+    # Load media index
+    with open(media_index_path, 'r', encoding='utf-8') as f:
+        media_index = json.load(f)
+    
+    # Get all profile IDs that have images
+    gallery_ids = set()
+    if 'images' in media_index:
+        gallery_ids = set(media_index['images'].keys())
+    
+    print(f"[DEBUG] Found {len(gallery_ids)} profiles with gallery images: {sorted(gallery_ids)}")
+    
+    # Get all profile files that have matching gallery
+    profiles_with_gallery = []
+    for fname in sorted(os.listdir(people_dir)):
+        if not fname.endswith('.md'):
+            continue
+            
+        profile_path = os.path.join(people_dir, fname)
+        with open(profile_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+            
+        # Extract cleaned GEDCOM ID (I123) from frontmatter property `ID`
+        gedcom_id = None
+        parts = content.split('---', 2)
+        if len(parts) > 2:
+            fm = parts[1]
+            for ln in fm.splitlines():
+                if ln.strip().startswith('ID:'):
+                    gedcom_id = ln.split(':', 1)[1].strip().strip("'\"")
+                    break
+        if gedcom_id and gedcom_id in gallery_ids:
+            # Use slugified name (with dashes instead of spaces) for URL
+            slugified_name = fname[:-3].replace(' ', '-')
+            profiles_with_gallery.append((fname[:-3], slugified_name))  # (title, slugified_name)
+
+    # Create the index page
+    lines = [
+        "## Profiles with Gallery\n",
+        "This page lists family members who have images in their gallery.\n"
+    ]
+    
+    if profiles_with_gallery:
+        for title, slugified_name in profiles_with_gallery:
+            # Use slugified name directly (no URL encoding needed, already has dashes)
+            url = "/profiles/" + slugified_name
+            lines.append(f"* [{title}]({url})")
+    else:
+        lines.append("*No gallery images available yet.*")
+
+    os.makedirs(pages_dir, exist_ok=True)
+    with open(os.path.join(pages_dir, "profiles-with-gallery.md"), "w", encoding="utf-8") as f:
+        f.write("\n".join(lines) + "\n")
+
 def write_family_data_json(individuals, families, out_dir):
     """Generate family-data.json for the large family tree visualization."""
     inds = {i: norm_individual(i, d) for i, d in individuals.items()}
@@ -1528,16 +1599,21 @@ def main():
     # Write index pages to pages/ directory (under site/content/pages/)
     people_dir = args.output  # profiles are directly in output
     pages_dir = os.path.join(os.path.dirname(args.output), "pages")
+    static_dir = os.path.join("site", "quartz", "static")
     write_people_index(people_dir, pages_dir)  # Write all-profiles.md
     write_bios_index(people_dir, args.bios_dir, pages_dir)  # Write profiles-of-interest.md
+    
+    # Create media index first (needed for gallery index)
+    documents_dir = "documents"  # documents/ in project root
+    create_media_index(documents_dir, static_dir, individuals, id_to_slug)
+    
+    # Write gallery index (after media-index.json is created)
+    write_gallery_index(people_dir, static_dir, pages_dir)  # Write profiles-with-gallery.md
 
     # Generate family data JSON for large family tree
     write_family_data_json(individuals, families, args.output)
     
-    # Create media index for ProfileTabs
-    documents_dir = "documents"  # documents/ in project root
-    static_dir = os.path.join("site", "quartz", "static")
-    create_media_index(documents_dir, static_dir, individuals, id_to_slug)
+    # Media index is already created above (needed for gallery index)
     
     # Create chapters index and copy chapter files
     create_chapters_index(args.bios_dir, static_dir, individuals)
