@@ -1439,6 +1439,7 @@ function initProfileTabs() {
           mediaContent.appendChild(imagesSection);
           
           const galleryGrid = imagesSection.querySelector('.gallery-grid');
+          
           images.forEach(function(img) {
             const item = document.createElement('div');
             item.className = 'gallery-item';
@@ -1458,8 +1459,18 @@ function initProfileTabs() {
             const newlineChar = String.fromCharCode(10);
             const formattedCaption = img.caption ? img.caption.split(newlineChar).join('<br>') : '';
             
-            item.innerHTML = '<img src="' + imagePath + '" alt="' + imageAlt + '">' +
-                            (formattedCaption ? '<div class="image-caption">' + formattedCaption + '</div>' : '');
+            // Create image element
+            const imgElement = document.createElement('img');
+            imgElement.src = imagePath;
+            imgElement.alt = imageAlt;
+            
+            item.appendChild(imgElement);
+            if (formattedCaption) {
+              const captionDiv = document.createElement('div');
+              captionDiv.className = 'image-caption';
+              captionDiv.innerHTML = formattedCaption;
+              item.appendChild(captionDiv);
+            }
             
             // Click to open full size
             item.addEventListener('click', function(e) {

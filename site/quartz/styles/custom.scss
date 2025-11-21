@@ -89,29 +89,42 @@ article {
     margin-bottom: 1rem;
   }
   
-  // Gallery styles
+  // Gallery styles - CSS Grid layout
   .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(2, 1fr); // 2 columns
     gap: 1.5rem;
     margin-top: 1rem;
+    align-items: start; // Items align to top of their row
+    
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr); // 2 columns on tablets
+      gap: 1rem;
+    }
+    
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr; // 1 column on mobile
+      gap: 1rem;
+    }
   }
   
   .gallery-item {
+    display: flex;
+    flex-direction: column;
     cursor: pointer;
     transition: transform 0.2s ease;
-    margin: 8px; // Add margin instead of padding to prevent clipping
     overflow: visible; // Ensure border and shadow are fully visible
     
     &:hover {
-      transform: scale(1.05);
+      transform: scale(1.02); // Slightly less aggressive scale
+      z-index: 10; // Ensure hover item is on top
     }
     
     img {
       width: 100%;
-      height: auto;
+      height: auto; // Let the image determine its own height
       border: 2px solid #333;
-      border-radius: 4px;
+      border-radius: 4px 4px 0 0; // Rounded corners only on top
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
       padding: 8px;
       background: white;
