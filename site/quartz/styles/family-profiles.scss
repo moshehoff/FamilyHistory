@@ -19,7 +19,7 @@ body:has([data-slug*="profiles/People/"]) {
     }
     
     .sidebar.right {
-      display: none !important;
+      display: flex !important; /* Show right sidebar for backlinks */
     }
   }
 }
