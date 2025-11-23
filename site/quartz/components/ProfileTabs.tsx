@@ -516,6 +516,53 @@ function initProfileTabs() {
   
   let mediaLoaded = false;
   
+  // Function to restore tab state from URL hash on initial load
+  function restoreTabFromHash() {
+    const hash = window.location.hash;
+    if (!hash) return;
+    
+    // Check for tab parameter
+    const tabMatch = hash.match(/[&?#]tab=([^&]+)/);
+    if (tabMatch) {
+      const tabName = tabMatch[1];
+      console.log('[ProfileTabs] Restoring tab from hash:', tabName);
+      
+      // Get tab elements
+      const tabButton = document.querySelector('[data-tab="' + tabName + '"]');
+      const tabPane = document.querySelector('[data-tab-content="' + tabName + '"]');
+      
+      if (tabButton && tabPane) {
+        // Remove active from all tabs
+        document.querySelectorAll('.tab-button').forEach(function(btn) {
+          btn.classList.remove('active');
+        });
+        document.querySelectorAll('.tab-pane').forEach(function(pane) {
+          pane.classList.remove('active');
+        });
+        
+        // Activate the correct tab
+        tabButton.classList.add('active');
+        tabPane.classList.add('active');
+        
+        // Load media if switching to gallery tab
+        // Always reload media when restoring from hash to ensure it's loaded
+        if (tabName === 'media' && profileId) {
+          const mediaContent = tabPane.querySelector('#media-content');
+          // Check if media is already loaded (has content other than loading message)
+          const hasContent = mediaContent && mediaContent.innerHTML && 
+                            !mediaContent.innerHTML.includes('Loading') &&
+                            !mediaContent.innerHTML.includes('Loading gallery');
+          
+          if (!hasContent) {
+            console.log('[ProfileTabs] Loading media for restored gallery tab');
+            loadMedia(profileId);
+            mediaLoaded = true;
+          }
+        }
+      }
+    }
+  }
+  
   console.log('[ProfileTabs] Initializing, profileId:', profileId, 'basePath:', basePath);
   
   if (!profileId) {
@@ -910,9 +957,11 @@ function initProfileTabs() {
     
     // Determine which chapter should be active initially
     const hash = window.location.hash;
-    const initialChapterSlug = hash && hash.startsWith('#chapter=') 
-      ? hash.substring(9) 
-      : (chapters.main ? chapters.main.slug : null);
+    // Check if we're in media tab - if so, don't load chapters
+    const isMediaTab = hash && hash.includes('tab=media');
+    const initialChapterSlug = !isMediaTab && hash && hash.startsWith('#chapter=') 
+      ? hash.substring(9).split('&')[0].split('#')[0].trim()
+      : (!isMediaTab && chapters.main ? chapters.main.slug : null);
     
     // Add main chapter tab (Introduction) if exists
     if (chapters.main) {
@@ -991,14 +1040,32 @@ function initProfileTabs() {
     }, 50);
     
     // Load the initial chapter immediately (no setTimeout to avoid visual jump)
-    if (initialChapterSlug) {
+    // But only if we're not in media tab
+    const currentHash = window.location.hash;
+    const isCurrentlyMediaTab = currentHash && currentHash.includes('tab=media');
+    if (initialChapterSlug && !isCurrentlyMediaTab) {
       // Load the chapter right away
       switchToChapter(initialChapterSlug);
     }
+    
+    // After creating chapter tabs, restore tab state from hash if needed
+    // This ensures tab state is restored even if createChapterTabs was delayed
+    setTimeout(function() {
+      const hash = window.location.hash;
+      if (hash && hash.includes('tab=media')) {
+        console.log('[ProfileTabs] Restoring media tab after createChapterTabs');
+        restoreTabFromHash();
+      }
+    }, 100);
   }
   
   // Switch to chapter (works with inner chapter tabs)
   function switchToChapter(chapterSlug, fromPopstate) {
+    // Clean chapterSlug to ensure it doesn't contain hash fragments or parameters
+    if (chapterSlug) {
+      chapterSlug = chapterSlug.split('&')[0].split('#')[0].trim();
+    }
+    
     console.log('[ProfileTabs] Switching to chapter:', chapterSlug, 'fromPopstate:', fromPopstate);
     
     // Remove active from all chapter tab buttons
@@ -1023,21 +1090,27 @@ function initProfileTabs() {
       chapterTabPane.classList.add('active');
     }
     
-    // Make sure biography tab is active
-    const biographyButton = document.querySelector('[data-tab="biography"]');
-    const biographyPane = document.querySelector('[data-tab-content="biography"]');
-    if (biographyButton && biographyPane) {
-      // Remove active from ALL main tabs first
-      document.querySelectorAll('.tab-button').forEach(function(btn) {
-        btn.classList.remove('active');
-      });
-      document.querySelectorAll('.tab-pane').forEach(function(pane) {
-        pane.classList.remove('active');
-      });
-      
-      // Then activate biography
-      biographyButton.classList.add('active');
-      biographyPane.classList.add('active');
+    // Make sure biography tab is active (only if not explicitly in media tab)
+    // Check current hash to see if we should stay in media tab
+    const currentHash = window.location.hash;
+    const isMediaTab = currentHash && currentHash.includes('tab=media');
+    
+    if (!isMediaTab) {
+      const biographyButton = document.querySelector('[data-tab="biography"]');
+      const biographyPane = document.querySelector('[data-tab-content="biography"]');
+      if (biographyButton && biographyPane) {
+        // Remove active from ALL main tabs first
+        document.querySelectorAll('.tab-button').forEach(function(btn) {
+          btn.classList.remove('active');
+        });
+        document.querySelectorAll('.tab-pane').forEach(function(pane) {
+          pane.classList.remove('active');
+        });
+        
+        // Then activate biography
+        biographyButton.classList.add('active');
+        biographyPane.classList.add('active');
+      }
     }
     
     // Load chapter content if not already loaded
@@ -1045,7 +1118,7 @@ function initProfileTabs() {
     
     // Update URL hash ONLY if not from popstate (to avoid double history entry)
     if (!fromPopstate) {
-      const newUrl = window.location.pathname + '#chapter=' + chapterSlug;
+      const newUrl = window.location.pathname + '#chapter=' + chapterSlug + '&tab=biography';
       
       // Use replaceState for initial load (to avoid duplicate history entry)
       // Use pushState for user-initiated chapter changes
@@ -1062,6 +1135,11 @@ function initProfileTabs() {
   
   // Load chapter content
   function loadChapter(chapterSlug) {
+    // Clean chapterSlug to ensure it doesn't contain hash fragments or parameters
+    if (chapterSlug) {
+      chapterSlug = chapterSlug.split('&')[0].split('#')[0].trim();
+    }
+    
     if (loadedChapters[chapterSlug]) {
       // Already loaded, just display it
       displayChapter(chapterSlug, loadedChapters[chapterSlug]);
@@ -1610,6 +1688,29 @@ function initProfileTabs() {
         loadMedia(profileId);
         mediaLoaded = true;
       }
+      
+      // Update URL hash to preserve tab state
+      const currentHash = window.location.hash;
+      let newHash = '';
+      
+      // Parse current hash to extract chapter if exists
+      let chapterSlug = null;
+      if (currentHash) {
+        const chapterMatch = currentHash.match(/[#&]chapter=([^&]+)/);
+        if (chapterMatch) {
+          chapterSlug = chapterMatch[1];
+        }
+      }
+      
+      // Build new hash: if there's a chapter, include it, otherwise just tab
+      if (chapterSlug) {
+        newHash = '#chapter=' + chapterSlug + '&tab=' + tabName;
+      } else {
+        newHash = '#tab=' + tabName;
+      }
+      
+      // Update URL without triggering navigation
+      history.pushState({ tab: tabName }, '', window.location.pathname + newHash);
     };
     
       button.addEventListener('click', clickHandler);
@@ -1618,8 +1719,15 @@ function initProfileTabs() {
       });
     });
     
-    // Handle browser back/forward button for chapter tabs
-    window.addEventListener('popstate', function(event) {
+    // Handle browser back/forward button for chapter tabs and gallery tab
+    // Use a flag to prevent duplicate handling
+    let isHandlingPopstate = false;
+    const popstateHandler = function(event) {
+      if (isHandlingPopstate) {
+        console.log('[ProfileTabs] Already handling popstate, skipping');
+        return;
+      }
+      
       console.log('[ProfileTabs] Popstate event:', event.state, 'hash:', window.location.hash);
       
       // Check if we're still on the same profile
@@ -1638,23 +1746,124 @@ function initProfileTabs() {
         return;
       }
       
+      isHandlingPopstate = true;
+      
       const hash = window.location.hash;
       
-      // Handle chapter navigation (only if we're on the same profile)
-      if (hash && hash.startsWith('#chapter=')) {
-        const chapterSlug = hash.substring(9);
-        console.log('[ProfileTabs] Restoring chapter from popstate:', chapterSlug);
+      // Parse hash for tab and chapter
+      let tabName = null;
+      let chapterSlug = null;
+      
+      if (hash) {
+        // Check for tab parameter (e.g., #tab=media or #chapter=slug&tab=media)
+        const tabMatch = hash.match(/[&?#]tab=([^&]+)/);
+        if (tabMatch) {
+          tabName = tabMatch[1];
+        }
         
-        // Just call switchToChapter with fromPopstate=true
-        switchToChapter(chapterSlug, true);
-      } else if (!hash || hash === '#') {
-        // No hash or empty hash - go back to introduction
-        console.log('[ProfileTabs] No hash, showing introduction');
-        if (chaptersData && chaptersData.main) {
-          switchToChapter(chaptersData.main.slug, true);
+        // Check for chapter parameter (e.g., #chapter=slug or #chapter=slug&tab=biography)
+        const chapterMatch = hash.match(/[#&]chapter=([^&]+)/);
+        if (chapterMatch) {
+          // Clean the chapter slug - remove any trailing parameters or hash fragments
+          chapterSlug = chapterMatch[1].split('&')[0].split('#')[0].trim();
         }
       }
+      
+      // Restore tab state
+      if (tabName === 'media') {
+        console.log('[ProfileTabs] Restoring gallery tab from popstate');
+        // Switch to gallery tab
+        const mediaButton = document.querySelector('[data-tab="media"]');
+        const mediaPane = document.querySelector('[data-tab-content="media"]');
+        
+        if (mediaButton && mediaPane) {
+          // Remove active from all tabs
+          tabButtons.forEach(function(btn) {
+            btn.classList.remove('active');
+          });
+          tabPanes.forEach(function(pane) {
+            pane.classList.remove('active');
+          });
+          
+          // Activate gallery tab
+          mediaButton.classList.add('active');
+          mediaPane.classList.add('active');
+          
+          // Load media if not already loaded
+          // Check if media content is empty or just has loading message
+          const mediaContent = mediaPane.querySelector('#media-content');
+          const hasContent = mediaContent && mediaContent.innerHTML && 
+                            !mediaContent.innerHTML.includes('Loading') &&
+                            !mediaContent.innerHTML.includes('Loading gallery') &&
+                            !mediaContent.innerHTML.includes('empty-message');
+          
+          if (!hasContent && profileId) {
+            console.log('[ProfileTabs] Loading media for gallery tab from popstate');
+            loadMedia(profileId);
+            mediaLoaded = true;
+          }
+        }
+        
+        // Don't restore chapters when in gallery tab
+        return;
+      } else if (tabName === 'biography' || !tabName) {
+        // Switch to biography tab (default)
+        const biographyButton = document.querySelector('[data-tab="biography"]');
+        const biographyPane = document.querySelector('[data-tab-content="biography"]');
+        
+        if (biographyButton && biographyPane) {
+          // Remove active from all tabs
+          tabButtons.forEach(function(btn) {
+            btn.classList.remove('active');
+          });
+          tabPanes.forEach(function(pane) {
+            pane.classList.remove('active');
+          });
+          
+          // Activate biography tab
+          biographyButton.classList.add('active');
+          biographyPane.classList.add('active');
+        }
+      }
+      
+      // Handle chapter navigation (only if we're in biography tab, NOT in media tab)
+      // Don't restore chapters if we're in media tab
+      if (tabName !== 'media') {
+        if (chapterSlug) {
+          console.log('[ProfileTabs] Restoring chapter from popstate:', chapterSlug);
+          switchToChapter(chapterSlug, true);
+        } else if (!hash || hash === '#' || hash === '#tab=biography') {
+          // No chapter hash - go back to introduction if we have chapters
+          if (chaptersData && chaptersData.main) {
+            console.log('[ProfileTabs] No chapter hash, showing introduction');
+            switchToChapter(chaptersData.main.slug, true);
+          }
+        }
+      }
+      
+      // Reset flag after a short delay
+      setTimeout(function() {
+        isHandlingPopstate = false;
+      }, 100);
+    };
+    
+    window.addEventListener('popstate', popstateHandler);
+    tabButtonCleanups.push(function() {
+      window.removeEventListener('popstate', popstateHandler);
     });
+    
+    // Restore tab state from hash after initialization
+    // Use longer timeout to ensure createChapterTabs has finished
+    setTimeout(function() {
+      restoreTabFromHash();
+      // Also restore again after a bit more time in case createChapterTabs was delayed
+      setTimeout(function() {
+        const hash = window.location.hash;
+        if (hash && hash.includes('tab=media')) {
+          restoreTabFromHash();
+        }
+      }, 300);
+    }, 500);
   }
   
   // Run on initial load
