@@ -1062,7 +1062,34 @@ documents/
 
 #### 3.4.3 פורמט קבצי Caption (.md)
 
-**דוגמה 1**: כיתוב עם תיוגים (cross-tagging)
+**פורמט מומלץ (חדש)**: `[Name|ID]` - משמר את השם המקורי ומאפשר cross-referencing
+
+**דוגמה 1**: כיתוב עם תיוגים בפורמט החדש
+
+```markdown
+[Hershl|I39965497] and [Rochel|I40778657] with children [Bruce|I40778709] [Ben|I40778886] [Nate|I40778933] [Rose|I40778983] [Hammy|I40779093] [Bella|I40779121], and [Hillel Moldavsky|I41027848]
+```
+
+**דוגמה 2**: כיתוב עם שמות מלאים
+
+```markdown
+[Berl|I39965449] and [Rivka|I40775621] wedding, Perth 1908
+```
+
+**דוגמה 3**: כיתוב עם שמות חלקיים ושמות מלאים
+
+```markdown
+[Bruce|I87977937] and [Fan|I87977949] [Mendel|I40775955] and [Minnie|I40775682] [Morrie|I40776182] and [Hannah|I40775931]
+```
+
+**עקרונות הפורמט החדש `[Name|ID]`**:
+- **שם מקורי**: השם שמופיע בתוך הסוגריים המרובעים (לפני ה-`|`) הוא השם שיוצג בקישור באתר
+- **ID ל-cross-tagging**: המזהה אחרי ה-`|` (למשל `I39965497`) משמש לזיהוי האדם ולצירוף התמונה לגלריה שלו
+- **גמישות**: ניתן להשתמש בשם פרטי, שם מלא, או כל שם אחר שמופיע בתמונה המקורית
+- **שימור הקשר**: השם המקורי נשמר, כך שהקורא רואה את השם כפי שהוא מופיע בתמונה המקורית
+- **אוטומציה**: `doit.py` מזהה את ה-IDs ומצרף את התמונה לגלריות של כל האנשים המתויגים
+
+**פורמט ישן (legacy)**: תמיכה לאחור ב-IDs עצמאיים
 
 ```markdown
 משפחה התאספה ב-1960
@@ -1072,19 +1099,20 @@ documents/
 מיקום: פרת׳, אוסטרליה
 ```
 
-**דוגמה 2**: כיתוב ללא תיוגים
-
-```markdown
-בית המשפחה ברחוב קליף, פרמנטל
-
-צולם בערך ב-1965
-```
-
-**עקרונות**:
+**עקרונות כלליים**:
 - טקסט חופשי ב-Markdown
-- **תיוגים**: כל מחרוזת מהצורה `I` + מספרים (למשל `I11052340`) מזוהה כתיוג
-- `doit.py` ממיר אוטומטית את התיוגים ל-HTML links עם שם האדם
+- **תיוגים בפורמט חדש**: `[Name|ID]` - מומלץ לשימוש חדש
+- **תיוגים בפורמט ישן**: כל מחרוזת מהצורה `I` + מספרים (למשל `I11052340`) מזוהה כתיוג (תמיכה לאחור)
+- `doit.py` ממיר אוטומטית:
+  - פורמט חדש: `[Name|ID]` → `<a href="/profiles/...">Name</a>` (משמר את השם המקורי)
+  - פורמט ישן: `I123456` → `<a href="/profiles/...">Full Name from GEDCOM</a>` (משתמש בשם המלא מ-GEDCOM)
 - ירידות שורה (`\n`) מומרות ל-`<br>` בתצוגה
+
+**המלצות**:
+- **לשימוש חדש**: השתמשו בפורמט `[Name|ID]` כדי לשמר את השם המקורי מהתמונה
+- **לשמות מלאים**: אם בתמונה המקורית מופיע שם מלא, השתמשו בשם המלא: `[Morrie Hoffman|I40776182]` ולא רק `[Morrie|I40776182]`
+- **לשמות חלקיים**: אם בתמונה מופיע רק שם פרטי, השתמשו בשם הפרטי: `[Hymie|I40775871]`
+- **לשמירת הקשר היסטורי**: השם המקורי חשוב לשמירת הקשר היסטורי והקשר לתמונה המקורית
 
 #### 3.4.4 מבנה media-index.json
 
@@ -1135,11 +1163,19 @@ documents/
 
 1. **סריקת תיקיות**: `create_media_index()` סורק את `documents/` ומוצא כל קבצי תמונה
 2. **קריאת captions**: לכל תמונה, מחפש קובץ `.md` מקביל
-3. **זיהוי תיוגים**: regex `\bI\d+\b` מזהה כל ID בטקסט
-4. **המרת IDs**: `convert_ids_to_links()` הופך `I11052340` ל-`<a href="/profiles/Moshe-משה-Hoffman">Moshe משה Hoffman</a>`
+3. **זיהוי תיוגים**: 
+   - **פורמט חדש**: `extract_person_ids()` מזהה `[Name|ID]` ומחלץ את ה-ID
+   - **פורמט ישן**: regex `\bI\d+\b` מזהה IDs עצמאיים (תמיכה לאחור)
+4. **המרת IDs לקישורים**: `convert_ids_to_links()` ממיר:
+   - **פורמט חדש**: `[Name|ID]` → `<a href="/profiles/...">Name</a>` (משמר את השם המקורי)
+   - **פורמט ישן**: `I11052340` → `<a href="/profiles/Moshe-משה-Hoffman">Moshe משה Hoffman</a>` (משתמש בשם המלא מ-GEDCOM)
 5. **המרת שורות**: `\n` → `<br>`
 6. **Cross-tagging**: לכל אדם ברשימת `people`, הקובץ מתווסף גם לגלריה שלו
 7. **שמירה**: הכל נשמר ב-`media-index.json`
+
+**פונקציות מרכזיות ב-`doit.py`**:
+- `extract_person_ids(text)`: מחלץ IDs מטקסט, תומך בשני הפורמטים
+- `convert_ids_to_links(text, owner_id)`: ממיר IDs לקישורי HTML, תומך בשני הפורמטים
 
 #### 3.4.6 תצוגה ב-Frontend (ProfileTabs.tsx)
 
@@ -1515,7 +1551,24 @@ npx quartz build
 # 1. Add image to primary owner's directory
 cp family-photo.jpg documents/I11052340/
 
-# 2. Create caption with person IDs
+# 2. Create caption with person IDs using new format [Name|ID]
+cat > documents/I11052340/family-photo.md << 'EOF'
+[Hershl|I39965497] and [Rochel|I40778657] with children [Bruce|I40778709] [Ben|I40778886] [Nate|I40778933] [Rose|I40778983] [Hammy|I40779093] [Bella|I40779121], and [Hillel Moldavsky|I41027848]
+EOF
+```
+
+**דוגמה עם שמות מלאים**:
+
+```bash
+cat > documents/I39965449/wedding.md << 'EOF'
+[Berl|I39965449] and [Rivka|I40775621] wedding, Perth 1908
+EOF
+```
+
+**פורמט ישן (legacy) - תמיכה לאחור**:
+
+```bash
+# 2. Create caption with person IDs (legacy format)
 cat > documents/I11052340/family-photo.md << 'EOF'
 משפחה התאספה ב-1960
 
@@ -1523,6 +1576,13 @@ cat > documents/I11052340/family-photo.md << 'EOF'
 
 מיקום: פרת׳, אוסטרליה
 EOF
+```
+
+**המלצות**:
+- **השתמשו בפורמט החדש** `[Name|ID]` כדי לשמר את השם המקורי מהתמונה
+- **שם מלא**: אם בתמונה מופיע שם מלא, השתמשו בו: `[Morrie Hoffman|I40776182]`
+- **שם חלקי**: אם מופיע רק שם פרטי, השתמשו בו: `[Hymie|I40775871]`
+- **שימור הקשר**: השם המקורי חשוב לשמירת הקשר היסטורי
 
 # 3. Run build script
 python scripts/doit.py data/tree.ged
