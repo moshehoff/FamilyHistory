@@ -1,0 +1,1 @@
+[Hymie|I40775871] and [Edith|I38516664] at the Maylands Hotel, with car 1942 (wedding present)

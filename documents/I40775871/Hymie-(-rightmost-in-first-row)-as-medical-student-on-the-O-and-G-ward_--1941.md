@@ -1,0 +1,1 @@
+[Hymie|I40775871] ( rightmost in first row) as medical student on the O and G ward.  1941

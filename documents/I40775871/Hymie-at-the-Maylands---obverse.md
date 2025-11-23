@@ -1,0 +1,1 @@
+[Hymie|I40775871] at the Maylands - obverse
