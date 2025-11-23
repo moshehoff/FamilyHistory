@@ -867,17 +867,57 @@ def create_media_index(documents_dir, static_dir, individuals=None, id_to_slug=N
         inds = {i: norm_individual(i, d) for i, d in individuals.items()}
     
     def extract_person_ids(text):
-        """Extract all person IDs from text (format: I followed by digits)."""
+        """Extract all person IDs from text.
+        Supports two formats:
+        1. [name|ID] format (preferred): extracts ID from [name|I123456]
+        2. Standalone ID format (legacy): extracts I123456
+        """
         if not text:
             return []
-        return re.findall(r'\bI\d+\b', text)
+        ids = []
+        # First, try to extract from [name|ID] format
+        matches = re.findall(r'\[[^\|]+\|(I\d+)\]', text)
+        ids.extend(matches)
+        # Also extract standalone IDs (for backward compatibility)
+        standalone_ids = re.findall(r'\bI\d+\b', text)
+        for sid in standalone_ids:
+            # Only add if not already in a [name|ID] format
+            if not re.search(r'\[[^\|]+\|' + re.escape(sid) + r'\]', text):
+                ids.append(sid)
+        return ids
     
     def convert_ids_to_links(text, owner_id):
-        """Convert I123456 → <a href='/profiles/...'>Name</a>"""
+        """Convert [name|ID] → <a href='/profiles/...'>name</a>
+        Also supports legacy format: I123456 → <a href='/profiles/...'>Full Name</a>
+        """
         if not text or not inds or not id_to_slug:
             return text
         
-        def replace_id(match):
+        def replace_name_id_format(match):
+            """Replace [name|ID] with HTML link using the original name"""
+            full_match = match.group(0)  # e.g., "[Hymie|I40775871]"
+            original_name = match.group(1)  # e.g., "Hymie"
+            raw_id = match.group(2)  # e.g., "I40775871"
+            person_id = '@' + raw_id + '@'  # Convert to GEDCOM format
+            
+            person_info = inds.get(person_id)
+            if not person_info:
+                return full_match  # Keep as-is if not found
+            
+            # Get slug for this person
+            if person_id in id_to_slug:
+                slug = id_to_slug[person_id]
+            else:
+                # Fallback: use full name from GEDCOM
+                name = person_info["name"] if "name" in person_info else raw_id
+                slug = safe_filename(name).replace(" ", "-")
+            
+            # Create HTML link using the ORIGINAL name from caption
+            encoded_slug = urllib.parse.quote(slug)
+            return f'<a href="/profiles/{encoded_slug}">{original_name}</a>'
+        
+        def replace_standalone_id(match):
+            """Replace standalone I123456 with HTML link using full name (legacy format)"""
             raw_id = match.group(0)  # e.g., "I11052340"
             person_id = '@' + raw_id + '@'  # Convert to GEDCOM format
             
@@ -900,7 +940,15 @@ def create_media_index(documents_dir, static_dir, individuals=None, id_to_slug=N
             encoded_slug = urllib.parse.quote(slug)
             return f'<a href="/profiles/{encoded_slug}">{name}</a>'
         
-        return re.sub(r'\bI\d+\b', replace_id, text)
+        # First, replace [name|ID] format (preferred)
+        # Pattern: [name|ID] where name can contain spaces, ID is I followed by digits
+        # We match [anything|I123456] and capture name and ID separately
+        text = re.sub(r'\[([^\|]+)\|(I\d+)\]', replace_name_id_format, text)
+        
+        # Then, replace standalone IDs (legacy format, but skip if already in [name|ID])
+        text = re.sub(r'\bI\d+\b', replace_standalone_id, text)
+        
+        return text
     
     # documents/ is in project root, not in profiles/
     # Contains both images and documents for each profile
