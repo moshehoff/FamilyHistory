@@ -1,1 +1,0 @@
-[Hymie|I11052350] at the Maylands Hotel. In Rowlands St behind him the Roxy

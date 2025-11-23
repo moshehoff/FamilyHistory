@@ -1,1 +1,0 @@
-FIREFOX [Hymie|I11052350] and [Edith|I38516664] 1942
