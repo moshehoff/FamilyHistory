@@ -1,0 +1,1 @@
+Guildford Rd. Renovation of the Maylands Hotel. Business as usual

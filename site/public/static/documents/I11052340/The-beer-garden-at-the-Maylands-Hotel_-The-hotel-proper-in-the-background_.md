@@ -1,0 +1,1 @@
+The beer garden at the Maylands Hotel. The hotel proper in the background.
