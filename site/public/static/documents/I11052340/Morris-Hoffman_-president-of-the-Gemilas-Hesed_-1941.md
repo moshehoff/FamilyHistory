@@ -1,1 +1,0 @@
-[Morris Hoffman|I11052340], president of the Gemilas Hesed, 1941

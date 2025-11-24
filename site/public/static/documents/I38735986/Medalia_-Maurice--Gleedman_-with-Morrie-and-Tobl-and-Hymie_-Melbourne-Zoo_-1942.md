@@ -1,1 +1,0 @@
-Medalia, Maurice  Gleedman, with [Morrie|I11052340] and [Tobl|I38735986] and [Hymie|I11052350]. Melbourne Zoo. 1942

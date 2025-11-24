@@ -72,6 +72,10 @@ Desktop.ini
 logs/
 *.log.*
 
+# Crawl reports
+link_crawl_report.json
+scripts/link_crawl_report.json
+
 # Backup files
 *.backup
 *.bak

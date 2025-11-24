@@ -1626,7 +1626,31 @@ function initProfileTabs() {
             const imageAlt = img.caption ? img.caption.replace(/<[^>]*>/g, '') : ''; // Strip HTML for alt text
             // Convert newlines to <br> tags for line breaks in caption
             const newlineChar = String.fromCharCode(10);
-            const formattedCaption = img.caption ? img.caption.split(newlineChar).join('<br>') : '';
+            let formattedCaption = img.caption ? img.caption.split(newlineChar).join('<br>') : '';
+            
+            // Fix profile links in caption to include base path (for GitHub Pages)
+            // Detect base path from current URL (e.g., /FamilyHistory/ for GitHub Pages)
+            var siteBasePath = '';
+            if (typeof window !== 'undefined') {
+              var currentPath = window.location.pathname;
+              // Extract base path: if path is /FamilyHistory/profiles/..., extract /FamilyHistory
+              if (currentPath.indexOf('/profiles/') > 0) {
+                var beforeProfiles = currentPath.substring(0, currentPath.indexOf('/profiles/'));
+                // If beforeProfiles is not empty and not just '/', it's our base path
+                if (beforeProfiles && beforeProfiles !== '' && beforeProfiles !== '/') {
+                  siteBasePath = beforeProfiles;
+                }
+              }
+            }
+            
+            // Fix absolute profile links in caption HTML by adding base path
+            // Pattern: href="/profiles/something" -> add base path before /profiles
+            if (formattedCaption && siteBasePath) {
+              var linkPattern = new RegExp('href="(\\\\/profiles\\\\/[^"]+)"', 'g');
+              formattedCaption = formattedCaption.replace(linkPattern, function(match, path) {
+                return 'href="' + siteBasePath + path + '"';
+              });
+            }
             
             // Create image element
             const imgElement = document.createElement('img');

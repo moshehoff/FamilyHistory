@@ -1,1 +1,0 @@
-[Harry|I38736184] with the cow at the Maylands

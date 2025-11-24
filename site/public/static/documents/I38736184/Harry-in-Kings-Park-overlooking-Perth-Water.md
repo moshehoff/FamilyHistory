@@ -1,1 +1,0 @@
-[Harry|I38736184] in Kings Park overlooking Perth Water

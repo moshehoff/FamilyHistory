@@ -1,1 +1,0 @@
-looking down Beaufort St from Walcott St

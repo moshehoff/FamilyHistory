@@ -1,1 +1,0 @@
-Handmade poster from [Morris|I11052340] Hotel 1959 received from Ron Hoffman 24-7-08
