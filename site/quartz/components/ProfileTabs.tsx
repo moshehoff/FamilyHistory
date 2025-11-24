@@ -521,10 +521,20 @@ function initProfileTabs() {
     const hash = window.location.hash;
     if (!hash) return;
     
-    // Check for tab parameter
-    const tabMatch = hash.match(/[&?#]tab=([^&]+)/);
-    if (tabMatch) {
-      const tabName = tabMatch[1];
+    // Check for tab parameter - support both #tab=biography and #tabbiography formats
+    let tabName = null;
+    const tabMatchWithEquals = hash.match(/[&?#]tab=([^&]+)/);
+    if (tabMatchWithEquals) {
+      tabName = tabMatchWithEquals[1];
+    } else {
+      // Check for format without equals: #tabbiography
+      const tabMatchWithoutEquals = hash.match(/[#&]tab([^&]+)/);
+      if (tabMatchWithoutEquals) {
+        tabName = tabMatchWithoutEquals[1];
+      }
+    }
+    
+    if (tabName) {
       console.log('[ProfileTabs] Restoring tab from hash:', tabName);
       
       // Get tab elements
@@ -1039,13 +1049,24 @@ function initProfileTabs() {
       });
     }, 50);
     
-    // Load the initial chapter immediately (no setTimeout to avoid visual jump)
+    // Load the initial chapter - use setTimeout to ensure switchToChapter is defined
     // But only if we're not in media tab
     const currentHash = window.location.hash;
     const isCurrentlyMediaTab = currentHash && currentHash.includes('tab=media');
     if (initialChapterSlug && !isCurrentlyMediaTab) {
-      // Load the chapter right away
-      switchToChapter(initialChapterSlug);
+      // Wait a bit to ensure switchToChapter function is defined
+      setTimeout(function() {
+        if (typeof switchToChapter === 'function') {
+          switchToChapter(initialChapterSlug);
+        } else {
+          console.log('[ProfileTabs] switchToChapter not yet defined, retrying...');
+          setTimeout(function() {
+            if (typeof switchToChapter === 'function') {
+              switchToChapter(initialChapterSlug);
+            }
+          }, 100);
+        }
+      }, 50);
     }
     
     // After creating chapter tabs, restore tab state from hash if needed
@@ -1116,6 +1137,9 @@ function initProfileTabs() {
     // Load chapter content if not already loaded
     loadChapter(chapterSlug);
     
+    // Save isInitialChapterLoad before it changes
+    const shouldScrollToChapter = isInitialChapterLoad && !fromPopstate;
+    
     // Update URL hash ONLY if not from popstate (to avoid double history entry)
     if (!fromPopstate) {
       const newUrl = window.location.pathname + '#chapter=' + chapterSlug + '&tab=biography';
@@ -1130,7 +1154,23 @@ function initProfileTabs() {
       }
     }
     
-    // Don't auto-scroll - let user click the banner to scroll
+    // Auto-scroll to chapter if loading from URL hash (initial load)
+    // Check if this is an initial load from URL hash
+    if (shouldScrollToChapter) {
+      // Wait for content to load, then scroll to chapter tab container
+      setTimeout(function() {
+        const chapterTabsContainer = document.querySelector('.chapter-tabs-container');
+        if (chapterTabsContainer) {
+          chapterTabsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          // Fallback: scroll to chapter pane
+          const chapterPane = document.querySelector('.chapter-tab-pane[data-chapter-slug="' + chapterSlug + '"].active');
+          if (chapterPane) {
+            chapterPane.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      }, 500); // Wait longer for content to load
+    }
   }
   
   // Load chapter content
@@ -1755,10 +1795,16 @@ function initProfileTabs() {
       let chapterSlug = null;
       
       if (hash) {
-        // Check for tab parameter (e.g., #tab=media or #chapter=slug&tab=media)
-        const tabMatch = hash.match(/[&?#]tab=([^&]+)/);
-        if (tabMatch) {
-          tabName = tabMatch[1];
+        // Check for tab parameter - support both #tab=media and #tabmedia formats
+        const tabMatchWithEquals = hash.match(/[&?#]tab=([^&]+)/);
+        if (tabMatchWithEquals) {
+          tabName = tabMatchWithEquals[1];
+        } else {
+          // Check for format without equals: #tabbiography
+          const tabMatchWithoutEquals = hash.match(/[#&]tab([^&]+)/);
+          if (tabMatchWithoutEquals) {
+            tabName = tabMatchWithoutEquals[1];
+          }
         }
         
         // Check for chapter parameter (e.g., #chapter=slug or #chapter=slug&tab=biography)
@@ -1832,7 +1878,7 @@ function initProfileTabs() {
         if (chapterSlug) {
           console.log('[ProfileTabs] Restoring chapter from popstate:', chapterSlug);
           switchToChapter(chapterSlug, true);
-        } else if (!hash || hash === '#' || hash === '#tab=biography') {
+        } else if (!hash || hash === '#' || hash === '#tab=biography' || hash === '#tabbiography') {
           // No chapter hash - go back to introduction if we have chapters
           if (chaptersData && chaptersData.main) {
             console.log('[ProfileTabs] No chapter hash, showing introduction');
@@ -1859,7 +1905,7 @@ function initProfileTabs() {
       // Also restore again after a bit more time in case createChapterTabs was delayed
       setTimeout(function() {
         const hash = window.location.hash;
-        if (hash && hash.includes('tab=media')) {
+        if (hash && (hash.includes('tab=media') || hash.includes('tabmedia'))) {
           restoreTabFromHash();
         }
       }, 300);
