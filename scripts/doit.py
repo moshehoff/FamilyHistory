@@ -875,16 +875,75 @@ def create_media_index(documents_dir, static_dir, individuals=None, id_to_slug=N
         if not text:
             return []
         ids = []
+        name_id_pairs = []  # Store (name, ID) pairs for validation
+        
         # First, try to extract from [name|ID] format
-        matches = re.findall(r'\[[^\|]+\|(I\d+)\]', text)
-        ids.extend(matches)
+        matches = re.findall(r'\[([^\|]+)\|(I\d+)\]', text)
+        for name, person_id in matches:
+            name_id_pairs.append((name.strip(), person_id))
+            ids.append(person_id)
+        
         # Also extract standalone IDs (for backward compatibility)
         standalone_ids = re.findall(r'\bI\d+\b', text)
         for sid in standalone_ids:
             # Only add if not already in a [name|ID] format
             if not re.search(r'\[[^\|]+\|' + re.escape(sid) + r'\]', text):
                 ids.append(sid)
-        return ids
+        
+        # Check for duplicates and warn
+        from collections import Counter
+        id_counts = Counter(ids)
+        duplicates = {id_val: count for id_val, count in id_counts.items() if count > 1}
+        if duplicates:
+            print(f"[WARNING] Duplicate person IDs found in caption: {duplicates}")
+            print(f"         Text: {text[:150]}...")
+        
+        # Validate name-ID pairs against GEDCOM data
+        if inds:
+            for name, person_id in name_id_pairs:
+                person_id_gedcom = '@' + person_id + '@'
+                person_info = inds.get(person_id_gedcom)
+                if person_info:
+                    gedcom_name = person_info.get("name", "").lower()
+                    caption_name = name.lower()
+                    # Check if caption name appears in GEDCOM name (or vice versa)
+                    # This handles cases like "Rae" vs "Rachel", "Hymie" vs "Hyman", etc.
+                    name_parts = gedcom_name.split()
+                    caption_parts = caption_name.split()
+                    
+                    # Check if any part of caption name matches any part of GEDCOM name
+                    name_match = False
+                    for caption_part in caption_parts:
+                        for name_part in name_parts:
+                            if caption_part in name_part or name_part in caption_part:
+                                name_match = True
+                                break
+                        if name_match:
+                            break
+                    
+                    # Also check if full names are similar (for exact matches)
+                    if not name_match and caption_name not in gedcom_name and gedcom_name not in caption_name:
+                        print(f"[WARNING] Possible name-ID mismatch:")
+                        print(f"         Caption: '[{name}|{person_id}]'")
+                        print(f"         GEDCOM:  '{person_info.get('name', 'N/A')}' (ID: {person_id})")
+                        print(f"         Text: {text[:150]}...")
+                else:
+                    print(f"[WARNING] Person ID not found in GEDCOM: {person_id}")
+                    print(f"         Caption: '[{name}|{person_id}]'")
+                    print(f"         Text: {text[:150]}...")
+        
+        # Remove duplicates while preserving order
+        seen = set()
+        unique_ids = []
+        for id_val in ids:
+            if id_val not in seen:
+                seen.add(id_val)
+                unique_ids.append(id_val)
+        
+        if len(ids) != len(unique_ids):
+            print(f"[INFO] Removed {len(ids) - len(unique_ids)} duplicate ID(s), keeping unique list")
+        
+        return unique_ids
     
     def convert_ids_to_links(text, owner_id):
         """Convert [name|ID] → <a href='/profiles/...'>name</a>
@@ -1044,7 +1103,12 @@ def create_media_index(documents_dir, static_dir, individuals=None, id_to_slug=N
                 index["images"][owner_id].append(item)
                 
                 # Add image to all tagged people
-                for person_id_raw in people_ids:
+                # Remove duplicates from people_ids (already done in extract_person_ids, but double-check)
+                unique_people_ids = list(dict.fromkeys(people_ids))  # Preserves order
+                if len(people_ids) != len(unique_people_ids):
+                    print(f"[WARNING] Duplicate IDs in people_ids for {filename}, removing duplicates")
+                
+                for person_id_raw in unique_people_ids:
                     person_id_gedcom = '@' + person_id_raw + '@'
                     if person_id_gedcom != '@' + owner_id + '@':  # Don't duplicate for owner
                         if person_id_raw not in index["images"]:

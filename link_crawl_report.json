@@ -1,25 +1,25 @@
 {
   "base_url": "http://localhost:8080",
   "start_url": "http://localhost:8080",
-  "crawl_time": "2025-11-24 21:20:47",
+  "crawl_time": "2025-11-24 21:41:33",
   "stats": {
-    "pages_checked": 240,
-    "links_found": 5923,
-    "links_checked": 400,
-    "start_time": 1764012016.9019656,
-    "elapsed_time": 30.368802309036255
+    "pages_checked": 239,
+    "links_found": 5907,
+    "links_checked": 401,
+    "start_time": 1764013265.4615533,
+    "elapsed_time": 28.513402938842773
   },
   "summary": {
-    "pages_checked": 240,
-    "valid_links": 240,
+    "pages_checked": 239,
+    "valid_links": 239,
     "broken_links": 0,
-    "skipped_links": 1552,
-    "total_visited": 240
+    "skipped_links": 1545,
+    "total_visited": 239
   },
   "broken_links": [],
   "valid_links_sample": [
     {
-      "url": "http://localhost:8080",
+      "url": "http://localhost:8080/",
       "status": 200,
       "valid": true,
       "source": ""
@@ -205,37 +205,7 @@
       "source": ""
     },
     {
-      "url": "http://localhost:8080/pages/profiles-of-interest",
-      "status": 200,
-      "valid": true,
-      "source": ""
-    },
-    {
-      "url": "http://localhost:8080/",
-      "status": 200,
-      "valid": true,
-      "source": ""
-    },
-    {
-      "url": "http://localhost:8080/pages/preface",
-      "status": 200,
-      "valid": true,
-      "source": ""
-    },
-    {
-      "url": "http://localhost:8080/pages/hoffman_history",
-      "status": 200,
-      "valid": true,
-      "source": ""
-    },
-    {
       "url": "http://localhost:8080/static/icon.png",
-      "status": 200,
-      "valid": true,
-      "source": ""
-    },
-    {
-      "url": "http://localhost:8080/pages/the_names",
       "status": 200,
       "valid": true,
       "source": ""
@@ -247,13 +217,25 @@
       "source": ""
     },
     {
-      "url": "http://localhost:8080/pages/profiles-with-gallery",
+      "url": "http://localhost:8080/pages/founders",
       "status": 200,
       "valid": true,
       "source": ""
     },
     {
-      "url": "http://localhost:8080/pages/founders",
+      "url": "http://localhost:8080/pages/hoffman_history",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/pages/preface",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/pages/profiles-with-gallery",
       "status": 200,
       "valid": true,
       "source": ""
@@ -265,13 +247,19 @@
       "source": ""
     },
     {
-      "url": "http://localhost:8080/index.css",
+      "url": "http://localhost:8080/pages/the_names",
       "status": 200,
       "valid": true,
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Sara-Hochman-Bershada",
+      "url": "http://localhost:8080/pages/profiles-of-interest",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/index.css",
       "status": 200,
       "valid": true,
       "source": ""
@@ -283,13 +271,19 @@
       "source": ""
     },
     {
+      "url": "http://localhost:8080/profiles/Rivka-Bar-Cohen-Hoffman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
       "url": "http://localhost:8080/profiles/Shulamit-Hochman",
       "status": 200,
       "valid": true,
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Rivka-Bar-Cohen-Hoffman",
+      "url": "http://localhost:8080/profiles/Sara-Hochman-Bershada",
       "status": 200,
       "valid": true,
       "source": ""
@@ -307,13 +301,13 @@
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Yisrael-Hochman",
+      "url": "http://localhost:8080/profiles/Moshe-משה-Hoffman-Hochman",
       "status": 200,
       "valid": true,
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Moshe-משה-Hoffman-Hochman",
+      "url": "http://localhost:8080/profiles/Yisrael-Hochman",
       "status": 200,
       "valid": true,
       "source": ""
@@ -343,7 +337,13 @@
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Shimon-Meir-מאיר-Hochman",
+      "url": "http://localhost:8080/profiles/Haim-Yehuda-חיים-יהודה-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Beile-ביילא-Hochman-Elizafan",
       "status": 200,
       "valid": true,
       "source": ""
@@ -361,31 +361,7 @@
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Wolf-זאב-Hochman",
-      "status": 200,
-      "valid": true,
-      "source": ""
-    },
-    {
-      "url": "http://localhost:8080/profiles/Beile-ביילא-Hochman-Elizafan",
-      "status": 200,
-      "valid": true,
-      "source": ""
-    },
-    {
-      "url": "http://localhost:8080/profiles/_Bobka_-Hochman",
-      "status": 200,
-      "valid": true,
-      "source": ""
-    },
-    {
       "url": "http://localhost:8080/profiles/Edith-צירל-Hoffman-Spielmann",
-      "status": 200,
-      "valid": true,
-      "source": ""
-    },
-    {
-      "url": "http://localhost:8080/profiles/Haim-Yehuda-חיים-יהודה-Hochman",
       "status": 200,
       "valid": true,
       "source": ""
@@ -397,7 +373,19 @@
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Sholem-Hochman",
+      "url": "http://localhost:8080/profiles/_Bobka_-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Shimon-Meir-מאיר-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Wolf-זאב-Hochman",
       "status": 200,
       "valid": true,
       "source": ""
@@ -409,13 +397,31 @@
       "source": ""
     },
     {
+      "url": "http://localhost:8080/profiles/Sholem-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
       "url": "http://localhost:8080/profiles/Aaron-Harry-אהרון-Hoffman",
       "status": 200,
       "valid": true,
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Ruchel-Hoffman-Gillik",
+      "url": "http://localhost:8080/profiles/Ben-Benzion-Hoffman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Leah-Hoffman-Machlin",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Frida-Hochman-Zisselman",
       "status": 200,
       "valid": true,
       "source": ""
@@ -433,31 +439,7 @@
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Valda-Marie-Hoffman-Levy",
-      "status": 200,
-      "valid": true,
-      "source": ""
-    },
-    {
-      "url": "http://localhost:8080/profiles/Frida-Hochman-Zisselman",
-      "status": 200,
-      "valid": true,
-      "source": ""
-    },
-    {
-      "url": "http://localhost:8080/profiles/Bracha-Hochman",
-      "status": 200,
-      "valid": true,
-      "source": ""
-    },
-    {
-      "url": "http://localhost:8080/profiles/Ben-Benzion-Hoffman",
-      "status": 200,
-      "valid": true,
-      "source": ""
-    },
-    {
-      "url": "http://localhost:8080/profiles/Nate-Hoffman",
+      "url": "http://localhost:8080/profiles/Hershl-Hochman",
       "status": 200,
       "valid": true,
       "source": ""
@@ -469,7 +451,7 @@
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Elka-Dora-Devora-Haimson-Rosensvet",
+      "url": "http://localhost:8080/profiles/Valda-Marie-Hoffman-Levy",
       "status": 200,
       "valid": true,
       "source": ""
@@ -481,13 +463,25 @@
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Hershl-Hochman",
+      "url": "http://localhost:8080/profiles/Elka-Dora-Devora-Haimson-Rosensvet",
       "status": 200,
       "valid": true,
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Leah-Hoffman-Machlin",
+      "url": "http://localhost:8080/profiles/Nate-Hoffman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Ruchel-Hoffman-Gillik",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Bracha-Hochman",
       "status": 200,
       "valid": true,
       "source": ""
@@ -499,13 +493,13 @@
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Bruce-Hoffman",
+      "url": "http://localhost:8080/profiles/Minnie-Mina-Mendelovitz-Hochman",
       "status": 200,
       "valid": true,
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Minnie-Mina-Mendelovitz-Hochman",
+      "url": "http://localhost:8080/profiles/Bruce-Hoffman",
       "status": 200,
       "valid": true,
       "source": ""
@@ -523,79 +517,73 @@
       "source": ""
     },
     {
-      "url": "http://localhost:8080/pages",
+      "url": "http://localhost:8080/profiles/Rose-Lazarus-Hoffman",
       "status": 200,
       "valid": true,
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Nathan-Nachman-Hochman",
+      "url": "http://localhost:8080/profiles/Toby-Rachel-Freund-Hoffman",
       "status": 200,
       "valid": true,
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Haim-Keminitz",
+      "url": "http://localhost:8080/profiles/Chaim-Nissan-ניסן-Achiman-Hochman",
       "status": 200,
       "valid": true,
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Aliza-Hochman",
+      "url": "http://localhost:8080/profiles/Yehuda-Hershkovitz",
       "status": 200,
       "valid": true,
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Sandra-Kerr-Breazeale",
+      "url": "http://localhost:8080/profiles/Graham-Lee",
       "status": 200,
       "valid": true,
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Rivka-Becky-רבקה-Schwarz-Moldavsky",
+      "url": "http://localhost:8080/profiles/Bat-Sheva-Hochman-Moldavsky",
       "status": 200,
       "valid": true,
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Ilona-אילונה-Aron",
+      "url": "http://localhost:8080/profiles/Ya'akov-Hoffman",
       "status": 200,
       "valid": true,
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Shimon-Hochman",
+      "url": "http://localhost:8080/profiles/Mendel-Mendelovitz",
       "status": 200,
       "valid": true,
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Judith-Hoffman",
+      "url": "http://localhost:8080/profiles/Yehudit-Achiman-Heler",
       "status": 200,
       "valid": true,
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Gertie-Hoffman-Millman",
+      "url": "http://localhost:8080/profiles/Louise-Hoffman-Cohen",
       "status": 200,
       "valid": true,
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Binyamin-Hochman",
+      "url": "http://localhost:8080/profiles/Ronald-Harris-Hoffman",
       "status": 200,
       "valid": true,
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Lois-Rasmussen",
-      "status": 200,
-      "valid": true,
-      "source": ""
-    },
-    {
-      "url": "http://localhost:8080/profiles/Margaret-Hoffman-Reynolds",
+      "url": "http://localhost:8080/profiles/Batya-Hochman-Feingold",
       "status": 200,
       "valid": true,
       "source": ""
@@ -607,13 +595,25 @@
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Hammy-Nehemiah-Hoffman",
+      "url": "http://localhost:8080/profiles/Sara-Reifman-Hoffman",
       "status": 200,
       "valid": true,
       "source": ""
     },
     {
-      "url": "http://localhost:8080/profiles/Haya-Moldavsky-Hochman",
+      "url": "http://localhost:8080/profiles/Paula-Hoffman-Shepherd",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Shaindel-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Mordechai-מרדכי-Elizafan",
       "status": 200,
       "valid": true,
       "source": ""
@@ -621,47 +621,42 @@
   ],
   "skipped_links_sample": [
     {
-      "url": "https://cdnjs.cloudflare.com",
-      "reason": "External link",
-      "source": "http://localhost:8080"
-    },
-    {
-      "url": "https://quartz.jzhao.xyz",
-      "reason": "External link",
-      "source": "http://localhost:8080"
-    },
-    {
-      "url": "https://localhost:8080/index.xml",
-      "reason": "External link",
-      "source": "http://localhost:8080"
-    },
-    {
       "url": "https://fonts.googleapis.com",
       "reason": "External link",
-      "source": "http://localhost:8080"
-    },
-    {
-      "url": "https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&family=Roboto Mono:wght@400;600&display=swap",
-      "reason": "External link",
-      "source": "http://localhost:8080"
-    },
-    {
-      "url": "https://fonts.gstatic.com",
-      "reason": "External link",
-      "source": "http://localhost:8080"
+      "source": "http://localhost:8080/"
     },
     {
       "url": "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css",
       "reason": "External link",
-      "source": "http://localhost:8080"
+      "source": "http://localhost:8080/"
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/"
+    },
+    {
+      "url": "https://quartz.jzhao.xyz",
+      "reason": "External link",
+      "source": "http://localhost:8080/"
+    },
+    {
+      "url": "https://fonts.gstatic.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/"
+    },
+    {
+      "url": "https://localhost:8080/index.xml",
+      "reason": "External link",
+      "source": "http://localhost:8080/"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&family=Roboto Mono:wght@400;600&display=swap",
+      "reason": "External link",
+      "source": "http://localhost:8080/"
     },
     {
       "url": "https://yivoencyclopedia.org/article.aspx/Galicia",
-      "reason": "External link",
-      "source": "http://localhost:8080/static/chapters/I11052340/01-in_russia.md"
-    },
-    {
-      "url": "https://yivoencyclopedia.org/article.aspx/World_War_I \"World War I\"",
       "reason": "External link",
       "source": "http://localhost:8080/static/chapters/I11052340/01-in_russia.md"
     },
@@ -676,6 +671,11 @@
       "source": "http://localhost:8080/static/chapters/I11052340/01-in_russia.md"
     },
     {
+      "url": "https://yivoencyclopedia.org/article.aspx/World_War_I \"World War I\"",
+      "reason": "External link",
+      "source": "http://localhost:8080/static/chapters/I11052340/01-in_russia.md"
+    },
+    {
       "url": "https://en.topwar.ru/38382-istoriya-ledokola-baykal.html",
       "reason": "External link",
       "source": "http://localhost:8080/static/chapters/I11052340/03-trans_siberian.md"
@@ -686,179 +686,9 @@
       "source": "http://localhost:8080/static/chapters/I11052340/06-beile-goichman.md"
     },
     {
-      "url": "https://cdnjs.cloudflare.com",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/profiles-of-interest"
-    },
-    {
-      "url": "https://quartz.jzhao.xyz",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/profiles-of-interest"
-    },
-    {
-      "url": "https://localhost:8080/index.xml",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/profiles-of-interest"
-    },
-    {
-      "url": "https://fonts.googleapis.com",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/profiles-of-interest"
-    },
-    {
-      "url": "https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&family=Roboto Mono:wght@400;600&display=swap",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/profiles-of-interest"
-    },
-    {
-      "url": "https://fonts.gstatic.com",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/profiles-of-interest"
-    },
-    {
       "url": "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css",
       "reason": "External link",
-      "source": "http://localhost:8080/pages/profiles-of-interest"
-    },
-    {
-      "url": "https://fonts.googleapis.com",
-      "reason": "External link",
-      "source": "http://localhost:8080/"
-    },
-    {
-      "url": "https://cdnjs.cloudflare.com",
-      "reason": "External link",
-      "source": "http://localhost:8080/"
-    },
-    {
-      "url": "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css",
-      "reason": "External link",
-      "source": "http://localhost:8080/"
-    },
-    {
-      "url": "https://quartz.jzhao.xyz",
-      "reason": "External link",
-      "source": "http://localhost:8080/"
-    },
-    {
-      "url": "https://localhost:8080/index.xml",
-      "reason": "External link",
-      "source": "http://localhost:8080/"
-    },
-    {
-      "url": "https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&family=Roboto Mono:wght@400;600&display=swap",
-      "reason": "External link",
-      "source": "http://localhost:8080/"
-    },
-    {
-      "url": "https://fonts.gstatic.com",
-      "reason": "External link",
-      "source": "http://localhost:8080/"
-    },
-    {
-      "url": "https://cdnjs.cloudflare.com",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/preface"
-    },
-    {
-      "url": "https://quartz.jzhao.xyz",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/preface"
-    },
-    {
-      "url": "https://localhost:8080/index.xml",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/preface"
-    },
-    {
-      "url": "https://fonts.googleapis.com",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/preface"
-    },
-    {
-      "url": "https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&family=Roboto Mono:wght@400;600&display=swap",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/preface"
-    },
-    {
-      "url": "https://fonts.gstatic.com",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/preface"
-    },
-    {
-      "url": "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/preface"
-    },
-    {
-      "url": "https://fonts.googleapis.com",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/hoffman_history"
-    },
-    {
-      "url": "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/hoffman_history"
-    },
-    {
-      "url": "https://quartz.jzhao.xyz",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/hoffman_history"
-    },
-    {
-      "url": "https://localhost:8080/index.xml",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/hoffman_history"
-    },
-    {
-      "url": "https://cdnjs.cloudflare.com",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/hoffman_history"
-    },
-    {
-      "url": "https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&family=Roboto Mono:wght@400;600&display=swap",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/hoffman_history"
-    },
-    {
-      "url": "https://fonts.gstatic.com",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/hoffman_history"
-    },
-    {
-      "url": "https://cdnjs.cloudflare.com",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/the_names"
-    },
-    {
-      "url": "https://quartz.jzhao.xyz",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/the_names"
-    },
-    {
-      "url": "https://localhost:8080/index.xml",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/the_names"
-    },
-    {
-      "url": "https://fonts.googleapis.com",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/the_names"
-    },
-    {
-      "url": "https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&family=Roboto Mono:wght@400;600&display=swap",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/the_names"
-    },
-    {
-      "url": "https://fonts.gstatic.com",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/the_names"
-    },
-    {
-      "url": "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css",
-      "reason": "External link",
-      "source": "http://localhost:8080/pages/the_names"
+      "source": "http://localhost:8080/pages/all-profiles"
     },
     {
       "url": "https://cdnjs.cloudflare.com",
@@ -866,9 +696,179 @@
       "source": "http://localhost:8080/pages/all-profiles"
     },
     {
+      "url": "https://fonts.googleapis.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/all-profiles"
+    },
+    {
+      "url": "https://fonts.gstatic.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/all-profiles"
+    },
+    {
       "url": "https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&family=Roboto Mono:wght@400;600&display=swap",
       "reason": "External link",
       "source": "http://localhost:8080/pages/all-profiles"
+    },
+    {
+      "url": "https://quartz.jzhao.xyz",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/all-profiles"
+    },
+    {
+      "url": "https://localhost:8080/index.xml",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/all-profiles"
+    },
+    {
+      "url": "https://quartz.jzhao.xyz",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/founders"
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/founders"
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/founders"
+    },
+    {
+      "url": "https://fonts.googleapis.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/founders"
+    },
+    {
+      "url": "https://localhost:8080/index.xml",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/founders"
+    },
+    {
+      "url": "https://fonts.gstatic.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/founders"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&family=Roboto Mono:wght@400;600&display=swap",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/founders"
+    },
+    {
+      "url": "https://fonts.googleapis.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/hoffman_history"
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/hoffman_history"
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/hoffman_history"
+    },
+    {
+      "url": "https://quartz.jzhao.xyz",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/hoffman_history"
+    },
+    {
+      "url": "https://localhost:8080/index.xml",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/hoffman_history"
+    },
+    {
+      "url": "https://fonts.gstatic.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/hoffman_history"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&family=Roboto Mono:wght@400;600&display=swap",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/hoffman_history"
+    },
+    {
+      "url": "https://quartz.jzhao.xyz",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/preface"
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/preface"
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/preface"
+    },
+    {
+      "url": "https://fonts.googleapis.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/preface"
+    },
+    {
+      "url": "https://localhost:8080/index.xml",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/preface"
+    },
+    {
+      "url": "https://fonts.gstatic.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/preface"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&family=Roboto Mono:wght@400;600&display=swap",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/preface"
+    },
+    {
+      "url": "https://quartz.jzhao.xyz",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/profiles-with-gallery"
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/profiles-with-gallery"
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/profiles-with-gallery"
+    },
+    {
+      "url": "https://fonts.googleapis.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/profiles-with-gallery"
+    },
+    {
+      "url": "https://localhost:8080/index.xml",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/profiles-with-gallery"
+    },
+    {
+      "url": "https://fonts.gstatic.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/profiles-with-gallery"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&family=Roboto Mono:wght@400;600&display=swap",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/profiles-with-gallery"
+    },
+    {
+      "url": "https://fonts.googleapis.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/about"
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/about"
     }
   ]
 }
