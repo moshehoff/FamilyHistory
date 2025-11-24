@@ -22,13 +22,13 @@ The second son, [Hymie (Hayem) Yudl](/profiles/Hymie-Haim-Hoffman) was born in P
 
 Berl's uncle [Haym](/profiles/Haim-Yehuda-Hoffman) had prospered in Perth. He had an Australian wine licence, and he leased the wine salon at 411 Wellington Street, Perth, where he lived with his family and ran the Westralia Fruit Palace. Haym planned to transfer the lease to his family and return to Palestine. However on 16.1.1914, the day before sailing, he died suddenly in the Supreme Court Gardens. 
 
-His widow [Sarah](/profiles/Sara-Hochman) who did return to Palestine, through the agency of the lawyer Morris Crawcour, transferred the lease to Berl on 24.2.1914. Berl and his Uncle [Morrie](/profiles/Moshe-משה-Hoffman) (my grandfather) were in partnership there for a year. 
+His widow [Sarah](/profiles/Sara-Hochman-Bershada) who did return to Palestine, through the agency of the lawyer Morris Crawcour, transferred the lease to Berl on 24.2.1914. Berl and his Uncle [Morrie](/profiles/Moshe-משה-Hoffman-Hochman) (my grandfather) were in partnership there for a year. 
 
-On 8.3.1915 the "partnership" was dissolved, and Berl applied for a "transfer of the rights and privileges of the Australian Wine Licence held by me in respect of the said premises to [Morris Hoffman](/profiles/Moshe-משה-Hoffman) of 411 Wellington St. Perth, fruiterer". The reason for these transfers was that in 1914 Morrie held only a fruiterer's licence, so Berl temporarily stood in for him. Morrie and family lived on the premises and ran it for the absentee licensee.
+On 8.3.1915 the "partnership" was dissolved, and Berl applied for a "transfer of the rights and privileges of the Australian Wine Licence held by me in respect of the said premises to [Morris Hoffman](/profiles/Moshe-משה-Hoffman-Hochman) of 411 Wellington St. Perth, fruiterer". The reason for these transfers was that in 1914 Morrie held only a fruiterer's licence, so Berl temporarily stood in for him. Morrie and family lived on the premises and ran it for the absentee licensee.
 
 ### Fourth Child
 
-[Rivka](/profiles/Rivka-Hochman-Berl)'s fourth child, [Hannah Beile](/profiles/Hanna-Beile-חנה-ביילע-Miller) was born in Perth in 1917. She returned with her to Westonia immediately afterwards.
+[Rivka](/profiles/Rivka-Hochman-Zisselman)'s fourth child, [Hannah Beile](/profiles/Hanna-Beile-חנה-ביילע-Miller-Hochman) was born in Perth in 1917. She returned with her to Westonia immediately afterwards.
 
 ### Jury Service
 
@@ -46,7 +46,7 @@ The jury's verdict was: "That William Stack came to his death through shock foll
 
 ### Closing the Business
 
-In 1921 Berl closed the business and both the house and shop were dismantled. Everything, including the remaining stock was brought to Perth and delivered to a vacant block adjoining the Broken Hill Hotel (then managed by [Morrie Hoffman](/profiles/Moshe-משה-Hoffman)) in Albany Highway, Victoria Park. After a couple of weeks it was all auctioned off. In the meantime Berl took over the license of Stirling Arms Hotel at Guildford.
+In 1921 Berl closed the business and both the house and shop were dismantled. Everything, including the remaining stock was brought to Perth and delivered to a vacant block adjoining the Broken Hill Hotel (then managed by [Morrie Hoffman](/profiles/Moshe-משה-Hoffman-Hochman)) in Albany Highway, Victoria Park. After a couple of weeks it was all auctioned off. In the meantime Berl took over the license of Stirling Arms Hotel at Guildford.
 
 ---
 

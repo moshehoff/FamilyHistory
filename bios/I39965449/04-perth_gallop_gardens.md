@@ -2,7 +2,7 @@
 
 ### First Child and Return to Perth
 
-In 1909 their first child [Mina](/profiles/Minnie-Mina-Mendelovitz) was born there. In 1910 the family left the Wickepin farm and returned to Perth. On his return to Perth, Berl immediately started work at Gallop Gardens on the Swan River foreshore in Nedlands. The family resided on the property.
+In 1909 their first child [Mina](/profiles/Minnie-Mina-Mendelovitz-Hochman) was born there. In 1910 the family left the Wickepin farm and returned to Perth. On his return to Perth, Berl immediately started work at Gallop Gardens on the Swan River foreshore in Nedlands. The family resided on the property.
 
 
 <div class="info-box">

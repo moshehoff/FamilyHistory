@@ -1,6 +1,6 @@
 ## Tobl Zitserman
 
-[Tubb'l](/profiles/Tobl-Hochman-%28Hoffman%29) was one of six children of Aaron and Elke Zitserman of Bershad. Her name Tubb'l is the Yiddish diminutive for a dove. She also lived through the pogroms, and her childhood was very hard. At the age of nine years she worked with her sisters as a seamstress. Bershad was a centre of woollen tallith (prayer shawl) weaving. She learned tallith making too and later in Perth she tailored tallitot for her family and grandchildren.
+[Tubb'l](/profiles/Tobl-Hochman-(Hoffman)-Zitserman) was one of six children of Aaron and Elke Zitserman of Bershad. Her name Tubb'l is the Yiddish diminutive for a dove. She also lived through the pogroms, and her childhood was very hard. At the age of nine years she worked with her sisters as a seamstress. Bershad was a centre of woollen tallith (prayer shawl) weaving. She learned tallith making too and later in Perth she tailored tallitot for her family and grandchildren.
 
 Aaron died sometime before 1912, as [Harry Aaron](/profiles/Aaron-Harry-אהרון-Hoffman) received his name. 
 

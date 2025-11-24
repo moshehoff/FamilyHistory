@@ -1,0 +1,1295 @@
+{
+  "base_url": "http://localhost:8080",
+  "start_url": "http://localhost:8080",
+  "crawl_time": "2025-11-24 09:33:46",
+  "stats": {
+    "pages_checked": 300,
+    "links_found": 5901,
+    "links_checked": 445,
+    "start_time": 1763969596.2272353,
+    "elapsed_time": 29.900376319885254
+  },
+  "summary": {
+    "pages_checked": 300,
+    "valid_links": 240,
+    "broken_links": 60,
+    "skipped_links": 1552,
+    "total_visited": 300
+  },
+  "broken_links": [
+    {
+      "url": "http://localhost:8080/profiles/Rivka-Bar-Cohen",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/profiles/Rosa-Aron",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/profiles/Tobl-Hochman-%28Hoffman%29",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/profiles/Elyashiv-Hoffman",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/profiles/Rivka-Hochman-Berl",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/img_moishe_1909.png",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/img_podolia_guvernat.png",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/profiles/Beile-ביילא-Hochman",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/profiles/Bella-Hoffman-Moshe",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/img_railroad_map.png",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/img_savran_ukraine.png",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/img_lake_baikal.png",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/profiles/Edith-צירל-Hoffman",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/img_baikal_1901.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/img_baikal5.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/img_aangara-02.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/img_angara3.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/img_baikal_shunting_a_train_1901_1.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/img_transsiberian_locomotive_1918.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/img_baikal61.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/img_hochman_teacup.png",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/img_moishe.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/img_hochman_rouble.png",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/img_fremantle_cliff_st.png",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/img_ndl_scharnhorst.png",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/img_odessa_harbour.png",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/Scharnhorst-manifest-2.jpeg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/profiles/Moshe-משה-Hoffman",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/Scharnhorst-manifest-1.jpeg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/goichman.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/Bershad-ghetto-1943.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/Bershad-synagogue-2004.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/Bershad-synagogue-1991.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/Bershad-synagogue-ceiling-2004.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/Bershad-synagogue-exterior-2006.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/frontispiece-Bershad-yizkor-book-1946.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/Morris-and-Tobl-abt-1910.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/bios/I11052340/MorrisH-applic-1.jpeg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/profiles/Ruchel-Hoffman",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/profiles/Leah-Hoffman-Nate",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/profiles/Elka-Dora-Devora-Haimson",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/profiles/Valda-Marie-Hoffman",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11060285/bios/I11060285/img_shimon_meir.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/profiles/Rivka-Freida-Hochman",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11060285/bios/I11060285/img_map.png",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/profiles/Frida-Hochman",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/profiles/Minnie-Mina-Mendelovitz",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/profiles/Hanna-Beile-חנה-ביילע-Miller",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I39965497/bios/I39965497/img_oksova.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I39965497/bios/I39965497/img_orient_line.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I39965497/bios/I39965497/img_lincoln.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I39965497/bios/I39965497/img_harry_geave.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I39965497/Hershel Hoffman .jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I39965497/bios/I39965497/img_rachel.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I39965497/bios/I39965497/img_map.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I39965497/bios/I39965497/harry_and_rachel_1955.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I39965497/bios/I39965497/img_wedding_cert.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I39965497/bios/I39965497/img_naturalization.jpg",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "http://localhost:8080/profiles/Tobl-Hochman-(Hoffman)",
+      "status": 404,
+      "valid": false,
+      "source": "",
+      "error": "HTTP 404"
+    }
+  ],
+  "valid_links_sample": [
+    {
+      "url": "http://localhost:8080",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11032861/I11032861.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11032861/01-background.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11032861/02-arrival_of_hyam_yudl.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11032861/03-arrival_of_berl.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11032861/04-business_development.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11032861/05-arrival_of_israel.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11032861/06-partnerships_and_licenses.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11032861/07-arrival_of_moishe_wolfe.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11032861/08-final_years.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11032861/09-transition.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11032861/10-family_establishment.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/I11052340.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/01-in_russia.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/02-savran_progrom.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/03-trans_siberian.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/04-savran-to-fremantle.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/05-scharnhost_passangers.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/06-beile-goichman.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/07-tobl_zitserman.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11052340/08-moshe_tobl_in_perth.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I11060285/I11060285.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I39965449/I39965449.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I39965449/01-early_life.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I39965449/02-arrival_australia.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I39965449/03-marriage.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I39965449/04-perth_gallop_gardens.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I39965449/05-westonia_business.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I39965449/06-hotel_years.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I39965449/07-final_years.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/chapters/I39965497/I39965497.md",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/pages/profiles-of-interest",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/pages/the_names",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/pages/founders",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/pages/profiles-with-gallery",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/index.css",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/pages/all-profiles",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/pages/hoffman_history",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/static/icon.png",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/pages/about",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/pages/preface",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Shulamit-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Wolfe-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Sara-Hochman-Bershada",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Berl-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Yisrael-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Rachel-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Haim-Yehuda-חיים-יהודה-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Shimon-Meir-מאיר-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Jack-Hoffman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/_Bobka_-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Hymie-Haim-Hoffman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Wolf-זאב-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Josef-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Sholem-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Aaron-Harry-אהרון-Hoffman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Hyman-Judah-Hoffman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Dr-PETER-%D7%A4%D7%A0%D7%97%D7%A1-HOFFMAN",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Ben-Benzion-Hoffman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Nate-Hoffman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Bracha-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Hershl-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Marie-Hoffman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Haim-Yehuda-Hoffman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Bruce-Hoffman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Bruce-Boruch-Hoffman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/pages",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Moshe-משה-Hoffman-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/img_savran_ukraine.png",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Kolman-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Binyamin-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Tobl-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Avraham-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Myrtle-Hadassa-Hoffman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Dr-PETER-פנחס-HOFFMAN",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Hammy-Nehemiah-Hoffman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Rose-Lazarus-Hoffman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Hillel-Moldavsky",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Edith-צירל-Hoffman-Spielmann",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Wolf-Hoffman-Valda",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Fanny-Hoffman-Koser",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Morrie-Miller",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Rivka-Hochman-Zisselman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Alyce-Breazeale-Hoffman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Minnie-Mina-Mendelovitz-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Dianne-Helen-דינה-Kemp-Hoffman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Hanna-Beile-חנה-ביילע-Miller-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Bella-Hoffman-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Bertha-Hoffman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Ruchel-Hoffman-Gillik",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Mendel-Mendelovitz",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Edward-Denis-אליהו-Hoffman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Shimon-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Amira-Plotkin-Hoffman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Ernest-Hoffman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Elchanan-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Ronald-Harris-Hoffman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Yehudit-Hochman",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8080/profiles/Margaret-Hoffman-Reynolds",
+      "status": 200,
+      "valid": true,
+      "source": ""
+    }
+  ],
+  "skipped_links_sample": [
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&family=Roboto Mono:wght@400;600&display=swap",
+      "reason": "External link",
+      "source": "http://localhost:8080"
+    },
+    {
+      "url": "https://quartz.jzhao.xyz",
+      "reason": "External link",
+      "source": "http://localhost:8080"
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com",
+      "reason": "External link",
+      "source": "http://localhost:8080"
+    },
+    {
+      "url": "https://localhost:8080/index.xml",
+      "reason": "External link",
+      "source": "http://localhost:8080"
+    },
+    {
+      "url": "https://fonts.gstatic.com",
+      "reason": "External link",
+      "source": "http://localhost:8080"
+    },
+    {
+      "url": "https://fonts.googleapis.com",
+      "reason": "External link",
+      "source": "http://localhost:8080"
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css",
+      "reason": "External link",
+      "source": "http://localhost:8080"
+    },
+    {
+      "url": "https://yivoencyclopedia.org/article.aspx/military_service_in_russia",
+      "reason": "External link",
+      "source": "http://localhost:8080/static/chapters/I11052340/01-in_russia.md"
+    },
+    {
+      "url": "https://yivoencyclopedia.org/article.aspx/Russian_Revolutions_of_1917 \"Russian Revolutions of 1917\"",
+      "reason": "External link",
+      "source": "http://localhost:8080/static/chapters/I11052340/01-in_russia.md"
+    },
+    {
+      "url": "https://yivoencyclopedia.org/article.aspx/World_War_I \"World War I\"",
+      "reason": "External link",
+      "source": "http://localhost:8080/static/chapters/I11052340/01-in_russia.md"
+    },
+    {
+      "url": "https://yivoencyclopedia.org/article.aspx/Galicia",
+      "reason": "External link",
+      "source": "http://localhost:8080/static/chapters/I11052340/01-in_russia.md"
+    },
+    {
+      "url": "https://en.topwar.ru/38382-istoriya-ledokola-baykal.html",
+      "reason": "External link",
+      "source": "http://localhost:8080/static/chapters/I11052340/03-trans_siberian.md"
+    },
+    {
+      "url": "http://jewua.org/wp-content/uploads/2020/07/Untitled-2.jpg",
+      "reason": "External link",
+      "source": "http://localhost:8080/static/chapters/I11052340/06-beile-goichman.md"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&family=Roboto Mono:wght@400;600&display=swap",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/profiles-of-interest"
+    },
+    {
+      "url": "https://quartz.jzhao.xyz",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/profiles-of-interest"
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/profiles-of-interest"
+    },
+    {
+      "url": "https://localhost:8080/index.xml",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/profiles-of-interest"
+    },
+    {
+      "url": "https://fonts.gstatic.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/profiles-of-interest"
+    },
+    {
+      "url": "https://fonts.googleapis.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/profiles-of-interest"
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/profiles-of-interest"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&family=Roboto Mono:wght@400;600&display=swap",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/the_names"
+    },
+    {
+      "url": "https://quartz.jzhao.xyz",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/the_names"
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/the_names"
+    },
+    {
+      "url": "https://localhost:8080/index.xml",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/the_names"
+    },
+    {
+      "url": "https://fonts.gstatic.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/the_names"
+    },
+    {
+      "url": "https://fonts.googleapis.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/the_names"
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/the_names"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&family=Roboto Mono:wght@400;600&display=swap",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/founders"
+    },
+    {
+      "url": "https://quartz.jzhao.xyz",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/founders"
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/founders"
+    },
+    {
+      "url": "https://localhost:8080/index.xml",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/founders"
+    },
+    {
+      "url": "https://fonts.gstatic.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/founders"
+    },
+    {
+      "url": "https://fonts.googleapis.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/founders"
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/founders"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&family=Roboto Mono:wght@400;600&display=swap",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/profiles-with-gallery"
+    },
+    {
+      "url": "https://quartz.jzhao.xyz",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/profiles-with-gallery"
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/profiles-with-gallery"
+    },
+    {
+      "url": "https://localhost:8080/index.xml",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/profiles-with-gallery"
+    },
+    {
+      "url": "https://fonts.gstatic.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/profiles-with-gallery"
+    },
+    {
+      "url": "https://fonts.googleapis.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/profiles-with-gallery"
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/profiles-with-gallery"
+    },
+    {
+      "url": "https://quartz.jzhao.xyz",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/all-profiles"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&family=Roboto Mono:wght@400;600&display=swap",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/all-profiles"
+    },
+    {
+      "url": "https://fonts.googleapis.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/all-profiles"
+    },
+    {
+      "url": "https://localhost:8080/index.xml",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/all-profiles"
+    },
+    {
+      "url": "https://fonts.gstatic.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/all-profiles"
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/all-profiles"
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/all-profiles"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&family=Roboto Mono:wght@400;600&display=swap",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/hoffman_history"
+    },
+    {
+      "url": "https://fonts.gstatic.com",
+      "reason": "External link",
+      "source": "http://localhost:8080/pages/hoffman_history"
+    }
+  ]
+}

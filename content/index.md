@@ -18,9 +18,9 @@ your elders, and they will explain to you.”**
 ### Site map
 
 * [Preface by Peter Hoffman](pages/preface)
-* [The Founding Generation](/pages/founders)
+* [The Founding Generation in Russia](/pages/founders)
 * [The Hoffman history in Australia](pages/hoffman_history) 
-* [Hoffman?? Hochman?? The Story of a Family Name](pages/the_names) 
+* [Hoffman or Hochman??](pages/the_names) 
 * [Profiles with Biographies](pages/profiles-of-interest) - Profiles with extended biographical information
 * [Profiles with Galleries](pages/profiles-with-gallery) - Profiles with images in their gallery
 * [About](pages/about) - About this website

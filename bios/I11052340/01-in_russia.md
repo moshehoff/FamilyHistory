@@ -2,7 +2,7 @@
 ## In Russia
 ### Moishe and Tubb'l Hochman משה ויונה הוכמאן
 
-Moishe was born in 1884 in Savran, in the guvernat of Podolia in the Russian Empire. From about 1920 the provinces were rearranged and Savran is now in the Odessa Oblast. Moishe was the eighth of the ten children of [Wolf](/profiles/Wolf-זאב-Hochman) and [Beile](/profiles/Beile-ביילא-Hochman). The name Hochman is Yiddish for "tall."
+Moishe was born in 1884 in Savran, in the guvernat of Podolia in the Russian Empire. From about 1920 the provinces were rearranged and Savran is now in the Odessa Oblast. Moishe was the eighth of the ten children of [Wolf](/profiles/Wolf-זאב-Hochman) and [Beile](/profiles/Beile-ביילא-Hochman-Elizafan). The name Hochman is Yiddish for "tall."
 
 Beile is a Yiddish girl's name, derived from the slavic “biela” meaning white. “Bella”, as her name has been recorded outside of Russia, is an italianate approximation.  
 
@@ -51,9 +51,9 @@ Their descendants now live in other states, and in Israel.
 
 An account of the 1917 pogroms in Savran mentions Simon Elitzafan who was whipped by marauding Cossacks. The source, in Hebrew and with its English translation is appended at the end of this narrative.
 
-_[Beile](/profiles/Beile-ביילא-Hochman) came to Palestine and is buried on the Mount of Olives._ (related to his son [Hymie](/profiles/Hymie-Haim-Hoffman)) 
+_[Beile](/profiles/Beile-ביילא-Hochman-Elizafan) came to Palestine and is buried on the Mount of Olives._ (related to his son [Hymie](/profiles/Hymie-Haim-Hoffman)) 
 
-She must have arrived at the earliest in 1910, and passed away in 1915 at the latest. We know this because a grand daughter born in Perth in 1915 bore her name ([Bella](/profiles/Bella-Hoffman-Moshe)).
+She must have arrived at the earliest in 1910, and passed away in 1915 at the latest. We know this because a grand daughter born in Perth in 1915 bore her name ([Bella](/profiles/Bella-Hoffman-Hochman)).
 
 Until 1793, Podolia was part of the extensive Kingdom of Poland. Its Jewish population was about sixty thousand. Savran was in the Bratslav administrative district. In that year, in the second partition of Poland, Podolia became part of Tsarist Russia. Orthodox Russia now had a large Jewish population in her western lands, and dealt with the situation by  restricting them to the former Polish lands and formulating a great body of legislation pertinent and discriminatory to them. This area was known as the Pale of Jewish Settlement. Many of the shtetels of Podolia  were seminal to the development of hassidic Judaism - among them, Bratslav, Uman, Tulchin and Mezhibozh. The majority of the population was Ukrainian of the Orthodox Catholic persuasion. From childhood, in home and church, they were raised on antisemitism.
 
@@ -98,19 +98,19 @@ Children in the shtetels were educated in Jewish schools  which were supported 
 
 _Moishe witnessed pogroms in Savran. He saw mounted troops with swords decapitating Jews._ (related to his grandson Trevor David)
 
-_His sister [Bobka](/profiles/_Bobka_-Hochman) met her death in the river during a pogrom._ (related to [Edith](/profiles/Edith-צירל-Hoffman))
+_His sister [Bobka](/profiles/_Bobka_-Hochman) met her death in the river during a pogrom._ (related to [Edith](/profiles/Edith-צירל-Hoffman-Spielmann))
 
-_He witnessed a public execution by hanging._ (related to [Edith](/profiles/Edith-צירל-Hoffman))
+_He witnessed a public execution by hanging._ (related to [Edith](/profiles/Edith-צירל-Hoffman-Spielmann))
 
 These childhood experiences were what the repressive Tsarist regime offered in lieu of school lessons in social studies.
 
-_Like most Jews in Podolia, the family was observant. There were of course miscreants. One of [Wolf](/profiles/Wolf-זאב-Hochman)'s daughters-in-law walked out because her husband smoked on shabbat._ (related to [Edith](/profiles/Edith-צירל-Hoffman))
+_Like most Jews in Podolia, the family was observant. There were of course miscreants. One of [Wolf](/profiles/Wolf-זאב-Hochman)'s daughters-in-law walked out because her husband smoked on shabbat._ (related to [Edith](/profiles/Edith-צירל-Hoffman-Spielmann))
 
 At home they spoke only Yiddish. As the towns had 40%-60% Jewish inhabitants, and much of the commerce was in Jewish hands, they had little use for the Ukrainian language. The men, who travelled and traded must have known it, but the women hardly at all. Yiddish was the language that they took with them when they emigrated, and remained for most the language of day to day life, the only tongue that they ever knew well. Yiddish was the language of their letters, and of the annotations on the backs of their few photographs. Marriages were contracted (shiddochs), frequently with families from other shtetels.
 
 _Moishe learned the craft of the cartwright and wheelwright. The family would construct then sell a cart in the market, and with the revenue buy a log of wood to be sawn up for another cart._ (related to his son [Jack](/profiles/Jack-Hoffman))
 
-Much later, in Perth Moishe repaired metal pub garden furniture, and barrels. In his spare time he did many of the repair jobs at the Brisbane St. shule. A steel laminex-topped table he made for [Edith](/profiles/Edith-צירל-Hoffman) was in our home in Yokine. [Hymie](/profiles/Hymie-Haim-Hoffman) told of seeing his father throwing a hot iron hoop around the sawn elements of a wooden wheel.
+Much later, in Perth Moishe repaired metal pub garden furniture, and barrels. In his spare time he did many of the repair jobs at the Brisbane St. shule. A steel laminex-topped table he made for [Edith](/profiles/Edith-צירל-Hoffman-Spielmann) was in our home in Yokine. [Hymie](/profiles/Hymie-Haim-Hoffman) told of seeing his father throwing a hot iron hoop around the sawn elements of a wooden wheel.
 
 ### The Tsarist army
 
@@ -171,7 +171,7 @@ _Moishe was in the far east when the date of his discharge was approaching. He a
 
 In Russian this sentence would be a marvellous double negative: _"Zhid, you're not going nowhere"_
 
-_His mother, [Beile](/profiles/Beile-ביילא-Hochman), petitioned the Tsarina, Alexandra, for his release._ (related to [Edith](/profiles/Edith-צירל-Hoffman))  
+_His mother, [Beile](/profiles/Beile-ביילא-Hochman-Elizafan), petitioned the Tsarina, Alexandra, for his release._ (related to [Edith](/profiles/Edith-צירל-Hoffman-Spielmann))  
 
 This was Alexandra, grand daughter of Queen Victoria of England and consort of  Tsar Nikolai II.  Nikolai was the last Tsar. He abdicated in 1917. Alexandra, Nikolai,  their four daughters _and son were subsequently murdered by the Bolsheviks.
 
@@ -184,7 +184,7 @@ His account of crossing Baikal by ferry is consistent with the historical facts 
 ![[bios/I11052340/img_railroad_map.png]]
 **_Map of the Asian section of the Transsiberian railroad and ferry._**
 
-His life had taught him that there was no future for him in Russia. On returning from the army he married a young woman from another town in Podolia – [Tubb'l Zitzerman](/profiles/Tobl-Hochman-%28Hoffman%29) from Bershad – and got out of Russia. The marriage, as was usual at that time was probably arranged. His goal was Perth in Western Australia, where his brother [Haim Yudl](/profiles/Haim-Yehuda-חיים-יהודה-Hochman) had settled.
+His life had taught him that there was no future for him in Russia. On returning from the army he married a young woman from another town in Podolia – [Tubb'l Zitzerman](/profiles/Tobl-Hochman-(Hoffman)-Zitserman) from Bershad – and got out of Russia. The marriage, as was usual at that time was probably arranged. His goal was Perth in Western Australia, where his brother [Haim Yudl](/profiles/Haim-Yehuda-חיים-יהודה-Hochman) had settled.
 
     **Peter Hoffman   Rehovot    February 2023**
 
