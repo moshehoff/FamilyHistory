@@ -26,6 +26,7 @@ import ConditionalRender from "./ConditionalRender"
 import ProfileTabs from "./ProfileTabs"
 import FamilyTreeLarge from "./FamilyTreeLarge"
 import NavBar from "./NavBar"
+import AllImagesGallery from "./AllImagesGallery"
 
 export {
   ArticleTitle,
@@ -56,4 +57,5 @@ export {
   ProfileTabs,
   FamilyTreeLarge,
   NavBar,
+  AllImagesGallery,
 }

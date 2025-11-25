@@ -23,6 +23,7 @@ your elders, and they will explain to you.”**
 * [Hoffman or Hochman??](pages/the_names) 
 * [Profiles with Biographies](pages/profiles-of-interest) - Profiles with extended biographical information
 * [Profiles with Galleries](pages/profiles-with-gallery) - Profiles with images in their gallery
+* [All Images](pages/all-images) - All images from all profiles
 * [About](pages/about) - About this website
 * [All Profiles](pages/all-profiles) - Complete list of 546 family members
 

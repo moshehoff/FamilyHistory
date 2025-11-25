@@ -11,6 +11,10 @@ export const sharedPageComponents: SharedLayout = {
       component: Component.ProfileTabs(),
       condition: (page) => page.fileData.frontmatter?.type === "profile",
     }),
+    Component.ConditionalRender({
+      component: Component.AllImagesGallery(),
+      condition: (page) => page.fileData.slug === "pages/all-images",
+    }),
   ],
   footer: Component.Footer({
     links: {
