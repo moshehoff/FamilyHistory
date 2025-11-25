@@ -32,19 +32,19 @@ Wolf died between 1890 and 1892, when his youngest children were still small. We
 Wolf זאב & Beile 
 ביילא Hochman (Savran)
 │
-├─ 1. Shimon Meir שמעון מאיר 
+├─ Shimon Meir שמעון מאיר 
 │   ├─ Berl 
 │   └─ Hershl 
-├─ 2. Haim Yudl חיים יהודה 
-├─ 3. Avraham אברהם
-├─ 4. Yosef יוסף 
+├─ Haim Yudl חיים יהודה 
+├─ Avraham אברהם
+├─ Yosef יוסף 
 │   └─ Wolf 
-├─ 5. Kolman קלמן 
-├─ 6. Binyamin בנימין 
-├─ 7. Sholem שלום
-├─ 8. Moshe משה
-├─ 9. "Bobka" 
-└─ 10. Yisrael ישראל
+├─ Kolman קלמן 
+├─ Binyamin בנימין 
+├─ Sholem שלום
+├─ Moshe משה
+├─ "Bobka" 
+└─ Yisrael ישראל
 ```
 
 ### The Children: A Generation Scattered
@@ -61,6 +61,7 @@ The eldest son. Shimon and his young family left Savran for Palestine around **1
  **2. [Haim Yehuda חיים יהודה Hochman](/profiles/Haim-Yehuda-חיים-יהודה-Hochman)** (b. circa 1870)
 The second son, known as Hyam Yudl. In his youth, he witnessed terrible pogroms in Savran. He married [Sarah Bersharda](/profiles/Sara-Hochman-Bershada) in Balta on 15 August 1891. A member of the **Hovevei Zion** (Lovers of Zion) movement, Hyam purchased land in Doran (later Rehovot) from Yehoshua Hankin while still in Russia. He emigrated to Palestine in the early 1890s, where his first three children were born.
 
+**Destination:** Palestine  
 **→ Australia: 1 January 1901** (Fremantle)  
 He was the first of the family to arrive in Western Australia, coming with Sarah and their children. Hyam worked as a fruiterer and helped establish subsequent family members in Perth.
 
@@ -80,6 +81,8 @@ Binyamin may have died young. His name was later given to a nephew, [Ben Benzion
 
  **7. [Sholem Hochman](/profiles/Sholem-Hochman)** (b. 1884, d. 1921)
 Sholem married Shaindl Schutte. He may have emigrated to the United States (Pittsburgh is mentioned in family records).
+
+**Destination:** The USA
 
  **8. [Moshe משה Hoffman](/profiles/Moshe-משה-Hoffman-Hochman)** (b. 15 April 1884, d. 7 April 1973)
 Born in Savran, Moshe (Moishe) trained as a wheelwright. He was conscripted into the Tsarist army around 1906 and served as a military wheelwright. He witnessed horrific pogroms, including mounted Cossacks decapitating Jews with swords.

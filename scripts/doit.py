@@ -3,6 +3,7 @@ import argparse
 import urllib.parse
 import json
 import shutil
+import re
 
 
 
@@ -1208,6 +1209,7 @@ def create_chapters_index(bios_dir, static_dir, individuals):
     Scan bios/ directory for chapter subdirectories (e.g., bios/I10/).
     Create chapters-index.json with list of chapters for each profile.
     Copy chapter markdown files to site/quartz/static/chapters/.
+    Supports shared chapters via bios/shared_chapters.json.
     """
     print(f"[DEBUG] Creating chapters index from {bios_dir}")
     
@@ -1218,6 +1220,17 @@ def create_chapters_index(bios_dir, static_dir, individuals):
     if os.path.exists(chapters_output_dir):
         shutil.rmtree(chapters_output_dir)
     os.makedirs(chapters_output_dir, exist_ok=True)
+    
+    # Load shared chapters configuration
+    shared_chapters_config = {}
+    shared_chapters_path = os.path.join(bios_dir, "shared_chapters.json")
+    if os.path.exists(shared_chapters_path):
+        try:
+            with open(shared_chapters_path, 'r', encoding='utf-8') as f:
+                shared_chapters_config = json.load(f)
+            print(f"[DEBUG] Loaded shared chapters config: {len(shared_chapters_config)} profiles with shared chapters")
+        except Exception as e:
+            print(f"[DEBUG] Error loading shared_chapters.json: {e}")
     
     # Scan bios directory for subdirectories (chapter structures)
     if not os.path.exists(bios_dir):
@@ -1307,7 +1320,6 @@ def create_chapters_index(bios_dir, static_dir, individuals):
             slug = filename[:-3].replace('_', '-').lower()
             
             # Generate name from filename (remove numbers, replace _ and - with space, title case)
-            import re
             name = re.sub(r'^\d+-', '', filename[:-3])  # Remove leading numbers
             name = name.replace('_', ' ').replace('-', ' ').title()
             
@@ -1343,6 +1355,130 @@ def create_chapters_index(bios_dir, static_dir, individuals):
                 "chapters": chapters_list[1:] if main_bio_file else chapters_list
             }
             print(f"[DEBUG] Added {len(chapters_list)} chapters for {profile_id}")
+    
+    # Process shared chapters
+    for target_profile_id, shared_config in shared_chapters_config.items():
+        source_profile_id = shared_config.get("shared_from")
+        shared_chapter_files = shared_config.get("chapters", [])
+        
+        if not source_profile_id or not shared_chapter_files:
+            print(f"[DEBUG] Invalid shared chapters config for {target_profile_id}, skipping")
+            continue
+        
+        # Check if source profile has chapters
+        source_chapters_dir = os.path.join(bios_dir, source_profile_id)
+        if not os.path.exists(source_chapters_dir):
+            print(f"[DEBUG] Source directory {source_chapters_dir} not found for shared chapters, skipping")
+            continue
+        
+        # Get target profile info
+        person_key = f"@{target_profile_id}@"
+        person = individuals.get(person_key)
+        if not person:
+            print(f"[DEBUG] Profile {target_profile_id} not found in GEDCOM, skipping shared chapters")
+            continue
+        
+        target_profile_name = person.get("NAME", "Unknown")
+        
+        # Create target profile chapters directory if it doesn't exist
+        target_chapters_dir = os.path.join(chapters_output_dir, target_profile_id)
+        os.makedirs(target_chapters_dir, exist_ok=True)
+        
+        # Initialize or get existing chapters list for target profile
+        if target_profile_id not in chapters_index:
+            # Check if target has its own bio directory
+            target_bio_dir = os.path.join(bios_dir, target_profile_id)
+            target_main_bio = None
+            if os.path.exists(target_bio_dir):
+                for filename in os.listdir(target_bio_dir):
+                    if filename.lower().endswith('.md') and filename.lower() == f"{target_profile_id.lower()}.md":
+                        target_main_bio = filename
+                        break
+            
+            if target_main_bio:
+                # Read title from main bio file
+                main_bio_path = os.path.join(target_bio_dir, target_main_bio)
+                title = "Introduction"
+                try:
+                    with open(main_bio_path, 'r', encoding='utf-8') as f:
+                        first_line = f.readline().strip()
+                        if first_line.startswith('#'):
+                            title = first_line.lstrip('#').strip()
+                except Exception as e:
+                    print(f"[DEBUG] Error reading title from {main_bio_path}: {e}")
+                
+                chapters_index[target_profile_id] = {
+                    "profileName": target_profile_name,
+                    "main": {
+                        "slug": "introduction",
+                        "name": "Introduction",
+                        "title": title,
+                        "filename": target_main_bio
+                    },
+                    "chapters": []
+                }
+                # Copy main bio file
+                dest_path = os.path.join(target_chapters_dir, target_main_bio)
+                shutil.copy2(main_bio_path, dest_path)
+                print(f"[DEBUG]   Copied {target_main_bio} --> {target_chapters_dir}")
+            else:
+                # Create a minimal introduction if no bio directory exists
+                chapters_index[target_profile_id] = {
+                    "profileName": target_profile_name,
+                    "main": {
+                        "slug": "introduction",
+                        "name": "Introduction",
+                        "title": f"{target_profile_name} - Introduction",
+                        "filename": f"{target_profile_id}.md"
+                    },
+                    "chapters": []
+                }
+                # Create minimal introduction file
+                intro_path = os.path.join(target_chapters_dir, f"{target_profile_id}.md")
+                with open(intro_path, 'w', encoding='utf-8') as f:
+                    f.write(f"## {target_profile_name}\n\n")
+                    f.write(f"This biography includes shared chapters from other family members.\n")
+                print(f"[DEBUG]   Created minimal introduction for {target_profile_id}")
+        
+        # Add shared chapters
+        for shared_chapter_file in shared_chapter_files:
+            source_chapter_path = os.path.join(source_chapters_dir, shared_chapter_file)
+            if not os.path.exists(source_chapter_path):
+                print(f"[DEBUG]   Shared chapter {shared_chapter_file} not found in {source_chapters_dir}, skipping")
+                continue
+            
+            # Generate slug and name from filename
+            slug = shared_chapter_file[:-3].replace('_', '-').lower()
+            name = re.sub(r'^\d+-', '', shared_chapter_file[:-3])
+            name = name.replace('_', ' ').replace('-', ' ').title()
+            
+            # Read title from file
+            title = name
+            try:
+                with open(source_chapter_path, 'r', encoding='utf-8') as f:
+                    for line in f:
+                        line = line.strip()
+                        if line.startswith('#'):
+                            title = line.lstrip('#').strip()
+                            break
+            except Exception as e:
+                print(f"[DEBUG] Error reading title from {source_chapter_path}: {e}")
+            
+            # Add to chapters list
+            chapter_info = {
+                "slug": slug,
+                "name": name,
+                "title": title,
+                "filename": shared_chapter_file
+            }
+            chapters_index[target_profile_id]["chapters"].append(chapter_info)
+            
+            # Copy chapter file
+            dest_path = os.path.join(target_chapters_dir, shared_chapter_file)
+            shutil.copy2(source_chapter_path, dest_path)
+            print(f"[DEBUG]   Copied shared chapter {shared_chapter_file} from {source_profile_id} to {target_profile_id}")
+        
+        print(f"[DEBUG] Added {len(shared_chapter_files)} shared chapters to {target_profile_id}")
     
     # Write chapters-index.json
     index_path = os.path.join(static_dir, "chapters-index.json")
@@ -1442,6 +1578,18 @@ def write_bios_index(people_dir, bios_dir, pages_dir):
             main_bio_file = os.path.join(entry_path, f"{entry}.md")
             if os.path.isfile(main_bio_file):
                 bio_ids.add(entry)
+    
+    # Also include profiles with shared chapters
+    shared_chapters_path = os.path.join(bios_dir, "shared_chapters.json")
+    if os.path.exists(shared_chapters_path):
+        try:
+            with open(shared_chapters_path, 'r', encoding='utf-8') as f:
+                shared_chapters_config = json.load(f)
+            for profile_id in shared_chapters_config.keys():
+                bio_ids.add(profile_id)
+            print(f"[DEBUG] Added {len(shared_chapters_config)} profiles with shared chapters to bio_ids")
+        except Exception as e:
+            print(f"[DEBUG] Error loading shared_chapters.json for bios index: {e}")
     
     print(f"[DEBUG] Found {len(bio_ids)} profiles with biographies: {sorted(bio_ids)}")
     

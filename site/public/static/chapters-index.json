@@ -70,6 +70,16 @@
       }
     ]
   },
+  "I11032895": {
+    "profileName": "Beile ביילא /Hochman/ /Elizafan/",
+    "main": {
+      "slug": "introduction",
+      "name": "Introduction",
+      "title": "Beile Hochman-Elizafan Introduction",
+      "filename": "I11032895.md"
+    },
+    "chapters": []
+  },
   "I11052340": {
     "profileName": "Moshe משה /Hoffman/ /Hochman/",
     "main": {
@@ -136,6 +146,16 @@
       "name": "Introduction",
       "title": "Introduction",
       "filename": "I11060285.md"
+    },
+    "chapters": []
+  },
+  "I38735986": {
+    "profileName": "Tobl /Hochman (Hoffman)/ /Zitserman/",
+    "main": {
+      "slug": "introduction",
+      "name": "Introduction",
+      "title": "Tobl Zitserman Introduction",
+      "filename": "I38735986.md"
     },
     "chapters": []
   },
