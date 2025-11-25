@@ -536,6 +536,116 @@ class LinkCrawler:
         
         return links
     
+    def check_links_with_parentheses(self, markdown_text: str, current_url: str, verbose: bool = True):
+        """
+        בודק לינקים עם סוגריים בקובץ Markdown
+        לינקים כאלה עלולים להיות שבורים ב-HTML שנוצר על ידי JavaScript
+        """
+        import re
+        issues = []
+        
+        # מצא כל הלינקים בקובץ Markdown (עם טיפול נכון בסוגריים)
+        i = 0
+        while i < len(markdown_text):
+            # חפש התחלה של לינק: [text](
+            bracket_start = markdown_text.find('[', i)
+            if bracket_start == -1:
+                break
+            
+            bracket_end = markdown_text.find(']', bracket_start + 1)
+            if bracket_end == -1:
+                i = bracket_start + 1
+                continue
+            
+            # בדוק אם יש `(` מיד אחרי `]`
+            if bracket_end + 1 >= len(markdown_text) or markdown_text[bracket_end + 1] != '(':
+                i = bracket_end + 1
+                continue
+            
+            # מצאנו [text]( - עכשיו צריך למצוא את הסוגריים הסוגרים הנכונים
+            url_start = bracket_end + 2  # אחרי `(`
+            paren_count = 1
+            url_end = url_start
+            
+            # ספור סוגריים עד שנגיע לסוגריים הסוגרים הנכונים
+            for j in range(url_start, len(markdown_text)):
+                char = markdown_text[j]
+                if char == '(':
+                    paren_count += 1
+                elif char == ')':
+                    paren_count -= 1
+                    if paren_count == 0:
+                        url_end = j
+                        break
+                # אם הגענו לסוף שורה או לינק חדש, נעצור
+                if char == '\n' and paren_count > 1:
+                    break
+            
+            if paren_count == 0:
+                # מצאנו לינק תקין
+                href = markdown_text[url_start:url_end]
+                link_text = markdown_text[bracket_start + 1:bracket_end]
+                
+                # דלג על anchors, mailto, וכו'
+                if not href.startswith(('javascript:', 'mailto:', 'tel:', 'data:', '#')):
+                    # בדוק אם ה-URL מכיל סוגריים (זה עלול להיות בעייתי)
+                    if '(' in href or ')' in href:
+                        # נסה לנרמל את ה-URL
+                        normalized = self.normalize_url(href, current_url)
+                        if normalized:
+                            # בדוק את הלינק
+                            check_result = self.check_url(normalized)
+                            if not check_result['valid']:
+                                issues.append({
+                                    'url': normalized,
+                                    'original_url': href,
+                                    'link_text': link_text,
+                                    'source': current_url,
+                                    'valid': False,
+                                    'error': check_result.get('error', 'Link with parentheses is broken'),
+                                    'note': 'This link contains parentheses and may be incorrectly parsed by JavaScript'
+                                })
+                                if verbose:
+                                    print(f"   ⚠️  Found broken link with parentheses: {href}")
+                                    print(f"      Normalized: {normalized}")
+                                    print(f"      Error: {check_result.get('error', 'Unknown')}")
+                            else:
+                                # הלינק תקין בקובץ Markdown, אבל עלול להיות שבור ב-HTML
+                                # נבדוק אם יש לינק דומה שבור (עד הסוגריים הראשונים)
+                                if '(' in href:
+                                    # נסה ליצור את הלינק השבור ש-JavaScript עלול ליצור
+                                    broken_url = href.split('(')[0]  # עד הסוגריים הראשונים
+                                    if broken_url != href:
+                                        broken_normalized = self.normalize_url(broken_url, current_url)
+                                        if broken_normalized:
+                                            broken_check = self.check_url(broken_normalized)
+                                            if not broken_check['valid']:
+                                                # הלינק השבור הוא באמת שבור - הוסף אותו לרשימת הלינקים השבורים
+                                                issues.append({
+                                                    'url': broken_normalized,
+                                                    'original_url': href,
+                                                    'correct_url': normalized,
+                                                    'link_text': link_text,
+                                                    'source': current_url,
+                                                    'valid': False,
+                                                    'error': f'Link with parentheses is broken in rendered HTML. JavaScript parses it as: {broken_url} (returns {broken_check.get("status", "error")})',
+                                                    'note': f'The original link {href} is valid in Markdown, but JavaScript incorrectly parses it as {broken_url} which is broken.'
+                                                })
+                                                if verbose:
+                                                    print(f"   ❌ Broken link with parentheses: {href}")
+                                                    print(f"      JavaScript parses it as: {broken_url} (Status: {broken_check.get('status', broken_check.get('error', 'Unknown'))})")
+                                                    print(f"      Correct URL should be: {normalized}")
+                i = url_end + 1
+            else:
+                i = bracket_start + 1
+        
+        # הוסף את הבעיות לרשימת הלינקים השבורים
+        for issue in issues:
+            # כל הבעיות הן לינקים שבורים בפועל (או עלולים להיות שבורים)
+            self.broken_links.append(issue)
+        
+        return issues
+    
     def crawl(self, verbose: bool = True, check_chapters: bool = True):
         """
         מבצע DFS על כל הלינקים באתר
@@ -592,6 +702,8 @@ class LinkCrawler:
                 if current_url.endswith('.md') or '/static/chapters/' in current_url:
                     # חלץ לינקים מ-Markdown (רק לינקים לפרופילים, לא תמונות)
                     links = self.extract_links_from_markdown(response.text, current_url, include_images=False)
+                    # בדוק לינקים עם סוגריים (עלולים להיות שבורים ב-HTML)
+                    self.check_links_with_parentheses(response.text, current_url, verbose)
                 else:
                     # חלץ לינקים מ-HTML (כולל תמונות מה-HTML שנוצר)
                     links = self.extract_links(response.text, current_url)
