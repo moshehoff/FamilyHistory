@@ -34,7 +34,7 @@ They all disembarked at Fremantle. The Shapiras adopted the Sharp in Western Aus
 
 They are all members of the Zines family.
 
-[Moishe](/profiles/Moshe-משה-Hoffman-Hochman) and [Tobl](/profiles/Tobl-Hochman-(Hoffman)-Zitserman) and [Wolfe](/profiles/Wolfe-Hochman) must have made seder pesach with them somewhere in the Indian Ocean, two days before their landfall.
+[Moishe](/profiles/Moshe-משה-Hoffman-Hochman) and [Tobl](/profiles/Tobl-Hochman-%28Hoffman%29-Zitserman) and [Wolfe](/profiles/Wolfe-Hochman) must have made seder pesach with them somewhere in the Indian Ocean, two days before their landfall.
 
 **Peter Hoffman    September 2021**
 

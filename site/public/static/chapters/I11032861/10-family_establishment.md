@@ -16,7 +16,7 @@ At the Coroner's Court yesterday afternoon before Mr. A. W. Collett deputy coron
 
 **Bella Hoffman.**
 
-[Toba Hoffman](/profiles/Tobl-Hochman-(Hoffman)-Zitserman), residing with her husband. at 411 Wellington street, said that she was in the habit of bathing her child every day, and on the day in question she took the hot water into the bedroom and went into the kitchen for the purpose of securing cold water. She took the child with her, but it wandered away, and she next heard a cry from the bedroom. Hurrying there she found the baby standing in the water and trying to climb out of the tub. Her husband took it to the Children's Hospital, where it died a couple of days afterwards. Dr. Gordon gave evidence regarding the admission of the child to the Children's Hospital, and declared that death was due to shock caused by scalds. The jury returned a verdict that the infant came to its death as the result of shock caused by accidental scalding.
+[Toba Hoffman](/profiles/Tobl-Hochman-%28Hoffman%29-Zitserman), residing with her husband. at 411 Wellington street, said that she was in the habit of bathing her child every day, and on the day in question she took the hot water into the bedroom and went into the kitchen for the purpose of securing cold water. She took the child with her, but it wandered away, and she next heard a cry from the bedroom. Hurrying there she found the baby standing in the water and trying to climb out of the tub. Her husband took it to the Children's Hospital, where it died a couple of days afterwards. Dr. Gordon gave evidence regarding the admission of the child to the Children's Hospital, and declared that death was due to shock caused by scalds. The jury returned a verdict that the infant came to its death as the result of shock caused by accidental scalding.
 
 After sitting on the case of Pearl Aurisch, the jury added as a rider:
 
@@ -28,7 +28,7 @@ Bella Hoffman is buried at Karrakatta in the old section, not far from the ohel,
 
 ---
 
-On 27.4.1918 [Tobl](/profiles/Tobl-Hochman-(Hoffman)-Zitserman) gave birth to her second son Hymen Juda (by his birth certificate) at their home at 22-24 Monger St. He was named after his uncle Hyam who had welcomed [Morris](/profiles/Moshe-משה-Hoffman-Hochman) in his adopted land, and who had "bequeathed" him such a good-going business that he too would be wealthy within about four years. Hyam's name was commemorated in the chosen names of other infants.
+On 27.4.1918 [Tobl](/profiles/Tobl-Hochman-%28Hoffman%29-Zitserman) gave birth to her second son Hymen Juda (by his birth certificate) at their home at 22-24 Monger St. He was named after his uncle Hyam who had welcomed [Morris](/profiles/Moshe-משה-Hoffman-Hochman) in his adopted land, and who had "bequeathed" him such a good-going business that he too would be wealthy within about four years. Hyam's name was commemorated in the chosen names of other infants.
 
 According to a newspaper notification in The West Australian of 1.4.1933 the property in Monger St. was registered in Tob'l's name.
 

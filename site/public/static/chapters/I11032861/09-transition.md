@@ -16,7 +16,7 @@ THE ESTATE OF HYAM HOCHMAN (usually known as HYAM HOFFMAN) was handled by Judah 
 
 Subsequent to these agreements, and the licence transfer, [Morris](/profiles/Moshe-משה-Hoffman-Hochman) was an independent businessman. [Boris](/profiles/Berl-Hochman) had his own interests in Westonia.
 
-[Moshe](/profiles/Moshe-משה-Hoffman-Hochman), [Tobl](/profiles/Tobl-Hochman-(Hoffman)-Zitserman) and little Harry had moved into the two family rooms at "411". Soon after, in August 1915, Tobl was delivered of a daughter, whom she named Bella after a grandmother.
+[Moshe](/profiles/Moshe-משה-Hoffman-Hochman), [Tobl](/profiles/Tobl-Hochman-%28Hoffman%29-Zitserman) and little Harry had moved into the two family rooms at "411". Soon after, in August 1915, Tobl was delivered of a daughter, whom she named Bella after a grandmother.
 
 About this time Australia entered the war, and railway station and the Port of Fremantle saw an enormous flux of soldiers passing through, and departing for Egypt on the frequent reinforcement transports. Trade at the restaurant and wine shop must have boomed, but there were problems with disorderly soldiers which made the headlines. The Wellington Street riots occurred on Thursday 20.1.1916.
 
