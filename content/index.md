@@ -1,19 +1,24 @@
 ---
 title: Family History
 ---
-
-<div dir="rtl">
-זְכֹר יְמוֹת עוֹלָם, בִּינוּ שְׁנוֹת דֹּר וָדֹר;    
-שְׁאַל אָבִיךָ וְיַגֵּדְךָ, זְקֵנֶיךָ וְיֹאמְרוּ לָךְ.    
-
-(דברים ל״ב, ז)  
+<div style="border-left: 3px solid #e0e0e0; padding-left: 2rem; margin: 2.5rem 0; padding-top: 1rem; padding-bottom: 1rem;">
+<div dir="rtl" style="font-size: 1.2rem; line-height: 2; margin-bottom: 1.5rem;">
+<strong>זְכֹר יְמוֹת עוֹלָם, בִּינוּ שְׁנוֹת דֹּר וָדֹר;    
+שְׁאַל אָבִיךָ וְיַגֵּדְךָ, זְקֵנֶיךָ וְיֹאמְרוּ לָךְ.</strong>    
+<br>
+<em style="font-size: 0.9rem; color: #888;">(דברים ל״ב, ז)</em>
 </div>
 
-**“Remember the days of old,  
-consider the years of many generations;  
-ask your father, and he will tell you,  
-your elders, and they will explain to you.”**  
-(Deuteronomy 32:7)
+<div style="font-size: 1.1rem; line-height: 1.9; font-style: italic; color: #444;">
+"Remember the days of old,<br>
+consider the years of many generations;<br>
+ask your father, and he will tell you,<br>
+your elders, and they will explain to you."
+</div>
+<div style="text-align: right; margin-top: 1rem; font-size: 0.9rem; color: #888;">
+<em>(Deuteronomy 32:7)</em>
+</div>
+</div>
 
 ### Site map
 
