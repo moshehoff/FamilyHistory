@@ -17,11 +17,11 @@ your elders, and they will explain to you.”**
 
 ### Site map
 
-* [Preface by Peter Hoffman](pages/preface)
-* [The Founding Generation in Russia](/pages/founders)
-* [The Hoffman history in Australia](pages/hoffman_history) 
-* [Hoffman or Hochman??](pages/the_names) 
-* [Profiles with Biographies](pages/profiles-of-interest) - Profiles with extended biographical information
+* [Preface](pages/preface) by Peter Hoffman
+* [The Russain Period](/pages/founders) - The Founders’ Generation
+* [The Australian Period](pages/hoffman_history)  - The Story of the Hoffman Family in Australia
+* [Are you sure the name is Hoffman and not Hochman?](pages/the_names) 
+* [Profiles with Biographies](pages/profiles-of-interest) - Profiles with extended chapters
 * [Profiles with Galleries](pages/profiles-with-gallery) - Profiles with images in their gallery
 * [All Images](pages/all-images) - All images from all profiles
 * [About](pages/about) - About this website

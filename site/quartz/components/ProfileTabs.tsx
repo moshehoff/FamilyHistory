@@ -969,14 +969,17 @@ function initProfileTabs() {
     const hash = window.location.hash;
     // Check if we're in media tab - if so, don't load chapters
     const isMediaTab = hash && hash.includes('tab=media');
-    const initialChapterSlug = !isMediaTab && hash && hash.startsWith('#chapter=') 
-      ? hash.substring(9).split('&')[0].split('#')[0].trim()
-      : (!isMediaTab && chapters.main ? chapters.main.slug : null);
+    // Only extract chapter from hash if hash actually contains #chapter=
+    // This prevents auto-scrolling when clicking plain profile links
+    const hasChapterHash = hash && hash.includes('#chapter=');
+    const initialChapterSlug = !isMediaTab && hasChapterHash
+      ? hash.substring(hash.indexOf('#chapter=') + 9).split('&')[0].split('#')[0].trim()
+      : null;
     
     // Add main chapter tab (Introduction) if exists
     if (chapters.main) {
       const mainButton = document.createElement('button');
-      // Only set active if this is the initial chapter
+      // Only set active if this is the initial chapter from URL hash
       const isInitialChapter = initialChapterSlug === chapters.main.slug;
       mainButton.className = 'chapter-tab-button' + (isInitialChapter ? ' active' : '');
       mainButton.setAttribute('data-chapter-tab', 'introduction');
@@ -986,7 +989,8 @@ function initProfileTabs() {
       chapterTabsHeader.appendChild(mainButton);
       
       const mainPane = document.createElement('div');
-      mainPane.className = 'chapter-tab-pane active';
+      // Set active only if this is the initial chapter from hash, otherwise default to active for main chapter
+      mainPane.className = 'chapter-tab-pane' + (isInitialChapter || !hasChapterHash ? ' active' : '');
       mainPane.setAttribute('data-chapter-tab-content', 'introduction');
       mainPane.setAttribute('data-chapter-slug', chapters.main.slug);
       mainPane.innerHTML = '<div class="loading-message">Loading chapter...</div>';
@@ -1006,7 +1010,7 @@ function initProfileTabs() {
       chapterTabsHeader.appendChild(chapterButton);
       
       const chapterPane = document.createElement('div');
-      chapterPane.className = 'chapter-tab-pane';
+      chapterPane.className = 'chapter-tab-pane' + (isInitialChapter ? ' active' : '');
       chapterPane.setAttribute('data-chapter-tab-content', 'chapter-' + (index + 1));
       chapterPane.setAttribute('data-chapter-slug', chapter.slug);
       chapterPane.innerHTML = '<div class="loading-message">Loading chapter...</div>';
@@ -1049,11 +1053,12 @@ function initProfileTabs() {
       });
     }, 50);
     
-    // Load the initial chapter - use setTimeout to ensure switchToChapter is defined
-    // But only if we're not in media tab
+    // Load the initial chapter ONLY if there's a hash fragment with #chapter=
+    // This prevents auto-scrolling when clicking plain profile links
     const currentHash = window.location.hash;
     const isCurrentlyMediaTab = currentHash && currentHash.includes('tab=media');
-    if (initialChapterSlug && !isCurrentlyMediaTab) {
+    const hasChapterInHash = currentHash && currentHash.includes('#chapter=');
+    if (initialChapterSlug && !isCurrentlyMediaTab && hasChapterInHash) {
       // Wait a bit to ensure switchToChapter function is defined
       setTimeout(function() {
         if (typeof switchToChapter === 'function') {
@@ -1065,6 +1070,14 @@ function initProfileTabs() {
               switchToChapter(initialChapterSlug);
             }
           }, 100);
+        }
+      }, 50);
+    } else if (!hasChapterInHash && chapters.main) {
+      // If no chapter hash, load main chapter content without scrolling
+      // This ensures the main chapter is displayed but doesn't trigger scroll
+      setTimeout(function() {
+        if (typeof loadChapter === 'function') {
+          loadChapter(chapters.main.slug);
         }
       }, 50);
     }
