@@ -178,6 +178,11 @@ export function splitAnchor(link: string): [string, string] {
   if (fp.endsWith(".pdf")) {
     return [fp, anchor === undefined ? "" : `#${anchor}`]
   }
+  // Preserve hash fragments that contain query parameters (e.g., #chapter=introduction&tab=biography)
+  // These are used for profile chapter navigation and should not be slugified
+  if (anchor && (anchor.includes("=") || anchor.includes("&"))) {
+    return [fp, `#${anchor}`]
+  }
   anchor = anchor === undefined ? "" : "#" + slugAnchor(anchor)
   return [fp, anchor]
 }

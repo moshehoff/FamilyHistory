@@ -6,3 +6,5 @@ After an introduction, I elaborate the histories as I have interpreted them. The
 
 click here:
 #### [Haim Yudl and the Hoffmans - "The first twenty years"](../profiles/Haim-Yehuda-חיים-יהודה-Hochman#chapter=introduction&tab=biography)
+
+
