@@ -184,7 +184,7 @@ His account of crossing Baikal by ferry is consistent with the historical facts 
 ![[bios/I11052340/img_railroad_map.png]]
 **_Map of the Asian section of the Transsiberian railroad and ferry._**
 
-His life had taught him that there was no future for him in Russia. On returning from the army he married a young woman from another town in Podolia – [Tubb'l Zitzerman](/profiles/Tobl-Hochman-(Hoffman)-Zitserman) from Bershad – and got out of Russia. The marriage, as was usual at that time was probably arranged. His goal was Perth in Western Australia, where his brother [Haim Yudl](/profiles/Haim-Yehuda-חיים-יהודה-Hochman) had settled.
+His life had taught him that there was no future for him in Russia. On returning from the army he married a young woman from another town in Podolia – [Tubb'l Zitzerman](/profiles/Tobl-Hochman-%28Hoffman%29-Zitserman) from Bershad – and got out of Russia. The marriage, as was usual at that time was probably arranged. His goal was Perth in Western Australia, where his brother [Haim Yudl](/profiles/Haim-Yehuda-חיים-יהודה-Hochman) had settled.
 
     **Peter Hoffman   Rehovot    February 2023**
 
