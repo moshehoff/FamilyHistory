@@ -1,0 +1,442 @@
+/**
+ * ProfileTabs Styles
+ * Extracted from monolithic component
+ */
+
+/* ============================================================================
+   Main Profile Tabs
+   ============================================================================ */
+
+.profile-tabs {
+  margin: 2rem 0;
+}
+
+.tabs-header {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 2px solid var(--lightgray);
+  margin-bottom: 1.5rem;
+}
+
+.tab-button {
+  padding: 0.75rem 1.5rem;
+  background: var(--lightgray);
+  border: 2px solid var(--lightgray);
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--darkgray);
+  transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+  background: var(--gray);
+  border-color: var(--gray);
+  color: var(--light);
+}
+
+.tab-button.active {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  color: white;
+}
+
+.tabs-content .tab-pane {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.tabs-content .tab-pane.active {
+  display: block;
+}
+
+/* ============================================================================
+   Loading & Empty Messages
+   ============================================================================ */
+
+.loading-message,
+.empty-message {
+  text-align: center;
+  padding: 3rem;
+  background: var(--light);
+  border-radius: 8px;
+  color: var(--gray);
+  font-size: 1.1rem;
+}
+
+/* ============================================================================
+   Media Section
+   ============================================================================ */
+
+.media-section {
+  margin-bottom: 2rem;
+}
+
+.media-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--dark);
+  border-bottom: 2px solid var(--lightgray);
+  padding-bottom: 0.5rem;
+}
+
+/* ============================================================================
+   Gallery - Masonry Layout
+   ============================================================================ */
+
+.tab-pane .gallery-grid,
+[data-tab-content="media"] .gallery-grid,
+.gallery-grid {
+  column-count: 2 !important;
+  column-gap: 0.75rem !important;
+  padding: 0 !important;
+  margin-top: 1rem !important;
+  break-inside: avoid !important;
+}
+
+.tab-pane .gallery-item,
+[data-tab-content="media"] .gallery-item,
+.gallery-item {
+  display: inline-block !important;
+  width: 100% !important;
+  vertical-align: top !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+  background: transparent !important;
+  transition: transform 0.2s ease !important;
+  margin: 0 0 0.75rem 0 !important;
+  cursor: pointer !important;
+  break-inside: avoid !important;
+  page-break-inside: avoid !important;
+}
+
+.gallery-item:hover {
+  transform: scale(1.01) !important;
+  z-index: 10 !important;
+}
+
+.gallery-item img {
+  width: 100% !important;
+  height: auto !important;
+  cursor: pointer !important;
+  background: white !important;
+  display: block !important;
+  border: 2px solid #333 !important;
+  border-radius: 4px 4px 0 0 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  object-fit: contain !important;
+  max-width: 100% !important;
+  content-visibility: auto !important;
+}
+
+.gallery-item .image-caption {
+  padding: 0.35rem 0.5rem !important;
+  font-size: 0.85rem !important;
+  line-height: 1.3 !important;
+  background: #ffffff !important;
+  margin: 0 !important;
+  border: 1px solid #e1e4e8 !important;
+  border-top: none !important;
+  border-radius: 0 0 4px 4px !important;
+  text-align: left !important;
+  color: #666 !important;
+}
+
+.image-caption a {
+  color: #0066cc !important;
+  text-decoration: underline !important;
+}
+
+.image-caption a:hover {
+  text-decoration: none !important;
+  color: #0052a3 !important;
+}
+
+/* ============================================================================
+   Documents
+   ============================================================================ */
+
+.documents-list {
+  padding: 1rem 0;
+}
+
+.document-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--light);
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  transition: background 0.2s ease;
+}
+
+.document-item:hover {
+  background: var(--lightgray);
+}
+
+.document-icon {
+  font-size: 2rem;
+}
+
+.document-info {
+  flex: 1;
+}
+
+.document-name {
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 0.25rem;
+}
+
+.document-meta {
+  font-size: 0.85rem;
+  color: var(--gray);
+}
+
+.document-download {
+  padding: 0.5rem 1rem;
+  background: var(--secondary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.document-download:hover {
+  opacity: 0.8;
+}
+
+/* ============================================================================
+   Chapter Tabs (Nested)
+   ============================================================================ */
+
+.chapter-tabs-container {
+  margin: 2rem 0;
+}
+
+.chapter-tabs-header {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 2px solid var(--lightgray);
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.chapter-tab-button {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--gray);
+  transition: all 0.3s ease;
+}
+
+.chapter-tab-button:hover {
+  color: var(--darkgray);
+  background: var(--lightgray);
+}
+
+.chapter-tab-button.active {
+  color: var(--secondary);
+  border-bottom-color: var(--secondary);
+}
+
+.chapter-tabs-content .chapter-tab-pane {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.chapter-tabs-content .chapter-tab-pane.active {
+  display: block;
+}
+
+/* ============================================================================
+   Animations
+   ============================================================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================================
+   Mobile Responsive (max-width: 768px)
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .profile-tabs {
+    margin: 1rem 0;
+  }
+  
+  .tabs-header {
+    gap: 0.2rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .tab-button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    flex: 1;
+    text-align: center;
+    border-radius: 50px;
+  }
+  
+  .chapter-tabs-container {
+    margin: 1rem 0;
+  }
+  
+  .chapter-tabs-header {
+    gap: 0.15rem;
+    margin-bottom: 0.75rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.25rem;
+  }
+  
+  .chapter-tab-button {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    border-radius: 50px;
+    min-width: fit-content;
+  }
+  
+  .chapter-tab-pane {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .chapter-tab-pane h1 {
+    font-size: 1.5rem;
+    margin: 1rem 0 0.75rem;
+  }
+  
+  .chapter-tab-pane h2 {
+    font-size: 1.3rem;
+    margin: 0.9rem 0 0.6rem;
+  }
+  
+  .chapter-tab-pane h3 {
+    font-size: 1.1rem;
+    margin: 0.8rem 0 0.5rem;
+  }
+  
+  .chapter-tab-pane p {
+    margin: 0.75rem 0;
+  }
+  
+  .chapter-tab-pane img {
+    max-width: 100%;
+    height: auto;
+    margin: 1rem 0;
+  }
+  
+  .mermaid {
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+  }
+  
+  .mermaid svg {
+    max-width: none;
+    height: auto;
+  }
+  
+  .profile-info-box {
+    margin: 0.75rem 0;
+    padding: 0.75rem;
+  }
+  
+  .profile-info-list {
+    font-size: 0.85rem;
+  }
+  
+  .profile-info-list dt {
+    font-size: 0.8rem;
+  }
+  
+  .profile-info-list dd {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .gallery-grid {
+    column-count: 2 !important;
+    column-gap: 0.5rem !important;
+    padding: 0 !important;
+  }
+  
+  .gallery-item .image-caption {
+    font-size: 0.75rem !important;
+    padding: 0.3rem 0.4rem !important;
+  }
+  
+  .document-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.75rem;
+    gap: 0.5rem;
+  }
+  
+  .document-download {
+    align-self: stretch;
+    text-align: center;
+  }
+  
+  .loading-message,
+  .empty-message {
+    padding: 2rem 1rem;
+    font-size: 1rem;
+  }
+  
+  .media-section h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* ============================================================================
+   Extra Small Devices (max-width: 480px)
+   ============================================================================ */
+
+@media (max-width: 480px) {
+  .tab-button {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.7rem;
+    border-radius: 50px;
+  }
+  
+  .chapter-tab-button {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.8rem;
+    border-radius: 50px;
+  }
+  
+  .chapter-tab-pane {
+    font-size: 0.9rem;
+  }
+  
+  .tabs-header {
+    gap: 0.25rem;
+  }
+  
+  .chapter-tabs-header {
+    gap: 0.25rem;
+  }
+}
+

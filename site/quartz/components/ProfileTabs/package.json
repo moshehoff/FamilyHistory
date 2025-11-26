@@ -1,0 +1,41 @@
+{
+  "name": "@quartz/profile-tabs",
+  "version": "2.0.0",
+  "description": "Refactored modular ProfileTabs component for Quartz",
+  "main": "dist/profile-tabs-bundle.js",
+  "types": "index.ts",
+  "scripts": {
+    "build": "node build-bundle.js",
+    "build:min": "npm run build && terser dist/profile-tabs-bundle.js -o dist/profile-tabs-bundle.min.js --compress --mangle",
+    "type-check": "tsc --noEmit",
+    "test": "node test-runner.js",
+    "test:full": "npm run build && npm run test",
+    "watch": "nodemon -w . -e ts --exec 'npm run build'",
+    "clean": "rm -rf dist/*",
+    "dev": "npm run build && npm run watch",
+    "verify": "npm run test && npm run build && npm run test"
+  },
+  "keywords": [
+    "quartz",
+    "profile",
+    "tabs",
+    "biography",
+    "chapters",
+    "gallery"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "terser": "^5.0.0",
+    "nodemon": "^3.0.0"
+  },
+  "files": [
+    "dist/",
+    "*.ts",
+    "**/*.ts",
+    "ProfileTabs.css",
+    "README.md"
+  ]
+}
+
