@@ -1,10 +1,10 @@
 # מפרט מפורט - אתר היסטוריה משפחתית
 
-**גרסה**: 3.2  
-**תאריך**: נובמבר 2025  
+**גרסה**: 3.3  
+**תאריך**: נובמבר 26, 2025  
 **סטטוס**: מימוש פעיל
 
-**עדכון אחרון**: ProfileTabs v2.0 - רפקטורינג מודולרי מלא (21 modules, TypeScript, Build System)
+**עדכון אחרון**: Backend Refactoring - ארכיטקטורה מודולרית מלאה (11 modules, OOP design, ~800 → 203 lines in doit.py)
 
 ---
 
@@ -25,18 +25,41 @@
 ## 2. ארכיטקטורה טכנית
 
 ### 2.1 טכנולוגיות
+
+**Frontend**:
 - **Static Site Generator**: Quartz 4.5.2
-- **Frontend**: React + TypeScript + SCSS
-- **Data Source**: GEDCOM file (`data/tree.ged`)
+- **Framework**: React + TypeScript + SCSS
 - **Diagrams**: Mermaid.js
-- **Build Tools**: 
-  - Python script (`scripts/doit.py`) - Main site generation
-  - Node.js (`ProfileTabs/build-bundle.js`) - Component bundling
-- **ProfileTabs v2.0**: 
-  - 21 TypeScript modules
-  - Custom bundler (TypeScript → JavaScript)
-  - Automated testing (15 tests)
-  - Debug tools & logging
+- **Custom Components**: 
+  - ProfileTabs v2.0 (21 TypeScript modules, 147KB bundle)
+  - NavBar, ArticleTitle, PageTitle, Footer
+
+**Backend (Build System)**:
+- **Language**: Python 3.8+
+- **Main Script**: `doit.py` (203 lines, orchestrator)
+- **Architecture**: Modular OOP design (11 modules)
+  - `gedcom/` - GEDCOM parsing (2 modules)
+  - `generators/` - Content generators (5 modules)
+  - `utils/` - Utilities (4 modules)
+- **Logging**: Advanced colored logging with progress tracking
+
+**Data Sources**:
+- **Primary**: GEDCOM file (`data/tree.ged`) - 546 individuals, families
+- **Biographies**: Markdown files in `bios/{ID}/` directories
+- **Media**: Images & documents in `documents/{ID}/` directories
+- **Static Pages**: Markdown files in `content/` directory
+
+**Build Tools**:
+- **Python**: `scripts/doit.py` - Main site generation
+- **Node.js**: `ProfileTabs/build-bundle.js` - Component bundling
+- **Quartz**: `npx quartz build` - Static site compilation
+
+**Generated Outputs**:
+- 546 profile pages (`site/content/profiles/*.md`)
+- Media index (`site/quartz/static/media-index.json`)
+- Chapters index (`site/quartz/static/chapters-index.json`)
+- Family data (`site/quartz/static/family-data.json`)
+- Static HTML/CSS/JS (`site/public/`)
 
 ### 2.2 תהליך בנייה
 
@@ -74,20 +97,118 @@
 └─────────────┘
 ```
 
-#### 2.2.1 שלבי `doit.py`
-1. **Clean**: מחיקת כל הקבצים הקודמים (`site/content/`, `site/public/`, etc.)
-2. **Parse GEDCOM**: קריאת `tree.ged` ל-dictionaries של individuals ו-families
-3. **Copy Source Content**: העתקת `content/index.md` ו-`content/pages/` ל-`site/content/`
-4. **Build Profiles**: יצירת Markdown profiles ב-`site/content/profiles/`
-   - Frontmatter עם type, title, ID
-   - HTML structure עם `<dl>` לפרטי הפרופיל
-   - 3 דיאגרמות Mermaid: Nuclear Family, Ancestors, Descendants
-   - ביוגרפיות מורחבות (מ-`bios/{ID}/{ID}.md`) מטופלות על ידי Quartz
-5. **Generate Indexes**: יצירת `pages/all-profiles.md` ו-`pages/profiles-of-interest.md`
-6. **Create Media Index**: סריקת `documents/` ויצירת `media-index.json`
-7. **Copy Documents**: העתקת `documents/` ל-`site/quartz/static/documents/`
-8. **Copy Images**: העתקת תמונות מ-`bios/` ל-`site/content/`
-9. **Generate Family Data**: יצירת `family-data.json` לעץ המשפחתי הגדול
+#### 2.2.1 ארכיטקטורה מודולרית (Refactored 2024)
+
+`doit.py` הוא orchestrator מרכזי (203 שורות) שמשתמש במודולים נפרדים:
+
+**מבנה מודולים**:
+```
+scripts/
+├── doit.py                 # Main orchestrator (203 lines)
+├── config.py              # Configuration & constants
+├── gedcom/               # GEDCOM parsing
+│   ├── parser.py         # Read .ged files
+│   └── normalizer.py     # Normalize data structures
+├── generators/           # Content generators
+│   ├── profile_generator.py    # Profile pages (579 lines, OOP)
+│   ├── mermaid_builder.py      # Family diagrams
+│   ├── media_handler.py        # Gallery system
+│   ├── chapters_handler.py     # Biography chapters
+│   └── index_generators.py     # Index pages
+└── utils/                # Utilities
+    ├── logger.py         # Advanced logging system
+    ├── file_utils.py     # File operations
+    ├── link_converter.py # HTML link generation
+    └── place_mappings.py # Place → Wikipedia mapping
+```
+
+**Command-line Arguments**:
+- `gedcom_file` - Path to .ged file (required)
+- `--clean` - Clean all generated files only
+- `-o, --output` - Output directory (default: `site/content/profiles`)
+- `--bios-dir` - Biography directory (default: `bios`)
+- `--src-content-dir` - Source content (default: `content`)
+- `--analyze-places` - Analyze unique places in GEDCOM
+- `--debug` - Enable debug logging
+- `--quiet` - Minimal output (warnings/errors only)
+- `--log-file PATH` - Write log to file
+
+#### 2.2.2 שלבי `doit.py` (מפורט)
+
+1. **Clean**: מחיקת כל הקבצים הקודמים
+   - קריאה ל-`clean_project()` מ-`index_generators.py`
+   - מחיקת directories: `site/content/`, `site/public/`, `.quartz-cache/`
+   - מחיקת files: `family-data.json`, `media-index.json`, `documents/`, `chapters/`
+   - רץ **תמיד** לפני כל build (למניעת קבצים ישנים)
+
+2. **Parse GEDCOM**: קריאת `tree.ged`
+   - שימוש ב-`gedcom.parser.parse_gedcom_file()`
+   - פרסור level-based: זיהוי records (INDI, FAM) ו-tags (BIRT, DEAT, NAME, etc.)
+   - **פלט**: 2 dictionaries
+     - `individuals`: `{"@I123@": {...}, "@I456@": {...}}`
+     - `families`: `{"@F1@": {...}, "@F2@": {...}}`
+
+3. **Copy Source Content**: העתקת תוכן סטטי
+   - `copy_source_content()` מ-`index_generators.py`
+   - מעתיק: `content/index.md` → `site/content/index.md`
+   - מעתיק: `content/pages/*.md` → `site/content/pages/*.md`
+
+4. **Generate Profiles**: יצירת דפי פרופיל (546 profiles)
+   - יצירת instance: `ProfileGenerator(individuals, families, bios_dir)`
+   - **Slug Mapping** (טיפול בשמות כפולים):
+     - זיהוי שמות כפולים (e.g., "Leah Hoffman" מופיע 3 פעמים)
+     - יצירת slugs ייחודיים עם suffixes:
+       1. **Spouse name**: `Leah-Hoffman-Nate` (בעל/אישה ראשונים)
+       2. **Parent name**: `Leah-Hoffman-Hymie` (שם הורה ראשון)
+       3. **Birth year**: `Leah-Hoffman-1920`
+       4. **ID**: `Leah-Hoffman-I123` (מוצא אחרון)
+     - תיקון collisions נותרים (אם יש)
+   - **יצירת תוכן לכל profile**:
+     - Frontmatter: `type: profile`, `title`, `ID`
+     - Profile info box: HTML `<dl class="profile-info-list">` עם CSS Grid
+     - קישורים: HTML `<a>` tags (לא Markdown wikilinks!)
+     - 3 דיאגרמות Mermaid: Immediate Family, Ancestors, Descendants
+   - **פלט**: `site/content/profiles/{slug}.md` (546 קבצים)
+   - **Return**: `id_to_slug` dictionary למיפוי ID → slug
+
+5. **Create Media Index**: מערכת גלריה עם cross-tagging
+   - `MediaIndexHandler.create_media_index()`
+   - סריקת `documents/{ID}/` directories
+   - קריאת caption files (`.md` עם אותו שם כתמונה)
+   - זיהוי תיוגים בשני formats:
+     - **חדש (preferred)**: `[Name|ID]` - שומר שם מקורי מהתמונה
+     - **Legacy**: `I12345` - משתמש בשם מלא מ-GEDCOM
+   - המרת IDs → HTML links אוטומטית
+   - **Cross-tagging**: תמונה ב-`documents/I10/` עם תיוג `[Bruce|I20]` תופיע גם ב-gallery של I20
+   - **פלט**: `site/quartz/static/media-index.json`
+
+6. **Create Chapters Index**: אינדקס פרקי ביוגרפיה
+   - `ChaptersIndexHandler.create_chapters_index()`
+   - סריקת `bios/{ID}/` directories
+   - זיהוי:
+     - `{ID}.md` - Introduction (פרק ראשון)
+     - `##-chapter_name.md` - פרקים נוספים (e.g., `01-in_russia.md`)
+   - **פלט**: `site/quartz/static/chapters-index.json`
+   - **פלט נוסף**: העתקת `.md` files → `site/quartz/static/chapters/{ID}/`
+
+7. **Generate Index Pages**: דפי ניווט
+   - `write_people_index()` → `pages/all-profiles.md` (כל 546 הפרופילים)
+   - `write_bios_index()` → `pages/profiles-of-interest.md` (רק פרופילים עם ביוגרפיות)
+   - `write_gallery_index()` → `pages/gallery.md` (רשימת פרופילים עם תמונות)
+
+8. **Copy Documents**: העתקת מדיה
+   - העתקה: `documents/` → `site/quartz/static/documents/`
+   - שמירת מבנה directories: `documents/I10/*.jpg` → `static/documents/I10/*.jpg`
+
+9. **Copy Images**: העתקת תמונות מביוגרפיות
+   - סריקת `bios/{ID}/*.png`, `bios/{ID}/*.jpg`
+   - העתקה: `bios/I10/img_savran.png` → `site/content/img_savran.png`
+   - תמיכה ברווחים ומקפים בשמות קבצים (עותק כפול לתאימות)
+
+10. **Generate Family Data**: JSON לעץ משפחתי גדול (עתידי)
+    - `write_family_data_json()` → `site/quartz/static/family-data.json`
+    - מכיל: כל ה-individuals + families במבנה JSON
+    - **סטטוס**: נוצר אך לא בשימוש כרגע (עתידי - עץ משפחתי אינטראקטיבי גדול)
 
 ---
 
@@ -1635,7 +1756,7 @@ grep -r "data-profile-id" site/content/profiles/ | grep "Moshe"
 
 ### 5.4 עדכון דפים סטטיים
 
-   ```bash
+```bash
 # 1. Edit static pages
 # Edit content/index.md or content/pages/*.md
 
@@ -1645,9 +1766,74 @@ python scripts/doit.py data/tree.ged
 # 3. Content is copied to site/content/
 ```
 
-### 5.5 ניקוי פרויקט
+### 5.5 ניתוח מקומות (Place Analysis)
 
-   ```bash
+`doit.py` כולל כלי לניתוח מקומות ב-GEDCOM:
+
+```bash
+python scripts/doit.py data/tree.ged --analyze-places
+```
+
+**מה זה עושה**:
+- סורק את כל ה-BIRT ו-DEAT places בGEDCOM
+- מציג רשימה של מקומות ייחודיים עם ספירת תדירות
+- מזהה מקומות שאין להם מיפוי ל-Wikipedia
+
+**פלט לדוגמה**:
+```
+======================================================================
+PLACE ANALYSIS
+======================================================================
+[INFO] Analyzing places in GEDCOM...
+
+Unique Places Found (sorted by frequency):
+==========================================
+Perth, Western Australia, Australia: 123 occurrences
+Savran, Podolia, Ukraine: 45 occurrences
+Subiaco, Perth, WA: 34 occurrences
+Sydney, NSW, Australia: 28 occurrences
+Rehovot, Israel: 15 occurrences
+Vienna, Austria: 12 occurrences
+
+Places without Wikipedia mapping:
+==================================
+- Melbourne, Victoria, Australia (8 occurrences)
+- Blackburn, Lancashire, England (3 occurrences)
+- Hadera, Israel (2 occurrences)
+
+Total unique places: 42
+Total place references: 267
+Mapped to Wikipedia: 39/42 (92.9%)
+```
+
+**שימושים**:
+1. **עדכון מיפוי**: הוסף מקומות חסרים ל-`PLACE_TO_WIKI` ב-`config.py`
+   ```python
+   PLACE_TO_WIKI = {
+       # Add missing places:
+       "Melbourne, Victoria, Australia": "Melbourne",
+       "Blackburn, Lancashire, England": "Blackburn,_Lancashire"
+   }
+   ```
+
+2. **תיקון שגיאות**: זיהוי מקומות עם איות שגוי או פורמט לא עקבי
+   - לדוגמה: `"Perth, WA"` vs `"Perth, Western Australia"`
+   - תקן ישירות ב-GEDCOM או הוסף alias ל-`PLACE_TO_WIKI`
+
+3. **הבנת פיזור גאוגרפי**: ראה היכן המשפחה התגוררה והיגרה
+   - אוסטרליה: 185 occurrences
+   - אירופה: 57 occurrences
+   - ישראל: 25 occurrences
+
+**אחרי עדכון מיפוי**:
+```bash
+# Run build again to apply new mappings
+python scripts/doit.py data/tree.ged
+```
+
+### 5.6 ניקוי פרויקט
+
+```bash
 # Manual clean
 python scripts/doit.py --clean
 
@@ -2650,57 +2836,574 @@ git push origin production
 
 ## 10. מבנה קוד מפורט
 
-### 10.1 scripts/doit.py
+### 10.1 scripts/doit.py (Main Orchestrator)
 
-#### Functions Overview
+**גודל**: 203 שורות (down from ~800 lines - refactored in 2024)
 
-**Parsing**:
-- `parse_gedcom_file(path)` - קורא GEDCOM ל-dictionaries
-- `norm_individual(iid, d)` - מנרמל individual record
-- `norm_family(fid, d)` - מנרמל family record
+**תפקיד**: Orchestrates the entire build process
 
-**Building**:
-- `build_obsidian_notes(individuals, families, out_dir, bios_dir)` - יוצר profiles
-- `build_family_tree_diagram(p, individuals, families)` - Nuclear family diagram
-- `build_ancestors_diagram(p, individuals, families, generations=2)` - Ancestors diagram
-- `build_descendants_diagram(p, individuals, families, generations=2)` - Descendants diagram
-
-**Helpers**:
-- `wl_place_html(place)` - יוצר HTML link למקום (Wikipedia)
-- `person_link_to_html(wikilink)` - ממיר `[[Name]]` ל-HTML `<a>` tag
-- `safe_filename(name)` - מנקה שם לשימוש ב-filename/URL
-
-**Indexes**:
-- `write_people_index(people_dir, pages_dir)` - יוצר `all-profiles.md`
-- `write_bios_index(people_dir, pages_dir, bios_dir)` - יוצר `profiles-of-interest.md`
-
-**Media**:
-- `create_media_index(documents_dir, static_dir)` - יוצר `media-index.json`
-- `copy_image_files(bios_dir, site_content_dir)` - מעתיק תמונות מ-bios/
-
-**Utilities**:
-- `copy_source_content(src_content_dir, dst_content_dir)` - מעתיק content/
-- `clean_project()` - מנקה קבצים גנריים
-- `generate_family_data_json(individuals, families, out_file)` - יוצר family-data.json
-
-#### Key Data Structures
-
-**individuals dictionary**:
+**Main Function**:
 ```python
+def main():
+    """Main entry point for the GEDCOM to Quartz converter."""
+    # Parse arguments
+    argp = argparse.ArgumentParser(...)
+    args = argp.parse_args()
+    
+    # Setup logging
+    logger = setup_logger("doit", level=log_level, log_file=args.log_file)
+    
+    # Handle clean command
+    if args.clean:
+        clean_project()
+        return
+    
+    # Always clean before building
+    clean_project()
+    
+    # Parse GEDCOM
+    individuals, families = parse_gedcom_file(args.gedcom_file)
+    
+    # Handle analyze-places command
+    if args.analyze_places:
+        places = analyze_places(individuals)
+        print_place_analysis(places)
+        return
+    
+    # Copy source content
+    copy_source_content(args.src_content_dir, ...)
+    
+    # Generate profiles
+    generator = ProfileGenerator(individuals, families, args.bios_dir)
+    id_to_slug = generator.generate_all_profiles(args.output)
+    
+    # Create media index
+    media_handler = MediaIndexHandler(...)
+    media_handler.create_media_index()
+    
+    # Create chapters index
+    chapters_handler = ChaptersIndexHandler(...)
+    chapters_handler.create_chapters_index()
+    
+    # Write index pages
+    write_people_index(...)
+    write_bios_index(...)
+    write_gallery_index(...)
+    write_family_data_json(...)
+```
+
+**Command-line Examples**:
+```bash
+# Generate with defaults
+python scripts/doit.py data/tree.ged
+
+# Generate with debug output
+python scripts/doit.py data/tree.ged --debug
+
+# Analyze places in GEDCOM
+python scripts/doit.py data/tree.ged --analyze-places
+
+# Clean generated files only
+python scripts/doit.py --clean
+
+# Write log to file
+python scripts/doit.py data/tree.ged --log-file build.log
+```
+
+### 10.2 generators/profile_generator.py (Core Profile Logic)
+
+**גודל**: 579 שורות (was 410 lines in old `build_obsidian_notes()`)
+
+**ארכיטקטורה**: Object-oriented design with clean separation of concerns
+
+**Class**: `ProfileGenerator`
+
+**Initialization**:
+```python
+class ProfileGenerator:
+    def __init__(self, individuals: Dict, families: Dict, bios_dir: str):
+        self.raw_individuals = individuals
+        self.raw_families = families
+        self.bios_dir = bios_dir
+        
+        # Normalize data
+        self.individuals = {i: norm_individual(i, d) for i, d in individuals.items()}
+        self.families = {f: norm_family(f, d) for f, d in families.items()}
+        self.name_of = {i: info["name"] or i for i, info in self.individuals.items()}
+```
+
+**Public Methods**:
+- `generate_all_profiles(output_dir)` → `Dict[str, str]`
+  - Main entry point
+  - Returns `id_to_slug` mapping
+  - Generates 546 profile files
+
+**Private Methods** (Slug Building):
+- `_build_slug_mapping()` → `Dict[str, str]`
+  - Detects duplicate names
+  - Creates unique slugs for each person
+  - Returns `id_to_slug` dictionary
+  
+- `_create_unique_slug(pid, person, name, clean_id)` → `Tuple[str, str, str]`
+  - Creates unique slug for duplicate name
+  - Returns: (slug, suffix, source_description)
+  - Algorithm:
+    1. Try spouse first name: `"Leah Hoffman"` + spouse `"Nate"` → `"Leah-Hoffman-Nate"`
+    2. Try parent first name: `"Leah Hoffman"` + father `"Hymie"` → `"Leah-Hoffman-Hymie"`
+    3. Try birth year: `"Leah Hoffman"` + `"1920"` → `"Leah-Hoffman-1920"`
+    4. Last resort - use ID: `"Leah-Hoffman-I123"`
+
+- `_fix_slug_collisions(id_to_slug)` → `Dict[str, str]`
+  - Fixes any remaining slug collisions
+  - Adds birth year or counter suffix
+
+**Private Methods** (Profile Generation):
+- `_generate_single_profile(pid, person, output_dir)`
+  - Generates one profile markdown file
+  - Orchestrates data collection, diagram building, content creation
+
+- `_collect_family_relationships(pid, person)` → `Dict[str, List[str]]`
+  - Collects all family relationship IDs
+  - Returns: `parents_ids`, `siblings_ids`, `half_siblings_ids`, `spouses_ids`, `children_ids`
+  - Handles half-siblings from other marriages
+
+- `_build_diagrams(pid, person)` → `Dict[str, str]`
+  - Builds 3 Mermaid diagrams
+  - Returns: `immediate`, `ancestors`, `descendants`
+  - Uses `MermaidDiagramBuilder` class
+
+- `_check_bio_exists(pid)` → `bool`
+  - Checks if `bios/{ID}/{ID}.md` exists
+  - Used to determine if profile has extended biography
+
+- `_build_profile_content(...)` → `str`
+  - Builds complete profile markdown
+  - Includes frontmatter, info box, diagrams
+
+- `_build_info_box(person, family_data)` → `List[str]`
+  - Builds HTML `<dl class="profile-info-list">` structure
+  - Uses CSS Grid for alignment
+  - Converts all relationships to HTML links
+
+- `_write_profile_file(pid, person, content, output_dir)`
+  - Writes profile to `{slug}.md`
+  - Handles encoding (UTF-8)
+
+**Example Slug Mapping Output** (debug log):
+```
+[INFO] Building slug mapping...
+[WARNING] Found 3 names with duplicates
+[DEBUG]   'Leah Hoffman' appears 3 times: ['@I123@', '@I456@', '@I789@']
+[INFO] Created 3 unique slugs for duplicates
+[DEBUG]   @I123@: 'Leah Hoffman' => 'Leah-Hoffman-Nate'
+[DEBUG]       (suffix 'Nate' from spouse: Nate Hoffman)
+[DEBUG]   @I456@: 'Leah Hoffman' => 'Leah-Hoffman-Hymie'
+[DEBUG]       (suffix 'Hymie' from parent: Hymie Hoffman)
+[DEBUG]   @I789@: 'Leah Hoffman' => 'Leah-Hoffman-1920'
+[DEBUG]       (suffix '1920' from birth year)
+```
+
+**Example Profile Output** (`Moshe-משה-Hoffman.md`):
+```markdown
+---
+type: profile
+title: Moshe משה Hoffman
+ID: I11052340
+---
+
+<div class="profile-info-box">
+<dl class="profile-info-list">
+<dt>Birth:</dt><dd>circa 1884 at <a href="https://en.wikipedia.org/wiki/Savran,_Ukraine">Savran, Podolia, Ukraine</a></dd>
+<dt>Death:</dt><dd>April 7, 1973 at <a href="https://en.wikipedia.org/wiki/Perth,_Western_Australia">Perth, Australia</a></dd>
+<dt>Occupation:</dt><dd>wheelwright, publican, businessman</dd>
+<dt>Parents:</dt><dd>—</dd>
+<dt>Siblings:</dt><dd>—</dd>
+<dt>Spouse:</dt><dd><a href="/profiles/Tobl-Hochman-(Hoffman)">Tobl Hochman (Hoffman)</a></dd>
+<dt>Children:</dt><dd><a href="/profiles/Aaron-Harry-Hoffman">Aaron Harry Hoffman</a>, <a href="/profiles/Bella-Hoffman">Bella Hoffman</a>, ...</dd>
+</dl>
+</div>
+
+---
+
+## Immediate Family
+```mermaid
+graph TD
+  I11052340["Moshe משה Hoffman<br/>1884-1973"]
+  I11052350["Tobl Hochman (Hoffman)<br/>1888-1970"]
+  I11052340 ---|Spouse| I11052350
+  ...
+classDef current fill:#bbdefb,stroke:#1976d2,stroke-width:3px
+class I11052340 current
+```
+
+## Ancestors (up to 2 Gen.)
+...
+
+## Descendants (up to 2 Gen.)
+...
+```
+
+### 10.3 generators/media_handler.py (Gallery System)
+
+**Class**: `MediaIndexHandler`
+
+**Initialization**:
+```python
+class MediaIndexHandler:
+    def __init__(self, documents_dir, static_dir, bios_dir, 
+                 content_dir, individuals, id_to_slug):
+        self.documents_dir = documents_dir
+        self.static_dir = static_dir
+        self.bios_dir = bios_dir
+        self.content_dir = content_dir
+        self.individuals = individuals
+        self.id_to_slug = id_to_slug
+```
+
+**Public Methods**:
+- `create_media_index()` - Main entry point
+  - Scans `documents/` directory
+  - Creates `media-index.json`
+  - Copies documents to static directory
+
+**Private Methods**:
+- `_scan_documents_directory()` → `Dict`
+  - Recursively scans `documents/{ID}/`
+  - Finds all image files (jpg, png, gif, webp)
+  - Returns structured dictionary
+
+- `_process_image_file(...)` → `Dict`
+  - Processes one image + caption pair
+  - Returns media entry for JSON
+
+- `_read_caption_file(...)` → `Optional[str]`
+  - Reads `.md` file with same name as image
+  - Returns raw markdown text
+
+- `_extract_person_ids(text)` → `Set[str]`
+  - Extracts person IDs from caption text
+  - Supports two formats:
+    - **New**: `[Name|ID]` → extracts `ID`
+    - **Legacy**: Standalone `I12345` → extracts `I12345`
+  - Returns set of GEDCOM IDs (`@I123@` format)
+
+- `_convert_ids_to_links(text, owner_id)` → `str`
+  - Converts IDs in caption to HTML links
+  - **New format**: `[Hershl|I39965497]` → `<a href="/profiles/Hershl-Hoffman">Hershl</a>`
+  - **Legacy format**: `I39965497` → `<a href="/profiles/Hershl-Hoffman">Hershl Hoffman</a>`
+  - Converts `\n` → `<br>` for line breaks
+
+- `_copy_documents_to_static()`
+  - Copies `documents/` → `site/quartz/static/documents/`
+  - Preserves directory structure
+
+**Caption Format Examples**:
+
+**New Format** (preserves original names):
+```markdown
+[Hershl|I39965497] and [Rochel|I40778657] with children [Bruce|I40778709] [Ben|I40778886]
+```
+→ Converts to:
+```html
+<a href="/profiles/Hershl-Hoffman">Hershl</a> and <a href="/profiles/Rochel-Hoffman">Rochel</a> with children <a href="/profiles/Bruce-Hoffman">Bruce</a> <a href="/profiles/Ben-Hoffman">Ben</a>
+```
+
+**Legacy Format** (uses full names from GEDCOM):
+```markdown
+Family gathering 1960
+
+Front row (left to right): I39965497, I40778657
+
+Perth, Australia
+```
+→ Converts to:
+```html
+Family gathering 1960<br><br>Front row (left to right): <a href="/profiles/Hershl-Hoffman">Hershl Harry Hoffman</a>, <a href="/profiles/Rochel-Hoffman">Rochel Rachel Hoffman</a><br><br>Perth, Australia
+```
+
+**Output** (`media-index.json`):
+```json
 {
-  "@I10@": {
-    "NAME": "Moshe /Hoffman/",
-    "BIRT": {"DATE": "circa 1884", "PLAC": "Savran, Podolia..."},
-    "DEAT": {"DATE": "April 7, 1973", "PLAC": "Perth, Australia"},
-    "OCCU": "wheelwright, publican, businessman",
-    "FAMS": ["@F1@", "@F2@"],
-    "FAMC": "@F0@",
-    ...
+  "images": {
+    "I39965497": [
+      {
+        "filename": "family-1960.jpg",
+        "path": "/static/documents/I39965497/family-1960.jpg",
+        "caption": "<a href=\"/profiles/Hershl-Hoffman\">Hershl</a> and <a href=\"/profiles/Rochel-Hoffman\">Rochel</a>",
+        "people": ["@I39965497@", "@I40778657@", "@I40778709@"],
+        "owner": "I39965497"
+      }
+    ],
+    "I40778657": [
+      {
+        "filename": "family-1960.jpg",
+        "path": "/static/documents/I39965497/family-1960.jpg",
+        "caption": "...",
+        "people": ["@I39965497@", "@I40778657@", "@I40778709@"],
+        "owner": "I39965497"
+      }
+    ],
+    "I40778709": [
+      {
+        "filename": "family-1960.jpg",
+        "path": "/static/documents/I39965497/family-1960.jpg",
+        "caption": "...",
+        "people": ["@I39965497@", "@I40778657@", "@I40778709@"],
+        "owner": "I39965497"
+      }
+    ]
+  },
+  "documents": {}
+}
+```
+
+**Cross-Tagging Behavior**:
+- Image stored in `documents/I39965497/family-1960.jpg` (owner: I39965497)
+- Caption tags 3 people: I39965497, I40778657, I40778709
+- Image appears in **all 3 galleries** with same path
+- Only one physical copy of image exists
+
+### 10.4 generators/chapters_handler.py (Biography Chapters)
+
+**Class**: `ChaptersIndexHandler`
+
+**Methods**:
+- `create_chapters_index()`
+  - Scans `bios/{ID}/` directories
+  - Finds `{ID}.md` (Introduction) and `##-chapter.md` files
+  - Copies `.md` files to `site/quartz/static/chapters/{ID}/`
+  - Creates `chapters-index.json` with metadata
+
+**Output** (`chapters-index.json`):
+```json
+{
+  "I11052340": {
+    "id": "I11052340",
+    "has_chapters": true,
+    "intro_file": "I11052340.md",
+    "chapters": [
+      {
+        "slug": "01-in_russia",
+        "title": "Moshe Hoffman In Russia",
+        "file": "01-in_russia.md",
+        "order": 1
+      },
+      {
+        "slug": "02-savran_progrom",
+        "title": "1917 Savran Pogrom",
+        "file": "02-savran_progrom.md",
+        "order": 2
+      }
+    ]
   }
 }
 ```
 
-**normalized person**:
+### 10.5 generators/mermaid_builder.py (Diagrams)
+
+**Class**: `MermaidDiagramBuilder`
+
+**Methods**:
+- `build_immediate_family(pid, person)` → `str`
+  - Nuclear family: parents, siblings, spouse, children
+  - Current person highlighted in light blue
+
+- `build_ancestors(pid, person, generations=2)` → `str`
+  - Top-down diagram: grandparents → parents → current person
+  - Limited to 2 generations by default
+
+- `build_descendants(pid, person, generations=2)` → `str`
+  - Top-down diagram: current person → children → grandchildren
+  - Limited to 2 generations by default
+
+**Styling**:
+```mermaid
+classDef current fill:#bbdefb,stroke:#1976d2,stroke-width:3px
+class I11052340 current
+```
+
+**Links** (clickable nodes):
+```mermaid
+click I11052340 "/profiles/Moshe-משה-Hoffman" "Moshe משה Hoffman"
+```
+
+### 10.6 utils/link_converter.py (Link Generation)
+
+**Class**: `LinkConverter`
+
+**Initialization**:
+```python
+class LinkConverter:
+    def __init__(self, individuals: Dict, id_to_slug: Dict[str, str]):
+        self.individuals = individuals
+        self.id_to_slug = id_to_slug
+```
+
+**Methods**:
+- `person_id_to_html(pid: str)` → `str`
+  - Converts person ID to HTML link
+  - Example: `"@I123@"` → `'<a href="/profiles/Moshe-משה-Hoffman">Moshe משה Hoffman</a>'`
+
+- `wikilink_place(place: str, format='html')` → `str`
+  - Converts place name to Wikipedia link
+  - Uses `PLACE_TO_WIKI` mapping from `config.py`
+  - Example: `"Savran, Podolia, Ukraine"` → `'<a href="https://en.wikipedia.org/wiki/Savran,_Ukraine">Savran, Podolia, Ukraine</a>'`
+
+**URL Encoding**:
+- Handles special characters: spaces → `-`, quotes → `_`, Hebrew characters (preserved)
+- Example slugs:
+  - `"Bobka" Hochman` → `_Bobka_-Hochman`
+  - `Tobl Hochman (Hoffman)` → `Tobl-Hochman-(Hoffman)`
+  - `Moshe משה Hoffman` → `Moshe-משה-Hoffman`
+
+### 10.7 utils/logger.py (Advanced Logging)
+
+**Functions**:
+- `setup_logger(name, level, log_file, console)` → `logging.Logger`
+  - Creates logger with colored output
+  - Supports file + console logging
+
+- `get_logger(name)` → `logging.Logger`
+  - Gets existing logger or creates new one
+
+- `log_section(logger, title)`
+  - Prints section header with decorative lines
+  - Example:
+    ```
+    ======================================================================
+    GENERATING PROFILES
+    ======================================================================
+    ```
+
+- `log_progress(logger, current, total, item_name)`
+  - Prints progress: `[INFO] Progress: 50/546 profiles (9.2%)`
+
+**Color Output**:
+- DEBUG: gray
+- INFO: green
+- WARNING: yellow
+- ERROR: red
+
+### 10.8 utils/file_utils.py (File Operations)
+
+**Functions**:
+- `safe_filename(name: str)` → `str`
+  - Converts name to safe filename
+  - `"Bobka"` → `_Bobka_` (quotes to underscores)
+  - `****` → `____` (asterisks to underscores)
+  - Preserves: Hebrew, parentheses, hyphens
+
+- `copy_file_safe(src, dst)`
+  - Safe file copy with error handling
+  - Creates parent directories if needed
+
+- `copy_directory_safe(src, dst)`
+  - Recursive directory copy
+  - Skips existing files (optional)
+
+- `remove_directory_safe(path)`
+  - Safe directory removal
+  - Handles errors gracefully
+
+### 10.9 gedcom/parser.py (GEDCOM Parsing)
+
+**Function**: `parse_gedcom_file(path)` → `Tuple[Dict, Dict]`
+
+**Algorithm**:
+1. Read file line by line
+2. Parse level-tag-data structure
+3. Track current record (INDI or FAM)
+4. Track context (in BIRT, in DEAT, etc.)
+5. Build dictionaries with nested structure
+
+**Example GEDCOM**:
+```
+0 @I123@ INDI
+1 NAME Moshe משה /Hoffman/
+1 BIRT
+2 DATE circa 1884
+2 PLAC Savran, Podolia, Ukraine
+1 DEAT
+2 DATE 7 APR 1973
+2 PLAC Perth, Australia
+1 OCCU wheelwright, publican
+1 FAMS @F1@
+```
+
+**Output**:
+```python
+individuals = {
+  "@I123@": {
+    "NAME": "Moshe משה /Hoffman/",
+    "BIRT": {
+      "DATE": "circa 1884",
+      "PLAC": "Savran, Podolia, Ukraine"
+    },
+    "DEAT": {
+      "DATE": "7 APR 1973",
+      "PLAC": "Perth, Australia"
+    },
+    "OCCU": "wheelwright, publican",
+    "FAMS": ["@F1@"]
+  }
+}
+```
+
+### 10.10 gedcom/normalizer.py (Data Normalization)
+
+**Functions**:
+- `norm_individual(iid, data)` → `Dict`
+  - Normalizes individual record
+  - Extracts first/last name from `NAME`
+  - Flattens nested BIRT/DEAT structures
+  - Handles missing data gracefully
+
+- `norm_family(fid, data)` → `Dict`
+  - Normalizes family record
+  - Extracts husband/wife/children
+  - Handles marriage date/place
+
+**Example**:
+```python
+# Input (raw GEDCOM)
+{
+  "NAME": "Moshe משה /Hoffman/",
+  "BIRT": {"DATE": "circa 1884", "PLAC": "Savran..."},
+  "FAMS": ["@F1@"]
+}
+
+# Output (normalized)
+{
+  "id": "@I123@",
+  "name": "Moshe משה Hoffman",
+  "first_name": "Moshe משה",
+  "last_name": "Hoffman",
+  "birth_date": "circa 1884",
+  "birth_place": "Savran, Podolia, Ukraine",
+  "death_date": None,
+  "death_place": None,
+  "occupation": None,
+  "notes": None,
+  "famc": None,
+  "fams": ["@F1@"]
+}
+```
+
+### 10.11 Key Data Structures
+
+**Raw GEDCOM Individual**:
+```python
+{
+  "NAME": "Moshe /Hoffman/",
+  "BIRT": {"DATE": "circa 1884", "PLAC": "Savran..."},
+  "DEAT": {"DATE": "April 7, 1973", "PLAC": "Perth..."},
+  "OCCU": "wheelwright, publican, businessman",
+  "FAMS": ["@F1@", "@F2@"],
+  "FAMC": "@F0@"
+}
+```
+
+**Normalized Individual**:
 ```python
 {
   "id": "@I10@",
@@ -2716,20 +3419,84 @@ git push origin production
 }
 ```
 
-### 10.2 Place Mappings
-
-**מיקום**: Hardcoded in `doit.py`
-
+**id_to_slug Dictionary**:
 ```python
-place_to_wiki = {
-    "Savran, Podolia, Odessa oblast, Ukraine": "Savran",
-    "Perth, Australia": "Perth",
-    "Subiaco, Perth, Western Australia, Australia": "Subiaco,_Western_Australia",
-    ...
+{
+  "@I123@": "Leah-Hoffman-Nate",
+  "@I456@": "Leah-Hoffman-Hymie",
+  "@I789@": "Leah-Hoffman-1920",
+  "@I10@": "Moshe-משה-Hoffman"
 }
 ```
 
-**שימוש**: `wl_place_html()` משתמש במיפוי ליצירת קישורי Wikipedia
+### 10.12 config.py (Configuration & Constants)
+
+**מיקום**: `scripts/config.py`
+
+**תוכן**:
+```python
+# Image file extensions supported
+IMAGE_EXTENSIONS = ['.png', '.jpg', '.jpeg', '.gif', '.webp']
+
+# Mermaid diagram CSS styles
+MERMAID_STYLES = {
+    'person': 'fill:#e1f5fe,stroke:#0277bd,stroke-width:2px',
+    'internal_link': 'fill:#e1f5fe,stroke:#0277bd,stroke-width:2px',
+    'current': 'fill:#bbdefb,stroke:#1976d2,stroke-width:3px'
+}
+
+# Place to Wikipedia article name mapping
+PLACE_TO_WIKI = {
+    # Australia
+    "Subiaco, Perth, Western Australia, Australia": "Subiaco,_Western_Australia",
+    "Perth, Western Australia, Australia": "Perth,_Western_Australia",
+    "Perth, WA, Australia": "Perth,_Western_Australia",
+    "Perth, Australia": "Perth,_Western_Australia",
+    "Perth": "Perth,_Western_Australia",
+    "Sydney, NSW, Australia": "Sydney",
+    
+    # Israel
+    "Rehovot, Israel": "Rehovot",
+    "Jerusalem": "Jerusalem",
+    
+    # Europe
+    "Wien, Austria": "Vienna",
+    "Nikolsburg (Mikulov), Moravia, Czechoslovakia": "Mikulov",
+    "Blackburn, Lancashire, England (United Kingdom)": "Blackburn,_Lancashire",
+    
+    # Eastern Europe
+    "Savran, Podolia, Odessa oblast, Ukraine": "Savran,_Ukraine",
+    "Bershad, Ukraine": "Bershad",
+    
+    # Middle East
+    "Hamedan, Iran, Islamic Republic of": "Hamadan",
+}
+
+# Default directories
+DEFAULT_OUTPUT_DIR = "site/content/profiles"
+DEFAULT_BIOS_DIR = "bios"
+DEFAULT_CONTENT_DIR = "content"
+DEFAULT_DOCUMENTS_DIR = "documents"
+DEFAULT_STATIC_DIR = "site/quartz/static"
+
+# Logging format
+LOG_FORMAT = "[%(asctime)s] [%(levelname)s] %(name)s: %(message)s"
+LOG_DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
+```
+
+**שימוש**:
+- `LinkConverter.wikilink_place()` משתמש ב-`PLACE_TO_WIKI` ליצירת קישורי Wikipedia
+- `MermaidDiagramBuilder` משתמש ב-`MERMAID_STYLES` לעיצוב דיאגרמות
+- `MediaIndexHandler` משתמש ב-`IMAGE_EXTENSIONS` לזיהוי קבצי תמונה
+
+**הוספת מקום חדש**:
+1. הרץ `python scripts/doit.py data/tree.ged --analyze-places`
+2. זהה מקומות ללא מיפוי
+3. הוסף ל-`PLACE_TO_WIKI` ב-`config.py`:
+   ```python
+   "Melbourne, Victoria, Australia": "Melbourne"
+   ```
+4. הרץ מחדש: `python scripts/doit.py data/tree.ged`
 
 ---
 
@@ -3039,7 +3806,29 @@ Line 2
 
 ## 16. היסטוריית גרסאות
 
-### v3.2 (נובמבר 26, 2025) - Current
+### v3.3 (נובמבר 26, 2025) - Current
+- ✅ **Backend Refactoring** - ארכיטקטורה מודולרית:
+  - `doit.py` ירד מ-~800 ל-203 שורות
+  - 5 מודולי generators נפרדים (579 שורות ב-profile_generator לבד)
+  - 4 מודולי utils (logger, file_utils, link_converter, place_mappings)
+  - 2 מודולי GEDCOM (parser, normalizer)
+  - Object-oriented design: `ProfileGenerator`, `MediaIndexHandler`, `ChaptersIndexHandler`
+  - Advanced logging: colored output, progress tracking, section headers
+  - Place analysis tool: `--analyze-places` flag
+- ✅ **Slug Mapping** - טיפול משופר בשמות כפולים:
+  - אלגוריתם חכם: spouse → parent → birth year → ID
+  - Debug logging מפורט לעקיבת decisions
+  - Collision detection & fixing
+- ✅ **Gallery System** - תמיכה בשני formats:
+  - New format: `[Name|ID]` - שומר שם מקורי
+  - Legacy format: `I12345` - שם מלא מGEDCOM
+  - Cross-tagging אוטומטי
+- ✅ **Documentation** - ספסיפיקציה מעודכנת:
+  - תיעוד מלא של 11 modules
+  - דוגמאות קוד ופלטים
+  - מדריך לכל function ו-class
+
+### v3.2 (נובמבר 2025)
 - ✅ **ProfileTabs v2.0** - רפקטורינג מלא:
   - 21 TypeScript modules (במקום 1 קובץ)
   - Centralized state management
