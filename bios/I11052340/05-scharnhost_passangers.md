@@ -28,7 +28,7 @@ The Morris boys, like their parents, were born in Safed in Ottoman Palestine. Th
 
 Mark Morris was to be the father of Geoff Morris.
 
-Louise (Cohen) Hoffman – in 1910 not yet on the scene – is a second cousin of Mark.
+[Louise (Cohen) Hoffman](/profiles/Louise-Hoffman-Cohen) – in 1910 not yet on the scene – is a second cousin of Mark.
 
 They all disembarked at Fremantle. The Shapiras adopted the Sharp in Western Australia.
 

@@ -48,7 +48,7 @@ Riotous soldiers were again responsible for disgraceful scenes in the city last 
 
 </div>
 
-According to Louise Hoffman, the shop front displayed the words "Boris and Morris", and Turner assumed that the ownership was German. She adds that William Turner was a New Zealand soldier.
+According to [Louise Hoffman](/profiles/Louise-Hoffman-Cohen), the shop front displayed the words "Boris and Morris", and Turner assumed that the ownership was German. She adds that William Turner was a New Zealand soldier.
 
 From the same period, Louise Hoffman told me this story:
 

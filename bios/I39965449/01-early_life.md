@@ -10,7 +10,7 @@ Bracha died on the way.
 
 Shimon settled at Sarafand al'Amar near Ramla.
 
-He worked for Baron Edmond de Rothschild at the winery in Rishon leZion. The baron paid to send Berl to the agricultural school, Mikve Yisrael near Jaffa, which the baron himself generously supported. Mikve Yisrael was part of the Alliance Israelite foundation, and lessons were in the French language.
+He worked for [Baron Edmond de Rothschild](https://en.wikipedia.org/wiki/Edmond_James_de_Rothschild) at the winery in Rishon leZion. The baron paid to send Berl to the agricultural school, Mikve Yisrael near Jaffa, which the baron himself generously supported. Mikve Yisrael was part of the Alliance Israelite foundation, and lessons were in the French language.
 
 ### Egypt
 

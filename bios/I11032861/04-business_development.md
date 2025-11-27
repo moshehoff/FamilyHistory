@@ -32,7 +32,7 @@ The licence was granted. Mr. Roe remarking that if any person were caught sellin
 
 Prior to Federation Western Australia was a "protectionist state" and slapped Eastern States wines with heavy taxes. The Federation was free-trade, and from the discussion in court it is clear that the colonial licences were a protectionist device.
 
-Augustus Sanford Roe, Police Magistrate was the eighth son of John Septimus Roe who was the seventh son of James Roe. John was a very important figure in Australian, and in WA history, as an explorer and Surveyor General. Augustus also had a colourful career – in Malaya, Broome and Roebourne and in later life as a Magistrate in Perth. For better and for worse our family had a lot of run-ins before him, and the records show that he was a just and compassionate man.
+[Augustus Sanford Roe](https://en.wikipedia.org/wiki/Augustus_Roe), Police Magistrate was the eighth son of [John Septimus Roe](https://en.wikipedia.org/wiki/John_Septimus_Roe) who was the seventh son of James Roe. John was a very important figure in Australian, and in WA history, as an explorer and Surveyor General. Augustus also had a colourful career – in Malaya, Broome and Roebourne and in later life as a Magistrate in Perth. For better and for worse our family had a lot of run-ins before him, and the records show that he was a just and compassionate man.
 
 Next, Hyam moved out of his premises at the Globe Hotel, and opened a licensed restaurant, THE RAILWAY FRUIT & WINE PALACE, at 507 Wellington St.
 

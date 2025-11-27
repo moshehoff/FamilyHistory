@@ -15,7 +15,7 @@ Aaron & Elke Zitserman
 │
 ├─ Arcadia (daughter)
 ├─ Frida m. Pesach
-├─ Tubb'l m. Moshe Hochman יונה ★  → Tobl Hochman m. Moshe משה Hoffman
+├─ [Tubb'l](/profiles/Tobl-Hochman-%28Hoffman%29-Zitserman) m. [Moshe Hochman](/profiles/Moshe-משה-Hoffman-Hochman) יונה ★  → Tobl Hochman m. Moshe משה Hoffman
 ├─ Basya (Pessy) m. Pinchas Shwartz בתיה
 ├─ Mariam m. Moshe Greenberg מרים
 └─ Yaakov Z יעקב

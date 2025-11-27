@@ -9,21 +9,21 @@ Beile is a Yiddish girl's name, derived from the slavic “biela” meaning whit
 The children, as they were known by their Yiddish and Hebrew names were:
 
 ```
-Wolf & Beile Hochman
+[Wolf](/profiles/Wolf-זאב-Hochman) & [Beile](/profiles/Beile-ביילא-Hochman-Elizafan) Hochman
 │
-├─ 1. Shimon Me'ir (שמעון מאיר)
-├─ 2. Haim Yudl (חיים יהודה)
-├─ 3. Avram (אברהם)
-├─ 4. Yosef (יוסף)
-├─ 5. Kolman (קלמן)
-├─ 6. Binyamin (בנימין)
-├─ 7. Sholem (שלום)
-├─ 8. Moishe (משה) ★
-├─ 9. Bobka (the only daughter)
-└─ 10. Yisroel (ישראל)
+├─ 1. [Shimon Me'ir](/profiles/Shimon-Meir-מאיר-Hochman) (שמעון מאיר)
+├─ 2. [Haim Yudl](/profiles/Haim-Yehuda-חיים-יהודה-Hochman) (חיים יהודה)
+├─ 3. [Avram](/profiles/Avraham-Hochman) (אברהם)
+├─ 4. [Yosef](/profiles/Josef-Hochman) (יוסף)
+├─ 5. [Kolman](/profiles/Kolman-Hochman) (קלמן)
+├─ 6. [Binyamin](/profiles/Binyamin-Hochman) (בנימין)
+├─ 7. [Sholem](/profiles/Sholem-Hochman) (שלום)
+├─ 8. [Moishe](/profiles/Moshe-משה-Hoffman-Hochman) (משה) ★
+├─ 9. [Bobka](/profiles/_Bobka_-Hochman) (the only daughter)
+└─ 10. [Yisroel](/profiles/Yisrael-Hochman) (ישראל)
 ```
 
-**_This list, in chronological order, was written by my aunt Valda._**
+**_This list, in chronological order, was written by my aunt [Valda](/profiles/Valda-Marie-Hoffman-Levy)._**
 
 Moishe's application for naturalization, filed in the **Australian National Archives** gives his birth date as the 15th of April 1884. This is most probably the Julian date, which corresponds to the 27th of April in the Gregorian calendar. באייר ב" יום
 
@@ -96,7 +96,7 @@ As a child, Moishe saw his eldest brother [Shimon Me'ir](/profiles/Shimon-Meir-�
 
 Children in the shtetels were educated in Jewish schools  which were supported by a special tax levied on the communities. They  learned Torah, and the prayer services from their elders and rabbis in the heder and in shule.  religious classes and synagogue).
 
-_Moishe witnessed pogroms in Savran. He saw mounted troops with swords decapitating Jews._ (related to his grandson Trevor David)
+_Moishe witnessed pogroms in Savran. He saw mounted troops with swords decapitating Jews._ (related to his grandson [Trevor David](/profiles/Trevor-David-Hoffman))
 
 _His sister [Bobka](/profiles/_Bobka_-Hochman) met her death in the river during a pogrom._ (related to [Edith](/profiles/Edith-צירל-Hoffman-Spielmann))
 
@@ -123,12 +123,12 @@ After completing this initial period of full-time service, conscripts passed int
 <div class="citation-box">
 After 1905, the position of the Jewish soldiers in the army became precarious. Between 1906 and 1914, far-right ideologues argued in the Duma that all Jews were traitors, cowards, and useless soldiers who corrupted Russia through socialist propaganda. Hence, it was claimed, the army would benefit from banishing Jews from its ranks. A questionnaire, distributed by the War Ministry in 1911–1912, manifested a significant degree of anti-Jewish sensibility among the highest echelons of army commanders, who subscribed to far-right arguments. Books such as M. Usov’s (Moisei Trivus) _Evrei v armii_ (Jews in the Army; 1911), the anonymous _Voina i evrei_ (War and Jews; 1912), and Saul Ginsburg’s _Velikaia otechestvennaia voina 1812 goda i russkie evrei_ (The Patriotic War of 1812 and Russian Jews; 1912) that testified to Jewish patriotism, good service, and excellent combat performance, as well as the ardent apologetics articulated by liberal-minded Duma members, could hardly check the wave of anti-Jewish slander in Russian society. However, the war ministry showed a certain level of pragmatism and did not yield to the arguments of far-right politicians. The 1912 Statute of the War Ministry confirmed Jewish eligibility for military duty, although it also approved and legalized all anti-Jewish regulations that had been adopted in the 1880s and 1890s.
 
-The 1912 Statute had little impact on some 300,000 Jews who served in the Russian army during [World War I](https://yivoencyclopedia.org/article.aspx/World_War_I "World War I"). Despite a vociferous anti-alien campaign that blamed Russian military failures on Jews in general and on the Jewish population inhabiting [Galicia](https://yivoencyclopedia.org/article.aspx/Galicia) in particular, Jewish soldiers (as military censors reported) shared patriotic enthusiasm with their Russian parallels. Responding to an obviously biased general questionnaire in 1915 about Jewish traitors, deserters, and cowards within the lower ranks, regimental commanders replied that Jews “by and large fulfilled their military duty satisfactorily,” participated in combat “on par with others,” and “did not differ either positively or negatively from other lower ranks.” Russian military memoirs portrayed Jewish soldiers as excellent telegraphers, gun layers, and scouts. To fight the antisemitic bias of Russian high commanders, Maksim Gorky and Leonid Andreev compiled a collection of stories and poetry, _Shchit_ (The Shield; 1916), depicting the honesty and courage of Jewish soldiers, sharply criticizing the inherited bias of the Russian society, and arguing for complete Jewish emancipation.
+The 1912 Statute had little impact on some 300,000 Jews who served in the Russian army during [World War I](https://yivoencyclopedia.org/article.aspx/World_War_I "World War I"). Despite a vociferous anti-alien campaign that blamed Russian military failures on Jews in general and on the Jewish population inhabiting [Galicia](https://yivoencyclopedia.org/article.aspx/Galicia) in particular, Jewish soldiers (as military censors reported) shared patriotic enthusiasm with their Russian parallels. Responding to an obviously biased general questionnaire in 1915 about Jewish traitors, deserters, and cowards within the lower ranks, regimental commanders replied that Jews “by and large fulfilled their military duty satisfactorily,” participated in combat “on par with others,” and “did not differ either positively or negatively from other lower ranks.” Russian military memoirs portrayed Jewish soldiers as excellent telegraphers, gun layers, and scouts. To fight the antisemitic bias of Russian high commanders, [Maksim Gorky](https://en.wikipedia.org/wiki/Maxim_Gorky) and [Leonid Andreev](https://en.wikipedia.org/wiki/Leonid_Andreyev) compiled a collection of stories and poetry, _Shchit_ (The Shield; 1916), depicting the honesty and courage of Jewish soldiers, sharply criticizing the inherited bias of the Russian society, and arguing for complete Jewish emancipation.
 
 After the [February Revolution of 1917](https://yivoencyclopedia.org/article.aspx/Russian_Revolutions_of_1917 "Russian Revolutions of 1917"), the provisional government canceled all anti-Jewish regulations in the military, allowing upper mobility to the Jews and opening the doors of officers’ schools to them. Perhaps the disproportionate number of Jews in the highest positions in the Red Army command signified that Jews tended to recompense themselves for the hundred years of service in the Russian army on the lower rank level; that they mastered the military craft and did not shun it; and that they viewed the military as a focal tool for achieving privileges denied them in a nonliberal society.
 </div>
 #### From [https://yivoencyclopedia.org/article.aspx/military_service_in_russia](https://yivoencyclopedia.org/article.aspx/military_service_in_russia):
->A disproportionate number of young Jewish men were conscripted. They served as  rank and file infantry and artillerymen.  Commissions were denied them. In the history of the Imperial Army only about four  ever  became officers. One of them,  Yosef Trumpeldor was commissioned in recognition of his valour  in the Russo Japanese War.  He later achieved  fame for his exploits at Gallipoli and in Palestine.
+>A disproportionate number of young Jewish men were conscripted. They served as  rank and file infantry and artillerymen.  Commissions were denied them. In the history of the Imperial Army only about four  ever  became officers. One of them,  [Yosef Trumpeldor](https://en.wikipedia.org/wiki/Joseph_Trumpeldor) was commissioned in recognition of his valour  in the Russo Japanese War.  He later achieved  fame for his exploits at Gallipoli and in Palestine.
 
 _Moishe, however, served in his trade of wheelwright._ (related to [Jack](/profiles/Jack-Hoffman))
 

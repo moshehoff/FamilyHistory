@@ -22,7 +22,7 @@ This little interview with Mr. Hoffman shows that there is likely to be consider
 
 </div>
 
-Hyam's second son, [Aliyashiv](/profiles/Elyashiv-Hoffman-Hochman) was born at their home at the wine shop on 5.2.1911. [Rivka](/profiles/Rivka-Bar-Cohen-Hoffman), Hyam's eldest daughter married Aahron Bar Cohen abt. 1912. The groom was a Kaganovitch, a cousin of Lazar Moiseevitch Kaganovitch a leading Bolshevik who ultimately became Stalin's minister for industry during the Second World War.
+Hyam's second son, [Aliyashiv](/profiles/Elyashiv-Hoffman-Hochman) was born at their home at the wine shop on 5.2.1911. [Rivka](/profiles/Rivka-Bar-Cohen-Hoffman), Hyam's eldest daughter married [Aahron Bar Cohen](/profiles/Aharon-Nissan-%D7%A0%D7%99%D7%A1%D7%9F-Bar-Cohen-Kaganovich) abt. 1912. The groom was a Kaganovitch, a cousin of [Lazar Moiseevitch Kaganovitch](https://en.wikipedia.org/wiki/Lazar_Kaganovich) a leading Bolshevik who ultimately became Stalin's minister for industry during the Second World War.
 
 Hyam's status in the community may be appreciated from the following note in THE WEST AUSTRALIAN of 15.7.1911. The choice of pallbearers was not a random matter. The others named were stalwarts of the community and respected men.
 

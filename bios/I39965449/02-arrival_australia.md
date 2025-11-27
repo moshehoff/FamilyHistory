@@ -16,7 +16,7 @@ Berl's naturalization application states that he resided "between Leonora and La
 
 <div class="info-box">
 
-Leonora is a town in the goldfields of Western Australia, located 518 miles northeast of Perth, and 147 miles north of the city of Kalgoorlie. The Leonora area was first explored by John Forrest, who visited the area in 1869.
+Leonora is a town in the goldfields of Western Australia, located 518 miles northeast of Perth, and 147 miles north of the city of Kalgoorlie. The Leonora area was first explored by [John Forrest](https://en.wikipedia.org/wiki/John_Forrest), who visited the area in 1869.
 
 In 1894, gold was discovered in the area by a prospector named Morrisey, and in the following two years a number of rich finds resulted in rapid development of the area. The Gwalia and Sons of Gwalia gold mines brought Leonora to the attention of the world. By 1897 a residential and business area had been established, and the town was gazetted as Leonora in 1898.
 
