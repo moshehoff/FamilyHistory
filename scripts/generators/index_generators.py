@@ -86,7 +86,9 @@ def write_bios_index(people_dir: str, bios_dir: str, pages_dir: str):
         if gedcom_id and gedcom_id in bio_ids:
             # Use slugified name (with dashes instead of spaces) for URL
             slugified_name = fname[:-3].replace(' ', '-')
-            profiles_with_bios.append((fname[:-3], slugified_name))
+            # Display name with spaces instead of dashes
+            display_name = fname[:-3].replace('-', ' ')
+            profiles_with_bios.append((display_name, slugified_name))
     
     # Create the index page
     lines = [
@@ -162,7 +164,9 @@ def write_gallery_index(people_dir: str, static_dir: str, pages_dir: str):
         if gedcom_id and gedcom_id in gallery_ids:
             # Use slugified name (with dashes instead of spaces) for URL
             slugified_name = fname[:-3].replace(' ', '-')
-            profiles_with_gallery.append((fname[:-3], slugified_name))
+            # Display name with spaces instead of dashes
+            display_name = fname[:-3].replace('-', ' ')
+            profiles_with_gallery.append((display_name, slugified_name))
     
     # Create the index page
     lines = [
