@@ -1301,6 +1301,12 @@ function initProfileTabs() {
   function parseMarkdownToHTML(markdown, chaptersDataForLinks, profileIdForImages, basePathForImages) {
     var html = markdown;
     
+    // Normalize line endings: convert CRLF to LF, then CR to LF
+    var CR = String.fromCharCode(13);
+    var LF = String.fromCharCode(10);
+    var CRLF = CR + LF;
+    html = html.split(CRLF).join(LF).split(CR).join(LF);
+    
     // Code blocks (triple backticks) - must be processed FIRST before any other Markdown
     // Match code blocks with optional language
     var backtick = String.fromCharCode(96);
