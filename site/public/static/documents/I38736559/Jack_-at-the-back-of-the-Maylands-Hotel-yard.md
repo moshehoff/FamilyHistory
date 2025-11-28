@@ -1,1 +1,0 @@
-[Jack|I38736559], at the back of the Maylands Hotel yard
