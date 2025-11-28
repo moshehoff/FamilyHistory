@@ -578,11 +578,56 @@ article pre, .tab-pane pre, .chapter-tab-pane pre {
   & > code {
     font-size: 14px !important;
     line-height: 1.5 !important;
+    white-space: pre !important;
+    display: block !important;
     
     & > [data-line]::before {
       display: none !important;
     }
+    
+    // Fix links inside code blocks - prevent line breaks
+    // Links should be inline and not cause line breaks
+    a {
+      display: inline !important;
+      white-space: pre !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      text-decoration: underline !important;
+      color: #0066cc !important;
+      word-break: keep-all !important;
+      line-break: auto !important;
+      overflow-wrap: normal !important;
+      word-wrap: normal !important;
+      vertical-align: baseline !important;
+      float: none !important;
+      clear: none !important;
+      
+      // Prevent any pseudo-elements from causing breaks
+      &::before,
+      &::after {
+        content: none !important;
+        display: none !important;
+      }
+      
+      // Ensure no line breaks before or after
+      & + * {
+        margin-left: 0 !important;
+      }
+      
+      &:hover {
+        color: #0052a3 !important;
+      }
+    }
   }
+  
+}
+
+// Additional rule to ensure links in code blocks don't break
+article pre code a,
+.tab-pane pre code a,
+.chapter-tab-pane pre code a {
+  display: inline !important;
+  white-space: pre !important;
 }
 
 // Force light mode only - dark mode disabled

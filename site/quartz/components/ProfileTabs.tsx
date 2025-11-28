@@ -1313,10 +1313,12 @@ function initProfileTabs() {
     // Allow optional whitespace after opening backticks and language tag
     var codeBlockPattern = backtick + backtick + backtick + '(\\\\w+)?\\\\s*([\\\\s\\\\S]*?)' + backtick + backtick + backtick;
     var codeBlockRegex = new RegExp(codeBlockPattern, 'g');
+    
+    // Process code blocks directly - links inside will be processed later
     html = html.replace(codeBlockRegex, function(match, lang, code) {
       // Remove leading/trailing newlines from code
       code = code.replace(/^\\n+|\\n+$/g, '');
-      // Escape HTML in code
+      // Escape HTML in code (but NOT links - they will be processed as markdown)
       code = code.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
       var langAttr = lang ? ' class="language-' + lang + '"' : '';
       return '<pre><code' + langAttr + '>' + code + '</code></pre>';
@@ -1477,9 +1479,16 @@ function initProfileTabs() {
     });
     
     // Then replace other HTML tags (with content)
-    html = html.replace(/<(a|pre|code)([^>]*)>([\\s\\S]*?)<\\/(a|pre|code)>/g, function(match) {
+    // Process links inside <pre><code> blocks before storing them
+    html = html.replace(/<(a|pre|code)([^>]*)>([\\s\\S]*?)<\\/(a|pre|code)>/g, function(match, tag1, attrs, content, tag2) {
+      var processedMatch = match;
+      // If this is a <pre><code> block, process links inside it
+      if (tag1 === 'pre' && content.indexOf('<code') !== -1) {
+        // Process markdown links inside the code block content
+        processedMatch = match.replace(/\\[([^\\]]+)\\]\\(([^)]+)\\)/g, '<a href="$2">$1</a>');
+      }
       var placeholder = '___HTML_BLOCK_' + htmlBlockIndex + '___';
-      htmlBlocks[htmlBlockIndex] = match;
+      htmlBlocks[htmlBlockIndex] = processedMatch;
       htmlBlockIndex++;
       return placeholder;
     });
@@ -1506,15 +1515,21 @@ function initProfileTabs() {
     }
     html = segments.join('');
     
-    // Restore HTML blocks
-    html = html.replace(/___HTML_BLOCK_(\\d+)___/g, function(match, index) {
-      return htmlBlocks[parseInt(index)];
-    });
-    
-
-    
-    // External links [text](url)
+    // External links [text](url) - process BEFORE restoring HTML blocks
+    // This allows links inside code blocks to be processed
     html = html.replace(/\\[([^\\]]+)\\]\\(([^)]+)\\)/g, '<a href="$2">$1</a>');
+    
+    // Restore HTML blocks and process links inside code blocks
+    html = html.replace(/___HTML_BLOCK_(\\d+)___/g, function(match, index) {
+      var block = htmlBlocks[parseInt(index)];
+      // Process links inside <pre><code> blocks
+      if (block && block.indexOf('<pre') !== -1 && block.indexOf('<code') !== -1) {
+        // Links inside code blocks should already be processed by the regex above
+        // But if they weren't (because they were stored as placeholders), process them now
+        block = block.replace(/\\[([^\\]]+)\\]\\(([^)]+)\\)/g, '<a href="$2">$1</a>');
+      }
+      return block;
+    });
     
     // Handle line breaks (two spaces at end of line = <br>)
     // This must be done BEFORE paragraph processing
