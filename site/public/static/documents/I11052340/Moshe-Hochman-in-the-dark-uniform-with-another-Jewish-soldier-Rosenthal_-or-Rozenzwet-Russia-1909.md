@@ -1,0 +1,1 @@
+[Moshe Hochman|I11052340] in the dark uniform with another Jewish soldier Rosenthal, or Rozenzwet Russia 1909
