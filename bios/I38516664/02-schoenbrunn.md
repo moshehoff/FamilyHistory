@@ -1,6 +1,6 @@
 ## SCHOENBRUNN
 
-This biography was taken from the book by Edith's sister in law [Louise Hoffman](/profiles/Louise-Hoffman-Cohen):
+### This biography was taken from the book "Without Regret" by Edith's sister in law [Louise Hoffman](/profiles/Louise-Hoffman-Cohen):
 
 [Edith Hoffman](/profiles/Edith-צירל-Hoffman-Spielmann) (née Spielman) was born in Vienna at the end of World War I. She was the youngest of four children. She grew up in a conventional Viennese household where her family lived modestly in a flat near the Westbahnhof. Politics were part of life in Vienna as well as visiting art galleries, museums, theatre, opera and walking in the Vienna Woods. When the Anschluss occurred that life was shattered. Edith left for Melbourne, Australia, by lucky circumstance in September 1938. She travelled per the Lloyd Triestino vessel SS Viminale later sunk during the war. She had never seen the sea before. She married a West Australian in 1942 and is the mother of two sons and a daughter and has six grandchildren.
 

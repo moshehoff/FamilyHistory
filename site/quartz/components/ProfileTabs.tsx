@@ -1927,8 +1927,37 @@ function initProfileTabs() {
       // Don't restore chapters if we're in media tab
       if (tabName !== 'media') {
         if (chapterSlug) {
-          console.log('[ProfileTabs] Restoring chapter from popstate:', chapterSlug);
-          switchToChapter(chapterSlug, true);
+          // Validate that the chapter belongs to the current profile
+          let isValidChapter = false;
+          if (chaptersData) {
+            // Check if chapter slug matches main chapter
+            if (chaptersData.main && chaptersData.main.slug === chapterSlug) {
+              isValidChapter = true;
+            } else {
+              // Check if chapter slug matches any other chapter
+              for (let i = 0; i < chaptersData.chapters.length; i++) {
+                if (chaptersData.chapters[i].slug === chapterSlug) {
+                  isValidChapter = true;
+                  break;
+                }
+              }
+            }
+          }
+          
+          if (isValidChapter) {
+            console.log('[ProfileTabs] Restoring chapter from popstate:', chapterSlug);
+            switchToChapter(chapterSlug, true);
+          } else {
+            console.log('[ProfileTabs] Chapter', chapterSlug, 'does not belong to current profile, showing default chapter');
+            // Chapter doesn't belong to this profile - clear hash and show default
+            if (chaptersData && chaptersData.main) {
+              // Update URL to remove invalid chapter hash
+              const newUrl = window.location.pathname + '#tab=biography';
+              history.replaceState({ tab: 'biography' }, '', newUrl);
+              // Show default chapter
+              switchToChapter(chaptersData.main.slug, true);
+            }
+          }
         } else if (!hash || hash === '#' || hash === '#tab=biography' || hash === '#tabbiography') {
           // No chapter hash - go back to introduction if we have chapters
           if (chaptersData && chaptersData.main) {
