@@ -382,9 +382,32 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
   async function displayPreview(el: HTMLElement | null) {
     if (!searchLayout || !enablePreview || !el || !preview) return
     const slug = el.id as FullSlug
-    const innerDiv = await fetchContent(slug).then((contents) =>
-      contents.flatMap((el) => [...highlightHTML(currentSearchTerm, el as HTMLElement).children]),
-    )
+    const innerDiv = await fetchContent(slug).then((contents) => {
+      const elements = contents.flatMap((el) => [...highlightHTML(currentSearchTerm, el as HTMLElement).children])
+      
+      // Filter out Mermaid code blocks from preview
+      const filtered: Node[] = []
+      for (const element of elements) {
+        // Skip <pre> elements that contain mermaid code
+        if (element instanceof HTMLElement) {
+          const mermaidCode = element.querySelector('code.mermaid')
+          if (mermaidCode) {
+            continue // Skip this element
+          }
+          // Also skip if the element itself is a mermaid code block
+          if (element.tagName === 'CODE' && element.classList.contains('mermaid')) {
+            continue
+          }
+          // Skip mermaid containers
+          if (element.id === 'mermaid-container' || element.querySelector('#mermaid-container')) {
+            continue
+          }
+        }
+        filtered.push(element)
+      }
+      
+      return filtered
+    })
     previewInner = document.createElement("div")
     previewInner.classList.add("preview-inner")
     previewInner.append(...innerDiv)
