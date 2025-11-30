@@ -41,9 +41,12 @@ def write_people_index(people_dir: str, pages_dir: str):
     
     lines = ["## All Profiles\n"]
     for fname in files:
-        title = fname[:-3]  # strip .md
-        url = "/profiles/" + urllib.parse.quote(fname[:-3])
-        lines.append(f"* [{title}]({url})")
+        # Use slugified name (with dashes) for URL
+        slugified_name = fname[:-3]  # strip .md
+        # Display name with spaces instead of dashes (same as profiles-of-interest)
+        display_name = slugified_name.replace('-', ' ')
+        url = "/profiles/" + urllib.parse.quote(slugified_name)
+        lines.append(f"* [{display_name}]({url})")
     
     os.makedirs(pages_dir, exist_ok=True)
     output_path = os.path.join(pages_dir, "all-profiles.md")
