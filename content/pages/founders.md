@@ -101,7 +101,7 @@ The youngest son, known as Israel or Jack. He married [Rachel Zelzer](/profiles/
 **→ Australia: 1907**  
 Yisrael arrived in Western Australia in 1907, joining his brother Hyam Yudl in the fruit trade and hospitality business.
 
-### The Next Generation: Berl and Hershl
+### The Next Generation: Berl, Hershl and Wolfe
 
 Though technically the next generation, **Berl** and **Hershl**—the sons of Shimon Meir—were born in **Savran** and were roughly the same age as some of their younger uncles. They experienced the same harsh conditions and persecution, and they too became founding members of the Australian family.
 
@@ -120,6 +120,17 @@ Facing deteriorating conditions during World War I, Hershl and Rachel came to Au
 Hershl worked at **Eilbeck's Engineering Works** in West Perth for **46 years**, eventually becoming foreman. He was a respected member of the community and helped other Jewish immigrants establish themselves.
 
 *[Read Hershl's full biography →](/profiles/Hershl-Hochman)*
+
+ **13. [Wolfe Hoffman](/profiles/Wolfe-Hochman)** (b. 1 November 1891 in Khoshchevato, Podolia)
+Wolfe was the son of [Josef Hochman](/profiles/Josef-Hochman). He left Russia together with his uncle [Moshe](/profiles/Moshe-משה-Hoffman-Hochman) when he was 17 years old.
+
+**→ Australia: 25 April 1910** (Fremantle, aboard the *Scharnhorst*)  
+Wolfe arrived with Moshe and worked as a labourer and millhand in Western Australia. He was naturalized in 1913.
+
+**World War I Service:**  
+Wolfe enlisted in the Australian Imperial Force (AIF) on 20 March 1915 as Private 2224. He served with the 16th Battalion and arrived at **Gallipoli** in time for the Battle of Sari Bair (6-8 August 1915). He was a true **"Digger"**—the Australian term for ANZAC soldiers who served with courage and mateship during the Great War.
+
+*[Read Wolfe's full biography →](/profiles/Wolfe-Hochman)*
 
 ### Why They Left: The Dark Years
 
