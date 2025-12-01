@@ -206,7 +206,8 @@
             }
 
             @media all and not ($mobile) {
-              & > p.card-description {
+              & > p.card-description,
+              & > div.card-description {
                 display: none;
               }
             }
@@ -232,6 +233,30 @@
 
             & > p {
               margin-bottom: 0;
+            }
+            
+            // Style profile-info-list in card-description to match profile page
+            & > .card-description {
+              .profile-info-list {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                gap: 0.5rem 1rem;
+                margin: 0;
+                
+                dt {
+                  color: #666;
+                  font-weight: 600;
+                  text-align: left;
+                  white-space: nowrap;
+                }
+                
+                dd {
+                  margin: 0;
+                  color: #000;
+                  word-wrap: break-word;
+                  overflow-wrap: break-word;
+                }
+              }
             }
           }
         }

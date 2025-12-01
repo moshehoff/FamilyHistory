@@ -108,6 +108,13 @@ function highlight(searchTerm: string, text: string, trim?: boolean) {
   }`
 }
 
+// Simple helper to remove mermaid code blocks (used as fallback only)
+function removeMermaidFromText(text: string): string {
+  if (!text) return text
+  // Remove markdown mermaid blocks
+  return text.replace(/```\s*mermaid[\s\S]*?```/gi, '').trim()
+}
+
 function highlightHTML(searchTerm: string, el: HTMLElement) {
   const p = new DOMParser()
   const tokenizedTerms = tokenizeTerm(searchTerm)
@@ -271,11 +278,69 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
 
   const formatForDisplay = (term: string, id: number) => {
     const slug = idDataMap[id]
+    let content = data[slug].content ?? ""
+    
+    // Extract only the profile info box HTML (Birth, Parents, Siblings, etc.)
+    // Keep the HTML structure to preserve formatting
+    const profileInfoMatch = content.match(/<div[^>]*class[^>]*profile-info-box[^>]*>([\s\S]*?)<\/div>/i)
+    
+    if (profileInfoMatch && profileInfoMatch[1]) {
+      // Keep the HTML structure - extract the inner content of profile-info-box
+      const profileInfoHTML = profileInfoMatch[1]
+      
+      // Apply highlight to the HTML content
+      const parser = new DOMParser()
+      const doc = parser.parseFromString(`<div>${profileInfoHTML}</div>`, 'text/html')
+      const container = doc.body.firstElementChild as HTMLElement
+      
+      if (container) {
+        // Highlight search terms in the HTML
+        highlightHTML(term, container)
+        content = container.innerHTML
+      } else {
+        content = profileInfoHTML
+      }
+    } else {
+      // If no profile-info-box found, try text pattern matching and format as HTML
+      // Only extract basic profile info: Birth, Parents, Siblings, Spouse, Children
+      const infoPatterns = [
+        { label: 'Birth', pattern: /Birth:\s*([^\n]+)/i },
+        { label: 'Parents', pattern: /Parents:\s*([^\n]+)/i },
+        { label: 'Siblings', pattern: /Siblings:\s*([^\n]+)/i },
+        { label: 'Spouse', pattern: /Spouse:\s*([^\n]+)/i },
+        { label: 'Children', pattern: /Children:\s*([^\n]+)/i }
+      ]
+      
+      const infoItems: string[] = []
+      infoPatterns.forEach(({ label, pattern }) => {
+        const match = content.match(pattern)
+        if (match && match[1]) {
+          infoItems.push(`<dt>${label}:</dt><dd>${match[1].trim()}</dd>`)
+        }
+      })
+      
+      if (infoItems.length > 0) {
+        content = `<dl class="profile-info-list">${infoItems.join('')}</dl>`
+        // Highlight search terms in the HTML
+        const parser = new DOMParser()
+        const doc = parser.parseFromString(`<div>${content}</div>`, 'text/html')
+        const container = doc.body.firstElementChild as HTMLElement
+        if (container) {
+          highlightHTML(term, container)
+          content = container.innerHTML
+        }
+      } else {
+        // Fallback: for non-profile pages, just remove mermaid and highlight
+        content = removeMermaidFromText(content)
+        content = highlight(term, content, true)
+      }
+    }
+    
     return {
       id,
       slug,
       title: searchType === "tags" ? data[slug].title : highlight(term, data[slug].title ?? ""),
-      content: highlight(term, data[slug].content ?? "", true),
+      content: content,
       tags: highlightTags(term.substring(1), data[slug].tags),
     }
   }
@@ -302,15 +367,29 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
 
   const resultToHTML = ({ slug, title, content, tags }: Item) => {
     const htmlTags = tags.length > 0 ? `<ul class="tags">${tags.join("")}</ul>` : ``
+    
+    // Check if content is already HTML (contains <dl> or <dt> tags - profile-info-list)
+    const isHTML = /<dl|<dt|<dd/.test(content)
+    
     const itemTile = document.createElement("a")
     itemTile.classList.add("result-card")
     itemTile.id = slug
     itemTile.href = resolveUrl(slug).toString()
-    itemTile.innerHTML = `
-      <h3 class="card-title">${title}</h3>
-      ${htmlTags}
-      <p class="card-description">${content}</p>
-    `
+    
+    // If content is HTML (profile-info-list), use <div>, otherwise use <p>
+    if (isHTML) {
+      itemTile.innerHTML = `
+        <h3 class="card-title">${title}</h3>
+        ${htmlTags}
+        <div class="card-description">${content}</div>
+      `
+    } else {
+      itemTile.innerHTML = `
+        <h3 class="card-title">${title}</h3>
+        ${htmlTags}
+        <p class="card-description">${content}</p>
+      `
+    }
     itemTile.addEventListener("click", (event) => {
       if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return
       hideSearch()
@@ -385,7 +464,7 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     const innerDiv = await fetchContent(slug).then((contents) => {
       const elements = contents.flatMap((el) => [...highlightHTML(currentSearchTerm, el as HTMLElement).children])
       
-      // Filter out Mermaid code blocks from preview
+      // Filter out Mermaid code blocks and diagram section headings from preview
       const filtered: Node[] = []
       for (const element of elements) {
         // Skip <pre> elements that contain mermaid code
@@ -401,6 +480,31 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
           // Skip mermaid containers
           if (element.id === 'mermaid-container' || element.querySelector('#mermaid-container')) {
             continue
+          }
+          // Skip h2 headings for diagram sections
+          if (element.tagName === 'H2') {
+            const headingText = element.textContent?.trim() || ''
+            if (headingText === 'Immediate Family' || 
+                headingText === 'Ancestors (up to 2 Gen.)' || 
+                headingText === 'Descendants (up to 2 Gen.)') {
+              continue // Skip this heading
+            }
+          }
+          // Skip any element that contains these diagram section headings
+          // (these headings are followed by mermaid diagrams, so skip the whole section)
+          const diagramHeadings = element.querySelectorAll('h2')
+          let hasDiagramHeading = false
+          for (const h2 of diagramHeadings) {
+            const headingText = h2.textContent?.trim() || ''
+            if (headingText === 'Immediate Family' || 
+                headingText === 'Ancestors (up to 2 Gen.)' || 
+                headingText === 'Descendants (up to 2 Gen.)') {
+              hasDiagramHeading = true
+              break
+            }
+          }
+          if (hasDiagramHeading) {
+            continue // Skip the entire element that contains this heading
           }
         }
         filtered.push(element)
