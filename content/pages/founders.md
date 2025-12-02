@@ -56,7 +56,7 @@ The eldest son. Shimon and his young family left Savran for Palestine around **1
 
 **Destination:** Palestine  
 
-*[Read Shimon Meir's full biography →](/profiles/Shimon-Meir-מאיר-Hochman#tab=biography)*
+*[Read Shimon Meir's full biography →](/profiles/Shimon-Meir-%D7%9E%D7%90%D7%99%D7%A8-Hochman#tab=biography)*
 
  **2. [Haim Yehuda חיים יהודה Hochman|I11032861]** (b. circa 1870)
 The second son, known as Hyam Yudl. In his youth, he witnessed terrible pogroms in Savran. He married [Sarah Bersharda|I39967468] in Balta on 15 August 1891. A member of the **Hovevei Zion** (Lovers of Zion) movement, Hyam purchased land in Doran (later Rehovot) from Yehoshua Hankin while still in Russia. He emigrated to Palestine in the early 1890s, where his first three children were born.
@@ -65,7 +65,7 @@ The second son, known as Hyam Yudl. In his youth, he witnessed terrible pogroms 
 **→ Australia: 1 January 1901** (Fremantle)  
 He was the first of the family to arrive in Western Australia, coming with Sarah and their children. Hyam worked as a fruiterer and helped establish subsequent family members in Perth.
 
-*[Read Hyam's full biography →](/profiles/Haim-Yehuda-חיים-יהודה-Hochman#tab=biography)*
+*[Read Hyam's full biography →](/profiles/Haim-Yehuda-%D7%97%D7%99%D7%99%D7%9D-%D7%99%D7%94%D7%95%D7%93%D7%94-Hochman#tab=biography)*
 
 **3. [Avraham Hochman|I39114938]** (b. circa 1872)
 Little is known about Avraham. He may have perished in Russia or emigrated without leaving records.
@@ -90,7 +90,7 @@ Born in Savran, Moshe (Moishe) trained as a wheelwright. He was conscripted into
 **→ Australia: 25 April 1910** (Fremantle, aboard the *Scharnhorst*)  
 Moshe arrived with [Tobl|I38735986] and his 17-year-old nephew [Wolfe|I38740219]. He became a successful fruiterer, publican, and businessman in Perth, establishing the family's reputation in Western Australia.
 
-*[Read Moshe's full biography →](/profiles/Moshe-משה-Hoffman-Hochman#tab=biography)*
+*[Read Moshe's full biography →](/profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman-Hochman#tab=biography)*
 
  **9. ["Bobka" Hochman|I39114448]** (b. circa 1885, d. during pogrom)
 The only daughter among ten children. "Bobka" was likely a nickname derived from the Yiddish word for "beans," also used to denote something small—perhaps "our kid sister." She met her death in the river during a pogrom in Savran.
