@@ -405,7 +405,7 @@ V4/
   - Place links: Wikipedia URLs
 
 **קוד**:
-- Generation: `scripts/doit.py` (functions: `wl_place_html`, `person_link_to_html`)
+- Generation: `scripts/doit.py` (uses `LinkConverter.person_id_to_html()`)
 - Styling: `site/quartz/styles/custom.scss` (`.profile-info-list`)
 
 #### 4.4.3 Tabs System
@@ -724,7 +724,13 @@ Wolf & Beile Hochman
 
 ##### קישורים לפרופילים (Profile Links)
 
-**⚠️ חשוב מאוד**: הדרך **היחידה** הנכונה לכתוב קישורים לפרופילים בתוך פרקי הביוגרפיה היא בפורמט **Markdown Links רגילים**!
+**⚠️ חשוב מאוד**: הדרך **היחידה** הנכונה לכתוב קישורים לפרופילים בתוך פרקי הביוגרפיה היא בפורמט **[Name|ID]**!
+
+**דוגמה**:
+```markdown
+[Wolfe|I38740219] arrived in Perth.
+[Moshe משה Hoffman|I11052340] was born in Savran.
+```
 
 ---
 
@@ -754,30 +760,30 @@ Moshe משה Hoffman.md      →  Moshe-משה-Hoffman.html
 
 **א. בשדות הפרופיל (Parents, Siblings, Children, Spouse)**
 
-הפונקציה `person_link_to_html()` (שורות 533-546):
+הפונקציה `LinkConverter.person_id_to_html()` (ב-`scripts/utils/link_converter.py`):
 ```python
-def person_link_to_html(wikilink):
-    """Convert [[Person Name]] to HTML link"""
-    if not wikilink or wikilink == "—":
-        return wikilink
-    # Remove [[ and ]]
-    name = wikilink.replace("[[", "").replace("]]", "")
-    # Apply safe_filename to match actual file names
-    safe_name = safe_filename(name)
-    # Replace spaces with hyphens to match Quartz's URL slugs
-    slug = safe_name.replace(" ", "-")
-    # Encode name for URL
-    import urllib.parse
-    encoded_name = urllib.parse.quote(slug)
-    return f'<a href="/profiles/{encoded_name}">{name}</a>'
+def person_id_to_html(self, person_id: str) -> str:
+    """Convert a person ID to an HTML link."""
+    # Get person info from GEDCOM
+    person = self.individuals.get(person_id)
+    name = person.get("name") or person_id
+    
+    # Get unique slug from id_to_slug mapping
+    slug = self.id_to_slug.get(person_id)
+    if not slug:
+        slug = safe_filename(name).replace(" ", "-")
+    
+    # Encode slug for URL
+    encoded_slug = urllib.parse.quote(slug)
+    return f'<a href="/profiles/{encoded_slug}">{name}</a>'
 ```
 
 **מה זה עושה?**
-1. לוקח את השם מה-GEDCOM (למשל: `"Bobka" Hochman`)
-2. מריץ `safe_filename()` → ממיר תווים לא חוקיים (למשל: `"` → `_`)
-3. מחליף רווחים במקפים → `_Bobka_-Hochman`
-4. מקודד ל-URL (`urllib.parse.quote`) → סוגריים הופכים ל-`%28` `%29`
-5. יוצר HTML link: `<a href="/profiles/_Bobka_-Hochman">"Bobka" Hochman</a>`
+1. לוקח את ה-ID מה-GEDCOM (למשל: `@I11052340@`)
+2. מוצא את השם מה-GEDCOM (למשל: `Moshe משה Hoffman`)
+3. מוצא את ה-slug הייחודי מה-`id_to_slug` mapping (למשל: `Moshe-משה-Hoffman-Hochman`)
+4. מקודד ל-URL (`urllib.parse.quote`) → תווים עבריים מקודדים
+5. יוצר HTML link: `<a href="/profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman-Hochman">Moshe משה Hoffman</a>`
 
 **תוצאה**: הקישורים בשדות הפרופיל **תמיד נכונים אוטומטית**! ✅
 
@@ -785,37 +791,31 @@ def person_link_to_html(wikilink):
 
 ##### 3. איך לכתוב קישורים ידניים בפרקי ביוגרפיה
 
-כשאתה כותב קישורים ידנית בקבצי `.md` בתיקיית `bios/`, **חובה** לעקוב אחר הכללים הבאים:
+כשאתה כותב קישורים ידנית בקבצי `.md` בתיקיית `bios/`, **חובה** להשתמש בפורמט **[Name|ID]**:
 
 **הפורמט הנכון**:
 ```markdown
-[Display Text](/profiles/Person-Name-With-Hyphens)
+[Display Name|PersonID]
 ```
 
-**שלבים ליצירת קישור נכון**:
-
-**שלב 1**: מצא את השם המדויק מה-GEDCOM
-- פתח את `data/tree.ged`
-- חפש `1 NAME ...`
-- דוגמה: `1 NAME "Bobka" /Hochman/`
-
-**שלב 2**: החל את `safe_filename()` (זהה ל-`doit.py`)
-- מרכאות `"` → קו תחתון `_`
-- כוכביות `*` → קו תחתון `_`
-- סוגריים `()` נשארים (יקודדו אחר כך)
-- דוגמה: `"Bobka" Hochman` → `_Bobka_ Hochman`
-
-**שלב 3**: החלף רווחים במקפים
-- דוגמה: `_Bobka_ Hochman` → `_Bobka_-Hochman`
-
-**שלב 4**: אם יש סוגריים או תווים מיוחדים אחרים - השאר אותם (לא צריך URL encoding ידני)
-- דוגמה: `Tobl Hochman (Hoffman)` → `Tobl-Hochman-(Hoffman)`
-
-**שלב 5**: צור את הקישור
+**דוגמאות**:
 ```markdown
-[Bobka](/profiles/_Bobka_-Hochman)
-[Tobl](/profiles/Tobl-Hochman-(Hoffman))
+[Wolfe|I38740219] arrived in Perth.
+[Moshe משה Hoffman|I11052340] was born in Savran.
+[Beile ביילא Hochman|I11032895] was the wife of [Wolf זאב Hochman|I11032885].
 ```
+
+**איך זה עובד?**
+1. `doit.py` קורא את התוכן של פרקי הביוגרפיה
+2. `LinkConverter.convert_ids_to_links()` ממיר את `[Name|ID]` ל-HTML links אוטומטית
+3. הקישורים נשמרים כ-HTML ב-`site/quartz/static/chapters/`
+4. `ProfileTabs.tsx` מציג את התוכן עם הקישורים
+
+**יתרונות**:
+- ✅ לא צריך לדעת את ה-slug - רק את ה-ID
+- ✅ הקישורים תמיד נכונים גם אם ה-slug משתנה
+- ✅ עובד אוטומטית - לא צריך URL encoding ידני
+- ✅ תומך בתווים עבריים ומיוחדים
 
 ---
 
@@ -897,7 +897,8 @@ html = html.replace(linkPattern, function(match, text, path) {
 
 ```markdown
 ❌ [[Wolfe Hochman]]                               # Wikilinks - לא עובד בפרקים
-✅ [Wolfe](/profiles/Wolfe-Hochman)                 # תקן כך
+❌ [Wolfe](/profiles/Wolfe-Hochman)                 # Markdown links - לא מומלץ (צריך לדעת slug)
+✅ [Wolfe|I38740219]                               # תקן כך - פורמט [Name|ID]
 
 ❌ [Wolfe](profiles/Wolfe-Hochman)                 # חסר / בהתחלה
 ✅ [Wolfe](/profiles/Wolfe-Hochman)                 # תקן כך
@@ -943,31 +944,28 @@ html = html.replace(linkPattern, function(match, text, path) {
 
 ##### 9. Checklist לפני שמוסיפים קישורים לפרק
 
-- [ ] וידאתי את השם המדויק מה-GEDCOM
-- [ ] המרתי תווים מיוחדים לפי `safe_filename` (מרכאות→קו תחתון, כוכביות→קו תחתון)
-- [ ] החלפתי **כל רווח** במקף `-`
-- [ ] הקישור מתחיל ב-`/profiles/...` (עם `/` בהתחלה)
-- [ ] לא הוספתי `/FamilyHistory` ידנית
-- [ ] בדקתי שהקישור עובד לוקלית
+- [ ] מצאתי את ה-ID המדויק מה-GEDCOM (למשל: `I11052340`)
+- [ ] כתבתי את הקישור בפורמט `[Name|ID]` (למשל: `[Moshe משה Hoffman|I11052340]`)
+- [ ] בדקתי שהקישור עובד אחרי build (`python scripts/doit.py data/tree.ged`)
 
 ---
 
 ##### 10. שאלות ותשובות נפוצות
 
+**ש: למה להשתמש ב-[Name|ID] ולא ב-Markdown links רגילים?**  
+ת: הפורמט `[Name|ID]` מבטיח שהקישורים תמיד נכונים גם אם ה-slug משתנה. `doit.py` ממיר אותם אוטומטית ל-HTML links עם ה-slug הנכון.
+
 **ש: למה לא להשתמש ב-Wikilinks `[[...]]` בפרקים?**  
 ת: Wikilinks לא עוברים דרך `ProfileTabs.tsx`, אז הם לא מקבלים את ה-base path (`/FamilyHistory`) ונשברים ב-GitHub Pages.
 
-**ש: מה אם יש במצאות תווים מיוחדים כמו `/`, `?`, `#`?**  
-ת: `safe_filename()` ממיר אותם לקו תחתון `_`. אבל בפועל זה נדיר מאוד ב-GEDCOM.
+**ש: איך אני מוצא את ה-ID של מישהו?**  
+ת: פתח את `data/tree.ged` וחפש את השם. ה-ID מופיע בשורה `0 @I123456@ INDI`. השתמש ב-`I123456` (ללא הסימנים `@`).
 
-**ש: איך אני יודע אם השם כולל מרכאות או כוכביות?**  
-ת: פשוט תסתכל על השם בקובץ `data/tree.ged` - אם יש `"Bobka"` או `****` זה בדיוק ככה שהוא מופיע.
+**ש: מה אם יש תווים עבריים בשם?**  
+ת: פשוט כתוב אותם כמו שהם: `[Moshe משה Hoffman|I11052340]` - `doit.py` מטפל בקידוד URL אוטומטית.
 
-**ש: מה עם תווים עבריים?**  
-ת: עובדים מצוין! פשוט השתמש בהם כמו שהם, עם מקפים בין מילים: `Moshe-משה-Hoffman`
-
-**ש: האם צריך URL encoding ידני לסוגריים?**  
-ת: **לא!** הדפדפן עושה את זה אוטומטית. כתוב `(Hoffman)` ולא `%28Hoffman%29`.
+**ש: האם צריך URL encoding ידני?**  
+ת: **לא!** `doit.py` עושה את זה אוטומטית. פשוט כתוב `[Name|ID]` והכל יעבוד.
 
 ---
 
@@ -1939,10 +1937,15 @@ _As a young man in his teens Morris..._
 
 **קישורים פנימיים** (לפרופילים):
 ```markdown
-[[Person Name]]
+[Person Name|PersonID]
 ```
 
-**הערה**: קישורים פנימיים יומרו אוטומטית ל-HTML links על ידי `doit.py`
+**דוגמה**:
+```markdown
+[Moshe משה Hoffman|I11052340] was born in Savran.
+```
+
+**הערה**: קישורים פנימיים יומרו אוטומטית ל-HTML links על ידי `LinkConverter.convert_ids_to_links()` ב-`doit.py`
 
 #### 6.1.5 טקסט עברי
 
@@ -2172,6 +2175,42 @@ Content after separator...
 ❌ לא טוב:
 [**https://example.com**](https://example.com)**C**  # כוכביות מיותרות
 ```
+
+**קישורים לפרופילים בדפים סטטיים** (`content/pages/`):
+
+בדפים הסטטיים (כמו `founders.md`), השתמשו בפורמט `[Name|ID]`:
+
+```markdown
+✅ טוב:
+**[Wolf זאב Hochman|I11032885]** was a timber merchant.
+Wolf's wife was **[Beile ביילא Hochman|I11032895]** (née Alzofen).
+
+❌ לא טוב:
+[Wolf Hochman](/profiles/Wolf-זאב-Hochman)  # לא מוצפן, עלול להישבר
+```
+
+**איך זה עובד**: הקובץ `doit.py` ממיר אוטומטית את הפורמט `[Name|ID]` ל-Markdown links `[Name](/profiles/Slug)` עם URL encoding נכון. זה מבטיח שהלינקים תמיד עובדים גם אם ה-slug משתנה.
+
+**קישורים לפרק מסוים בביוגרפיה**:
+
+כשאתם רוצים לקשר לפרק מסוים בביוגרפיה של מישהו, השתמשו בפורמט הבא:
+
+```markdown
+✅ טוב:
+For more information, see the chapter in [Moshe Hoffman's biography](/profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman-Hochman#chapter=06-beile-goichman&tab=biography) - Beile.
+
+או בקיצור:
+See [Moshe Hoffman's biography](/profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman-Hochman#chapter=07-tobl-zitserman&tab=biography).
+```
+
+**פורמט הלינק**:
+- `/profiles/{slug-encoded}` - הפרופיל
+- `#chapter={chapter-slug}` - הפרק (ללא `.md`, עם מקפים במקום קווים תחתונים)
+- `&tab=biography` - הטאב (תמיד `biography` לפרקים)
+
+**דוגמאות**:
+- פרק `06-beile-goichman.md` → `#chapter=06-beile-goichman`
+- פרק `07-tobl_zitserman.md` → `#chapter=07-tobl-zitserman` (קו תחתון הופך למקף)
 
 **קישורים פנימיים לפרקים** (בתוך Introduction):
 ```markdown
