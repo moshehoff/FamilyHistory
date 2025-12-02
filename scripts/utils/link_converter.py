@@ -201,23 +201,29 @@ class LinkConverter:
         if not text or not self.individuals or not self.id_to_slug:
             return text
         
-        # Split text into code blocks and regular content
+        # Split text into code blocks, image wikilinks, and regular content
         # Pattern: ```language\n...\n``` or ```\n...\n```
-        code_block_pattern = r'(```[^\n]*\n[\s\S]*?```)'
+        # Also exclude image wikilinks: ![[path/to/image.png]]
+        code_block_pattern = r'(```[^\n]*\n[\s\S]*?```|!\[\[[^\]]+\]\])'
         parts = re.split(code_block_pattern, text)
         
         result_parts = []
         for i, part in enumerate(parts):
-            # Even indices are regular content, odd indices are code blocks
+            # Even indices are regular content, odd indices are code blocks or image wikilinks
             if i % 2 == 0:
                 # Regular content - process links
-                # First, replace [Name|ID] format (preferred)
-                processed = re.sub(r'\[([^\|]+)\|(I\d+)\]', self._replace_name_id_format, part)
+                # IMPORTANT: Don't process [Name|ID] if it's part of a Markdown link [text](url)
+                # Pattern: [Name|ID] but NOT [Name|ID](url)
+                # We need to be careful not to match [Name|ID] that's already part of a link
+                processed = re.sub(r'\[([^\|]+)\|(I\d+)\](?!\()', self._replace_name_id_format, part)
                 # Then, replace standalone IDs (legacy format)
-                processed = re.sub(r'\bI\d+\b', self._replace_standalone_id, processed)
+                # IMPORTANT: Don't process IDs that are part of file paths (e.g., bios/I11052340/img.png)
+                # Pattern: I\d+ but NOT if it's part of a path like /I123/ or \I123\ or bios/I123/
+                # Use negative lookbehind/lookahead to exclude IDs that are surrounded by path separators
+                processed = re.sub(r'(?<![/\\\w])I\d+(?![/\\\w])', self._replace_standalone_id, processed)
                 result_parts.append(processed)
             else:
-                # Code block - keep as-is (don't process links)
+                # Code block or image wikilink - keep as-is (don't process links)
                 result_parts.append(part)
         
         return ''.join(result_parts)
@@ -333,7 +339,9 @@ class LinkConverter:
             return f'[{original_name}](/profiles/{encoded_slug})'
         
         # Replace [Name|ID] format with Markdown links
-        text = re.sub(r'\[([^\|]+)\|(I\d+)\]', replace_name_id_to_markdown, text)
+        # IMPORTANT: Don't process [Name|ID] if it's part of a Markdown link [text](url)
+        # Pattern: [Name|ID] but NOT [Name|ID](url)
+        text = re.sub(r'\[([^\|]+)\|(I\d+)\](?!\()', replace_name_id_to_markdown, text)
         
         return text
     

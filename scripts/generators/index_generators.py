@@ -254,6 +254,76 @@ def write_family_data_json(individuals: Dict, families: Dict, out_dir: str):
         logger.error(f"Failed to write family-data.json: {e}")
 
 
+def write_id_to_slug_json(id_to_slug: Dict, out_dir: str, static_dir: str = None):
+    """
+    Generate id-to-slug.json for JavaScript to convert [Name|ID] to slugs.
+    
+    Args:
+        id_to_slug: Mapping from person ID (with @ symbols) to unique slug
+        out_dir: Output directory for profiles (used to find static dir if static_dir not provided)
+        static_dir: Optional static directory path (if provided, used directly)
+    
+    Example:
+        >>> write_id_to_slug_json(id_to_slug, "site/content/profiles")
+        >>> write_id_to_slug_json(id_to_slug, "site/content/profiles", "site/quartz/static")
+    """
+    logger.info("Generating id-to-slug.json")
+    
+    # Convert IDs from @I123@ format to I123 format for JavaScript
+    clean_mapping = {}
+    for pid, slug in id_to_slug.items():
+        clean_id = pid.strip("@")
+        clean_mapping[clean_id] = slug
+    
+    # Write to Quartz static folder
+    if static_dir is None:
+        # Calculate static dir relative to out_dir
+        # Assuming output is site/content/profiles, static is at site/quartz/static
+        static_dir = os.path.join(out_dir, "..", "..", "quartz", "static")
+    
+    # Normalize path to handle relative paths correctly
+    # If static_dir is relative and starts with "site/", resolve it relative to project root
+    if not os.path.isabs(static_dir):
+        # Check if path starts with "site/" - if so, find project root
+        if static_dir.startswith("site/"):
+            # Find project root by looking for scripts/ or site/ directory
+            current = os.path.abspath(os.curdir)
+            project_root = current
+            # Go up until we find scripts/ or site/ directory
+            while project_root and project_root != os.path.dirname(project_root):
+                if os.path.exists(os.path.join(project_root, "scripts")) and os.path.exists(os.path.join(project_root, "site")):
+                    break
+                project_root = os.path.dirname(project_root)
+            
+            if project_root and project_root != os.path.dirname(project_root):
+                # Make static_dir absolute relative to project root
+                static_dir = os.path.normpath(os.path.join(project_root, static_dir))
+            else:
+                # Fallback: use absolute path from current directory
+                static_dir = os.path.normpath(os.path.abspath(static_dir))
+        else:
+            # Other relative paths: resolve from current directory
+            static_dir = os.path.normpath(os.path.abspath(static_dir))
+    else:
+        static_dir = os.path.normpath(static_dir)
+    
+    os.makedirs(static_dir, exist_ok=True)
+    output_path = os.path.join(static_dir, "id-to-slug.json")
+    
+    try:
+        logger.debug(f"Writing id-to-slug.json to: {output_path}")
+        with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(clean_mapping, f, ensure_ascii=False, indent=2)
+        logger.info(f"Generated id-to-slug.json with {len(clean_mapping)} mappings at {output_path}")
+        # Verify file was written
+        if not os.path.exists(output_path):
+            logger.error(f"File was not created at {output_path}")
+        else:
+            logger.debug(f"Verified: file exists at {output_path}")
+    except Exception as e:
+        logger.error(f"Failed to write id-to-slug.json: {e}", exc_info=True)
+
+
 def copy_source_content(src_content_dir: str, dst_content_dir: str, link_converter=None):
     """
     Copy source content (index.md, pages/) to site/content/ and process profile links.

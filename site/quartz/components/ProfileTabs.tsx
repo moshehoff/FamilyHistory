@@ -467,6 +467,7 @@ let tabButtonCleanups = [];
 let chaptersData = null;
 let loadedChapters = {}; // Cache for loaded chapter content
 let isInitialChapterLoad = true; // Track if this is the first chapter load to avoid duplicate history
+let idToSlugMapping = null; // Cache for ID to slug mapping
 
 // Initialize profile tabs - runs on every navigation
 function initProfileTabs() {
@@ -478,6 +479,7 @@ function initProfileTabs() {
   // Clear cached chapters and data from previous profile
   loadedChapters = {};
   chaptersData = null;
+  idToSlugMapping = null; // Reset mapping cache for new profile
   
   // Clean up previous event listeners
   tabButtonCleanups.forEach(function(cleanup) {
@@ -1221,7 +1223,10 @@ function initProfileTabs() {
     const chapterPath = basePath + 'static/chapters/' + profileId + '/' + chapterFile;
     console.log('[ProfileTabs] Loading chapter:', chapterPath, '(slug:', chapterSlug + ')');
     
-    fetch(chapterPath + '?t=' + Date.now())
+    // Load ID to slug mapping first, then fetch and parse chapter
+    loadIdToSlugMapping(basePath).then(function() {
+      return fetch(chapterPath + '?t=' + Date.now());
+    })
       .then(function(response) {
         if (!response.ok) {
           console.log('[ProfileTabs] Chapter not found:', chapterPath, 'status:', response.status);
@@ -1297,6 +1302,31 @@ function initProfileTabs() {
     }
   }
   
+  // Load ID to slug mapping (cached)
+  function loadIdToSlugMapping(basePath) {
+    if (idToSlugMapping !== null) {
+      return Promise.resolve(idToSlugMapping);
+    }
+    
+    return fetch(basePath + 'static/id-to-slug.json')
+      .then(function(response) {
+        if (!response.ok) {
+          console.log('[ProfileTabs] Could not load id-to-slug.json');
+          return {};
+        }
+        return response.json();
+      })
+      .then(function(mapping) {
+        idToSlugMapping = mapping;
+        return mapping;
+      })
+      .catch(function(err) {
+        console.log('[ProfileTabs] Error loading id-to-slug.json:', err);
+        idToSlugMapping = {}; // Cache empty mapping to avoid repeated requests
+        return {};
+      });
+  }
+  
   // Simple Markdown to HTML parser (basic conversion)
   function parseMarkdownToHTML(markdown, chaptersDataForLinks, profileIdForImages, basePathForImages) {
     var html = markdown;
@@ -1330,24 +1360,76 @@ function initProfileTabs() {
     var codeBlockRegex = new RegExp(codeBlockPattern, 'g');
     
     // Process code blocks - convert [Name|ID] and [Name](/profiles/...) links to HTML
+    // Note: This is synchronous, so we need to handle async loading of id-to-slug mapping
+    // For now, we'll process code blocks synchronously and use cached mapping if available
     html = html.replace(codeBlockRegex, function(match, lang, code) {
       // Remove leading/trailing newlines from code
       code = code.replace(/^\\n+|\\n+$/g, '');
       
       // Convert [Name|ID] format to Markdown links [Name](/profiles/Slug)
-      // This allows links to work inside code blocks
+      // Use cached id-to-slug mapping if available
       code = code.replace(/\\[([^\\|]+)\\|(I\\d+)\\]/g, function(match, name, id) {
-        // Try to find the slug for this ID from chaptersData
-        // Note: We don't have direct access to id_to_slug here, so we'll use a simple approach
-        // Convert ID to a profile link - the actual slug will be resolved by Quartz
-        return '[' + name + '](/profiles/' + id + ')';
+        // Try to find the slug for this ID from cached mapping
+        var slug = id; // Default to ID if mapping not available
+        if (idToSlugMapping && idToSlugMapping[id]) {
+          slug = idToSlugMapping[id];
+        } else {
+          // If mapping not available, log warning but keep ID (will be checked later)
+          console.log('[ProfileTabs] Warning: ID to slug mapping not available for', id, '- using ID as fallback');
+        }
+        return '[' + name + '](/profiles/' + encodeURIComponent(slug) + ')';
+      });
+      
+      // Also handle [Name|numeric] format (if any exist - though they shouldn't)
+      code = code.replace(/\\[([^\\|]+)\\|(\\d+)\\]/g, function(match, name, numericId) {
+        // Try to find the slug for this numeric ID (with I prefix)
+        var idWithPrefix = 'I' + numericId;
+        var slug = numericId; // Default to numeric ID if mapping not available
+        if (idToSlugMapping && idToSlugMapping[idWithPrefix]) {
+          slug = idToSlugMapping[idWithPrefix];
+        } else if (idToSlugMapping && idToSlugMapping[numericId]) {
+          slug = idToSlugMapping[numericId];
+        } else {
+          console.log('[ProfileTabs] Warning: Could not find slug for numeric ID', numericId, '- using as-is');
+        }
+        return '[' + name + '](/profiles/' + encodeURIComponent(slug) + ')';
       });
       
       // Convert Markdown links [Name](/profiles/...) to HTML links inside code blocks
       // Pattern: [text](/profiles/something)
-      var codeLinkPattern = new RegExp('\\\\[([^\\\\]]+)\\\\]\\\\(\\\\/profiles\\\\/[^)]+\\\\)', 'g');
-      code = code.replace(codeLinkPattern, function(match, text, path) {
-        return '<a href="' + siteBasePath + path + '">' + text + '</a>';
+      var codeLinkPattern = new RegExp('\\\\[([^\\\\]]+)\\\\]\\\\(\\\\/profiles\\\\/([^)]+)\\\\)', 'g');
+      code = code.replace(codeLinkPattern, function(match, text, pathPart) {
+        // Check if this is a broken link (ID or number instead of slug)
+        // Broken links: just a number (141), or ID pattern (I123)
+        var isBroken = /^[0-9]+$/.test(pathPart) || /^I\\d+$/.test(pathPart);
+        
+        if (isBroken) {
+          // Try to find the slug for this ID
+          var slug = pathPart; // Default to original if not found
+          
+          if (idToSlugMapping) {
+            // First try exact match
+            if (idToSlugMapping[pathPart]) {
+              slug = idToSlugMapping[pathPart];
+            } else if (/^[0-9]+$/.test(pathPart)) {
+              // If it's a number, try with I prefix
+              var idWithPrefix = 'I' + pathPart;
+              if (idToSlugMapping[idWithPrefix]) {
+                slug = idToSlugMapping[idWithPrefix];
+              } else {
+                console.log('[ProfileTabs] Warning: Could not find slug for numeric ID', pathPart, 'or', idWithPrefix);
+              }
+            } else {
+              console.log('[ProfileTabs] Warning: Could not find slug for ID', pathPart);
+            }
+          } else {
+            console.log('[ProfileTabs] Warning: ID to slug mapping not loaded yet for link', pathPart);
+          }
+          
+          pathPart = slug;
+        }
+        
+        return '<a href="' + siteBasePath + '/profiles/' + encodeURIComponent(pathPart) + '">' + text + '</a>';
       });
       
       // Escape remaining HTML in code (but keep the links we just created)
@@ -1384,8 +1466,16 @@ function initProfileTabs() {
       return '<img src="' + imageSrc + '" alt="' + escapedFilename + '" onerror="this.src=&quot;' + imageSrcWithSpaces + '&quot;">';
     });
     
+    // Convert external links [text](https://...) to HTML FIRST (before profile links)
+    // Pattern: [text](url) where url is NOT /profiles/...
+    var externalLinkPattern = new RegExp('\\\\[([^\\\\]]+)\\\\]\\\\((https?://[^)]+)\\\\)', 'g');
+    html = html.replace(externalLinkPattern, function(match, text, url) {
+      return '<a href="' + url + '">' + text + '</a>';
+    });
+    
     // Fix absolute profile links by adding base path
     // Pattern: [text](/profiles/something) -> capture text and path
+    // IMPORTANT: This must come AFTER external links to avoid matching them
     var linkPattern = new RegExp('\\\\[([^\\\\]]+)\\\\]\\\\((\\\\/profiles\\\\/[^)]+)\\\\)', 'g');
     html = html.replace(linkPattern, function(match, text, path) {
       return '<a href="' + siteBasePath + path + '">' + text + '</a>';

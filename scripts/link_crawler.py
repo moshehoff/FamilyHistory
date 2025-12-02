@@ -77,6 +77,9 @@ class LinkCrawler:
         
         # Chapters index data - loaded once and reused
         self.chapters_data = {}
+        
+        # ID to slug mapping - loaded once and reused
+        self.id_to_slug = {}
     
     def is_same_domain(self, url: str) -> bool:
         """בודק אם URL שייך לאותו domain/base path"""
@@ -221,9 +224,28 @@ class LinkCrawler:
             url = match.replace('../', '/')
             # אם זה לינק יחסי, הוסף את base path
             if url.startswith('/profiles/'):
-                normalized = self.normalize_url(url, current_url)
-                if normalized:
-                    links.add(normalized)
+                # בדוק אם זה לינק שבור (רק מספר או ID)
+                path_part = url.replace('/profiles/', '')
+                # זהה לינקים שבורים: רק מספר (39), או ID pattern (I123)
+                if re.match(r'^[0-9]+$', path_part) or re.match(r'^I\d+', path_part):
+                    # זה לינק שבור - הוסף אותו לרשימת הלינקים השבורים
+                    normalized = self.normalize_url(url, current_url)
+                    if normalized:
+                        # בדוק אם הלינק באמת שבור
+                        check_result = self.check_url(normalized)
+                        if not check_result['valid']:
+                            self.broken_links.append({
+                                'url': normalized,
+                                'valid': False,
+                                'source': current_url,
+                                'error': f'Broken Mermaid link: {url} (ID/number instead of slug)',
+                                'original_url': url
+                            })
+                        links.add(normalized)  # הוסף גם אם שבור, כדי לבדוק אותו
+                else:
+                    normalized = self.normalize_url(url, current_url)
+                    if normalized:
+                        links.add(normalized)
         
         return links
     
@@ -232,7 +254,7 @@ class LinkCrawler:
         soup = BeautifulSoup(html, 'html.parser')
         links = set()
         
-        # לינקים רגילים
+        # לינקים רגילים (כולל בתוך SVG שנוצר על ידי Mermaid)
         for a_tag in soup.find_all('a', href=True):
             href = a_tag['href']
             # דלג על javascript:, mailto:, tel:, וכו' (גם עם סלאש)
@@ -245,6 +267,43 @@ class LinkCrawler:
             normalized = self.normalize_url(href, current_url)
             if normalized:
                 links.add(normalized)
+        
+        # לינקים בתוך SVG (שנוצרו על ידי Mermaid)
+        # Mermaid יוצר SVG עם <a> tags בתוכו
+        for svg in soup.find_all('svg'):
+            for a_tag in svg.find_all('a', href=True):
+                href = a_tag['href']
+                # דלג על javascript:, mailto:, tel:, וכו'
+                if href.startswith(('javascript:', 'mailto:', 'tel:', 'data:')):
+                    continue
+                # דלג על anchors פנימיים בלבד (#section)
+                if href.startswith('#') and len(href) == 1:
+                    continue
+                
+                # בדוק אם זה לינק שבור (רק מספר או ID במקום slug)
+                if href.startswith('/profiles/'):
+                    path_part = href.replace('/profiles/', '')
+                    # זהה לינקים שבורים: רק מספר (39), או ID pattern (I123)
+                    import re
+                    if re.match(r'^[0-9]+$', path_part) or re.match(r'^I\d+', path_part):
+                        # זה לינק שבור - בדוק אותו והוסף לרשימת הלינקים השבורים
+                        normalized = self.normalize_url(href, current_url)
+                        if normalized:
+                            check_result = self.check_url(normalized)
+                            if not check_result['valid']:
+                                self.broken_links.append({
+                                    'url': normalized,
+                                    'valid': False,
+                                    'source': current_url,
+                                    'error': f'Broken SVG link: {href} (ID/number instead of slug)',
+                                    'original_url': href
+                                })
+                            links.add(normalized)  # הוסף גם אם שבור, כדי לבדוק אותו
+                        continue
+                
+                normalized = self.normalize_url(href, current_url)
+                if normalized:
+                    links.add(normalized)
         
         # תמונות
         for img_tag in soup.find_all('img', src=True):
@@ -293,7 +352,38 @@ class LinkCrawler:
             mermaid_links = self.extract_links_from_mermaid(mermaid_code, current_url)
             links.update(mermaid_links)
         
+        # גם חיפוש pre.mermaid (לפני הרנדור)
+        for pre_block in soup.find_all('pre', class_=lambda x: x and 'mermaid' in str(x).lower()):
+            code_elem = pre_block.find('code')
+            if code_elem:
+                code_text = code_elem.get_text()
+                mermaid_links = self.extract_links_from_mermaid(code_text, current_url)
+                links.update(mermaid_links)
+        
         return links
+    
+    def load_id_to_slug(self, verbose: bool = True) -> bool:
+        """
+        טוען את id-to-slug.json ושומר אותו במחלקה
+        כל הגישה היא דרך HTTP בלבד - לא ניגש לקבצים מקומיים
+        """
+        if self.id_to_slug:
+            return True  # כבר נטען
+        
+        id_to_slug_url = f"{self.base_url}/static/id-to-slug.json"
+        try:
+            response = self.session.get(id_to_slug_url, timeout=10)
+            if response.status_code == 200:
+                self.id_to_slug = response.json()
+                
+                if verbose:
+                    print(f"🔗 Loaded ID to slug mapping with {len(self.id_to_slug)} entries")
+                return True
+                
+        except requests.exceptions.RequestException as e:
+            if verbose:
+                print(f"⚠️  Could not load id-to-slug.json: {e}")
+            return False
     
     def load_chapters_index(self, verbose: bool = True) -> bool:
         """
@@ -483,6 +573,25 @@ class LinkCrawler:
                 href = markdown_text[url_start:url_end]
                 # דלג על anchors, mailto, וכו'
                 if not href.startswith(('javascript:', 'mailto:', 'tel:', 'data:', '#')):
+                    # אם זה לינק לפרופיל עם ID (לא slug), המיר ל-slug
+                    # JavaScript ממיר [Name|ID] או [Name](/profiles/ID) ל-/profiles/Slug
+                    if href.startswith('/profiles/'):
+                        profile_part = href[len('/profiles/'):]
+                        # בדוק אם זה ID (I123 או מספר)
+                        if profile_part.startswith('I') and len(profile_part) > 1 and profile_part[1:].isdigit():
+                            # זה ID - המיר ל-slug
+                            if not self.id_to_slug:
+                                self.load_id_to_slug(verbose=False)
+                            slug = self.id_to_slug.get(profile_part, profile_part)
+                            href = f'/profiles/{slug}'
+                        elif profile_part.isdigit():
+                            # זה מספר - נסה עם I prefix
+                            if not self.id_to_slug:
+                                self.load_id_to_slug(verbose=False)
+                            id_with_prefix = f'I{profile_part}'
+                            slug = self.id_to_slug.get(id_with_prefix, self.id_to_slug.get(profile_part, profile_part))
+                            href = f'/profiles/{slug}'
+                    
                     normalized = self.normalize_url(href, current_url)
                     if normalized:
                         links.add(normalized)
@@ -534,7 +643,104 @@ class LinkCrawler:
                 for img_url in image_urls:
                     links.add(img_url)
         
+        # Check for broken links in code blocks (ASCII trees, etc.)
+        # JavaScript converts [Name|ID] to /profiles/ID instead of /profiles/Slug
+        self.check_broken_links_in_code_blocks(markdown_text, current_url)
+        
         return links
+    
+    def check_broken_links_in_code_blocks(self, markdown_text: str, current_url: str, verbose: bool = True):
+        """
+        בודק לינקים שבורים בתוך code blocks (עצי ASCII, וכו')
+        JavaScript ממיר [Name|ID] ל-/profiles/ID במקום /profiles/Slug
+        """
+        import re
+        issues = []
+        
+        # Find all code blocks (triple backticks)
+        # Pattern: ```lang?\n...code...\n```
+        code_block_pattern = r'```(\w+)?\s*\n(.*?)```'
+        code_block_matches = re.finditer(code_block_pattern, markdown_text, re.DOTALL)
+        
+        for match in code_block_matches:
+            lang = match.group(1) or ''
+            code = match.group(2)
+            
+            # Skip Mermaid code blocks (they're handled separately)
+            if 'mermaid' in lang.lower():
+                continue
+            
+            # Look for [Name|ID] format inside code blocks
+            # This format is converted by JavaScript to /profiles/ID (broken link)
+            name_id_pattern = r'\[([^\|]+)\|(I\d+)\]'
+            name_id_matches = re.finditer(name_id_pattern, code)
+            
+            for name_id_match in name_id_matches:
+                name = name_id_match.group(1)
+                person_id = name_id_match.group(2)
+                
+                # JavaScript converts [Name|ID] to /profiles/Slug using id-to-slug.json
+                # Load mapping if not already loaded
+                if not self.id_to_slug:
+                    self.load_id_to_slug(verbose=False)
+                
+                # Get slug for this ID
+                slug = self.id_to_slug.get(person_id, person_id)
+                correct_url = f'/profiles/{slug}'
+                normalized = self.normalize_url(correct_url, current_url)
+                
+                if normalized:
+                    # Check if this URL is actually broken
+                    check_result = self.check_url(normalized)
+                    if not check_result['valid']:
+                        issues.append({
+                            'url': normalized,
+                            'valid': False,
+                            'source': current_url,
+                            'error': f'Broken link in code block: [{name}|{person_id}] is converted by JavaScript to {correct_url} (slug: {slug})',
+                            'original_format': f'[{name}|{person_id}]',
+                            'note': f'This [Name|ID] format in a code block is converted by JavaScript to /profiles/{slug}, but the link is broken.'
+                        })
+                        if verbose:
+                            print(f"   ❌ Found broken link in code block: [{name}|{person_id}]")
+                            print(f"      JavaScript converts it to: {correct_url} (slug: {slug})")
+                            print(f"      Status: {check_result.get('status', check_result.get('error', 'Unknown'))}")
+            
+            # Also check for [Name](/profiles/ID) format inside code blocks
+            # This is a direct broken link (ID or number instead of slug)
+            markdown_link_pattern = r'\[([^\]]+)\]\((/profiles/[^)]+)\)'
+            markdown_matches = re.finditer(markdown_link_pattern, code)
+            
+            for markdown_match in markdown_matches:
+                link_text = markdown_match.group(1)
+                href = markdown_match.group(2)
+                
+                # Check if it's a broken link (ID or number instead of slug)
+                if href.startswith('/profiles/'):
+                    path_part = href.replace('/profiles/', '')
+                    # Identify broken links: just a number (39), or ID pattern (I123)
+                    if re.match(r'^[0-9]+$', path_part) or re.match(r'^I\d+', path_part):
+                        normalized = self.normalize_url(href, current_url)
+                        if normalized:
+                            check_result = self.check_url(normalized)
+                            if not check_result['valid']:
+                                issues.append({
+                                    'url': normalized,
+                                    'valid': False,
+                                    'source': current_url,
+                                    'error': f'Broken link in code block: [{link_text}]({href}) (ID/number instead of slug)',
+                                    'original_format': f'[{link_text}]({href})',
+                                    'note': 'This link in a code block uses an ID or number instead of a slug, creating a broken link.'
+                                })
+                                if verbose:
+                                    print(f"   ❌ Found broken link in code block: [{link_text}]({href})")
+                                    print(f"      Status: {check_result.get('status', check_result.get('error', 'Unknown'))}")
+        
+        # Add all issues to broken links list
+        for issue in issues:
+            self.broken_links.append(issue)
+        
+        return issues
     
     def check_links_with_parentheses(self, markdown_text: str, current_url: str, verbose: bool = True):
         """

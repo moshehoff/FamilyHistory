@@ -26,6 +26,7 @@ from generators.index_generators import (
     write_bios_index,
     write_gallery_index,
     write_family_data_json,
+    write_id_to_slug_json,
     copy_source_content,
     clean_project
 )
@@ -187,6 +188,7 @@ Examples:
     write_bios_index(people_dir, args.bios_dir, pages_dir)
     write_gallery_index(people_dir, DEFAULT_STATIC_DIR, pages_dir)
     write_family_data_json(individuals, families, args.output)
+    write_id_to_slug_json(id_to_slug, args.output, DEFAULT_STATIC_DIR)
     
     logger.info("=" * 70)
     logger.info("✓ Done!")
