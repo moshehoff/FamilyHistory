@@ -1,6 +1,6 @@
 ## In Perth
 
-Moishe's naturalization application from 1912. "one male child" refers to [Aaron Harry](/profiles/Aaron-Harry-אהרון-Hoffman) who was born in 1912. Naturalisation on 1.7.1912 granted Moishe (and automatically [Tobl](/profiles/Tobl-Hochman-%28Hoffman%29-Zitserman)) Australian citizenship.
+Moishe's naturalization application from 1912. "one male child" refers to [Aaron Harry|I38736184] who was born in 1912. Naturalisation on 1.7.1912 granted Moishe (and automatically [Tobl|I38735986]) Australian citizenship.
    
 ![[bios/I11052340/MorrisH-applic-1.jpeg]]
 **_Moishe's naturalization application, 1912._**

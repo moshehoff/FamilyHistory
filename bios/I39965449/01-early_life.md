@@ -2,7 +2,7 @@
 
 ### Early Life in Savran
 
-Berl Hochman was born on 11.4.1885 in Savran in Podolia. His father [Shimon Me'ir Hochman](/profiles/Shimon-Meir-מאיר-Hochman), mother [Bracha](/profiles/Bracha-Hochman), with Berl and his younger brother [Hershl](/profiles/Hershl-Hochman) left by the port of Odessa for Ottoman Palestine in 1890. 
+Berl Hochman was born on 11.4.1885 in Savran in Podolia. His father [Shimon Me'ir Hochman|I11060285], mother [Bracha|I39965332], with Berl and his younger brother [Hershl|I39965497] left by the port of Odessa for Ottoman Palestine in 1890. 
 
 Bracha died on the way.
 
@@ -14,7 +14,7 @@ He worked for [Baron Edmond de Rothschild](https://en.wikipedia.org/wiki/Edmond_
 
 ### Egypt
 
-After Berl qualified he was sent in the baron's employ to Egypt where he stayed several months, whereupon he decided to go to Australia where his uncle [Haym Yudl Hoffman](/profiles/Haim-Yehuda-Hoffman) was established.
+After Berl qualified he was sent in the baron's employ to Egypt where he stayed several months, whereupon he decided to go to Australia where his uncle [Haym Yudl Hoffman|I40151932] was established.
 
 <div class="info-box">
 
@@ -24,7 +24,7 @@ I believe it more likely that Berl was in Egypt to work in the Alliance's school
 
 ### Decision to Emigrate
 
-[Haym](/profiles/Haim-Yehuda-Hoffman) had a small fruiterer's business in Wellington St., Perth. The Baron said he was interested in buying land in Australia and asked Berl to report back to him if there was arable land. Berl returned to Palestine and made arrangements to go to Western Australia.
+[Haym|I40151932] had a small fruiterer's business in Wellington St., Perth. The Baron said he was interested in buying land in Australia and asked Berl to report back to him if there was arable land. Berl returned to Palestine and made arrangements to go to Western Australia.
 
 ---
 

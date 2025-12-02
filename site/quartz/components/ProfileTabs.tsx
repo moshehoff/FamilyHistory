@@ -21,7 +21,7 @@ export default (() => {
       <div class={classNames(displayClass, "profile-tabs")} data-profile-id={profileId} data-base-path={basePath}>
         <div class="tabs-header">
           <button class="tab-button active" data-tab="biography">
-            📖 Biography
+            📖 Background
           </button>
           <button class="tab-button" data-tab="media" id="media-tab-button" style="display: none;">
             🖼️ Gallery
@@ -606,7 +606,7 @@ function initProfileTabs() {
             if (article && profileTabs && !existingBanner) {
               const banner = document.createElement('div');
               banner.className = 'biography-banner-top';
-              banner.innerHTML = '📖 View Biography Chapters Below ⬇️';
+              banner.innerHTML = '📖 View Background Chapters Below ⬇️';
               banner.style.cursor = 'pointer';
               banner.addEventListener('click', function() {
                 // First, switch to Biography tab if not already active
@@ -763,22 +763,22 @@ function initProfileTabs() {
           return;
         }
         
-        // Check if it's a placeholder Biography heading
+        // Check if it's a placeholder Background heading
         if (element.tagName && element.tagName.toLowerCase() === 'h2') {
-          if (element.textContent && element.textContent.trim() === 'Biography') {
+          if (element.textContent && element.textContent.trim() === 'Background') {
             // Check if next element is placeholder text
             const nextSibling = element.nextElementSibling;
             if (nextSibling && nextSibling.textContent && 
                 nextSibling.textContent.includes('chapters will be loaded')) {
               // Skip both this heading and the next placeholder
-              console.log('[ProfileTabs] Removing placeholder Biography heading and text');
+              console.log('[ProfileTabs] Removing placeholder Background heading and text');
               skipNext = true;
               nextSibling.remove();
               element.remove();
               return;
             } else {
-              // It's a Biography heading with real content, remove only the heading
-              console.log('[ProfileTabs] Removing Biography heading (keeping content after)');
+              // It's a Background heading with real content, remove only the heading
+              console.log('[ProfileTabs] Removing Background heading (keeping content after)');
               element.remove();
               return;
             }
@@ -843,8 +843,8 @@ function initProfileTabs() {
       // Remove any remaining placeholder text from biography pane
       const biographyHeading = biographyPane.querySelector('h2');
       if (biographyHeading && biographyHeading.textContent && 
-          (biographyHeading.textContent.trim() === 'Biography' || 
-           biographyHeading.textContent.trim().includes('Biography'))) {
+          (biographyHeading.textContent.trim() === 'Background' || 
+           biographyHeading.textContent.trim().includes('Background'))) {
         const nextSibling = biographyHeading.nextElementSibling;
         if (nextSibling && nextSibling.textContent && 
             nextSibling.textContent.includes('chapters will be loaded')) {
@@ -951,10 +951,10 @@ function initProfileTabs() {
     const chapterTabsContainer = document.createElement('div');
     chapterTabsContainer.className = 'chapter-tabs-container';
     
-    // Add Biography heading
+    // Add Background heading
     const biographyHeading = document.createElement('h2');
     biographyHeading.className = 'biography-heading';
-    biographyHeading.textContent = 'Biography';
+    biographyHeading.textContent = 'Background';
     chapterTabsContainer.appendChild(biographyHeading);
     
     // Create chapter tabs header

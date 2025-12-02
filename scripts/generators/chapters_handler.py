@@ -32,7 +32,8 @@ class ChaptersIndexHandler:
         self,
         bios_dir: str,
         static_dir: str,
-        individuals: Dict
+        individuals: Dict,
+        link_converter=None
     ):
         """
         Initialize the chapters index handler.
@@ -41,17 +42,21 @@ class ChaptersIndexHandler:
             bios_dir: Path to bios/ directory (source)
             static_dir: Path to site/quartz/static/ directory (destination)
             individuals: Raw individuals from GEDCOM (for profile names)
+            link_converter: Optional LinkConverter for processing [Name|ID] links
         
         Example:
-            >>> handler = ChaptersIndexHandler("bios/", "site/quartz/static", individuals)
+            >>> handler = ChaptersIndexHandler("bios/", "site/quartz/static", individuals, link_converter)
         """
         self.bios_dir = bios_dir
         self.static_dir = static_dir
         self.individuals = individuals
+        self.link_converter = link_converter
         
         logger.info(f"ChaptersIndexHandler initialized")
         logger.debug(f"Bios dir: {bios_dir}")
         logger.debug(f"Static dir: {static_dir}")
+        if link_converter:
+            logger.debug("Link converter enabled for chapter processing")
     
     def create_chapters_index(self) -> Dict:
         """
@@ -253,12 +258,23 @@ class ChaptersIndexHandler:
         except Exception as e:
             logger.warning(f"Error reading title from {main_bio_path}: {e}")
         
-        # Copy file
+        # Read, process, and write file
         dest_path = os.path.join(output_dir, main_bio_file)
-        if not copy_file_safe(main_bio_path, dest_path):
+        try:
+            with open(main_bio_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # Process [Name|ID] links if converter available
+            if self.link_converter:
+                content = self.link_converter.convert_ids_to_links(content)
+            
+            with open(dest_path, 'w', encoding='utf-8') as f:
+                f.write(content)
+            
+            logger.debug(f"  Copied and processed {main_bio_file}")
+        except Exception as e:
+            logger.error(f"Failed to copy {main_bio_file}: {e}")
             return None
-        
-        logger.debug(f"  Copied {main_bio_file}")
         
         return {
             "slug": "introduction",
@@ -300,12 +316,23 @@ class ChaptersIndexHandler:
         except Exception as e:
             logger.warning(f"Error reading title from {chapter_path}: {e}")
         
-        # Copy file
+        # Read, process, and write file
         dest_path = os.path.join(output_dir, filename)
-        if not copy_file_safe(chapter_path, dest_path):
+        try:
+            with open(chapter_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # Process [Name|ID] links if converter available
+            if self.link_converter:
+                content = self.link_converter.convert_ids_to_links(content)
+            
+            with open(dest_path, 'w', encoding='utf-8') as f:
+                f.write(content)
+            
+            logger.debug(f"  Copied and processed {filename}")
+        except Exception as e:
+            logger.error(f"Failed to copy {filename}: {e}")
             return None
-        
-        logger.debug(f"  Copied {filename}")
         
         return {
             "slug": slug,
@@ -430,10 +457,22 @@ class ChaptersIndexHandler:
             }
             chapters_index[target_profile_id]["chapters"].append(chapter_info)
             
-            # Copy chapter file
+            # Read, process, and write shared chapter file
             dest_path = os.path.join(target_chapters_dir, shared_chapter_file)
-            copy_file_safe(source_chapter_path, dest_path)
-            logger.debug(f"  Copied shared chapter {shared_chapter_file} from {source_profile_id}")
+            try:
+                with open(source_chapter_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                # Process [Name|ID] links if converter available
+                if self.link_converter:
+                    content = self.link_converter.convert_ids_to_links(content)
+                
+                with open(dest_path, 'w', encoding='utf-8') as f:
+                    f.write(content)
+                
+                logger.debug(f"  Copied and processed shared chapter {shared_chapter_file} from {source_profile_id}")
+            except Exception as e:
+                logger.error(f"Failed to copy shared chapter {shared_chapter_file}: {e}")
         
         logger.info(f"Added {len(shared_chapter_files)} shared chapters to {target_profile_id}")
     
@@ -486,10 +525,22 @@ class ChaptersIndexHandler:
                 "chapters": []
             }
             
-            # Copy main bio file
+            # Read, process, and write main bio file
             dest_path = os.path.join(target_chapters_dir, target_main_bio)
-            copy_file_safe(main_bio_path, dest_path)
-            logger.debug(f"  Copied {target_main_bio}")
+            try:
+                with open(main_bio_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                # Process [Name|ID] links if converter available
+                if self.link_converter:
+                    content = self.link_converter.convert_ids_to_links(content)
+                
+                with open(dest_path, 'w', encoding='utf-8') as f:
+                    f.write(content)
+                
+                logger.debug(f"  Copied and processed {target_main_bio}")
+            except Exception as e:
+                logger.error(f"Failed to copy {target_main_bio}: {e}")
         else:
             # Create minimal introduction
             chapters_index[target_profile_id] = {

@@ -271,6 +271,58 @@ class LinkConverter:
         encoded_slug = urllib.parse.quote(slug)
         return f'<a href="/profiles/{encoded_slug}">{name}</a>'
     
+    def convert_ids_to_markdown_links(self, text: str) -> str:
+        """
+        Convert [Name|ID] format to Markdown links [Name](/profiles/Slug).
+        
+        This is used for static pages where Quartz will process the Markdown,
+        so we need Markdown links, not HTML.
+        
+        Args:
+            text: Text with person IDs in [Name|ID] format
+        
+        Returns:
+            Text with Markdown links
+        
+        Example:
+            >>> text = "Photo of [Morris|I11052340] in Perth"
+            >>> markdown = converter.convert_ids_to_markdown_links(text)
+            'Photo of [Morris](/profiles/Morris-Hochman) in Perth'
+        """
+        if not text or not self.individuals or not self.id_to_slug:
+            return text
+        
+        def replace_name_id_to_markdown(match):
+            """Replace [Name|ID] with Markdown link [Name](/profiles/Slug)."""
+            full_match = match.group(0)  # e.g., "[Morris|I11052340]"
+            original_name = match.group(1)  # e.g., "Morris"
+            raw_id = match.group(2)  # e.g., "I11052340"
+            person_id = '@' + raw_id + '@'  # Convert to GEDCOM format
+            
+            person_info = self.individuals.get(person_id)
+            if not person_info:
+                logger.debug(f"Person not found for {raw_id}, keeping original text")
+                return full_match  # Keep as-is if not found
+            
+            # Get slug for this person
+            slug = self.id_to_slug.get(person_id)
+            if not slug:
+                # Fallback: use full name from GEDCOM
+                name = person_info.get("name") or raw_id
+                slug = safe_filename(name).replace(" ", "-")
+                logger.debug(f"No slug for {person_id}, using fallback: {slug}")
+            
+            # Encode slug for URL
+            encoded_slug = urllib.parse.quote(slug)
+            
+            # Return Markdown link (not HTML)
+            return f'[{original_name}](/profiles/{encoded_slug})'
+        
+        # Replace [Name|ID] format with Markdown links
+        text = re.sub(r'\[([^\|]+)\|(I\d+)\]', replace_name_id_to_markdown, text)
+        
+        return text
+    
     def wikilink_place(self, place: str, format: str = "markdown") -> str:
         """
         Create a Wikipedia link for a place.

@@ -2,28 +2,28 @@
 ## In Russia
 ### Moishe and Tubb'l Hochman משה ויונה הוכמאן
 
-Moishe was born in 1884 in Savran, in the guvernat of Podolia in the Russian Empire. From about 1920 the provinces were rearranged and Savran is now in the Odessa Oblast. Moishe was the eighth of the ten children of [Wolf](/profiles/Wolf-זאב-Hochman) and [Beile](/profiles/Beile-ביילא-Hochman-Elizafan). The name Hochman is Yiddish for "tall."
+Moishe was born in 1884 in Savran, in the guvernat of Podolia in the Russian Empire. From about 1920 the provinces were rearranged and Savran is now in the Odessa Oblast. Moishe was the eighth of the ten children of [Wolf|I11032885] and [Beile|I11032895]. The name Hochman is Yiddish for "tall."
 
 Beile is a Yiddish girl's name, derived from the slavic “biela” meaning white. “Bella”, as her name has been recorded outside of Russia, is an italianate approximation.  
 
 The children, as they were known by their Yiddish and Hebrew names were:
 
 ```
-[Wolf](/profiles/Wolf-זאב-Hochman) & [Beile](/profiles/Beile-ביילא-Hochman-Elizafan) Hochman
+[Wolf|I11032885] & [Beile|I11032895] Hochman
 │
-├─ 1. [Shimon Me'ir](/profiles/Shimon-Meir-מאיר-Hochman) (שמעון מאיר)
-├─ 2. [Haim Yudl](/profiles/Haim-Yehuda-חיים-יהודה-Hochman) (חיים יהודה)
-├─ 3. [Avram](/profiles/Avraham-Hochman) (אברהם)
-├─ 4. [Yosef](/profiles/Josef-Hochman) (יוסף)
-├─ 5. [Kolman](/profiles/Kolman-Hochman) (קלמן)
-├─ 6. [Binyamin](/profiles/Binyamin-Hochman) (בנימין)
-├─ 7. [Sholem](/profiles/Sholem-Hochman) (שלום)
-├─ 8. [Moishe](/profiles/Moshe-משה-Hoffman-Hochman) (משה) ★
-├─ 9. [Bobka](/profiles/_Bobka_-Hochman) (the only daughter)
-└─ 10. [Yisroel](/profiles/Yisrael-Hochman) (ישראל)
+├─ 1. [Shimon Me'ir|I11060285] (שמעון מאיר)
+├─ 2. [Haim Yudl|I11032861] (חיים יהודה)
+├─ 3. [Avram|I39114938] (אברהם)
+├─ 4. [Yosef|I38740193] (יוסף)
+├─ 5. [Kolman|I39115025] (קלמן)
+├─ 6. [Binyamin|I39114997] (בנימין)
+├─ 7. [Sholem|I39114787] (שלום)
+├─ 8. [Moishe|I11052340] (משה) ★
+├─ 9. [Bobka|I39114448] (the only daughter)
+└─ 10. [Yisroel|I39114550] (ישראל)
 ```
 
-**_This list, in chronological order, was written by my aunt [Valda](/profiles/Valda-Marie-Hoffman-Levy)._**
+**_This list, in chronological order, was written by my aunt [Valda|I7293708]._**
 
 Moishe's application for naturalization, filed in the **Australian National Archives** gives his birth date as the 15th of April 1884. This is most probably the Julian date, which corresponds to the 27th of April in the Gregorian calendar. באייר ב" יום
 
@@ -51,9 +51,9 @@ Their descendants now live in other states, and in Israel.
 
 An account of the 1917 pogroms in Savran mentions Simon Elitzafan who was whipped by marauding Cossacks. The source, in Hebrew and with its English translation is appended at the end of this narrative.
 
-_[Beile](/profiles/Beile-ביילא-Hochman-Elizafan) came to Palestine and is buried on the Mount of Olives._ (related to his son [Hymie](/profiles/Hymie-Haim-Hoffman)) 
+_[Beile|I11032895] came to Palestine and is buried on the Mount of Olives._ (related to his son [Hymie|I40775871]) 
 
-She must have arrived at the earliest in 1910, and passed away in 1915 at the latest. We know this because a grand daughter born in Perth in 1915 bore her name ([Bella](/profiles/Bella-Hoffman-Hochman)).
+She must have arrived at the earliest in 1910, and passed away in 1915 at the latest. We know this because a grand daughter born in Perth in 1915 bore her name ([Bella|I40779121]).
 
 Until 1793, Podolia was part of the extensive Kingdom of Poland. Its Jewish population was about sixty thousand. Savran was in the Bratslav administrative district. In that year, in the second partition of Poland, Podolia became part of Tsarist Russia. Orthodox Russia now had a large Jewish population in her western lands, and dealt with the situation by  restricting them to the former Polish lands and formulating a great body of legislation pertinent and discriminatory to them. This area was known as the Pale of Jewish Settlement. Many of the shtetels of Podolia  were seminal to the development of hassidic Judaism - among them, Bratslav, Uman, Tulchin and Mezhibozh. The majority of the population was Ukrainian of the Orthodox Catholic persuasion. From childhood, in home and church, they were raised on antisemitism.
 
@@ -67,7 +67,7 @@ In the year 1881, following the assassination of Tsar Alexander II, a wave of po
 
 It is noteworthy that the brunt of the massacres carried out by various governments, militias and lawless factions between 1882 and 1921 was borne by the communities of  our ancestral  towns, Bershad, Savran, and many others in Podolia.
 
-In August 1911, [Haim Yudl](/profiles/Haim-Yehuda-חיים-יהודה-Hochman) was interviewed by reporters of the _Sunday Times_ newspaper in Perth in connection with a police investigation in that city (into a man named as Peter the Painter):
+In August 1911, [Haim Yudl|I11032861] was interviewed by reporters of the _Sunday Times_ newspaper in Perth in connection with a police investigation in that city (into a man named as Peter the Painter):
 <div class="citation-box">
 "You are not in Russia here. In this country if a man is arrested he is brought before the court within 24 hours, but not so in Russia. There you may be arrested and it may be five or six years before you even see the charge on which you were apprehended.
 
@@ -76,7 +76,7 @@ I have a case in the Warsaw paper here in which a man was arrested in 1905, and 
 Twenty-seven years ago I saw enough to prove to me that Russia was a pretty good place to get away from, and I have no wish to see it again."
 </div>
 
-By a simple calculation [Haim Yudl](/profiles/Haim-Yehuda-חיים-יהודה-Hochman), as a eighteen year-old in 1884 (the very year of Moishe's birth), was referring to pogroms that he had witnessed in Savran.  Haim Yudl's actual words wouldn't have been so grammatical or literary, but the message is clear. 
+By a simple calculation [Haim Yudl|I11032861], as a eighteen year-old in 1884 (the very year of Moishe's birth), was referring to pogroms that he had witnessed in Savran.  Haim Yudl's actual words wouldn't have been so grammatical or literary, but the message is clear. 
 
 On May 3(15),1882, Alexander III  approved antisemitic regulations. They are generally known as the May Laws.
 
@@ -92,25 +92,25 @@ Other May Law regulations placed severe quotas on the admission of Jewish studen
 
 These temporary regulations were never repealed. As intended, they made life in the Pale unbearable. Jews were further restricted in domicile, education and business. State-instigated violence, carried out by military units and armed hordes, Cossacks and others, became a fact of life. During Pesach 1882, there were pogroms in Balta and in the surrounding towns of Podolia.  After 1882, the Zionist movement in Russia, Poland and Lithuania grew, and a mass exodus of Jews from the Russian Empire began. The years 1903 to 1906 were notable for another wave of pogroms in the Odessa area. By 1920 more than two million Russian Jews had fled. The vast majority went to the United States; many to England, Ireland and South Africa, and to other countries including Australia. About thirty thousand went to Ottoman Palestine. This minority that  arrived in Palestine, who  were  known as the First Aliya, were ideologists committed to rebuilding the land of Zion. Those who arrived after the Kishinev pogrom of 1903 were the Second Aliya.
 
-As a child, Moishe saw his eldest brother [Shimon Me'ir](/profiles/Shimon-Meir-מאיר-Hochman) and his family depart for Palestine in 1890. He saw the next eldest [Haim Yudl](/profiles/Haim-Yehuda-חיים-יהודה-Hochman) and his wife leave for Palestine about 1892.
+As a child, Moishe saw his eldest brother [Shimon Me'ir|I11060285] and his family depart for Palestine in 1890. He saw the next eldest [Haim Yudl|I11032861] and his wife leave for Palestine about 1892.
 
 Children in the shtetels were educated in Jewish schools  which were supported by a special tax levied on the communities. They  learned Torah, and the prayer services from their elders and rabbis in the heder and in shule.  religious classes and synagogue).
 
-_Moishe witnessed pogroms in Savran. He saw mounted troops with swords decapitating Jews._ (related to his grandson [Trevor David](/profiles/Trevor-David-Hoffman))
+_Moishe witnessed pogroms in Savran. He saw mounted troops with swords decapitating Jews._ (related to his grandson [Trevor David|I39965122])
 
-_His sister [Bobka](/profiles/_Bobka_-Hochman) met her death in the river during a pogrom._ (related to [Edith](/profiles/Edith-צירל-Hoffman-Spielmann))
+_His sister [Bobka|I39114448] met her death in the river during a pogrom._ (related to [Edith|I38516664])
 
-_He witnessed a public execution by hanging._ (related to [Edith](/profiles/Edith-צירל-Hoffman-Spielmann))
+_He witnessed a public execution by hanging._ (related to [Edith|I38516664])
 
 These childhood experiences were what the repressive Tsarist regime offered in lieu of school lessons in social studies.
 
-_Like most Jews in Podolia, the family was observant. There were of course miscreants. One of [Wolf](/profiles/Wolf-זאב-Hochman)'s daughters-in-law walked out because her husband smoked on shabbat._ (related to [Edith](/profiles/Edith-צירל-Hoffman-Spielmann))
+_Like most Jews in Podolia, the family was observant. There were of course miscreants. One of [Wolf|I11032885]'s daughters-in-law walked out because her husband smoked on shabbat._ (related to [Edith|I38516664])
 
 At home they spoke only Yiddish. As the towns had 40%-60% Jewish inhabitants, and much of the commerce was in Jewish hands, they had little use for the Ukrainian language. The men, who travelled and traded must have known it, but the women hardly at all. Yiddish was the language that they took with them when they emigrated, and remained for most the language of day to day life, the only tongue that they ever knew well. Yiddish was the language of their letters, and of the annotations on the backs of their few photographs. Marriages were contracted (shiddochs), frequently with families from other shtetels.
 
-_Moishe learned the craft of the cartwright and wheelwright. The family would construct then sell a cart in the market, and with the revenue buy a log of wood to be sawn up for another cart._ (related to his son [Jack](/profiles/Jack-Hoffman))
+_Moishe learned the craft of the cartwright and wheelwright. The family would construct then sell a cart in the market, and with the revenue buy a log of wood to be sawn up for another cart._ (related to his son [Jack|I38736559])
 
-Much later, in Perth Moishe repaired metal pub garden furniture, and barrels. In his spare time he did many of the repair jobs at the Brisbane St. shule. A steel laminex-topped table he made for [Edith](/profiles/Edith-צירל-Hoffman-Spielmann) was in our home in Yokine. [Hymie](/profiles/Hymie-Haim-Hoffman) told of seeing his father throwing a hot iron hoop around the sawn elements of a wooden wheel.
+Much later, in Perth Moishe repaired metal pub garden furniture, and barrels. In his spare time he did many of the repair jobs at the Brisbane St. shule. A steel laminex-topped table he made for [Edith|I38516664] was in our home in Yokine. [Hymie|I40775871] told of seeing his father throwing a hot iron hoop around the sawn elements of a wooden wheel.
 
 ### The Tsarist army
 
@@ -130,18 +130,18 @@ After the [February Revolution of 1917](https://yivoencyclopedia.org/article.as
 #### From [https://yivoencyclopedia.org/article.aspx/military_service_in_russia](https://yivoencyclopedia.org/article.aspx/military_service_in_russia):
 >A disproportionate number of young Jewish men were conscripted. They served as  rank and file infantry and artillerymen.  Commissions were denied them. In the history of the Imperial Army only about four  ever  became officers. One of them,  [Yosef Trumpeldor](https://en.wikipedia.org/wiki/Joseph_Trumpeldor) was commissioned in recognition of his valour  in the Russo Japanese War.  He later achieved  fame for his exploits at Gallipoli and in Palestine.
 
-_Moishe, however, served in his trade of wheelwright._ (related to [Jack](/profiles/Jack-Hoffman))
+_Moishe, however, served in his trade of wheelwright._ (related to [Jack|I38736559])
 
 As the army depended on horse and mule-drawn wagons and gun carriages, he was fortunate that he had that craft. The Jewish soldiers were religiously observant as best they could.  
 
-_Moishe did not eat pork. Before Pesach they baked matzot._ (related to [Hymie](/profiles/Hymie-Haim-Hoffman))
+_Moishe did not eat pork. Before Pesach they baked matzot._ (related to [Hymie|I40775871])
 
 _Each soldier had a wooden spoon which he stuck down his high leather boot (see photo). Meals came in a large cooking pot. The men would gather around and dip in._ (related to Peter)
 
 ![[bios/I11052340/img_moishe_1909.png]]
 **_1909 Moishe (on the right in the dark uniform) with a fellow soldier, whom I believe to be a relative named Moishe Rosenzvit, who resembles him._**
 
-_Moshe was sent far to the east arriving in Vladivostok in 1906 after the cessation of hostilities in the Russo-Japanese War._ (related to [Jack](/profiles/Jack-Hoffman))
+_Moshe was sent far to the east arriving in Vladivostok in 1906 after the cessation of hostilities in the Russo-Japanese War._ (related to [Jack|I38736559])
 
 _The war is considered to have lasted until the 5.9.1905. He told of crossing Lake Baikal by ferry._ (related to Peter)
 
@@ -171,7 +171,7 @@ _Moishe was in the far east when the date of his discharge was approaching. He a
 
 In Russian this sentence would be a marvellous double negative: _"Zhid, you're not going nowhere"_
 
-_His mother, [Beile](/profiles/Beile-ביילא-Hochman-Elizafan), petitioned the Tsarina, Alexandra, for his release._ (related to [Edith](/profiles/Edith-צירל-Hoffman-Spielmann))  
+_His mother, [Beile|I11032895], petitioned the Tsarina, Alexandra, for his release._ (related to [Edith|I38516664])  
 
 This was Alexandra, grand daughter of Queen Victoria of England and consort of  Tsar Nikolai II.  Nikolai was the last Tsar. He abdicated in 1917. Alexandra, Nikolai,  their four daughters _and son were subsequently murdered by the Bolsheviks.
 
@@ -184,7 +184,7 @@ His account of crossing Baikal by ferry is consistent with the historical facts 
 ![[bios/I11052340/img_railroad_map.png]]
 **_Map of the Asian section of the Transsiberian railroad and ferry._**
 
-His life had taught him that there was no future for him in Russia. On returning from the army he married a young woman from another town in Podolia – [Tubb'l Zitzerman](/profiles/Tobl-Hochman-%28Hoffman%29-Zitserman) from Bershad – and got out of Russia. The marriage, as was usual at that time was probably arranged. His goal was Perth in Western Australia, where his brother [Haim Yudl](/profiles/Haim-Yehuda-חיים-יהודה-Hochman) had settled.
+His life had taught him that there was no future for him in Russia. On returning from the army he married a young woman from another town in Podolia – [Tubb'l Zitzerman|I38735986] from Bershad – and got out of Russia. The marriage, as was usual at that time was probably arranged. His goal was Perth in Western Australia, where his brother [Haim Yudl|I11032861] had settled.
 
     **Peter Hoffman   Rehovot    February 2023**
 

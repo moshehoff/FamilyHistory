@@ -18,7 +18,7 @@ Joseph  Morris      Austrien   Austrien   M. 12     Port Said     none
 Abram  Shapira  Austrien   Austrien    M. 18    Port Said    Watchmaker
 Hanna  Shapira   Austrien   Austrien    F.  19    Port Said      none
 
-**Comment:** The list was prepared by Sheffens, the assistant purser. His passenger lists confirm to the way a German national would spell the names. They show that Moishe knew that his family in Australia had adopted the name Hoffman. His brother [Hyam Hoffman](/profiles/Haim-Yehuda-חיים-יהודה-Hochman) was already using the name Hoffman in 1904. Sheffens has mistakenly written **W.** Hoffman for **M.** Hoffman (should be [Moshe](/profiles/Moshe-משה-Hoffman-Hochman)), and **M.** Hoffman for **W.** Hoffman (should be [Wolfe](/profiles/Wolfe-Hochman)).
+**Comment:** The list was prepared by Sheffens, the assistant purser. His passenger lists confirm to the way a German national would spell the names. They show that Moishe knew that his family in Australia had adopted the name Hoffman. His brother [Hyam Hoffman|I11032861] was already using the name Hoffman in 1904. Sheffens has mistakenly written **W.** Hoffman for **M.** Hoffman (should be [Moshe|I11052340]), and **M.** Hoffman for **W.** Hoffman (should be [Wolfe|I38740219]).
 
 The above listed seven youngsters were the only Jews on the boat. The nationality "Austrien" indicates that the last four were from Galicia, the easternmost province of the Austrian Empire. The truth is somewhat different....
 
@@ -28,13 +28,13 @@ The Morris boys, like their parents, were born in Safed in Ottoman Palestine. Th
 
 Mark Morris was to be the father of Geoff Morris.
 
-[Louise (Cohen) Hoffman](/profiles/Louise-Hoffman-Cohen) – in 1910 not yet on the scene – is a second cousin of Mark.
+[Louise (Cohen) Hoffman|I38739935] – in 1910 not yet on the scene – is a second cousin of Mark.
 
 They all disembarked at Fremantle. The Shapiras adopted the Sharp in Western Australia.
 
 They are all members of the Zines family.
 
-[Moishe](/profiles/Moshe-משה-Hoffman-Hochman) and [Tobl](/profiles/Tobl-Hochman-%28Hoffman%29-Zitserman) and [Wolfe](/profiles/Wolfe-Hochman) must have made seder pesach with them somewhere in the Indian Ocean, two days before their landfall.
+[Moishe|I11052340] and [Tobl|I38735986] and [Wolfe|I38740219] must have made seder pesach with them somewhere in the Indian Ocean, two days before their landfall.
 
 **Peter Hoffman    September 2021**
 

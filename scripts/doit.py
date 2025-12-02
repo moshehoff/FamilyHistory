@@ -143,14 +143,18 @@ Examples:
         print_place_analysis(places)
         return
 
-    # Copy source content to site/content/
-    logger.info("Copying source content...")
-    copy_source_content(args.src_content_dir, os.path.dirname(args.output))
-
-    # Generate profiles
+    # Generate profiles first (needed for link_converter)
     logger.info("Generating profiles...")
     generator = ProfileGenerator(individuals, families, args.bios_dir)
     id_to_slug = generator.generate_all_profiles(args.output)
+    
+    # Create link converter for processing [Name|ID] links
+    from utils.link_converter import LinkConverter
+    link_converter = LinkConverter(individuals, id_to_slug)
+    
+    # Copy source content to site/content/ (with link processing)
+    logger.info("Copying source content...")
+    copy_source_content(args.src_content_dir, os.path.dirname(args.output), link_converter=link_converter)
     
     # Create media index
     logger.info("Creating media index...")
@@ -164,12 +168,13 @@ Examples:
     )
     media_handler.create_media_index()
     
-    # Create chapters index
+    # Create chapters index (with link processing)
     logger.info("Creating chapters index...")
     chapters_handler = ChaptersIndexHandler(
         args.bios_dir,
         DEFAULT_STATIC_DIR,
-        individuals
+        individuals,
+        link_converter=link_converter
     )
     chapters_handler.create_chapters_index()
     

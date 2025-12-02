@@ -2,7 +2,7 @@
 
 ### First Child and Return to Perth
 
-In 1909 their first child [Mina](/profiles/Minnie-Mina-Mendelovitz-Hochman) was born there. In 1910 the family left the Wickepin farm and returned to Perth. On his return to Perth, Berl immediately started work at Gallop Gardens on the Swan River foreshore in Nedlands. The family resided on the property.
+In 1909 their first child [Mina|I40775682] was born there. In 1910 the family left the Wickepin farm and returned to Perth. On his return to Perth, Berl immediately started work at Gallop Gardens on the Swan River foreshore in Nedlands. The family resided on the property.
 
 
 <div class="info-box">
@@ -21,7 +21,7 @@ N.B. Gallop House in Dalkeith (sic) has been registered as a heritage place.
 
 ### Second Child
 
-The second child, [Bruce](/profiles/Bruce-Hoffman) was delivered at a home in Lane Street, Perth on the 16.6.1911. The house is near Bulwer Street. At that time Berl was still working at Gallop Garden.
+The second child, [Bruce|I87977937] was delivered at a home in Lane Street, Perth on the 16.6.1911. The house is near Bulwer Street. At that time Berl was still working at Gallop Garden.
 
 ### Move to Westonia
 

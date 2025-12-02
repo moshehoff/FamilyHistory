@@ -254,16 +254,17 @@ def write_family_data_json(individuals: Dict, families: Dict, out_dir: str):
         logger.error(f"Failed to write family-data.json: {e}")
 
 
-def copy_source_content(src_content_dir: str, dst_content_dir: str):
+def copy_source_content(src_content_dir: str, dst_content_dir: str, link_converter=None):
     """
-    Copy source content (index.md, pages/) to site/content/.
+    Copy source content (index.md, pages/) to site/content/ and process profile links.
     
     Args:
         src_content_dir: Source content directory (e.g., "content")
         dst_content_dir: Destination content directory (e.g., "site/content")
+        link_converter: Optional LinkConverter for processing [Name|ID] links
     
     Example:
-        >>> copy_source_content("content", "site/content")
+        >>> copy_source_content("content", "site/content", link_converter)
     """
     logger.info(f"Copying source content from {src_content_dir} to {dst_content_dir}")
     
@@ -275,12 +276,42 @@ def copy_source_content(src_content_dir: str, dst_content_dir: str):
         dst_index = os.path.join(dst_content_dir, "index.md")
         copy_file_safe(src_index, dst_index)
     
-    # Copy pages/ directory
+    # Copy and process pages/ directory
     src_pages = os.path.join(src_content_dir, "pages")
     dst_pages = os.path.join(dst_content_dir, "pages")
     
     if os.path.exists(src_pages):
-        copy_directory_safe(src_pages, dst_pages, overwrite=True)
+        os.makedirs(dst_pages, exist_ok=True)
+        for filename in os.listdir(src_pages):
+            if not filename.endswith('.md'):
+                # Copy non-markdown files as-is
+                src_file = os.path.join(src_pages, filename)
+                dst_file = os.path.join(dst_pages, filename)
+                copy_file_safe(src_file, dst_file)
+                continue
+            
+            src_file = os.path.join(src_pages, filename)
+            dst_file = os.path.join(dst_pages, filename)
+            
+            try:
+                # Read content
+                with open(src_file, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                # Process [Name|ID] links if converter available
+                # For static pages, convert to Markdown links (not HTML) since Quartz will process them
+                if link_converter:
+                    content = link_converter.convert_ids_to_markdown_links(content)
+                
+                # Write processed content
+                with open(dst_file, 'w', encoding='utf-8') as f:
+                    f.write(content)
+                
+                logger.debug(f"  Copied and processed {filename}")
+            except Exception as e:
+                logger.error(f"Failed to process {filename}: {e}")
+                # Fallback to simple copy
+                copy_file_safe(src_file, dst_file)
 
 
 def clean_project():

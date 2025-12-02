@@ -20,7 +20,7 @@ http://www.rba.gov.au/calculator/annualPreDecimal.html
 
 N.B. The family had been in similar trouble just a month earlier:
 
-On 21.6.1921 [Morrie Hoffman](/profiles/Moshe-משה-Hoffman-Hochman) appeared in the Perth Police Court with having "knowingly suffered gambling to take place on his premises (The Broken Hill Hotel)". Mr M.G. Lavan appeared for the defendant. The prosecution failed.
+On 21.6.1921 [Morrie Hoffman|I11052340] appeared in the Perth Police Court with having "knowingly suffered gambling to take place on his premises (The Broken Hill Hotel)". Mr M.G. Lavan appeared for the defendant. The prosecution failed.
 
 On 9.10.1921 Morrie Hoffman was fined 50 pounds at the Perth Police Court for having permitted his premises – the hotel – to be used as a common betting house.
 

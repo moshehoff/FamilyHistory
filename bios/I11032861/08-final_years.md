@@ -22,7 +22,7 @@ This little interview with Mr. Hoffman shows that there is likely to be consider
 
 </div>
 
-Hyam's second son, [Aliyashiv](/profiles/Elyashiv-Hoffman-Hochman) was born at their home at the wine shop on 5.2.1911. [Rivka](/profiles/Rivka-Bar-Cohen-Hoffman), Hyam's eldest daughter married [Aahron Bar Cohen](/profiles/Aharon-Nissan-%D7%A0%D7%99%D7%A1%D7%9F-Bar-Cohen-Kaganovich) abt. 1912. The groom was a Kaganovitch, a cousin of [Lazar Moiseevitch Kaganovitch](https://en.wikipedia.org/wiki/Lazar_Kaganovich) a leading Bolshevik who ultimately became Stalin's minister for industry during the Second World War.
+Hyam's second son, [Aliyashiv|I27102630293] was born at their home at the wine shop on 5.2.1911. [Rivka|I10847256], Hyam's eldest daughter married [Aahron Bar Cohen|I10847248] abt. 1912. The groom was a Kaganovitch, a cousin of [Lazar Moiseevitch Kaganovitch](https://en.wikipedia.org/wiki/Lazar_Kaganovich) a leading Bolshevik who ultimately became Stalin's minister for industry during the Second World War.
 
 Hyam's status in the community may be appreciated from the following note in THE WEST AUSTRALIAN of 15.7.1911. The choice of pallbearers was not a random matter. The others named were stalwarts of the community and respected men.
 
@@ -32,7 +32,7 @@ FUNERAL. The funeral of the late Mr. David Aarons, son of Mr. and Mrs. A. Aarons
 
 </div>
 
-Hyam and [Sarah](/profiles/Sara-Hochman-Bershada) planned to return to Palestine in 1914. They had bought their ship's passage, however Hyam died suddenly before their sailing. His death was reported in the Kalgoorlie Western Argus.
+Hyam and [Sarah|I39967468] planned to return to Palestine in 1914. They had bought their ship's passage, however Hyam died suddenly before their sailing. His death was reported in the Kalgoorlie Western Argus.
 
 <div class="citation-box">
 
@@ -56,7 +56,7 @@ A Sudden Death - The adjourned inquest touching the death of Hyam Hoffman, who c
 
 ---
 
-My grandfather, [Morris](/profiles/Moshe-משה-Hoffman-Hochman), told me about his brother' death. He said that the ship was to sail on the morrow, and that he and Hyam had been conversing on a park bench in the Supreme Court Gardens. He took his leave from Hyam and walked off. After a while a man came running up and exclaimed "were you sitting with a fellow on the bench over there?.... he's dead." According to my grandfather, [Sarah](/profiles/Sara-Hochman-Bershada) and her children [Wolfe](/profiles/Wolfe-Hochman), [Shulamit](/profiles/Shulamit-Hochman), [Rosa](/profiles/Rosa-Aron-Hoffman) and [Aliyashiv](/profiles/Elyashiv-Hoffman-Hochman) did sail to Palestine the following day.
+My grandfather, [Morris|I11052340], told me about his brother' death. He said that the ship was to sail on the morrow, and that he and Hyam had been conversing on a park bench in the Supreme Court Gardens. He took his leave from Hyam and walked off. After a while a man came running up and exclaimed "were you sitting with a fellow on the bench over there?.... he's dead." According to my grandfather, [Sarah|I39967468] and her children [Wolfe|I38740219], [Shulamit|I38740400], [Rosa|I11029872] and [Aliyashiv|I27102630293] did sail to Palestine the following day.
 
 Hyam is buried at Karrakatta. His epitaph reads:
 

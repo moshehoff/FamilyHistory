@@ -16,9 +16,9 @@ The majority Ukrainian population, influenced by centuries of church teachings, 
 
 ### Wolf and Beile: The Founders
 
-**[Wolf זאב Hochman](/profiles/Wolf-זאב-Hochman)** (circa 1840–circa 1890) was a timber merchant and cartwright in Savran. The surname **Hochman** is Yiddish for "tall man." Little else is known about Wolf's life, but he must have been a man of some means to support a large family in those difficult times.
+**[Wolf זאב Hochman|I11032885]** (circa 1840–circa 1890) was a timber merchant and cartwright in Savran. The surname **Hochman** is Yiddish for "tall man." Little else is known about Wolf's life, but he must have been a man of some means to support a large family in those difficult times.
 
-Wolf's wife was **[Beile ביילא Hochman](/profiles/Beile-ביילא-Hochman-Elizafan)** (née Alzofen). The name **Beile** is derived from the Slavic word "biela," meaning "white." Outside Russia, her name was often recorded as "Bella".
+Wolf's wife was **[Beile ביילא Hochman|I11032895]** (née Alzofen). The name **Beile** is derived from the Slavic word "biela," meaning "white." Outside Russia, her name was often recorded as "Bella".
 
 Her maiden name, **Alzofen** (or Elizafan), is particularly rare and significant. It derives from **Elitzafan ben Uziel** (אליצפן בן עוזיאל), a Levite and cousin of Aaron and Moses who, according to the Torah (Exodus 6:22), took Aaron's sons Nadav and Avihu for burial. This distinguished biblical name appears in only a handful of Jewish families from the Russian Empire.
 
@@ -51,52 +51,52 @@ Wolf זאב & Beile
 
 Wolf and Beile raised **ten children** in Savran during a time of increasing persecution and violence against Jews:
 
-**1. [Shimon Meir מאיר Hochman](/profiles/Shimon-Meir-מאיר-Hochman)** (b. circa 1865)
-The eldest son. Shimon and his young family left Savran for Palestine around **1890**, fleeing pogroms with his infant son. He settled in Sarafand al-'Amar (later Tzrifin) and worked in Baron Rothschild's winery in Rishon LeZion. After his first wife [Bracha](/profiles/Bracha-Hochman) died en route or shortly after arrival, he remarried [Frieda Sisselman](/profiles/Frida-Hochman-Zisselman), daughter of a prominent rabbi in Jaffa.
+**1. [Shimon Meir מאיר Hochman|I11060285]** (b. circa 1865)
+The eldest son. Shimon and his young family left Savran for Palestine around **1890**, fleeing pogroms with his infant son. He settled in Sarafand al-'Amar (later Tzrifin) and worked in Baron Rothschild's winery in Rishon LeZion. After his first wife [Bracha|I39965332] died en route or shortly after arrival, he remarried [Frieda Sisselman|I39965387], daughter of a prominent rabbi in Jaffa.
 
 **Destination:** Palestine  
 
-*[Read Shimon Meir's full biography →](/profiles/Shimon-Meir-מאיר-Hochman)*
+*[Read Shimon Meir's full biography →](/profiles/Shimon-Meir-מאיר-Hochman#tab=biography)*
 
- **2. [Haim Yehuda חיים יהודה Hochman](/profiles/Haim-Yehuda-חיים-יהודה-Hochman)** (b. circa 1870)
-The second son, known as Hyam Yudl. In his youth, he witnessed terrible pogroms in Savran. He married [Sarah Bersharda](/profiles/Sara-Hochman-Bershada) in Balta on 15 August 1891. A member of the **Hovevei Zion** (Lovers of Zion) movement, Hyam purchased land in Doran (later Rehovot) from Yehoshua Hankin while still in Russia. He emigrated to Palestine in the early 1890s, where his first three children were born.
+ **2. [Haim Yehuda חיים יהודה Hochman|I11032861]** (b. circa 1870)
+The second son, known as Hyam Yudl. In his youth, he witnessed terrible pogroms in Savran. He married [Sarah Bersharda|I39967468] in Balta on 15 August 1891. A member of the **Hovevei Zion** (Lovers of Zion) movement, Hyam purchased land in Doran (later Rehovot) from Yehoshua Hankin while still in Russia. He emigrated to Palestine in the early 1890s, where his first three children were born.
 
 **Destination:** Palestine  
 **→ Australia: 1 January 1901** (Fremantle)  
 He was the first of the family to arrive in Western Australia, coming with Sarah and their children. Hyam worked as a fruiterer and helped establish subsequent family members in Perth.
 
-*[Read Hyam's full biography →](/profiles/Haim-Yehuda-חיים-יהודה-Hochman)*
+*[Read Hyam's full biography →](/profiles/Haim-Yehuda-חיים-יהודה-Hochman#tab=biography)*
 
-**3. [Avraham Hochman](/profiles/Avraham-Hochman)** (b. circa 1872)
+**3. [Avraham Hochman|I39114938]** (b. circa 1872)
 Little is known about Avraham. He may have perished in Russia or emigrated without leaving records.
 
- **4. [Josef Hochman](/profiles/Josef-Hochman)** (b. circa 1875)
-Josef married [Tubb'l](/profiles/Tobl-Hochman) and had children. His daughter Devora (Elka Dora) arrived in Melbourne in the 1920s, reporting that the remnant of the family still in Russia had been killed during the terrible pogroms of 1919.
+ **4. [Josef Hochman|I38740193]** (b. circa 1875)
+Josef married [Tubb'l|I10018191293] and had children. His daughter Devora (Elka Dora) arrived in Melbourne in the 1920s, reporting that the remnant of the family still in Russia had been killed during the terrible pogroms of 1919.
 
-**5. [Kolman Hochman](/profiles/Kolman-Hochman)** (b. circa 1878)
+**5. [Kolman Hochman|I39115025]** (b. circa 1878)
 Very little information is available about Kolman. He may have perished in Russia or emigrated without leaving records.
 
-**6. [Binyamin Hochman](/profiles/Binyamin-Hochman)** (b. circa 1880)
-Binyamin may have died young. His name was later given to a nephew, [Ben Benzion Hoffman](/profiles/Ben-Benzion-Hoffman), son of Hershl, following Ashkenazi naming tradition.
+**6. [Binyamin Hochman|I39114997]** (b. circa 1880)
+Binyamin may have died young. His name was later given to a nephew, [Ben Benzion Hoffman|I40778886], son of Hershl, following Ashkenazi naming tradition.
 
- **7. [Sholem Hochman](/profiles/Sholem-Hochman)** (b. 1884, d. 1921)
+ **7. [Sholem Hochman|I39114787]** (b. 1884, d. 1921)
 Sholem married Shaindl Schutte. He may have emigrated to the United States (Pittsburgh is mentioned in family records).
 
 **Destination:** The USA
 
- **8. [Moshe משה Hoffman](/profiles/Moshe-משה-Hoffman-Hochman)** (b. 15 April 1884, d. 7 April 1973)
+ **8. [Moshe משה Hoffman|I11052340]** (b. 15 April 1884, d. 7 April 1973)
 Born in Savran, Moshe (Moishe) trained as a wheelwright. He was conscripted into the Tsarist army around 1906 and served as a military wheelwright. He witnessed horrific pogroms, including mounted Cossacks decapitating Jews with swords.
 
 **→ Australia: 25 April 1910** (Fremantle, aboard the *Scharnhorst*)  
-Moshe arrived with [Tobl](/profiles/Tobl-Hochman-(Hoffman)-Zitserman) and his 17-year-old nephew [Wolfe](/profiles/Wolfe-Hochman). He became a successful fruiterer, publican, and businessman in Perth, establishing the family's reputation in Western Australia.
+Moshe arrived with [Tobl|I38735986] and his 17-year-old nephew [Wolfe|I38740219]. He became a successful fruiterer, publican, and businessman in Perth, establishing the family's reputation in Western Australia.
 
-*[Read Moshe's full biography →](/profiles/Moshe-משה-Hoffman-Hochman)*
+*[Read Moshe's full biography →](/profiles/Moshe-משה-Hoffman-Hochman#tab=biography)*
 
- **9. ["Bobka" Hochman](/profiles/_Bobka_-Hochman)** (b. circa 1885, d. during pogrom)
+ **9. ["Bobka" Hochman|I39114448]** (b. circa 1885, d. during pogrom)
 The only daughter among ten children. "Bobka" was likely a nickname derived from the Yiddish word for "beans," also used to denote something small—perhaps "our kid sister." She met her death in the river during a pogrom in Savran.
 
- **10. [Yisrael Hochman](/profiles/Yisrael-Hochman)** (b. 1889, d. 1958)
-The youngest son, known as Israel or Jack. He married [Rachel Zelzer](/profiles/Rachel-Hochman).
+ **10. [Yisrael Hochman|I39114550]** (b. 1889, d. 1958)
+The youngest son, known as Israel or Jack. He married [Rachel Zelzer|I100527944].
 
 **→ Australia: 1907**  
 Yisrael arrived in Western Australia in 1907, joining his brother Hyam Yudl in the fruit trade and hospitality business.
@@ -105,24 +105,24 @@ Yisrael arrived in Western Australia in 1907, joining his brother Hyam Yudl in t
 
 Though technically the next generation, **Berl** and **Hershl**—the sons of Shimon Meir—were born in **Savran** and were roughly the same age as some of their younger uncles. They experienced the same harsh conditions and persecution, and they too became founding members of the Australian family.
 
- **11. [Berl Hochman](/profiles/Berl-Hochman)** (b. circa 1885 in Savran, d. 1950)
+ **11. [Berl Hochman|I39965449]** (b. circa 1885 in Savran, d. 1950)
 Born in Savran before his family fled to Palestine. Berl grew up in harsh conditions and decided to seek his fortune in Australia.
 
 **→ Australia: 1904** (via Palestine)  
-Berl became a successful fruiterer in Westonia and other goldfield towns. In 1908, his bride [Rivka Sisselman](/profiles/Rivka-Hochman-Zisselman) was sent from Palestine to marry him. They had four children, all born in Western Australia.
+Berl became a successful fruiterer in Westonia and other goldfield towns. In 1908, his bride [Rivka Sisselman|I40775621] was sent from Palestine to marry him. They had four children, all born in Western Australia.
 
- **12. [Hershl Hochman](/profiles/Hershl-Hochman)** (b. 8 February 1888 in Savran, d. 11 December 1969)
-Hershl (Harry or Hershel) was the second son of Shimon Meir, carried as an infant during the family's desperate flight from Savran. He married [Rachel Gillik](/profiles/Ruchel-Hoffman-Gillik) from Chornomyn on 18 April 1908 in Jaffa. Hershl worked as a fitter and turner for an engineering company in Palestine.
+ **12. [Hershl Hochman|I39965497]** (b. 8 February 1888 in Savran, d. 11 December 1969)
+Hershl (Harry or Hershel) was the second son of Shimon Meir, carried as an infant during the family's desperate flight from Savran. He married [Rachel Gillik|I40778657] from Chornomyn on 18 April 1908 in Jaffa. Hershl worked as a fitter and turner for an engineering company in Palestine.
 
 **→ Australia: 28 May 1915** (aboard the Orient Line's *Orsova*)  
 Facing deteriorating conditions during World War I, Hershl and Rachel came to Australia with their two young sons, Bruce (age 6) and Ben (age 3). They paid £57 for their passage from Port Said. Four more children were born in Perth.
 
 Hershl worked at **Eilbeck's Engineering Works** in West Perth for **46 years**, eventually becoming foreman. He was a respected member of the community and helped other Jewish immigrants establish themselves.
 
-*[Read Hershl's full biography →](/profiles/Hershl-Hochman)*
+*[Read Hershl's full biography →](/profiles/Hershl-Hochman#tab=biography)*
 
- **13. [Wolfe Hoffman](/profiles/Wolfe-Hochman)** (b. 1 November 1891 in Khoshchevato, Podolia)
-Wolfe was the son of [Josef Hochman](/profiles/Josef-Hochman). He left Russia together with his uncle [Moshe](/profiles/Moshe-משה-Hoffman-Hochman) when he was 17 years old.
+ **13. [Wolfe Hoffman|I38740219]** (b. 1 November 1891 in Khoshchevato, Podolia)
+Wolfe was the son of [Josef Hochman|I38740193]. He left Russia together with his uncle [Moshe|I11052340] when he was 17 years old.
 
 **→ Australia: 25 April 1910** (Fremantle, aboard the *Scharnhorst*)  
 Wolfe arrived with Moshe and worked as a labourer and millhand in Western Australia. He was naturalized in 1913.
@@ -130,7 +130,7 @@ Wolfe arrived with Moshe and worked as a labourer and millhand in Western Austra
 **World War I Service:**  
 Wolfe enlisted in the Australian Imperial Force (AIF) on 20 March 1915 as Private 2224. He served with the 16th Battalion and arrived at **Gallipoli** in time for the Battle of Sari Bair (6-8 August 1915). He was a true **"Digger"**—the Australian term for ANZAC soldiers who served with courage and mateship during the Great War.
 
-*[Read Wolfe's full biography →](/profiles/Wolfe-Hochman)*
+*[Read Wolfe's full biography →](/profiles/Wolfe-Hochman#tab=biography)*
 
 ### Why They Left: The Dark Years
 
