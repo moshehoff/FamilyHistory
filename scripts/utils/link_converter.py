@@ -185,6 +185,7 @@ class LinkConverter:
     def convert_ids_to_links(self, text: str) -> str:
         """
         Convert [Name|ID] and standalone IDs in text to HTML links.
+        Skips processing inside code blocks (```...```) to preserve ASCII trees.
         
         Args:
             text: Text with person IDs
@@ -200,13 +201,26 @@ class LinkConverter:
         if not text or not self.individuals or not self.id_to_slug:
             return text
         
-        # First, replace [Name|ID] format (preferred)
-        text = re.sub(r'\[([^\|]+)\|(I\d+)\]', self._replace_name_id_format, text)
+        # Split text into code blocks and regular content
+        # Pattern: ```language\n...\n``` or ```\n...\n```
+        code_block_pattern = r'(```[^\n]*\n[\s\S]*?```)'
+        parts = re.split(code_block_pattern, text)
         
-        # Then, replace standalone IDs (legacy format)
-        text = re.sub(r'\bI\d+\b', self._replace_standalone_id, text)
+        result_parts = []
+        for i, part in enumerate(parts):
+            # Even indices are regular content, odd indices are code blocks
+            if i % 2 == 0:
+                # Regular content - process links
+                # First, replace [Name|ID] format (preferred)
+                processed = re.sub(r'\[([^\|]+)\|(I\d+)\]', self._replace_name_id_format, part)
+                # Then, replace standalone IDs (legacy format)
+                processed = re.sub(r'\bI\d+\b', self._replace_standalone_id, processed)
+                result_parts.append(processed)
+            else:
+                # Code block - keep as-is (don't process links)
+                result_parts.append(part)
         
-        return text
+        return ''.join(result_parts)
     
     def _replace_name_id_format(self, match):
         """

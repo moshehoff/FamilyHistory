@@ -606,7 +606,7 @@ function initProfileTabs() {
             if (article && profileTabs && !existingBanner) {
               const banner = document.createElement('div');
               banner.className = 'biography-banner-top';
-              banner.innerHTML = '📖 View Background Chapters Below ⬇️';
+              banner.innerHTML = '📖 View Biography Chapters Below ⬇️';
               banner.style.cursor = 'pointer';
               banner.addEventListener('click', function() {
                 // First, switch to Biography tab if not already active
@@ -763,22 +763,22 @@ function initProfileTabs() {
           return;
         }
         
-        // Check if it's a placeholder Background heading
+        // Check if it's a placeholder Biography heading
         if (element.tagName && element.tagName.toLowerCase() === 'h2') {
-          if (element.textContent && element.textContent.trim() === 'Background') {
+          if (element.textContent && element.textContent.trim() === 'Biography') {
             // Check if next element is placeholder text
             const nextSibling = element.nextElementSibling;
             if (nextSibling && nextSibling.textContent && 
                 nextSibling.textContent.includes('chapters will be loaded')) {
               // Skip both this heading and the next placeholder
-              console.log('[ProfileTabs] Removing placeholder Background heading and text');
+              console.log('[ProfileTabs] Removing placeholder Biography heading and text');
               skipNext = true;
               nextSibling.remove();
               element.remove();
               return;
             } else {
-              // It's a Background heading with real content, remove only the heading
-              console.log('[ProfileTabs] Removing Background heading (keeping content after)');
+              // It's a Biography heading with real content, remove only the heading
+              console.log('[ProfileTabs] Removing Biography heading (keeping content after)');
               element.remove();
               return;
             }
@@ -843,8 +843,8 @@ function initProfileTabs() {
       // Remove any remaining placeholder text from biography pane
       const biographyHeading = biographyPane.querySelector('h2');
       if (biographyHeading && biographyHeading.textContent && 
-          (biographyHeading.textContent.trim() === 'Background' || 
-           biographyHeading.textContent.trim().includes('Background'))) {
+          (biographyHeading.textContent.trim() === 'Biography' || 
+           biographyHeading.textContent.trim().includes('Biography'))) {
         const nextSibling = biographyHeading.nextElementSibling;
         if (nextSibling && nextSibling.textContent && 
             nextSibling.textContent.includes('chapters will be loaded')) {
@@ -951,10 +951,10 @@ function initProfileTabs() {
     const chapterTabsContainer = document.createElement('div');
     chapterTabsContainer.className = 'chapter-tabs-container';
     
-    // Add Background heading
+    // Add Biography heading (for extended biography content below)
     const biographyHeading = document.createElement('h2');
     biographyHeading.className = 'biography-heading';
-    biographyHeading.textContent = 'Background';
+    biographyHeading.textContent = 'Biography';
     chapterTabsContainer.appendChild(biographyHeading);
     
     // Create chapter tabs header
@@ -1307,6 +1307,21 @@ function initProfileTabs() {
     var CRLF = CR + LF;
     html = html.split(CRLF).join(LF).split(CR).join(LF);
     
+    // Detect base path from current URL (e.g., /FamilyHistory/ for GitHub Pages)
+    // Must be defined before code blocks processing
+    var siteBasePath = '';
+    if (typeof window !== 'undefined') {
+      var currentPath = window.location.pathname;
+      // Extract base path: if path is /FamilyHistory/profiles/..., extract /FamilyHistory
+      if (currentPath.indexOf('/profiles/') > 0) {
+        var beforeProfiles = currentPath.substring(0, currentPath.indexOf('/profiles/'));
+        // If beforeProfiles is not empty and not just '/', it's our base path
+        if (beforeProfiles && beforeProfiles !== '' && beforeProfiles !== '/') {
+          siteBasePath = beforeProfiles;
+        }
+      }
+    }
+    
     // Code blocks (triple backticks) - must be processed FIRST before any other Markdown
     // Match code blocks with optional language
     var backtick = String.fromCharCode(96);
@@ -1314,12 +1329,40 @@ function initProfileTabs() {
     var codeBlockPattern = backtick + backtick + backtick + '(\\\\w+)?\\\\s*([\\\\s\\\\S]*?)' + backtick + backtick + backtick;
     var codeBlockRegex = new RegExp(codeBlockPattern, 'g');
     
-    // Process code blocks directly - links inside will be processed later
+    // Process code blocks - convert [Name|ID] and [Name](/profiles/...) links to HTML
     html = html.replace(codeBlockRegex, function(match, lang, code) {
       // Remove leading/trailing newlines from code
       code = code.replace(/^\\n+|\\n+$/g, '');
-      // Escape HTML in code (but NOT links - they will be processed as markdown)
-      code = code.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      
+      // Convert [Name|ID] format to Markdown links [Name](/profiles/Slug)
+      // This allows links to work inside code blocks
+      code = code.replace(/\\[([^\\|]+)\\|(I\\d+)\\]/g, function(match, name, id) {
+        // Try to find the slug for this ID from chaptersData
+        // Note: We don't have direct access to id_to_slug here, so we'll use a simple approach
+        // Convert ID to a profile link - the actual slug will be resolved by Quartz
+        return '[' + name + '](/profiles/' + id + ')';
+      });
+      
+      // Convert Markdown links [Name](/profiles/...) to HTML links inside code blocks
+      // Pattern: [text](/profiles/something)
+      var codeLinkPattern = new RegExp('\\\\[([^\\\\]]+)\\\\]\\\\(\\\\/profiles\\\\/[^)]+\\\\)', 'g');
+      code = code.replace(codeLinkPattern, function(match, text, path) {
+        return '<a href="' + siteBasePath + path + '">' + text + '</a>';
+      });
+      
+      // Escape remaining HTML in code (but keep the links we just created)
+      // We need to be careful not to escape the <a> tags we just added
+      var parts = code.split(/(<a[^>]*>.*?<\\/a>)/g);
+      code = parts.map(function(part) {
+        if (part.match(/^<a[^>]*>.*?<\\/a>$/)) {
+          // This is a link we created, don't escape it
+          return part;
+        } else {
+          // Escape HTML in other parts
+          return part.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+      }).join('');
+      
       var langAttr = lang ? ' class="language-' + lang + '"' : '';
       return '<pre><code' + langAttr + '>' + code + '</code></pre>';
     });
@@ -1340,21 +1383,6 @@ function initProfileTabs() {
       // Try with spaces if dashes fail (fallback)
       return '<img src="' + imageSrc + '" alt="' + escapedFilename + '" onerror="this.src=&quot;' + imageSrcWithSpaces + '&quot;">';
     });
-    
-    // Regular Markdown links [text](/profiles/...) - fix absolute paths to include base path
-    // Detect base path from current URL (e.g., /FamilyHistory/ for GitHub Pages)
-    var siteBasePath = '';
-    if (typeof window !== 'undefined') {
-      var currentPath = window.location.pathname;
-      // Extract base path: if path is /FamilyHistory/profiles/..., extract /FamilyHistory
-      if (currentPath.indexOf('/profiles/') > 0) {
-        var beforeProfiles = currentPath.substring(0, currentPath.indexOf('/profiles/'));
-        // If beforeProfiles is not empty and not just '/', it's our base path
-        if (beforeProfiles && beforeProfiles !== '' && beforeProfiles !== '/') {
-          siteBasePath = beforeProfiles;
-        }
-      }
-    }
     
     // Fix absolute profile links by adding base path
     // Pattern: [text](/profiles/something) -> capture text and path
