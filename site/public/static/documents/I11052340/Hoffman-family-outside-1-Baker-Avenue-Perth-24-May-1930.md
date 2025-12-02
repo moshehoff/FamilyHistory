@@ -1,1 +1,0 @@
-Hoffman family outside 1 Baker Avenue Perth 24 May 1930

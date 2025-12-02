@@ -1,1 +1,0 @@
-[Tobl|I38735986] Baker Ave or at the Maylands   I remember the cabinet from the upstairs kitchen at the hotel
