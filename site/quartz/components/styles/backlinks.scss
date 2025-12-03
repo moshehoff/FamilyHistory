@@ -25,4 +25,27 @@
       }
     }
   }
+
+  // On mobile, remove max-height and overflow constraints
+  // so backlinks flow naturally as part of the page
+  @media all and ($mobile) {
+    // Override the max-height: 24rem from base.scss sidebar.right > *
+    max-height: none !important;
+    height: auto !important;
+    
+    & > ul.overflow {
+      max-height: none !important;
+      overflow: visible !important;
+      overflow-y: visible !important;
+      overscroll-behavior: auto;
+      height: auto !important;
+    }
+    
+    // Also override parent div constraints if any
+    &:has(> ul.overflow) {
+      max-height: none !important;
+      overflow: visible !important;
+      overflow-y: visible !important;
+    }
+  }
 }
