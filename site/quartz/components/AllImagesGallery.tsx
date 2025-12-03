@@ -110,7 +110,7 @@ div.all-images-gallery .gallery-grid {
   }
 }
 
-/* Responsive: 2 columns on tablets, 1 column on mobile */
+/* Responsive: 2 columns on tablets and mobile */
 @media (max-width: 1024px) {
   #all-images-gallery-wrapper .gallery-grid,
   .all-images-gallery .gallery-grid,
@@ -123,7 +123,7 @@ div.all-images-gallery .gallery-grid {
   #all-images-gallery-wrapper .gallery-grid,
   .all-images-gallery .gallery-grid,
   div.all-images-gallery .gallery-grid {
-    column-count: 1 !important;
+    column-count: 2 !important;
   }
 }
 `
@@ -197,7 +197,7 @@ div.all-images-gallery .gallery-grid {
           } else if (width > 768) {
             galleryGrid.style.setProperty('column-count', '2', 'important');
           } else {
-            galleryGrid.style.setProperty('column-count', '1', 'important');
+            galleryGrid.style.setProperty('column-count', '2', 'important');
           }
         }
         
@@ -258,7 +258,7 @@ div.all-images-gallery .gallery-grid {
             } else if (width > 768) {
               grid.style.setProperty('column-count', '2', 'important');
             } else {
-              grid.style.setProperty('column-count', '1', 'important');
+              grid.style.setProperty('column-count', '2', 'important');
             }
           }
         }
