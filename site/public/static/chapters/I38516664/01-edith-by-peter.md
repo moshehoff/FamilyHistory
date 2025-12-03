@@ -1,17 +1,18 @@
 
+## Edith's Biography by peter
 ### The Spielmann Home
 
 The Spielmann home, where she was born was at Zwolfergasse 9 Wien XV. Quite near the Westbahnof train station.
 
 To find their home, enter the building and ascend one flight of steps, then turn left. It is the second door in that passage. All that remains today are the sets of nail holes in the door frame where Eduard affixed the mezzuzah.
 
-The Wesbahnhof was the departure station for those travelling to France and the Channel Ports and later the assembly site for many deportations to Theresienstadt, and of the Kindertransports to England. It was bombed and gutted to a shell by the Allies; rebuilt and again became a major station. However, since 2015, with the exception of Salzburg it handles only local rail traffic. It was bombed and gutted to a shell by the Allies; rebuilt and again became a major station. However, since 2015, with the exception of Salzburg it handles only local rail traffic.
+The Wesbahnhof was the departure station for those travelling to France and the Channel Ports and later the assembly site for many deportations to Theresienstadt, and of the Kindertransports to England. It was bombed and gutted to a shell by the Allies; rebuilt and again became a major station. However, since 2015, with the exception of Salzburg it handles only local rail traffic. It was bombed and gutted to a shell by the Allies; rebuilt and again became a major station. 
 
 ---
 
 ### Early Life
 
-Edith was born on 27th November, the first of her generation born into a new Europe. On 11th November the Great War ended. In the west an armistice was signed. [Emperor Karl of Austria](https://en.wikipedia.org/wiki/Charles_I_of_Austria) resigned the same day. The great empire was no more. She was much younger than her siblings - an afterthought. As such, she admits to receiving a lot of attention from all.
+Edith was born on 27th November, the first of her generation born into a new Europe. On 11th November the Great War ended. In the west an armistice was signed. <a href="/profiles/Les-Lazar-Haimson">Emperor Karl of Austria](https://en.wikipedia.org/wiki/Charles_I_of_Austria) resigned the same day. The great empire was no more. She was much younger than her siblings - an afterthought. As such, she admits to receiving a lot of attention from all.
 
 She attended the Victoriagasse primary school in Wien 1016, and the family's shule at Turnergasse in Funfhaus. Her childhood was very happy, marked by family visits and functions, and visits to the Viennese palaces, museums and the opera, and to the countryside where she learned to swim, to skate and to ski.
 
@@ -61,7 +62,7 @@ The MN Viminale was requisitioned by the Italian Navy, and served as a supply an
 
 ### Family Reunion and Marriage
 
-During the war years her mother, her sister Kaethe and her brother Karl also arrived in Australia. Some other cousins also arrived in Melbourne, sponsored by Kurt Hönigsberg Hilton who by the volume of his applications was tirelessly active in his efforts to save lives. One day Edith saw that a businessman, [Laser Haimson](/profiles/Les-Lazar-Haimson), had advertised for a milliner. Edith went to his residence and asked him to sponser a girlfriend in Wein. Laser was a son of my father [Hymie](/profiles/Hyman-Judah-Hoffman)'s first cousin [Leah](/profiles/Leah-%D7%9C%D7%90%D7%94-Hochman). There is no way of knowing today, but I suspect that the girl was Gerda Hönigsberg in Wien. Gerda eventually arrived in Birmingham. Her entire family was lost in the holocaust, and she herself had no children. However, [Hymie](/profiles/Hyman-Judah-Hoffman) was boarding at the Haimson's, so this is the story of how Mum and Dad met. !!!!!
+During the war years her mother, her sister Kaethe and her brother Karl also arrived in Australia. Some other cousins also arrived in Melbourne, sponsored by Kurt Hönigsberg Hilton who by the volume of his applications was tirelessly active in his efforts to save lives. One day Edith saw that a businessman, [Laser Haimson</a>, had advertised for a milliner. Edith went to his residence and asked him to sponser a girlfriend in Wein. Laser was a son of my father <a href="/profiles/Hyman-Judah-Hoffman">Hymie</a>'s first cousin <a href="/profiles/Leah-%D7%9C%D7%90%D7%94-Hochman">Leah</a>. There is no way of knowing today, but I suspect that the girl was Gerda Hönigsberg in Wien. Gerda eventually arrived in Birmingham. Her entire family was lost in the holocaust, and she herself had no children. However, <a href="/profiles/Hyman-Judah-Hoffman">Hymie</a> was boarding at the Haimson's, so this is the story of how Mum and Dad met. !!!!!
 
-Soon afterwards the Second War broke out. [Hymie](/profiles/Hyman-Judah-Hoffman) completed his degree and was conscripted as a medical officer. Edith came to Perth and they were married on 6.10.1942 by rabbi Louis Rubin- Zacks The wedding breakfast was held at the King George V hall in William St (now Northbridge).
+Soon afterwards the Second War broke out. <a href="/profiles/Hyman-Judah-Hoffman">Hymie</a> completed his degree and was conscripted as a medical officer. Edith came to Perth and they were married on 6.10.1942 by rabbi Louis Rubin- Zacks The wedding breakfast was held at the King George V hall in William St (now Northbridge).
 

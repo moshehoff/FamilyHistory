@@ -1,4 +1,4 @@
-## Final Years and Challenges (1911-1914)
+## Hyam Yudl's Final Years and Challenges (1911-1914)
 
 The following two passages are part of a much longer and humorous newspaper article. The Railway Fruit Palace was adjacent to the "Sunday Times" offices. Apparently reporters from the newspaper were Hyam's customers, and he gave them his opinion of an anarchist scare in Western Australia; and incidentally his opinion of the Russian legal system, and his own experiences of the pogroms of 1884.
 
@@ -22,7 +22,7 @@ This little interview with Mr. Hoffman shows that there is likely to be consider
 
 </div>
 
-Hyam's second son, [Aliyashiv](/profiles/Elyashiv-Hoffman-Hochman) was born at their home at the wine shop on 5.2.1911. [Rivka](/profiles/Rivka-Bar-Cohen-Hoffman), Hyam's eldest daughter married [Aahron Bar Cohen](/profiles/Aharon-Nissan-%D7%A0%D7%99%D7%A1%D7%9F-Bar-Cohen-Kaganovich) abt. 1912. The groom was a Kaganovitch, a cousin of [Lazar Moiseevitch Kaganovitch](https://en.wikipedia.org/wiki/Lazar_Kaganovich) a leading Bolshevik who ultimately became Stalin's minister for industry during the Second World War.
+Hyam's second son, <a href="/profiles/Elyashiv-Hoffman-Hochman">Aliyashiv</a> was born at their home at the wine shop on 5.2.1911. <a href="/profiles/Rivka-Bar-Cohen-Hoffman">Rivka</a>, Hyam's eldest daughter married <a href="/profiles/Aharon-Nissan-%D7%A0%D7%99%D7%A1%D7%9F-Bar-Cohen-Kaganovich">Aahron Bar Cohen</a> abt. 1912. The groom was a Kaganovitch, a cousin of <a href="/profiles/Sara-Hochman-Bershada">Lazar Moiseevitch Kaganovitch](https://en.wikipedia.org/wiki/Lazar_Kaganovich) a leading Bolshevik who ultimately became Stalin's minister for industry during the Second World War.
 
 Hyam's status in the community may be appreciated from the following note in THE WEST AUSTRALIAN of 15.7.1911. The choice of pallbearers was not a random matter. The others named were stalwarts of the community and respected men.
 
@@ -32,7 +32,7 @@ FUNERAL. The funeral of the late Mr. David Aarons, son of Mr. and Mrs. A. Aarons
 
 </div>
 
-Hyam and [Sarah](/profiles/Sara-Hochman-Bershada) planned to return to Palestine in 1914. They had bought their ship's passage, however Hyam died suddenly before their sailing. His death was reported in the Kalgoorlie Western Argus.
+Hyam and [Sarah</a> planned to return to Palestine in 1914. They had bought their ship's passage, however Hyam died suddenly before their sailing. His death was reported in the Kalgoorlie Western Argus.
 
 <div class="citation-box">
 
@@ -56,7 +56,7 @@ A Sudden Death - The adjourned inquest touching the death of Hyam Hoffman, who c
 
 ---
 
-My grandfather, [Morris](/profiles/Moshe-משה-Hoffman-Hochman), told me about his brother' death. He said that the ship was to sail on the morrow, and that he and Hyam had been conversing on a park bench in the Supreme Court Gardens. He took his leave from Hyam and walked off. After a while a man came running up and exclaimed "were you sitting with a fellow on the bench over there?.... he's dead." According to my grandfather, [Sarah](/profiles/Sara-Hochman-Bershada) and her children [Wolfe](/profiles/Wolfe-Hochman), [Shulamit](/profiles/Shulamit-Hochman), [Rosa](/profiles/Rosa-Aron-Hoffman) and [Aliyashiv](/profiles/Elyashiv-Hoffman-Hochman) did sail to Palestine the following day.
+My grandfather, <a href="/profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman-Hochman">Morris</a>, told me about his brother' death. He said that the ship was to sail on the morrow, and that he and Hyam had been conversing on a park bench in the Supreme Court Gardens. He took his leave from Hyam and walked off. After a while a man came running up and exclaimed "were you sitting with a fellow on the bench over there?.... he's dead." According to my grandfather, <a href="/profiles/Sara-Hochman-Bershada">Sarah</a> and her children <a href="/profiles/Wolfe-Hochman">Wolfe</a>, <a href="/profiles/Shulamit-Hochman">Shulamit</a>, <a href="/profiles/Rosa-Aron-Hoffman">Rosa</a> and <a href="/profiles/Elyashiv-Hoffman-Hochman">Aliyashiv</a> did sail to Palestine the following day.
 
 Hyam is buried at Karrakatta. His epitaph reads:
 

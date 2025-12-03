@@ -11,7 +11,7 @@
       {
         "slug": "01-background",
         "name": "Background",
-        "title": "Historic Background",
+        "title": "Hyam Yudl's Historic Background",
         "filename": "01-background.md"
       },
       {
@@ -29,7 +29,7 @@
       {
         "slug": "04-business-development",
         "name": "Business Development",
-        "title": "Business Development (1904-1907)",
+        "title": "Hyam Yudl's Business Development (1904-1907)",
         "filename": "04-business_development.md"
       },
       {
@@ -41,7 +41,7 @@
       {
         "slug": "06-partnerships-and-licenses",
         "name": "Partnerships And Licenses",
-        "title": "Partnerships and Licenses (1909)",
+        "title": "Hyam Yudl's Partnerships and Licenses (1909)",
         "filename": "06-partnerships_and_licenses.md"
       },
       {
@@ -53,7 +53,7 @@
       {
         "slug": "08-final-years",
         "name": "Final Years",
-        "title": "Final Years and Challenges (1911-1914)",
+        "title": "Hyam Yudl's Final Years and Challenges (1911-1914)",
         "filename": "08-final_years.md"
       },
       {
@@ -92,7 +92,7 @@
       {
         "slug": "01-in-russia",
         "name": "In Russia",
-        "title": "In Russia",
+        "title": "Moishe In Russia",
         "filename": "01-in_russia.md"
       },
       {
@@ -110,7 +110,7 @@
       {
         "slug": "04-savran-to-fremantle",
         "name": "Savran To Fremantle",
-        "title": "Savran to Fremantle",
+        "title": "Moishe, Tobl and Wolfe from Savran to Fremantle",
         "filename": "04-savran-to-fremantle.md"
       },
       {
@@ -134,7 +134,7 @@
       {
         "slug": "08-moshe-tobl-in-perth",
         "name": "Moshe Tobl In Perth",
-        "title": "In Perth",
+        "title": "Moishe and Tobl In Perth",
         "filename": "08-moshe_tobl_in_perth.md"
       }
     ]
@@ -144,7 +144,7 @@
     "main": {
       "slug": "introduction",
       "name": "Introduction",
-      "title": "Introduction",
+      "title": "Shimon Meir Hochman",
       "filename": "I11060285.md"
     },
     "chapters": []
@@ -161,7 +161,7 @@
       {
         "slug": "01-edith-by-peter",
         "name": "Edith By Peter",
-        "title": "The Spielmann Home",
+        "title": "Edith's Biography by peter",
         "filename": "01-edith-by-peter.md"
       },
       {
@@ -197,50 +197,50 @@
     "main": {
       "slug": "introduction",
       "name": "Introduction",
-      "title": "Introduction",
+      "title": "Berl Hochman Hoffman Introduction",
       "filename": "I39965449.md"
     },
     "chapters": [
       {
         "slug": "01-early-life",
         "name": "Early Life",
-        "title": "Early Life and Palestine Years (1885-1904)",
+        "title": "Berl's Early Life and Palestine Years (1885-1904)",
         "filename": "01-early_life.md"
       },
       {
         "slug": "02-arrival-australia",
         "name": "Arrival Australia",
-        "title": "Arrival in Australia (1904-1907)",
+        "title": "Berl's Arrival in Australia (1904-1907)",
         "filename": "02-arrival_australia.md"
       },
       {
         "slug": "03-marriage",
         "name": "Marriage",
-        "title": "Marriage (1908)",
+        "title": "Berl's Marriage (1908)",
         "filename": "03-marriage.md"
       },
       {
         "slug": "04-perth-gallop-gardens",
         "name": "Perth Gallop Gardens",
-        "title": "Perth Years (1909-1913)",
+        "title": "Berl's Perth Years (1909-1913)",
         "filename": "04-perth_gallop_gardens.md"
       },
       {
         "slug": "05-westonia-business",
         "name": "Westonia Business",
-        "title": "Westonia Business (1913-1921)",
+        "title": "Berl's Westonia Business (1913-1921)",
         "filename": "05-westonia_business.md"
       },
       {
         "slug": "06-hotel-years",
         "name": "Hotel Years",
-        "title": "Hotel Years (1921-1925)",
+        "title": "Berl's Hotel Years (1921-1925)",
         "filename": "06-hotel_years.md"
       },
       {
         "slug": "07-final-years",
         "name": "Final Years",
-        "title": "Final Years (1925-1950)",
+        "title": "Berl's Final Years (1925-1950)",
         "filename": "07-final_years.md"
       }
     ]
@@ -250,7 +250,7 @@
     "main": {
       "slug": "introduction",
       "name": "Introduction",
-      "title": "Introduction",
+      "title": "Hershl Hochman",
       "filename": "I39965497.md"
     },
     "chapters": []
