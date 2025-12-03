@@ -1,0 +1,2419 @@
+{
+  "people": [
+    {
+      "id": "I34776522165",
+      "name": "Mordechai מרדכי Elizafan",
+      "birth_date": "between circa 1820 and 1825",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F100124274"
+      ]
+    },
+    {
+      "id": "I11032895",
+      "name": "Beile ביילא Hochman Elizafan",
+      "birth_date": "circa 1847",
+      "death_date": "1913",
+      "famc": "F100124274",
+      "fams": [
+        "F3770106"
+      ]
+    },
+    {
+      "id": "I11060285",
+      "name": "Shimon Meir מאיר Hochman",
+      "birth_date": "1868",
+      "death_date": "1937",
+      "famc": "F3770106",
+      "fams": [
+        "F13655669",
+        "F13655502"
+      ]
+    },
+    {
+      "id": "I11032861",
+      "name": "Haim Yehuda חיים יהודה Hochman",
+      "birth_date": "1866",
+      "death_date": "January 16, 1914",
+      "famc": "F3770106",
+      "fams": [
+        "F3769088"
+      ]
+    },
+    {
+      "id": "I38740193",
+      "name": "Josef Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F3770106",
+      "fams": [
+        "F13236228"
+      ]
+    },
+    {
+      "id": "I39114997",
+      "name": "Binyamin Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F3770106",
+      "fams": []
+    },
+    {
+      "id": "I39115025",
+      "name": "Kolman Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F3770106",
+      "fams": []
+    },
+    {
+      "id": "I39114938",
+      "name": "Avraham Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F3770106",
+      "fams": []
+    },
+    {
+      "id": "I39114787",
+      "name": "Sholem Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F3770106",
+      "fams": [
+        "F32835019"
+      ]
+    },
+    {
+      "id": "I11052340",
+      "name": "Moshe משה Hoffman Hochman",
+      "birth_date": "circa 1884",
+      "death_date": "April 7, 1973",
+      "famc": "F3770106",
+      "fams": [
+        "F3776794"
+      ]
+    },
+    {
+      "id": "I39114550",
+      "name": "Yisrael Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F3770106",
+      "fams": [
+        "F32834997"
+      ]
+    },
+    {
+      "id": "I39114448",
+      "name": "\"Bobka\" Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F3770106",
+      "fams": []
+    },
+    {
+      "id": "I11032885",
+      "name": "Wolf זאב Hochman",
+      "birth_date": "circa 1840",
+      "death_date": "circa 1890",
+      "famc": null,
+      "fams": [
+        "F3770106"
+      ]
+    },
+    {
+      "id": "I69829345",
+      "name": "Chaim Nissan ניסן Achiman Hochman",
+      "birth_date": "February 1, 1895",
+      "death_date": "February 24, 1991",
+      "famc": "F13655669",
+      "fams": [
+        "F23681200",
+        "F80286977",
+        "F112460209"
+      ]
+    },
+    {
+      "id": "I39965656",
+      "name": "Haya Moldavsky Hochman",
+      "birth_date": "circa 1900",
+      "death_date": "",
+      "famc": "F13655669",
+      "fams": [
+        "F14018794"
+      ]
+    },
+    {
+      "id": "I39965615",
+      "name": "Menachem Mendel מנדל Hochman",
+      "birth_date": "1900",
+      "death_date": "November 8, 1965",
+      "famc": "F13655669",
+      "fams": [
+        "F14018731"
+      ]
+    },
+    {
+      "id": "I39965722",
+      "name": "Elisheva Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13655669",
+      "fams": []
+    },
+    {
+      "id": "I39965692",
+      "name": "Mordechai Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13655669",
+      "fams": [
+        "F80287020",
+        "F76778361"
+      ]
+    },
+    {
+      "id": "I41031001",
+      "name": "Elchanan Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13655669",
+      "fams": []
+    },
+    {
+      "id": "I39965449",
+      "name": "Berl Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13655502",
+      "fams": [
+        "F13932432"
+      ]
+    },
+    {
+      "id": "I39965497",
+      "name": "Hershl Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13655502",
+      "fams": [
+        "F13934435"
+      ]
+    },
+    {
+      "id": "I39965387",
+      "name": "Frida Hochman Zisselman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13655669"
+      ]
+    },
+    {
+      "id": "I39965332",
+      "name": "Bracha Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13655502"
+      ]
+    },
+    {
+      "id": "I11029840",
+      "name": "Ze'ev Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F3769088",
+      "fams": [
+        "F3769093"
+      ]
+    },
+    {
+      "id": "I27102630293",
+      "name": "Elyashiv Hoffman Hochman",
+      "birth_date": "February 5, 1911",
+      "death_date": "February 17, 1974",
+      "famc": "F3769088",
+      "fams": [
+        "F42847203",
+        "F13656324"
+      ]
+    },
+    {
+      "id": "I11029872",
+      "name": "Rosa Aron Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F3769088",
+      "fams": [
+        "F3769100"
+      ]
+    },
+    {
+      "id": "I10847256",
+      "name": "Rivka Bar Cohen Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F3769088",
+      "fams": [
+        "F3706214"
+      ]
+    },
+    {
+      "id": "I38740400",
+      "name": "Shulamit Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F3769088",
+      "fams": [
+        "F13237245"
+      ]
+    },
+    {
+      "id": "I39967468",
+      "name": "Sara Hochman Bershada",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13656129",
+      "fams": [
+        "F3769088"
+      ]
+    },
+    {
+      "id": "I38740219",
+      "name": "Wolfe Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13236228",
+      "fams": [
+        "F13237245"
+      ]
+    },
+    {
+      "id": "I39968494",
+      "name": "Leah לאה Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13236228",
+      "fams": [
+        "F13657073"
+      ]
+    },
+    {
+      "id": "I6453453293",
+      "name": "Golde Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13236228",
+      "fams": []
+    },
+    {
+      "id": "I10022889293",
+      "name": "Menashe Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13236228",
+      "fams": []
+    },
+    {
+      "id": "I10018191293",
+      "name": "Tobl Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13236228"
+      ]
+    },
+    {
+      "id": "I6456414293",
+      "name": "William Wolf Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F32835019",
+      "fams": []
+    },
+    {
+      "id": "I6456540293",
+      "name": "Belle Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F32835019",
+      "fams": []
+    },
+    {
+      "id": "I6456702293",
+      "name": "Sara Reifman Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F32835019",
+      "fams": []
+    },
+    {
+      "id": "I6457089293",
+      "name": "Rebecca Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F32835019",
+      "fams": []
+    },
+    {
+      "id": "I100528021",
+      "name": "Shaindel Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F32835019"
+      ]
+    },
+    {
+      "id": "I38736184",
+      "name": "Aaron Harry אהרון Hoffman",
+      "birth_date": "",
+      "death_date": "1974",
+      "famc": "F3776794",
+      "fams": [
+        "F13655899"
+      ]
+    },
+    {
+      "id": "I38736293",
+      "name": "Bella Hoffman",
+      "birth_date": "",
+      "death_date": "1917",
+      "famc": "F3776794",
+      "fams": []
+    },
+    {
+      "id": "I11052350",
+      "name": "Hyman Judah Hoffman",
+      "birth_date": "April 28, 1918",
+      "death_date": "July 17, 2007",
+      "famc": "F3776794",
+      "fams": [
+        "F13161432"
+      ]
+    },
+    {
+      "id": "I7293825",
+      "name": "Wolf Hoffman",
+      "birth_date": "October 11, 1920",
+      "death_date": "May 14, 2001",
+      "famc": "F3776794",
+      "fams": [
+        "F69008"
+      ]
+    },
+    {
+      "id": "I61277011",
+      "name": "Alyce Breazeale Hoffman",
+      "birth_date": "circa 1925",
+      "death_date": "July 2, 2013",
+      "famc": "F3776794",
+      "fams": [
+        "F20778736"
+      ]
+    },
+    {
+      "id": "I38736559",
+      "name": "Jack Hoffman",
+      "birth_date": "May 18, 1927",
+      "death_date": "July 4, 2019",
+      "famc": "F3776794",
+      "fams": [
+        "F13236990"
+      ]
+    },
+    {
+      "id": "I38735986",
+      "name": "Tobl Hochman (Hoffman) Zitserman",
+      "birth_date": "circa 1888",
+      "death_date": "September 15, 1958",
+      "famc": "F78225475",
+      "fams": [
+        "F3776794"
+      ]
+    },
+    {
+      "id": "I6457782293",
+      "name": "Bertha Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F32834997",
+      "fams": []
+    },
+    {
+      "id": "I6457935293",
+      "name": "Ernest Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F32834997",
+      "fams": []
+    },
+    {
+      "id": "I6458115293",
+      "name": "Myrtle Hadassa Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F32834997",
+      "fams": []
+    },
+    {
+      "id": "I6458385293",
+      "name": "Wolf Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F32834997",
+      "fams": [
+        "F77363235"
+      ]
+    },
+    {
+      "id": "I6458664293",
+      "name": "Nathan Nachman Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F32834997",
+      "fams": []
+    },
+    {
+      "id": "I100527944",
+      "name": "Rachel Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F32834997"
+      ]
+    },
+    {
+      "id": "I34690176393",
+      "name": "Eliyahu Hochman",
+      "birth_date": "1920",
+      "death_date": "September 3, 2017",
+      "famc": "F23681200",
+      "fams": [
+        "F48128626"
+      ]
+    },
+    {
+      "id": "I34634392201",
+      "name": "Elisheva Hershkovitz Hochman",
+      "birth_date": "1922",
+      "death_date": "4, 2017",
+      "famc": "F23681200",
+      "fams": [
+        "F48129130"
+      ]
+    },
+    {
+      "id": "I34810539811",
+      "name": "Elisha Achiman Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F23681200",
+      "fams": [
+        "F112460755"
+      ]
+    },
+    {
+      "id": "I9238258",
+      "name": "Shoshana Rosa Hochman Achiman Cohen",
+      "birth_date": "1894",
+      "death_date": "December 1, 1951",
+      "famc": "F17073700",
+      "fams": [
+        "F23681200"
+      ]
+    },
+    {
+      "id": "I9238271",
+      "name": "Tova Schmidt Achiman Cohen",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F17073700",
+      "fams": [
+        "F23681147",
+        "F112460209"
+      ]
+    },
+    {
+      "id": "I34717332829",
+      "name": "Yehudit Achiman Heler",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F80286977"
+      ]
+    },
+    {
+      "id": "I34634428931",
+      "name": "Bat Sheva Hochman Moldavsky",
+      "birth_date": "1926",
+      "death_date": "",
+      "famc": "F14018794",
+      "fams": [
+        "F48128626"
+      ]
+    },
+    {
+      "id": "I41028718",
+      "name": "Rivka Becky רבקה Schwarz Moldavsky",
+      "birth_date": "November 14, 1929",
+      "death_date": "2020",
+      "famc": "F14018794",
+      "fams": [
+        "F14018627"
+      ]
+    },
+    {
+      "id": "I41029853",
+      "name": "Ella Sha'abi Moldavsky",
+      "birth_date": "September 22, 1932",
+      "death_date": "",
+      "famc": "F14018794",
+      "fams": [
+        "F14019345"
+      ]
+    },
+    {
+      "id": "I41027848",
+      "name": "Hillel Moldavsky",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F14018794"
+      ]
+    },
+    {
+      "id": "I34842724394",
+      "name": "Rina Kaminitz Hochman",
+      "birth_date": "April 9, 1932",
+      "death_date": "September 2024",
+      "famc": "F14018731",
+      "fams": [
+        "F123434239",
+        "F14018384"
+      ]
+    },
+    {
+      "id": "I34707228510",
+      "name": "Yaakov Harel Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F14018731",
+      "fams": [
+        "F14018592"
+      ]
+    },
+    {
+      "id": "I41030493",
+      "name": "Batya Hochman Feingold",
+      "birth_date": "1909",
+      "death_date": "1965",
+      "famc": "F123434217",
+      "fams": [
+        "F14018731"
+      ]
+    },
+    {
+      "id": "I61720688",
+      "name": "Shmariahu Hochman",
+      "birth_date": "1935",
+      "death_date": "",
+      "famc": "F76778361",
+      "fams": [
+        "F20933077"
+      ]
+    },
+    {
+      "id": "I104097137",
+      "name": "Shimon Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F76778361",
+      "fams": [
+        "F33976876",
+        "F33976889"
+      ]
+    },
+    {
+      "id": "I34717332929",
+      "name": "הוכמן",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F80287020"
+      ]
+    },
+    {
+      "id": "I34717332922",
+      "name": "Aliza Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F76778361"
+      ]
+    },
+    {
+      "id": "I87977937",
+      "name": "Bruce Hoffman",
+      "birth_date": "June 16, 1911",
+      "death_date": "",
+      "famc": "F13932432",
+      "fams": [
+        "F29912971"
+      ]
+    },
+    {
+      "id": "I40775931",
+      "name": "Hanna Beile חנה ביילע Miller Hochman",
+      "birth_date": "September 23, 1916",
+      "death_date": "July 11, 2017",
+      "famc": "F13932432",
+      "fams": [
+        "F13934013",
+        "F13931964"
+      ]
+    },
+    {
+      "id": "I40775682",
+      "name": "Minnie Mina Mendelovitz Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13932432",
+      "fams": [
+        "F13932531"
+      ]
+    },
+    {
+      "id": "I40775871",
+      "name": "Hymie Haim Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13932432",
+      "fams": [
+        "F13932336"
+      ]
+    },
+    {
+      "id": "I40775621",
+      "name": "Rivka Hochman Zisselman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13932432"
+      ]
+    },
+    {
+      "id": "I40778709",
+      "name": "Bruce Boruch Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13934435",
+      "fams": [
+        "F13934082"
+      ]
+    },
+    {
+      "id": "I40778886",
+      "name": "Ben Benzion Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13934435",
+      "fams": [
+        "F13934116"
+      ]
+    },
+    {
+      "id": "I40778933",
+      "name": "Nate Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13934435",
+      "fams": [
+        "F13934232"
+      ]
+    },
+    {
+      "id": "I40778983",
+      "name": "Rose Lazarus Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13934435",
+      "fams": [
+        "F13933794"
+      ]
+    },
+    {
+      "id": "I40779093",
+      "name": "Hammy Nehemiah Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13934435",
+      "fams": [
+        "F13934717"
+      ]
+    },
+    {
+      "id": "I40779121",
+      "name": "Bella Hoffman Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13934435",
+      "fams": []
+    },
+    {
+      "id": "I40778657",
+      "name": "Ruchel Hoffman Gillik",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13934435"
+      ]
+    },
+    {
+      "id": "I11029856",
+      "name": "Hilel Tamir (Hoffman)",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F3769093",
+      "fams": [
+        "F13237557"
+      ]
+    },
+    {
+      "id": "I11029849",
+      "name": "Miryam Hoffman Aharonovitch",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13720645",
+      "fams": [
+        "F3769093"
+      ]
+    },
+    {
+      "id": "I39967313",
+      "name": "Amira Plotkin Hoffman",
+      "birth_date": "August 17, 1937",
+      "death_date": "March 2, 2003",
+      "famc": "F42847203",
+      "fams": [
+        "F13656219"
+      ]
+    },
+    {
+      "id": "I39967018",
+      "name": "Yehuda Hoffman",
+      "birth_date": "November 16, 1947",
+      "death_date": "December 13, 1969",
+      "famc": "F13656324",
+      "fams": []
+    },
+    {
+      "id": "I39967210",
+      "name": "Sara Haim Hoffman",
+      "birth_date": "October 14, 1956",
+      "death_date": "",
+      "famc": "F13656324",
+      "fams": [
+        "F13702633"
+      ]
+    },
+    {
+      "id": "I39967070",
+      "name": "Yechi'el Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13656324",
+      "fams": [
+        "F13703425"
+      ]
+    },
+    {
+      "id": "I39967113",
+      "name": "Ya'akov Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13656324",
+      "fams": []
+    },
+    {
+      "id": "I27085962293",
+      "name": "Chaya Hoffman Triffon",
+      "birth_date": "September 17, 1915",
+      "death_date": "June 14, 2012",
+      "famc": "F42846424",
+      "fams": [
+        "F81750881",
+        "F42847203"
+      ]
+    },
+    {
+      "id": "I39966966",
+      "name": "Shoshana Hoffman Horovitz",
+      "birth_date": "August 28, 1918",
+      "death_date": "November 23, 2003",
+      "famc": "F58186368",
+      "fams": [
+        "F13656324"
+      ]
+    },
+    {
+      "id": "I6055695",
+      "name": "Sharona Broza Hoffman",
+      "birth_date": "December 7, 1927",
+      "death_date": "June 2005",
+      "famc": "F3769100",
+      "fams": [
+        "F4017734"
+      ]
+    },
+    {
+      "id": "I11029889",
+      "name": "Ilona אילונה Aron",
+      "birth_date": "October 9, 1934",
+      "death_date": "December 27, 2014",
+      "famc": "F3769100",
+      "fams": []
+    },
+    {
+      "id": "I39968195",
+      "name": "Pinchas (Wellesley) Aron",
+      "birth_date": "1901",
+      "death_date": "1988",
+      "famc": "F27504093",
+      "fams": [
+        "F3769100"
+      ]
+    },
+    {
+      "id": "I10846045",
+      "name": "Lea Amiran",
+      "birth_date": "1912",
+      "death_date": "February 26, 1997",
+      "famc": "F3706214",
+      "fams": [
+        "F3705804"
+      ]
+    },
+    {
+      "id": "I10886089",
+      "name": "Judith Treleaven Bar Cohen",
+      "birth_date": "",
+      "death_date": "2009",
+      "famc": "F3706214",
+      "fams": [
+        "F3758805"
+      ]
+    },
+    {
+      "id": "I10847248",
+      "name": "Aharon Nissan ניסן Bar Cohen Kaganovich",
+      "birth_date": "1886",
+      "death_date": "1934",
+      "famc": "F93171312",
+      "fams": [
+        "F3706214"
+      ]
+    },
+    {
+      "id": "I40151932",
+      "name": "Haim Yehuda Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13237245",
+      "fams": [
+        "F13235963"
+      ]
+    },
+    {
+      "id": "I34830326039",
+      "name": "Yefim Rosensvet",
+      "birth_date": "1921",
+      "death_date": "",
+      "famc": "F13657073",
+      "fams": [
+        "F119162139"
+      ]
+    },
+    {
+      "id": "I39968573",
+      "name": "Elka Dora Devora Haimson Rosensvet",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13657073",
+      "fams": [
+        "F13656471"
+      ]
+    },
+    {
+      "id": "I39968624",
+      "name": "Moshe Rosensvet",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13657073"
+      ]
+    },
+    {
+      "id": "I39965206",
+      "name": "Miriam Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13655899",
+      "fams": []
+    },
+    {
+      "id": "I39965122",
+      "name": "Trevor David Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13655899",
+      "fams": [
+        "F13721300",
+        "F32834861",
+        "F13721612"
+      ]
+    },
+    {
+      "id": "I39965270",
+      "name": "Judith Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13655899",
+      "fams": []
+    },
+    {
+      "id": "I39965086",
+      "name": "Eileen Hoffman Fewing",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13655899"
+      ]
+    },
+    {
+      "id": "I38516763",
+      "name": "Edward Denis אליהו Hoffman",
+      "birth_date": "December 27, 1944",
+      "death_date": "August 20, 2017",
+      "famc": "F13161432",
+      "fams": []
+    },
+    {
+      "id": "I11052359",
+      "name": "Dr PETER פנחס HOFFMAN",
+      "birth_date": "November 28, 1946",
+      "death_date": "December 28, 2024",
+      "famc": "F13161432",
+      "fams": [
+        "F13161723"
+      ]
+    },
+    {
+      "id": "I38516790",
+      "name": "Dianne Helen דינה Kemp Hoffman",
+      "birth_date": "September 6, 1948",
+      "death_date": "",
+      "famc": "F13161432",
+      "fams": [
+        "F13237018"
+      ]
+    },
+    {
+      "id": "I38516664",
+      "name": "Edith צירל Hoffman Spielmann",
+      "birth_date": "November 27, 1918",
+      "death_date": "January 2, 2008",
+      "famc": "F13161280",
+      "fams": [
+        "F13161432"
+      ]
+    },
+    {
+      "id": "I7293850",
+      "name": "Ronald Harris Hoffman",
+      "birth_date": "May 26, 1948",
+      "death_date": "May 4, 2021",
+      "famc": "F69008",
+      "fams": [
+        "F69152",
+        "F21371852"
+      ]
+    },
+    {
+      "id": "I7293714",
+      "name": "Ruth Anne Glasser Hoffman",
+      "birth_date": "October 4, 1950",
+      "death_date": "",
+      "famc": "F69008",
+      "fams": [
+        "F21371596"
+      ]
+    },
+    {
+      "id": "I7293708",
+      "name": "Valda Marie Hoffman Levy",
+      "birth_date": "May 16, 1926",
+      "death_date": "January 4, 2015",
+      "famc": "F66999",
+      "fams": [
+        "F69008"
+      ]
+    },
+    {
+      "id": "I45569141",
+      "name": "Eveonne Nisbet Breazeale",
+      "birth_date": "1944",
+      "death_date": "",
+      "famc": "F20778736",
+      "fams": [
+        "F15552668",
+        "F13720844"
+      ]
+    },
+    {
+      "id": "I39964744",
+      "name": "Sandra Kerr Breazeale",
+      "birth_date": "March 26, 1948",
+      "death_date": "",
+      "famc": "F20778736",
+      "fams": [
+        "F13722302",
+        "F13722347"
+      ]
+    },
+    {
+      "id": "I61276980",
+      "name": "Edward Merle Breazeale",
+      "birth_date": "December 10, 1919",
+      "death_date": "April 2, 1996",
+      "famc": "F27248557",
+      "fams": [
+        "F20778736"
+      ]
+    },
+    {
+      "id": "I38739984",
+      "name": "Dan Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13236990",
+      "fams": [
+        "F13722771"
+      ]
+    },
+    {
+      "id": "I38740076",
+      "name": "Toby Rachel Freund Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13236990",
+      "fams": [
+        "F13721988"
+      ]
+    },
+    {
+      "id": "I34633857222",
+      "name": "David Hoffman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13236990",
+      "fams": [
+        "F47925911"
+      ]
+    },
+    {
+      "id": "I38739935",
+      "name": "Louise Hoffman Cohen",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F42051576",
+      "fams": [
+        "F13236990"
+      ]
+    },
+    {
+      "id": "I34708906824",
+      "name": "Marie Hoffman",
+      "birth_date": "",
+      "death_date": "June 6, 2017",
+      "famc": "F77363235",
+      "fams": []
+    },
+    {
+      "id": "I34627726038",
+      "name": "Yehuda Hershkovitz",
+      "birth_date": "1917",
+      "death_date": "July 3, 2014",
+      "famc": "F45762448",
+      "fams": [
+        "F48129130"
+      ]
+    },
+    {
+      "id": "I104098048",
+      "name": "Rivka Freida Hochman זקון",
+      "birth_date": "1937",
+      "death_date": "",
+      "famc": "F86715086",
+      "fams": [
+        "F112460755"
+      ]
+    },
+    {
+      "id": "I41030187",
+      "name": "Alex Schwartz",
+      "birth_date": "October 4, 1922",
+      "death_date": "March 13, 2008",
+      "famc": null,
+      "fams": [
+        "F14018627"
+      ]
+    },
+    {
+      "id": "I41030307",
+      "name": "Na'im Sha'abi",
+      "birth_date": "June 10, 1931",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F14019345"
+      ]
+    },
+    {
+      "id": "I34741022624",
+      "name": "Chaim Kaminitz",
+      "birth_date": "November 16, 1932",
+      "death_date": "August 21, 2019",
+      "famc": null,
+      "fams": [
+        "F123434239"
+      ]
+    },
+    {
+      "id": "I41030762",
+      "name": "Haim Keminitz",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F14018384"
+      ]
+    },
+    {
+      "id": "I41030641",
+      "name": "Rivka Hochman Har'el",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F14018592"
+      ]
+    },
+    {
+      "id": "I61722335",
+      "name": "Genina Waxberg",
+      "birth_date": "1942",
+      "death_date": "",
+      "famc": "F20933200",
+      "fams": [
+        "F20933077"
+      ]
+    },
+    {
+      "id": "I104097201",
+      "name": "**** Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F33976876"
+      ]
+    },
+    {
+      "id": "I104097240",
+      "name": "Yehudit Hochman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F33976889"
+      ]
+    },
+    {
+      "id": "I87977949",
+      "name": "Fanny Hoffman Koser",
+      "birth_date": "February 15, 1915",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F29912971"
+      ]
+    },
+    {
+      "id": "I40776182",
+      "name": "Morrie Miller",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13931964"
+      ]
+    },
+    {
+      "id": "I40778552",
+      "name": "Graham Lee",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13934013"
+      ]
+    },
+    {
+      "id": "I40775955",
+      "name": "Mendel Mendelovitz",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13932531"
+      ]
+    },
+    {
+      "id": "I40776047",
+      "name": "Beryl Hoffman Potts",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13932336"
+      ]
+    },
+    {
+      "id": "I40779192",
+      "name": "Olga Hoffman Quatt",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13934082"
+      ]
+    },
+    {
+      "id": "I40779402",
+      "name": "Irene Hoffman Cook",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13934116"
+      ]
+    },
+    {
+      "id": "I40779627",
+      "name": "Leah Hoffman Machlin",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13934232"
+      ]
+    },
+    {
+      "id": "I40779264",
+      "name": "Ralph Lazarus",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13933794"
+      ]
+    },
+    {
+      "id": "I40779560",
+      "name": "Gertie Hoffman Millman",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13934717"
+      ]
+    },
+    {
+      "id": "I38741142",
+      "name": "Devora Tamir Warshavski",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13656498",
+      "fams": [
+        "F13237557"
+      ]
+    },
+    {
+      "id": "I39967363",
+      "name": "Shlomo Plotkin",
+      "birth_date": "December 18, 1928",
+      "death_date": "December 16, 2018",
+      "famc": "F13720622",
+      "fams": [
+        "F13656219"
+      ]
+    },
+    {
+      "id": "I40102160",
+      "name": "Alon Haim",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13702633"
+      ]
+    },
+    {
+      "id": "I40102350",
+      "name": "Barbara Hoffman Stefan",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13703425"
+      ]
+    },
+    {
+      "id": "I6033262",
+      "name": "Arthur Broza Brzoza",
+      "birth_date": "June 19, 1924",
+      "death_date": "May 2003",
+      "famc": "F31439727",
+      "fams": [
+        "F4017734"
+      ]
+    },
+    {
+      "id": "I10846099",
+      "name": "Matityahu Amiran",
+      "birth_date": "1910",
+      "death_date": "circa 1983",
+      "famc": "F3706202",
+      "fams": [
+        "F3705804"
+      ]
+    },
+    {
+      "id": "I11040281",
+      "name": "Arthur Treleaven",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F3758805"
+      ]
+    },
+    {
+      "id": "I38740670",
+      "name": "Leah Hoffman Bloomfield",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13235963"
+      ]
+    },
+    {
+      "id": "I34830326429",
+      "name": "Buzia Rosensvet",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F119162139"
+      ]
+    },
+    {
+      "id": "I39968655",
+      "name": "Les Lazar Haimson",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F13656682",
+      "fams": [
+        "F13656471"
+      ]
+    },
+    {
+      "id": "I100527572",
+      "name": "Jenny Parkinson",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F32834861"
+      ]
+    },
+    {
+      "id": "I40156750",
+      "name": "Lois Rasmussen",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13721300"
+      ]
+    },
+    {
+      "id": "I40156505",
+      "name": "Brigid Fitzgerald",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13721612"
+      ]
+    },
+    {
+      "id": "I38517487",
+      "name": "Varda ורדה Hoffman Nikfard",
+      "birth_date": "1949",
+      "death_date": "",
+      "famc": "F13652154",
+      "fams": [
+        "F13161723"
+      ]
+    },
+    {
+      "id": "I38739432",
+      "name": "Derek Kemp",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13237018"
+      ]
+    },
+    {
+      "id": "I63012874",
+      "name": "Paula Hoffman Shepherd",
+      "birth_date": "August 7, 1962",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F21371852"
+      ]
+    },
+    {
+      "id": "I7293880",
+      "name": "Margaret Hoffman Reynolds",
+      "birth_date": "circa 1950",
+      "death_date": "",
+      "famc": "F88568437",
+      "fams": [
+        "F69152"
+      ]
+    },
+    {
+      "id": "I7293962",
+      "name": "David Glasser",
+      "birth_date": "July 7, 1945",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F21371596"
+      ]
+    },
+    {
+      "id": "I45569115",
+      "name": "Michael JOHN Nisbet",
+      "birth_date": "November 13, 1941",
+      "death_date": "",
+      "famc": "F15552850",
+      "fams": [
+        "F15552668"
+      ]
+    },
+    {
+      "id": "I40157732",
+      "name": "Michael Nisbitt",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13720844"
+      ]
+    },
+    {
+      "id": "I40159158",
+      "name": "Henry Wilson",
+      "birth_date": "1939",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13722347"
+      ]
+    },
+    {
+      "id": "I40159359",
+      "name": "Peter Kerr",
+      "birth_date": "March 26, 1944",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F77210335",
+        "F13722302"
+      ]
+    },
+    {
+      "id": "I40159550",
+      "name": "Ketura Hoffman Monk",
+      "birth_date": "",
+      "death_date": "",
+      "famc": null,
+      "fams": [
+        "F13722771"
+      ]
+    },
+    {
+      "id": "I40160177",
+      "name": "Jerome Michael יעקב Freund",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F118407810",
+      "fams": [
+        "F13721988"
+      ]
+    },
+    {
+      "id": "I34633857141",
+      "name": "Eva Hoffman Segelov",
+      "birth_date": "",
+      "death_date": "",
+      "famc": "F47925882",
+      "fams": [
+        "F47925911"
+      ]
+    }
+  ],
+  "families": [
+    {
+      "id": "F100124274",
+      "husband": "I34776522165",
+      "wife": null,
+      "children": [
+        "I11032895"
+      ]
+    },
+    {
+      "id": "F3770106",
+      "husband": "I11032885",
+      "wife": "I11032895",
+      "children": [
+        "I11060285",
+        "I11032861",
+        "I38740193",
+        "I39114997",
+        "I39115025",
+        "I39114938",
+        "I39114787",
+        "I11052340",
+        "I39114550",
+        "I39114448"
+      ]
+    },
+    {
+      "id": "F13655669",
+      "husband": "I11060285",
+      "wife": "I39965387",
+      "children": [
+        "I69829345",
+        "I39965656",
+        "I39965615",
+        "I39965722",
+        "I39965692",
+        "I41031001"
+      ]
+    },
+    {
+      "id": "F13655502",
+      "husband": "I11060285",
+      "wife": "I39965332",
+      "children": [
+        "I39965449",
+        "I39965497"
+      ]
+    },
+    {
+      "id": "F3769088",
+      "husband": "I11032861",
+      "wife": "I39967468",
+      "children": [
+        "I11029840",
+        "I27102630293",
+        "I11029872",
+        "I10847256",
+        "I38740400"
+      ]
+    },
+    {
+      "id": "F13236228",
+      "husband": "I38740193",
+      "wife": "I10018191293",
+      "children": [
+        "I38740219",
+        "I39968494",
+        "I6453453293",
+        "I10022889293"
+      ]
+    },
+    {
+      "id": "F32835019",
+      "husband": "I39114787",
+      "wife": "I100528021",
+      "children": [
+        "I6456414293",
+        "I6456540293",
+        "I6456702293",
+        "I6457089293"
+      ]
+    },
+    {
+      "id": "F3776794",
+      "husband": "I11052340",
+      "wife": "I38735986",
+      "children": [
+        "I38736184",
+        "I38736293",
+        "I11052350",
+        "I7293825",
+        "I61277011",
+        "I38736559"
+      ]
+    },
+    {
+      "id": "F32834997",
+      "husband": "I39114550",
+      "wife": "I100527944",
+      "children": [
+        "I6457782293",
+        "I6457935293",
+        "I6458115293",
+        "I6458385293",
+        "I6458664293"
+      ]
+    },
+    {
+      "id": "F23681200",
+      "husband": "I69829345",
+      "wife": "I9238258",
+      "children": [
+        "I34690176393",
+        "I34634392201",
+        "I34810539811"
+      ]
+    },
+    {
+      "id": "F112460209",
+      "husband": "I69829345",
+      "wife": "I9238271",
+      "children": []
+    },
+    {
+      "id": "F80286977",
+      "husband": "I69829345",
+      "wife": "I34717332829",
+      "children": []
+    },
+    {
+      "id": "F14018794",
+      "husband": "I41027848",
+      "wife": "I39965656",
+      "children": [
+        "I34634428931",
+        "I41028718",
+        "I41029853"
+      ]
+    },
+    {
+      "id": "F14018731",
+      "husband": "I39965615",
+      "wife": "I41030493",
+      "children": [
+        "I34842724394",
+        "I34707228510"
+      ]
+    },
+    {
+      "id": "F80287020",
+      "husband": "I39965692",
+      "wife": "I34717332929",
+      "children": []
+    },
+    {
+      "id": "F76778361",
+      "husband": "I39965692",
+      "wife": "I34717332922",
+      "children": [
+        "I61720688",
+        "I104097137"
+      ]
+    },
+    {
+      "id": "F13932432",
+      "husband": "I39965449",
+      "wife": "I40775621",
+      "children": [
+        "I87977937",
+        "I40775931",
+        "I40775682",
+        "I40775871"
+      ]
+    },
+    {
+      "id": "F13934435",
+      "husband": "I39965497",
+      "wife": "I40778657",
+      "children": [
+        "I40778709",
+        "I40778886",
+        "I40778933",
+        "I40778983",
+        "I40779093",
+        "I40779121"
+      ]
+    },
+    {
+      "id": "F3769093",
+      "husband": "I11029840",
+      "wife": "I11029849",
+      "children": [
+        "I11029856"
+      ]
+    },
+    {
+      "id": "F42847203",
+      "husband": "I27102630293",
+      "wife": "I27085962293",
+      "children": [
+        "I39967313"
+      ]
+    },
+    {
+      "id": "F13656324",
+      "husband": "I27102630293",
+      "wife": "I39966966",
+      "children": [
+        "I39967018",
+        "I39967210",
+        "I39967070",
+        "I39967113"
+      ]
+    },
+    {
+      "id": "F3769100",
+      "husband": "I39968195",
+      "wife": "I11029872",
+      "children": [
+        "I6055695",
+        "I11029889"
+      ]
+    },
+    {
+      "id": "F3706214",
+      "husband": "I10847248",
+      "wife": "I10847256",
+      "children": [
+        "I10846045",
+        "I10886089"
+      ]
+    },
+    {
+      "id": "F13237245",
+      "husband": "I38740219",
+      "wife": "I38740400",
+      "children": [
+        "I40151932"
+      ]
+    },
+    {
+      "id": "F13656129",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I39967468"
+      ]
+    },
+    {
+      "id": "F13657073",
+      "husband": "I39968624",
+      "wife": "I39968494",
+      "children": [
+        "I34830326039",
+        "I39968573"
+      ]
+    },
+    {
+      "id": "F13655899",
+      "husband": "I38736184",
+      "wife": "I39965086",
+      "children": [
+        "I39965206",
+        "I39965122",
+        "I39965270"
+      ]
+    },
+    {
+      "id": "F13161432",
+      "husband": "I11052350",
+      "wife": "I38516664",
+      "children": [
+        "I38516763",
+        "I11052359",
+        "I38516790"
+      ]
+    },
+    {
+      "id": "F69008",
+      "husband": "I7293825",
+      "wife": "I7293708",
+      "children": [
+        "I7293850",
+        "I7293714"
+      ]
+    },
+    {
+      "id": "F20778736",
+      "husband": "I61276980",
+      "wife": "I61277011",
+      "children": [
+        "I45569141",
+        "I39964744"
+      ]
+    },
+    {
+      "id": "F13236990",
+      "husband": "I38736559",
+      "wife": "I38739935",
+      "children": [
+        "I38739984",
+        "I38740076",
+        "I34633857222"
+      ]
+    },
+    {
+      "id": "F78225475",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I38735986"
+      ]
+    },
+    {
+      "id": "F77363235",
+      "husband": "I6458385293",
+      "wife": null,
+      "children": [
+        "I34708906824"
+      ]
+    },
+    {
+      "id": "F48128626",
+      "husband": "I34690176393",
+      "wife": "I34634428931",
+      "children": []
+    },
+    {
+      "id": "F48129130",
+      "husband": "I34627726038",
+      "wife": "I34634392201",
+      "children": []
+    },
+    {
+      "id": "F112460755",
+      "husband": "I34810539811",
+      "wife": "I104098048",
+      "children": []
+    },
+    {
+      "id": "F17073700",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I9238258",
+        "I9238271"
+      ]
+    },
+    {
+      "id": "F23681147",
+      "husband": null,
+      "wife": "I9238271",
+      "children": []
+    },
+    {
+      "id": "F14018627",
+      "husband": "I41030187",
+      "wife": "I41028718",
+      "children": []
+    },
+    {
+      "id": "F14019345",
+      "husband": "I41030307",
+      "wife": "I41029853",
+      "children": []
+    },
+    {
+      "id": "F123434239",
+      "husband": "I34741022624",
+      "wife": "I34842724394",
+      "children": []
+    },
+    {
+      "id": "F14018384",
+      "husband": "I41030762",
+      "wife": "I34842724394",
+      "children": []
+    },
+    {
+      "id": "F14018592",
+      "husband": "I34707228510",
+      "wife": "I41030641",
+      "children": []
+    },
+    {
+      "id": "F123434217",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I41030493"
+      ]
+    },
+    {
+      "id": "F20933077",
+      "husband": "I61720688",
+      "wife": "I61722335",
+      "children": []
+    },
+    {
+      "id": "F33976876",
+      "husband": "I104097137",
+      "wife": "I104097201",
+      "children": []
+    },
+    {
+      "id": "F33976889",
+      "husband": "I104097137",
+      "wife": "I104097240",
+      "children": []
+    },
+    {
+      "id": "F29912971",
+      "husband": "I87977937",
+      "wife": "I87977949",
+      "children": []
+    },
+    {
+      "id": "F13931964",
+      "husband": "I40776182",
+      "wife": "I40775931",
+      "children": []
+    },
+    {
+      "id": "F13934013",
+      "husband": "I40778552",
+      "wife": "I40775931",
+      "children": []
+    },
+    {
+      "id": "F13932531",
+      "husband": "I40775955",
+      "wife": "I40775682",
+      "children": []
+    },
+    {
+      "id": "F13932336",
+      "husband": "I40775871",
+      "wife": "I40776047",
+      "children": []
+    },
+    {
+      "id": "F13934082",
+      "husband": "I40778709",
+      "wife": "I40779192",
+      "children": []
+    },
+    {
+      "id": "F13934116",
+      "husband": "I40778886",
+      "wife": "I40779402",
+      "children": []
+    },
+    {
+      "id": "F13934232",
+      "husband": "I40778933",
+      "wife": "I40779627",
+      "children": []
+    },
+    {
+      "id": "F13933794",
+      "husband": "I40779264",
+      "wife": "I40778983",
+      "children": []
+    },
+    {
+      "id": "F13934717",
+      "husband": "I40779093",
+      "wife": "I40779560",
+      "children": []
+    },
+    {
+      "id": "F13237557",
+      "husband": "I11029856",
+      "wife": "I38741142",
+      "children": []
+    },
+    {
+      "id": "F13720645",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I11029849"
+      ]
+    },
+    {
+      "id": "F13656219",
+      "husband": "I39967363",
+      "wife": "I39967313",
+      "children": []
+    },
+    {
+      "id": "F13702633",
+      "husband": "I40102160",
+      "wife": "I39967210",
+      "children": []
+    },
+    {
+      "id": "F13703425",
+      "husband": "I39967070",
+      "wife": "I40102350",
+      "children": []
+    },
+    {
+      "id": "F81750881",
+      "husband": null,
+      "wife": "I27085962293",
+      "children": []
+    },
+    {
+      "id": "F42846424",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I27085962293"
+      ]
+    },
+    {
+      "id": "F58186368",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I39966966"
+      ]
+    },
+    {
+      "id": "F4017734",
+      "husband": "I6033262",
+      "wife": "I6055695",
+      "children": []
+    },
+    {
+      "id": "F27504093",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I39968195"
+      ]
+    },
+    {
+      "id": "F3705804",
+      "husband": "I10846099",
+      "wife": "I10846045",
+      "children": []
+    },
+    {
+      "id": "F3758805",
+      "husband": "I11040281",
+      "wife": "I10886089",
+      "children": []
+    },
+    {
+      "id": "F93171312",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I10847248"
+      ]
+    },
+    {
+      "id": "F13235963",
+      "husband": "I40151932",
+      "wife": "I38740670",
+      "children": []
+    },
+    {
+      "id": "F119162139",
+      "husband": "I34830326039",
+      "wife": "I34830326429",
+      "children": []
+    },
+    {
+      "id": "F13656471",
+      "husband": "I39968655",
+      "wife": "I39968573",
+      "children": []
+    },
+    {
+      "id": "F32834861",
+      "husband": "I39965122",
+      "wife": "I100527572",
+      "children": []
+    },
+    {
+      "id": "F13721300",
+      "husband": "I39965122",
+      "wife": "I40156750",
+      "children": []
+    },
+    {
+      "id": "F13721612",
+      "husband": "I39965122",
+      "wife": "I40156505",
+      "children": []
+    },
+    {
+      "id": "F13161723",
+      "husband": "I11052359",
+      "wife": "I38517487",
+      "children": []
+    },
+    {
+      "id": "F13237018",
+      "husband": "I38739432",
+      "wife": "I38516790",
+      "children": []
+    },
+    {
+      "id": "F13161280",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I38516664"
+      ]
+    },
+    {
+      "id": "F21371852",
+      "husband": "I7293850",
+      "wife": "I63012874",
+      "children": []
+    },
+    {
+      "id": "F69152",
+      "husband": "I7293850",
+      "wife": "I7293880",
+      "children": []
+    },
+    {
+      "id": "F21371596",
+      "husband": "I7293962",
+      "wife": "I7293714",
+      "children": []
+    },
+    {
+      "id": "F66999",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I7293708"
+      ]
+    },
+    {
+      "id": "F15552668",
+      "husband": "I45569115",
+      "wife": "I45569141",
+      "children": []
+    },
+    {
+      "id": "F13720844",
+      "husband": "I40157732",
+      "wife": "I45569141",
+      "children": []
+    },
+    {
+      "id": "F13722347",
+      "husband": "I40159158",
+      "wife": "I39964744",
+      "children": []
+    },
+    {
+      "id": "F13722302",
+      "husband": "I40159359",
+      "wife": "I39964744",
+      "children": []
+    },
+    {
+      "id": "F27248557",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I61276980"
+      ]
+    },
+    {
+      "id": "F13722771",
+      "husband": "I38739984",
+      "wife": "I40159550",
+      "children": []
+    },
+    {
+      "id": "F13721988",
+      "husband": "I40160177",
+      "wife": "I38740076",
+      "children": []
+    },
+    {
+      "id": "F47925911",
+      "husband": "I34633857222",
+      "wife": "I34633857141",
+      "children": []
+    },
+    {
+      "id": "F42051576",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I38739935"
+      ]
+    },
+    {
+      "id": "F45762448",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I34627726038"
+      ]
+    },
+    {
+      "id": "F86715086",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I104098048"
+      ]
+    },
+    {
+      "id": "F20933200",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I61722335"
+      ]
+    },
+    {
+      "id": "F13656498",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I38741142"
+      ]
+    },
+    {
+      "id": "F13720622",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I39967363"
+      ]
+    },
+    {
+      "id": "F31439727",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I6033262"
+      ]
+    },
+    {
+      "id": "F3706202",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I10846099"
+      ]
+    },
+    {
+      "id": "F13656682",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I39968655"
+      ]
+    },
+    {
+      "id": "F13652154",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I38517487"
+      ]
+    },
+    {
+      "id": "F88568437",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I7293880"
+      ]
+    },
+    {
+      "id": "F15552850",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I45569115"
+      ]
+    },
+    {
+      "id": "F77210335",
+      "husband": "I40159359",
+      "wife": null,
+      "children": []
+    },
+    {
+      "id": "F118407810",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I40160177"
+      ]
+    },
+    {
+      "id": "F47925882",
+      "husband": null,
+      "wife": null,
+      "children": [
+        "I34633857141"
+      ]
+    }
+  ]
+}

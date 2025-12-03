@@ -1,0 +1,1 @@
+Companion photo to B10

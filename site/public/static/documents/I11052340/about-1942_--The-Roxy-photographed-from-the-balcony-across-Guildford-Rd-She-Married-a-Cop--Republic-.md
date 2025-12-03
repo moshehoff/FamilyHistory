@@ -1,0 +1,1 @@
+about 1942.  The Roxy photographed from the balcony across Guildford Rd She Married a Cop  Republic Pictures 1939 playing
