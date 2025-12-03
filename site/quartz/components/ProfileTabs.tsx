@@ -1715,6 +1715,112 @@ function initProfileTabs() {
     return html;
   }
   
+  // Load PDF.js and render first page as thumbnail
+  function loadPdfThumbnail(pdfUrl, canvas) {
+    // Check if PDF.js is already loaded
+    if (typeof window.pdfjsLib === 'undefined') {
+      // Check if script is already being loaded
+      const existingScript = document.querySelector('script[src*="pdf.js"]');
+      if (existingScript) {
+        // Wait for it to load
+        existingScript.addEventListener('load', function() {
+          if (window.pdfjsLib) {
+            window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+            renderPdfThumbnail(pdfUrl, canvas);
+          }
+        });
+        return;
+      }
+      
+      // Load PDF.js from CDN
+      const script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+      script.onload = function() {
+        if (window.pdfjsLib) {
+          // Set worker path
+          window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+          renderPdfThumbnail(pdfUrl, canvas);
+        }
+      };
+      script.onerror = function() {
+        console.error('Failed to load PDF.js');
+        showPdfError(canvas);
+      };
+      document.head.appendChild(script);
+    } else {
+      renderPdfThumbnail(pdfUrl, canvas);
+    }
+  }
+  
+  function showPdfError(canvas) {
+    const ctx = canvas.getContext('2d');
+    const maxWidth = 200;
+    const maxHeight = 280;
+    canvas.width = maxWidth;
+    canvas.height = maxHeight;
+    ctx.fillStyle = '#f5f5f5';
+    ctx.fillRect(0, 0, maxWidth, maxHeight);
+    ctx.fillStyle = '#999';
+    ctx.font = '12px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('PDF Preview', maxWidth / 2, maxHeight / 2);
+  }
+  
+  function renderPdfThumbnail(pdfUrl, canvas) {
+    if (!window.pdfjsLib) {
+      showPdfError(canvas);
+      return;
+    }
+    
+    const ctx = canvas.getContext('2d');
+    const scale = 1.5; // Higher scale for better quality
+    const maxWidth = 200;
+    const maxHeight = 280;
+    
+    // Show loading state
+    canvas.width = maxWidth;
+    canvas.height = maxHeight;
+    ctx.fillStyle = '#f5f5f5';
+    ctx.fillRect(0, 0, maxWidth, maxHeight);
+    ctx.fillStyle = '#999';
+    ctx.font = '14px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('Loading...', maxWidth / 2, maxHeight / 2);
+    
+    window.pdfjsLib.getDocument(pdfUrl).promise.then(function(pdf) {
+      return pdf.getPage(1); // Get first page
+    }).then(function(page) {
+      const viewport = page.getViewport({ scale: scale });
+      
+      // Calculate dimensions to fit in maxWidth x maxHeight while maintaining aspect ratio
+      let width = viewport.width;
+      let height = viewport.height;
+      const aspectRatio = width / height;
+      
+      if (width > maxWidth) {
+        width = maxWidth;
+        height = width / aspectRatio;
+      }
+      if (height > maxHeight) {
+        height = maxHeight;
+        width = height * aspectRatio;
+      }
+      
+      canvas.width = width;
+      canvas.height = height;
+      
+      const renderContext = {
+        canvasContext: ctx,
+        viewport: page.getViewport({ scale: scale * (width / viewport.width) })
+      };
+      
+      return page.render(renderContext).promise;
+    }).catch(function(error) {
+      console.error('Error loading PDF thumbnail:', error);
+      showPdfError(canvas);
+    });
+  }
+  
   // Load media (images and documents combined)
   function loadMedia(profileId) {
     console.log('[ProfileTabs] Loading media for profile:', profileId);
@@ -1837,13 +1943,44 @@ function initProfileTabs() {
             
             const icon = getDocumentIcon(doc.filename);
             const documentUrl = documentsBasePath + doc.filename;
+            const isPdf = doc.filename.toLowerCase().endsWith('.pdf');
             
-            item.innerHTML = '<div class="document-icon">' + icon + '</div>' +
-                            '<div class="document-info">' +
-                            '<div class="document-name">' + (doc.title || doc.filename) + '</div>' +
-                            '<div class="document-meta">' + (doc.description || '') + '</div>' +
-                            '</div>' +
-                            '<a href="' + documentUrl + '" target="_blank" class="document-download">Open</a>';
+            // Create preview container
+            const previewContainer = document.createElement('div');
+            previewContainer.className = 'document-preview';
+            
+            if (isPdf) {
+              // For PDFs, create a canvas for thumbnail
+              const canvas = document.createElement('canvas');
+              canvas.className = 'document-thumbnail';
+              previewContainer.appendChild(canvas);
+              
+              // Load PDF.js and render first page
+              loadPdfThumbnail(documentUrl, canvas);
+            } else {
+              // For other documents, show icon
+              const iconDiv = document.createElement('div');
+              iconDiv.className = 'document-icon-large';
+              iconDiv.textContent = icon;
+              previewContainer.appendChild(iconDiv);
+            }
+            
+            item.appendChild(previewContainer);
+            
+            // Create info section
+            const infoDiv = document.createElement('div');
+            infoDiv.className = 'document-info';
+            infoDiv.innerHTML = '<div class="document-name">' + (doc.title || doc.filename) + '</div>' +
+                              '<div class="document-meta">' + (doc.description || '') + '</div>';
+            item.appendChild(infoDiv);
+            
+            // Create open button
+            const openLink = document.createElement('a');
+            openLink.href = documentUrl;
+            openLink.target = '_blank';
+            openLink.className = 'document-download';
+            openLink.textContent = 'Open';
+            item.appendChild(openLink);
             
             // Make the whole item clickable
             item.style.cursor = 'pointer';
