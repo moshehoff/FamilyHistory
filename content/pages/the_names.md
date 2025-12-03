@@ -1,3 +1,4 @@
+## The Names Opus
 
 The study of names - onomastics, is fascinating. The origins and meanings of some of my family names eluded me for years. But one by one, and by various strokes of fortune, I arrived at the answers. Here I put them on record, both for their intrinsic interest, and to spare any other soul the effort I made to reach my conclusions. Names based on physiognomy and personal traits, Biblical figures, given names of relatives, occupations, places of origin, etc, are typical of those chosen by Jews. Throughout Europe, at various times civil administrations legislated that Jews adopt family names, whereas previously they had only given names and patronyms.
 
