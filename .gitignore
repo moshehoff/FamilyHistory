@@ -28,6 +28,7 @@ site/content/profiles/
 site/quartz/static/family-data.json
 site/quartz/static/media-index.json
 site/quartz/static/chapters-index.json
+site/quartz/static/id-to-slug.json
 site/quartz/static/chapters/
 site/quartz/static/documents/
 
@@ -75,6 +76,7 @@ logs/
 # Crawl reports
 link_crawl_report.json
 scripts/link_crawl_report.json
+js_link_check_report.json
 
 # Backup files
 *.backup
