@@ -396,6 +396,7 @@ def clean_project():
         "site/quartz/static/family-data.json",  # Generated family data
         "site/quartz/static/media-index.json",  # Generated media index
         "site/quartz/static/chapters-index.json",  # Generated chapters index
+        "site/quartz/static/backlinks-index.json",  # Generated backlinks index
         "site/quartz/static/documents",  # Copied documents directory
         "site/quartz/static/chapters",  # Copied chapters directory
     ]

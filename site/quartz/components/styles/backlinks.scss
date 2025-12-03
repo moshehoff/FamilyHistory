@@ -16,8 +16,12 @@
     overscroll-behavior: contain;
 
     & > li {
+      margin-bottom: 0.3rem; // Small spacing between different links
+      
       & > a {
         background-color: transparent;
+        line-height: 1.2; // Tighter line spacing within a single link when it wraps
+        display: inline-block; // Allow line wrapping
       }
     }
   }

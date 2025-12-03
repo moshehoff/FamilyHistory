@@ -21,6 +21,7 @@ from generators.profile_generator import ProfileGenerator
 from generators.mermaid_builder import MermaidDiagramBuilder
 from generators.media_handler import MediaIndexHandler
 from generators.chapters_handler import ChaptersIndexHandler
+from generators.backlinks_index import BacklinksIndexHandler
 from generators.index_generators import (
     write_people_index,
     write_bios_index,
@@ -30,6 +31,77 @@ from generators.index_generators import (
     copy_source_content,
     clean_project
 )
+
+
+class ErrorCollectorHandler(logging.Handler):
+    """Custom logging handler that collects errors and warnings."""
+    
+    def __init__(self):
+        super().__init__()
+        self.errors = []
+        self.warnings = []
+    
+    def emit(self, record):
+        """Collect errors and warnings."""
+        if record.levelno >= logging.ERROR:
+            self.errors.append(record)
+        elif record.levelno >= logging.WARNING:
+            self.warnings.append(record)
+    
+    def get_summary(self):
+        """Get summary of collected errors and warnings."""
+        return {
+            'errors': self.errors,
+            'warnings': self.warnings
+        }
+    
+    def has_issues(self):
+        """Check if there are any errors or warnings."""
+        return len(self.errors) > 0 or len(self.warnings) > 0
+
+
+def _print_errors_and_warnings_summary(error_collector, logger):
+    """Print a clear summary of all errors and warnings at the end."""
+    summary = error_collector.get_summary()
+    errors = summary['errors']
+    warnings = summary['warnings']
+    
+    if not error_collector.has_issues():
+        return
+    
+    # Print separator
+    print("\n" + "=" * 70)
+    print("SUMMARY OF ERRORS AND WARNINGS")
+    print("=" * 70)
+    
+    # Print errors
+    if errors:
+        print(f"\n❌ ERRORS ({len(errors)}):")
+        print("-" * 70)
+        for i, record in enumerate(errors, 1):
+            msg = record.getMessage()
+            name = record.name if hasattr(record, 'name') else record.module
+            print(f"  {i}. [{name}] {msg}")
+            if record.exc_info:
+                import traceback
+                print(f"     {''.join(traceback.format_exception(*record.exc_info))}")
+    
+    # Print warnings
+    if warnings:
+        print(f"\n⚠️  WARNINGS ({len(warnings)}):")
+        print("-" * 70)
+        for i, record in enumerate(warnings, 1):
+            msg = record.getMessage()
+            name = record.name if hasattr(record, 'name') else record.module
+            print(f"  {i}. [{name}] {msg}")
+    
+    # Print summary
+    print("\n" + "=" * 70)
+    if errors:
+        print(f"⚠️  Build completed with {len(errors)} error(s) and {len(warnings)} warning(s)")
+    else:
+        print(f"✓ Build completed with {len(warnings)} warning(s)")
+    print("=" * 70 + "\n")
 
 
 def main():
@@ -109,12 +181,19 @@ Examples:
     else:
         log_level = logging.INFO
     
+    # Create error collector to track errors and warnings
+    error_collector = ErrorCollectorHandler()
+    error_collector.setLevel(logging.WARNING)  # Only collect warnings and errors
+    
     logger = setup_logger(
         "doit",
         level=log_level,
         log_file=args.log_file,
         console=True
     )
+    
+    # Add error collector to root logger to catch all errors/warnings
+    logging.root.addHandler(error_collector)
     
     # Handle clean command
     if args.clean:
@@ -142,6 +221,7 @@ Examples:
     if args.analyze_places:
         places = analyze_places(individuals)
         print_place_analysis(places)
+        _print_errors_and_warnings_summary(error_collector, logger)
         return
 
     # Generate profiles first (needed for link_converter)
@@ -179,6 +259,17 @@ Examples:
     )
     chapters_handler.create_chapters_index()
     
+    # Create backlinks index (after chapters index is created)
+    logger.info("Creating backlinks index...")
+    backlinks_handler = BacklinksIndexHandler(
+        args.bios_dir,
+        DEFAULT_STATIC_DIR,
+        individuals,
+        id_to_slug,
+        link_converter=link_converter
+    )
+    backlinks_handler.create_backlinks_index()
+    
     # Write index pages
     logger.info("Creating index pages...")
     people_dir = args.output
@@ -194,6 +285,9 @@ Examples:
     logger.info("✓ Done!")
     logger.info(f"Generated {len(individuals)} profiles in {args.output}")
     logger.info("=" * 70)
+    
+    # Display errors and warnings summary at the end
+    _print_errors_and_warnings_summary(error_collector, logger)
 
 
 if __name__ == "__main__":
