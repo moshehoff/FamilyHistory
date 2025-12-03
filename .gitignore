@@ -28,6 +28,7 @@ site/content/profiles/
 site/quartz/static/family-data.json
 site/quartz/static/media-index.json
 site/quartz/static/chapters-index.json
+site/quartz/static/backlinks-index.json
 site/quartz/static/id-to-slug.json
 site/quartz/static/chapters/
 site/quartz/static/documents/
