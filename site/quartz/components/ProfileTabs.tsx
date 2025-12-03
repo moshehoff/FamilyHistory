@@ -1836,13 +1836,24 @@ function initProfileTabs() {
             item.className = 'document-item';
             
             const icon = getDocumentIcon(doc.filename);
+            const documentUrl = documentsBasePath + doc.filename;
             
             item.innerHTML = '<div class="document-icon">' + icon + '</div>' +
                             '<div class="document-info">' +
                             '<div class="document-name">' + (doc.title || doc.filename) + '</div>' +
                             '<div class="document-meta">' + (doc.description || '') + '</div>' +
                             '</div>' +
-                            '<a href="' + documentsBasePath + doc.filename + '" download class="document-download">Download</a>';
+                            '<a href="' + documentUrl + '" target="_blank" class="document-download">Open</a>';
+            
+            // Make the whole item clickable
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', function(e) {
+              // Don't open if clicking on the download link
+              if (e.target.tagName.toLowerCase() === 'a') {
+                return;
+              }
+              window.open(documentUrl, '_blank');
+            });
             
             docsList.appendChild(item);
           });
