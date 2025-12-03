@@ -545,6 +545,15 @@ article, .tab-pane {
     margin: 1rem 0 !important;
     font-size: 0.85rem;
   }
+  
+  // Reduce index quote font size by 25% on mobile (only affects index.md)
+  .index-quote-hebrew {
+    font-size: 0.9rem !important; // 75% of 1.2rem
+  }
+  
+  .index-quote-english {
+    font-size: 0.825rem !important; // 75% of 1.1rem
+  }
 }
 
 // Extra small devices - even less padding
@@ -558,6 +567,15 @@ article, .tab-pane {
     padding: 0.5rem !important;
     margin: 0.75rem 0 !important;
     font-size: 0.8rem;
+  }
+  
+  // Keep index quote smaller on extra small devices too (only affects index.md)
+  .index-quote-hebrew {
+    font-size: 0.9rem !important;
+  }
+  
+  .index-quote-english {
+    font-size: 0.825rem !important;
   }
 }
 
