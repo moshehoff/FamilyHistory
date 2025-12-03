@@ -160,6 +160,35 @@ export default (() => {
     content-visibility: auto !important; /* Override base.scss */
   }
   
+  .document-thumbnail {
+    width: 100% !important;
+    height: auto !important;
+    cursor: pointer !important;
+    background: white !important;
+    display: block !important;
+    border: 2px solid #333 !important;
+    border-radius: 4px 4px 0 0 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+  
+  .document-icon-preview {
+    width: 100% !important;
+    min-height: 300px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #f5f5f5 !important;
+    border: 2px solid #333 !important;
+    border-radius: 4px 4px 0 0 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    font-size: 5rem !important;
+    color: #999 !important;
+    cursor: pointer !important;
+  }
+  
   .image-caption {
     padding: 0.35rem 0.5rem !important; /* Very tight padding */
     font-size: 0.85rem !important;
@@ -1754,14 +1783,14 @@ function initProfileTabs() {
   
   function showPdfError(canvas) {
     const ctx = canvas.getContext('2d');
-    const maxWidth = 200;
-    const maxHeight = 280;
+    const maxWidth = 600;
+    const maxHeight = 400;
     canvas.width = maxWidth;
     canvas.height = maxHeight;
     ctx.fillStyle = '#f5f5f5';
     ctx.fillRect(0, 0, maxWidth, maxHeight);
     ctx.fillStyle = '#999';
-    ctx.font = '12px Arial';
+    ctx.font = '16px Arial';
     ctx.textAlign = 'center';
     ctx.fillText('PDF Preview', maxWidth / 2, maxHeight / 2);
   }
@@ -1773,9 +1802,9 @@ function initProfileTabs() {
     }
     
     const ctx = canvas.getContext('2d');
-    const scale = 1.5; // Higher scale for better quality
-    const maxWidth = 200;
-    const maxHeight = 280;
+    const scale = 2; // Higher scale for better quality
+    const maxWidth = 600; // Match image width in gallery
+    const maxHeight = 800; // Match image max height
     
     // Show loading state
     canvas.width = maxWidth;
@@ -1790,28 +1819,41 @@ function initProfileTabs() {
     window.pdfjsLib.getDocument(pdfUrl).promise.then(function(pdf) {
       return pdf.getPage(1); // Get first page
     }).then(function(page) {
-      const viewport = page.getViewport({ scale: scale });
+      // Get the viewport at scale 1 to get the natural page dimensions
+      const naturalViewport = page.getViewport({ scale: 1 });
+      const naturalWidth = naturalViewport.width;
+      const naturalHeight = naturalViewport.height;
+      const aspectRatio = naturalWidth / naturalHeight;
       
       // Calculate dimensions to fit in maxWidth x maxHeight while maintaining aspect ratio
-      let width = viewport.width;
-      let height = viewport.height;
-      const aspectRatio = width / height;
+      let canvasWidth = naturalWidth;
+      let canvasHeight = naturalHeight;
       
-      if (width > maxWidth) {
-        width = maxWidth;
-        height = width / aspectRatio;
+      // Fit to max dimensions while maintaining aspect ratio
+      if (canvasWidth > maxWidth || canvasHeight > maxHeight) {
+        if (canvasWidth / maxWidth > canvasHeight / maxHeight) {
+          canvasWidth = maxWidth;
+          canvasHeight = canvasWidth / aspectRatio;
+        } else {
+          canvasHeight = maxHeight;
+          canvasWidth = canvasHeight * aspectRatio;
+        }
       }
-      if (height > maxHeight) {
-        height = maxHeight;
-        width = height * aspectRatio;
-      }
       
-      canvas.width = width;
-      canvas.height = height;
+      // Set canvas size to match the calculated dimensions
+      canvas.width = canvasWidth;
+      canvas.height = canvasHeight;
       
+      // Calculate the scale needed to render the page at the canvas size
+      const renderScale = canvasWidth / naturalWidth;
+      
+      // Create viewport at the correct scale to fit the canvas
+      const renderViewport = page.getViewport({ scale: renderScale });
+      
+      // Render the page
       const renderContext = {
         canvasContext: ctx,
-        viewport: page.getViewport({ scale: scale * (width / viewport.width) })
+        viewport: renderViewport
       };
       
       return page.render(renderContext).promise;
@@ -1933,66 +1975,57 @@ function initProfileTabs() {
         if (documents.length > 0) {
           const docsSection = document.createElement('div');
           docsSection.className = 'media-section';
-          docsSection.innerHTML = '<h3>Documents</h3><div class="documents-list"></div>';
+          docsSection.innerHTML = '<h3>Documents</h3><div class="gallery-grid"></div>';
           mediaContent.appendChild(docsSection);
           
-          const docsList = docsSection.querySelector('.documents-list');
+          const docsGrid = docsSection.querySelector('.gallery-grid');
+          
           documents.forEach(function(doc) {
             const item = document.createElement('div');
-            item.className = 'document-item';
+            item.className = 'gallery-item';
             
-            const icon = getDocumentIcon(doc.filename);
             const documentUrl = documentsBasePath + doc.filename;
             const isPdf = doc.filename.toLowerCase().endsWith('.pdf');
             
-            // Create preview container
-            const previewContainer = document.createElement('div');
-            previewContainer.className = 'document-preview';
-            
+            // Create preview container (like image)
             if (isPdf) {
               // For PDFs, create a canvas for thumbnail
               const canvas = document.createElement('canvas');
               canvas.className = 'document-thumbnail';
-              previewContainer.appendChild(canvas);
+              item.appendChild(canvas);
               
               // Load PDF.js and render first page
               loadPdfThumbnail(documentUrl, canvas);
             } else {
-              // For other documents, show icon
+              // For other documents, show icon as image-like element
               const iconDiv = document.createElement('div');
-              iconDiv.className = 'document-icon-large';
-              iconDiv.textContent = icon;
-              previewContainer.appendChild(iconDiv);
+              iconDiv.className = 'document-icon-preview';
+              iconDiv.textContent = getDocumentIcon(doc.filename);
+              item.appendChild(iconDiv);
             }
             
-            item.appendChild(previewContainer);
+            // Add caption (like image caption)
+            const captionText = doc.title || doc.filename;
+            if (captionText) {
+              const captionDiv = document.createElement('div');
+              captionDiv.className = 'image-caption';
+              captionDiv.textContent = captionText;
+              if (doc.description) {
+                captionDiv.innerHTML = '<strong>' + captionText + '</strong><br>' + doc.description;
+              }
+              item.appendChild(captionDiv);
+            }
             
-            // Create info section
-            const infoDiv = document.createElement('div');
-            infoDiv.className = 'document-info';
-            infoDiv.innerHTML = '<div class="document-name">' + (doc.title || doc.filename) + '</div>' +
-                              '<div class="document-meta">' + (doc.description || '') + '</div>';
-            item.appendChild(infoDiv);
-            
-            // Create open button
-            const openLink = document.createElement('a');
-            openLink.href = documentUrl;
-            openLink.target = '_blank';
-            openLink.className = 'document-download';
-            openLink.textContent = 'Open';
-            item.appendChild(openLink);
-            
-            // Make the whole item clickable
-            item.style.cursor = 'pointer';
+            // Click to open document
             item.addEventListener('click', function(e) {
-              // Don't open if clicking on the download link
+              // Don't open if clicking on a link in the caption
               if (e.target.tagName.toLowerCase() === 'a') {
                 return;
               }
               window.open(documentUrl, '_blank');
             });
             
-            docsList.appendChild(item);
+            docsGrid.appendChild(item);
           });
         }
       })
@@ -2014,7 +2047,13 @@ function initProfileTabs() {
       'jpg': '🖼️',
       'jpeg': '🖼️',
       'png': '🖼️',
-      'gif': '🖼️'
+      'gif': '🖼️',
+      'wma': '🎵',
+      'mp3': '🎵',
+      'wav': '🎵',
+      'mp4': '🎬',
+      'avi': '🎬',
+      'mov': '🎬'
     };
     return icons[ext] || '📄';
   }
