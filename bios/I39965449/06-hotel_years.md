@@ -1,4 +1,4 @@
-## Hotel Years (1921-1925)
+## Berl's Hotel Years (1921-1925)
 
 ### Stirling Arms Hotel
 

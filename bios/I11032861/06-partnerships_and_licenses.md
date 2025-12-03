@@ -1,4 +1,4 @@
-## Partnerships and Licenses (1909)
+## Hyam Yudl's Partnerships and Licenses (1909)
 
 In February 1909, the Ferstat brothers – Joseph, Morris and Nahum - applied for Australian Wine Licences. They had entered the wine business during 1908. At the same time Hyam applied to upgrade his own wine licence granted in September 1907 to an Australian wine licence.
 

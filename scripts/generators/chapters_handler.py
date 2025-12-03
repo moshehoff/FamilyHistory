@@ -248,13 +248,15 @@ class ChaptersIndexHandler:
         """
         main_bio_path = os.path.join(profile_path, main_bio_file)
         
-        # Read title from file
+        # Read title from file - skip empty lines and find first heading
         title = "Introduction"
         try:
             with open(main_bio_path, 'r', encoding='utf-8') as f:
-                first_line = f.readline().strip()
-                if first_line.startswith('#'):
-                    title = first_line.lstrip('#').strip()
+                for line in f:
+                    line = line.strip()
+                    if line and line.startswith('#'):
+                        title = line.lstrip('#').strip()
+                        break
         except Exception as e:
             logger.warning(f"Error reading title from {main_bio_path}: {e}")
         
@@ -304,13 +306,13 @@ class ChaptersIndexHandler:
         name = re.sub(r'^\d+-', '', filename[:-3])  # Remove leading numbers
         name = name.replace('_', ' ').replace('-', ' ').title()
         
-        # Read title from file
+        # Read title from file - skip empty lines and find first heading
         title = name
         try:
             with open(chapter_path, 'r', encoding='utf-8') as f:
                 for line in f:
                     line = line.strip()
-                    if line.startswith('#'):
+                    if line and line.startswith('#'):
                         title = line.lstrip('#').strip()
                         break
         except Exception as e:
@@ -436,13 +438,13 @@ class ChaptersIndexHandler:
             name = re.sub(r'^\d+-', '', shared_chapter_file[:-3])
             name = name.replace('_', ' ').replace('-', ' ').title()
             
-            # Read title
+            # Read title - skip empty lines and find first heading
             title = name
             try:
                 with open(source_chapter_path, 'r', encoding='utf-8') as f:
                     for line in f:
                         line = line.strip()
-                        if line.startswith('#'):
+                        if line and line.startswith('#'):
                             title = line.lstrip('#').strip()
                             break
             except Exception as e:
@@ -508,9 +510,11 @@ class ChaptersIndexHandler:
             title = "Introduction"
             try:
                 with open(main_bio_path, 'r', encoding='utf-8') as f:
-                    first_line = f.readline().strip()
-                    if first_line.startswith('#'):
-                        title = first_line.lstrip('#').strip()
+                    for line in f:
+                        line = line.strip()
+                        if line and line.startswith('#'):
+                            title = line.lstrip('#').strip()
+                            break
             except Exception as e:
                 logger.warning(f"Error reading title from {main_bio_path}: {e}")
             

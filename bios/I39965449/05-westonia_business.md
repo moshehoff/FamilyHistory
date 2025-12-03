@@ -1,4 +1,4 @@
-## Westonia Business (1913-1921)
+## Berl's Westonia Business (1913-1921)
 
 ### The Town of Westonia
 

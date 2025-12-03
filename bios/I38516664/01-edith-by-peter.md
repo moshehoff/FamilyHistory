@@ -1,11 +1,12 @@
 
+## Edith's Biography by peter
 ### The Spielmann Home
 
 The Spielmann home, where she was born was at Zwolfergasse 9 Wien XV. Quite near the Westbahnof train station.
 
 To find their home, enter the building and ascend one flight of steps, then turn left. It is the second door in that passage. All that remains today are the sets of nail holes in the door frame where Eduard affixed the mezzuzah.
 
-The Wesbahnhof was the departure station for those travelling to France and the Channel Ports and later the assembly site for many deportations to Theresienstadt, and of the Kindertransports to England. It was bombed and gutted to a shell by the Allies; rebuilt and again became a major station. However, since 2015, with the exception of Salzburg it handles only local rail traffic. It was bombed and gutted to a shell by the Allies; rebuilt and again became a major station. However, since 2015, with the exception of Salzburg it handles only local rail traffic.
+The Wesbahnhof was the departure station for those travelling to France and the Channel Ports and later the assembly site for many deportations to Theresienstadt, and of the Kindertransports to England. It was bombed and gutted to a shell by the Allies; rebuilt and again became a major station. However, since 2015, with the exception of Salzburg it handles only local rail traffic. It was bombed and gutted to a shell by the Allies; rebuilt and again became a major station. 
 
 ---
 

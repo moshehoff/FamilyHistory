@@ -1,4 +1,4 @@
-## Final Years and Challenges (1911-1914)
+## Hyam Yudl's Final Years and Challenges (1911-1914)
 
 The following two passages are part of a much longer and humorous newspaper article. The Railway Fruit Palace was adjacent to the "Sunday Times" offices. Apparently reporters from the newspaper were Hyam's customers, and he gave them his opinion of an anarchist scare in Western Australia; and incidentally his opinion of the Russian legal system, and his own experiences of the pogroms of 1884.
 

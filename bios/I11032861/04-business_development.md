@@ -1,4 +1,4 @@
-## Business Development (1904-1907)
+## Hyam Yudl's Business Development (1904-1907)
 
 The following newspaper excerpts enlighten us on Hyam's business acumen, and explain how his enterprise prospered.
 
