@@ -42,7 +42,7 @@ When she acquired the property, or whether <a href="/profiles/Moshe-%D7%9E%D7%A9
 
 ---
 
-1914 <a href="/profiles/Sara-Hochman-Bershada">Sarah Hoffman</a>, with her three younger children (<a href="/profiles/Wolfe-Hochman">Wolfe</a>, <a href="/profiles/Rosa-Aron-Hoffman">Rosa</a> and <a href="/profiles/Berl-Hochman">Eli \[Aliyashiv\]](/profiles/Elyashiv-Hoffman-Hochman)) had returned to Rehovot, and their home on their land in Ezra Street. In November 1917 British forces entered Rehovot during their campaign to conquer Ottoman Palestine. The ANZACs who were stationed in the area were popular with the Jewish settlement. This amusing tale came to light during my research. The girl concerned was Rosa (then aged about 15 years).
+1914 <a href="/profiles/Sara-Hochman-Bershada">Sarah Hoffman</a>, with her three younger children (<a href="/profiles/Wolfe-Hochman">Wolfe</a>, <a href="/profiles/Rosa-Aron-Hoffman">Rosa</a> and <a href="/profiles/Elyashiv-Hoffman-Hochman">Eli Aliyashiv</a>) had returned to Rehovot, and their home on their land in Ezra Street. In November 1917 British forces entered Rehovot during their campaign to conquer Ottoman Palestine. The ANZACs who were stationed in the area were popular with the Jewish settlement. This amusing tale came to light during my research. The girl concerned was Rosa (then aged about 15 years).
 
 <div class="citation-box">
 
@@ -70,7 +70,7 @@ The daughter of the house smiled. "Why," she said, "you may have it as a gift, b
 
 This chapter has encompassed the first twenty years of our history in Australia (1901 – 1920), during which the heads of family, viz:
 
-Hyam Yuda, [Berl</a>, <a href="/profiles/Yisrael-Hochman">Israel</a>, <a href="/profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman-Hochman">Morris</a>, <a href="/profiles/Wolfe-Hochman">Wolfe</a>, and Hershl
+Hyam Yuda, <a href="/profiles/Berl-Hochman">Berl</a>, <a href="/profiles/Yisrael-Hochman">Israel</a>, <a href="/profiles/Moshe-%D7%9E%D7%A9%D7%94-Hoffman-Hochman">Morris</a>, <a href="/profiles/Wolfe-Hochman">Wolfe</a>, and Hershl
 
 had all had "gone their own ways", and were established in the community at large.
 
