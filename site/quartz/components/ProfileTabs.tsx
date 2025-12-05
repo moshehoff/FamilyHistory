@@ -26,6 +26,9 @@ export default (() => {
           <button class="tab-button" data-tab="media" id="media-tab-button" style="display: none;">
             🖼️ Gallery
           </button>
+          <button class="tab-button" data-tab="documents" id="documents-tab-button" style="display: none;">
+            📄 Documents
+          </button>
         </div>
         
         <div class="tabs-content">
@@ -36,6 +39,12 @@ export default (() => {
           <div class="tab-pane" data-tab-content="media">
             <div id="media-content">
               <div class="loading-message">Loading gallery...</div>
+            </div>
+          </div>
+          
+          <div class="tab-pane" data-tab-content="documents">
+            <div id="documents-content">
+              <div class="loading-message">Loading documents...</div>
             </div>
           </div>
         </div>
@@ -535,17 +544,19 @@ function initProfileTabs() {
   const tabButtons = document.querySelectorAll('.tab-button');
   const tabPanes = document.querySelectorAll('.tab-pane');
   const mediaTabButton = document.getElementById('media-tab-button');
+  const documentsTabButton = document.getElementById('documents-tab-button');
   
   // Remove emojis from main tabs on mobile
   if (window.innerWidth <= 768) {
     tabButtons.forEach(function(button) {
       const text = button.textContent.trim();
-      // Remove emojis (📖, 🖼️) from button text
-      button.textContent = text.replace(/📖|🖼️/g, '').trim();
+      // Remove emojis (📖, 🖼️, 📄) from button text
+      button.textContent = text.replace(/📖|🖼️|📄/g, '').trim();
     });
   }
   
   let mediaLoaded = false;
+  let documentsLoaded = false;
   
   // Function to restore tab state from URL hash on initial load
   function restoreTabFromHash() {
@@ -598,6 +609,21 @@ function initProfileTabs() {
             console.log('[ProfileTabs] Loading media for restored gallery tab');
             loadMedia(profileId);
             mediaLoaded = true;
+          }
+        }
+        
+        // Load documents if switching to documents tab
+        if (tabName === 'documents' && profileId) {
+          const documentsContent = tabPane.querySelector('#documents-content');
+          // Check if documents are already loaded
+          const hasContent = documentsContent && documentsContent.innerHTML && 
+                            !documentsContent.innerHTML.includes('Loading') &&
+                            !documentsContent.innerHTML.includes('Loading documents');
+          
+          if (!hasContent) {
+            console.log('[ProfileTabs] Loading documents for restored documents tab');
+            loadDocuments(profileId);
+            documentsLoaded = true;
           }
         }
       }
@@ -693,7 +719,7 @@ function initProfileTabs() {
       });
   }
   
-  // Check if profile has media content and show/hide the gallery tab accordingly
+  // Check if profile has media content and show/hide the gallery and documents tabs accordingly
   function checkMediaContent() {
     fetch(basePath + 'static/media-index.json')
       .then(function(response) {
@@ -711,7 +737,8 @@ function initProfileTabs() {
         
         console.log('[ProfileTabs] Found', images.length, 'images and', documents.length, 'documents for profile', profileId);
         
-        if (images.length > 0 || documents.length > 0) {
+        // Show/hide gallery tab based on images
+        if (images.length > 0) {
           if (mediaTabButton) {
             mediaTabButton.style.display = 'block';
           }
@@ -720,11 +747,25 @@ function initProfileTabs() {
             mediaTabButton.style.display = 'none';
           }
         }
+        
+        // Show/hide documents tab based on documents
+        if (documents.length > 0) {
+          if (documentsTabButton) {
+            documentsTabButton.style.display = 'block';
+          }
+        } else {
+          if (documentsTabButton) {
+            documentsTabButton.style.display = 'none';
+          }
+        }
       })
       .catch(function(err) {
         console.log('[ProfileTabs] Error checking media content:', err);
         if (mediaTabButton) {
           mediaTabButton.style.display = 'none';
+        }
+        if (documentsTabButton) {
+          documentsTabButton.style.display = 'none';
         }
       });
   }
@@ -1863,7 +1904,7 @@ function initProfileTabs() {
     });
   }
   
-  // Load media (images and documents combined)
+  // Load media (images only)
   function loadMedia(profileId) {
     console.log('[ProfileTabs] Loading media for profile:', profileId);
     // Find media-content within the media tab pane
@@ -1889,149 +1930,186 @@ function initProfileTabs() {
       })
       .then(function(data) {
         const images = data.images[profileId] || [];
-        const documents = data.documents[profileId] || [];
         
-        console.log('[ProfileTabs] Found', images.length, 'images and', documents.length, 'documents');
+        console.log('[ProfileTabs] Found', images.length, 'images');
         
-        if (images.length === 0 && documents.length === 0) {
-          mediaContent.innerHTML = '<div class="empty-message">No images or documents available</div>';
+        if (images.length === 0) {
+          mediaContent.innerHTML = '<div class="empty-message">No images available</div>';
           return;
         }
         
         mediaContent.innerHTML = '';
         
         // Add images section
-        if (images.length > 0) {
-          const imagesSection = document.createElement('div');
-          imagesSection.className = 'media-section';
-          imagesSection.innerHTML = '<h3>Images</h3><div class="gallery-grid"></div>';
-          mediaContent.appendChild(imagesSection);
-          
-          const galleryGrid = imagesSection.querySelector('.gallery-grid');
-          
-          images.forEach(function(img) {
-            const item = document.createElement('div');
-            item.className = 'gallery-item';
-            
-            // Build the correct path for the image
-            let imagePath;
-            if (img.path) {
-              // img.path is like "/static/documents/ID/filename.jpg"
-              // Remove leading slash and prepend pageBasePath
-              imagePath = pageBasePath + (img.path.startsWith('/') ? img.path.substring(1) : img.path);
-            } else {
-              // Fallback to constructing from filename (for images without path)
-              imagePath = documentsBasePath + img.filename;
-            }
-            const imageAlt = img.caption ? img.caption.replace(/<[^>]*>/g, '') : ''; // Strip HTML for alt text
-            // Convert newlines to <br> tags for line breaks in caption
-            const newlineChar = String.fromCharCode(10);
-            let formattedCaption = img.caption ? img.caption.split(newlineChar).join('<br>') : '';
-            
-            // Fix profile links in caption to include base path (for GitHub Pages)
-            // Use pageBasePath which is already available and correct
-            // Remove trailing slash from pageBasePath if present (links already start with /)
-            var basePathForLinks = pageBasePath;
-            if (basePathForLinks && basePathForLinks.endsWith('/')) {
-              basePathForLinks = basePathForLinks.substring(0, basePathForLinks.length - 1);
-            }
-            
-            // Fix absolute profile links in caption HTML by adding base path
-            // Pattern: href="/profiles/something" -> add base path before /profiles
-            if (formattedCaption && basePathForLinks) {
-              var linkPattern = new RegExp('href="(\\\\/profiles\\\\/[^"]+)"', 'g');
-              formattedCaption = formattedCaption.replace(linkPattern, function(match, path) {
-                return 'href="' + basePathForLinks + path + '"';
-              });
-            }
-            
-            // Create image element
-            const imgElement = document.createElement('img');
-            imgElement.src = imagePath;
-            imgElement.alt = imageAlt;
-            
-            item.appendChild(imgElement);
-            if (formattedCaption) {
-              const captionDiv = document.createElement('div');
-              captionDiv.className = 'image-caption';
-              captionDiv.innerHTML = formattedCaption;
-              item.appendChild(captionDiv);
-            }
-            
-            // Click to open full size
-            item.addEventListener('click', function(e) {
-              // Don't open if clicking on a link in the caption
-              if (e.target.tagName.toLowerCase() === 'a') {
-                return;
-              }
-              window.open(imagePath, '_blank');
-            });
-            
-            galleryGrid.appendChild(item);
-          });
-        }
+        const imagesSection = document.createElement('div');
+        imagesSection.className = 'media-section';
+        imagesSection.innerHTML = '<h3>Images</h3><div class="gallery-grid"></div>';
+        mediaContent.appendChild(imagesSection);
         
-        // Add documents section
-        if (documents.length > 0) {
-          const docsSection = document.createElement('div');
-          docsSection.className = 'media-section';
-          docsSection.innerHTML = '<h3>Documents</h3><div class="gallery-grid"></div>';
-          mediaContent.appendChild(docsSection);
+        const galleryGrid = imagesSection.querySelector('.gallery-grid');
+        
+        images.forEach(function(img) {
+          const item = document.createElement('div');
+          item.className = 'gallery-item';
           
-          const docsGrid = docsSection.querySelector('.gallery-grid');
+          // Build the correct path for the image
+          let imagePath;
+          if (img.path) {
+            // img.path is like "/static/documents/ID/filename.jpg"
+            // Remove leading slash and prepend pageBasePath
+            imagePath = pageBasePath + (img.path.startsWith('/') ? img.path.substring(1) : img.path);
+          } else {
+            // Fallback to constructing from filename (for images without path)
+            imagePath = documentsBasePath + img.filename;
+          }
+          const imageAlt = img.caption ? img.caption.replace(/<[^>]*>/g, '') : ''; // Strip HTML for alt text
+          // Convert newlines to <br> tags for line breaks in caption
+          const newlineChar = String.fromCharCode(10);
+          let formattedCaption = img.caption ? img.caption.split(newlineChar).join('<br>') : '';
           
-          documents.forEach(function(doc) {
-            const item = document.createElement('div');
-            item.className = 'gallery-item';
-            
-            const documentUrl = documentsBasePath + doc.filename;
-            const isPdf = doc.filename.toLowerCase().endsWith('.pdf');
-            
-            // Create preview container (like image)
-            if (isPdf) {
-              // For PDFs, create a canvas for thumbnail
-              const canvas = document.createElement('canvas');
-              canvas.className = 'document-thumbnail';
-              item.appendChild(canvas);
-              
-              // Load PDF.js and render first page
-              loadPdfThumbnail(documentUrl, canvas);
-            } else {
-              // For other documents, show icon as image-like element
-              const iconDiv = document.createElement('div');
-              iconDiv.className = 'document-icon-preview';
-              iconDiv.textContent = getDocumentIcon(doc.filename);
-              item.appendChild(iconDiv);
-            }
-            
-            // Add caption (like image caption)
-            const captionText = doc.title || doc.filename;
-            if (captionText) {
-              const captionDiv = document.createElement('div');
-              captionDiv.className = 'image-caption';
-              captionDiv.textContent = captionText;
-              if (doc.description) {
-                captionDiv.innerHTML = '<strong>' + captionText + '</strong><br>' + doc.description;
-              }
-              item.appendChild(captionDiv);
-            }
-            
-            // Click to open document
-            item.addEventListener('click', function(e) {
-              // Don't open if clicking on a link in the caption
-              if (e.target.tagName.toLowerCase() === 'a') {
-                return;
-              }
-              window.open(documentUrl, '_blank');
+          // Fix profile links in caption to include base path (for GitHub Pages)
+          // Use pageBasePath which is already available and correct
+          // Remove trailing slash from pageBasePath if present (links already start with /)
+          var basePathForLinks = pageBasePath;
+          if (basePathForLinks && basePathForLinks.endsWith('/')) {
+            basePathForLinks = basePathForLinks.substring(0, basePathForLinks.length - 1);
+          }
+          
+          // Fix absolute profile links in caption HTML by adding base path
+          // Pattern: href="/profiles/something" -> add base path before /profiles
+          if (formattedCaption && basePathForLinks) {
+            var linkPattern = new RegExp('href="(\\\\/profiles\\\\/[^"]+)"', 'g');
+            formattedCaption = formattedCaption.replace(linkPattern, function(match, path) {
+              return 'href="' + basePathForLinks + path + '"';
             });
-            
-            docsGrid.appendChild(item);
+          }
+          
+          // Create image element
+          const imgElement = document.createElement('img');
+          imgElement.src = imagePath;
+          imgElement.alt = imageAlt;
+          
+          item.appendChild(imgElement);
+          if (formattedCaption) {
+            const captionDiv = document.createElement('div');
+            captionDiv.className = 'image-caption';
+            captionDiv.innerHTML = formattedCaption;
+            item.appendChild(captionDiv);
+          }
+          
+          // Click to open full size
+          item.addEventListener('click', function(e) {
+            // Don't open if clicking on a link in the caption
+            if (e.target.tagName.toLowerCase() === 'a') {
+              return;
+            }
+            window.open(imagePath, '_blank');
           });
-        }
+          
+          galleryGrid.appendChild(item);
+        });
       })
       .catch(function(err) {
         console.log('[ProfileTabs] Media loading error:', err);
         mediaContent.innerHTML = '<div class="empty-message">Error loading gallery</div>';
+      });
+  }
+  
+  // Load documents (non-image files)
+  function loadDocuments(profileId) {
+    console.log('[ProfileTabs] Loading documents for profile:', profileId);
+    // Find documents-content within the documents tab pane
+    const documentsPane = document.querySelector('[data-tab-content="documents"]');
+    const documentsContent = documentsPane ? documentsPane.querySelector('#documents-content') : document.getElementById('documents-content');
+    if (!documentsContent) {
+      console.log('[ProfileTabs] documents-content not found');
+      return;
+    }
+    
+    const profileTabs = document.querySelector('.profile-tabs');
+    let pageBasePath = profileTabs ? profileTabs.getAttribute('data-base-path') || '' : '';
+    // Ensure pageBasePath ends with / if it's not empty
+    if (pageBasePath && !pageBasePath.endsWith('/')) {
+      pageBasePath = pageBasePath + '/';
+    }
+    const documentsBasePath = pageBasePath + 'static/documents/' + profileId + '/';
+    
+    fetch(pageBasePath + 'static/media-index.json')
+      .then(function(response) {
+        if (!response.ok) throw new Error('No media index');
+        return response.json();
+      })
+      .then(function(data) {
+        const documents = data.documents[profileId] || [];
+        
+        console.log('[ProfileTabs] Found', documents.length, 'documents');
+        
+        if (documents.length === 0) {
+          documentsContent.innerHTML = '<div class="empty-message">No documents available</div>';
+          return;
+        }
+        
+        documentsContent.innerHTML = '';
+        
+        // Add documents section
+        const docsSection = document.createElement('div');
+        docsSection.className = 'media-section';
+        docsSection.innerHTML = '<h3>Documents</h3><div class="gallery-grid"></div>';
+        documentsContent.appendChild(docsSection);
+        
+        const docsGrid = docsSection.querySelector('.gallery-grid');
+        
+        documents.forEach(function(doc) {
+          const item = document.createElement('div');
+          item.className = 'gallery-item';
+          
+          const documentUrl = documentsBasePath + doc.filename;
+          const isPdf = doc.filename.toLowerCase().endsWith('.pdf');
+          
+          // Create preview container (like image)
+          if (isPdf) {
+            // For PDFs, create a canvas for thumbnail
+            const canvas = document.createElement('canvas');
+            canvas.className = 'document-thumbnail';
+            item.appendChild(canvas);
+            
+            // Load PDF.js and render first page
+            loadPdfThumbnail(documentUrl, canvas);
+          } else {
+            // For other documents, show icon as image-like element
+            const iconDiv = document.createElement('div');
+            iconDiv.className = 'document-icon-preview';
+            iconDiv.textContent = getDocumentIcon(doc.filename);
+            item.appendChild(iconDiv);
+          }
+          
+          // Add caption (like image caption)
+          const captionText = doc.title || doc.filename;
+          if (captionText) {
+            const captionDiv = document.createElement('div');
+            captionDiv.className = 'image-caption';
+            captionDiv.textContent = captionText;
+            if (doc.description) {
+              captionDiv.innerHTML = '<strong>' + captionText + '</strong><br>' + doc.description;
+            }
+            item.appendChild(captionDiv);
+          }
+          
+          // Click to open document
+          item.addEventListener('click', function(e) {
+            // Don't open if clicking on a link in the caption
+            if (e.target.tagName.toLowerCase() === 'a') {
+              return;
+            }
+            window.open(documentUrl, '_blank');
+          });
+          
+          docsGrid.appendChild(item);
+        });
+      })
+      .catch(function(err) {
+        console.log('[ProfileTabs] Documents loading error:', err);
+        documentsContent.innerHTML = '<div class="empty-message">Error loading documents</div>';
       });
   }
   
@@ -2083,6 +2161,11 @@ function initProfileTabs() {
       if (tabName === 'media' && !mediaLoaded && profileId) {
         loadMedia(profileId);
         mediaLoaded = true;
+      }
+      
+      if (tabName === 'documents' && !documentsLoaded && profileId) {
+        loadDocuments(profileId);
+        documentsLoaded = true;
       }
       
       // Update URL hash to preserve tab state
@@ -2208,6 +2291,41 @@ function initProfileTabs() {
         
         // Don't restore chapters when in gallery tab
         return;
+      } else if (tabName === 'documents') {
+        console.log('[ProfileTabs] Restoring documents tab from popstate');
+        // Switch to documents tab
+        const documentsButton = document.querySelector('[data-tab="documents"]');
+        const documentsPane = document.querySelector('[data-tab-content="documents"]');
+        
+        if (documentsButton && documentsPane) {
+          // Remove active from all tabs
+          tabButtons.forEach(function(btn) {
+            btn.classList.remove('active');
+          });
+          tabPanes.forEach(function(pane) {
+            pane.classList.remove('active');
+          });
+          
+          // Activate documents tab
+          documentsButton.classList.add('active');
+          documentsPane.classList.add('active');
+          
+          // Load documents if not already loaded
+          const documentsContent = documentsPane.querySelector('#documents-content');
+          const hasContent = documentsContent && documentsContent.innerHTML && 
+                            !documentsContent.innerHTML.includes('Loading') &&
+                            !documentsContent.innerHTML.includes('Loading documents') &&
+                            !documentsContent.innerHTML.includes('empty-message');
+          
+          if (!hasContent && profileId) {
+            console.log('[ProfileTabs] Loading documents for documents tab from popstate');
+            loadDocuments(profileId);
+            documentsLoaded = true;
+          }
+        }
+        
+        // Don't restore chapters when in documents tab
+        return;
       } else if (tabName === 'biography' || !tabName) {
         // Switch to biography tab (default)
         const biographyButton = document.querySelector('[data-tab="biography"]');
@@ -2228,9 +2346,9 @@ function initProfileTabs() {
         }
       }
       
-      // Handle chapter navigation (only if we're in biography tab, NOT in media tab)
-      // Don't restore chapters if we're in media tab
-      if (tabName !== 'media') {
+      // Handle chapter navigation (only if we're in biography tab, NOT in media or documents tab)
+      // Don't restore chapters if we're in media or documents tab
+      if (tabName !== 'media' && tabName !== 'documents') {
         if (chapterSlug) {
           // Validate that the chapter belongs to the current profile
           let isValidChapter = false;
@@ -2290,7 +2408,8 @@ function initProfileTabs() {
       // Also restore again after a bit more time in case createChapterTabs was delayed
       setTimeout(function() {
         const hash = window.location.hash;
-        if (hash && (hash.includes('tab=media') || hash.includes('tabmedia'))) {
+        if (hash && (hash.includes('tab=media') || hash.includes('tabmedia') || 
+                     hash.includes('tab=documents') || hash.includes('tabdocuments'))) {
           restoreTabFromHash();
         }
       }, 300);
