@@ -721,7 +721,14 @@ function initProfileTabs() {
   
   // Check if profile has media content and show/hide the gallery and documents tabs accordingly
   function checkMediaContent() {
-    fetch(basePath + 'static/media-index.json')
+    // Add cache busting to prevent stale cache on mobile browsers
+    const cacheBuster = '?t=' + Date.now();
+    fetch(basePath + 'static/media-index.json' + cacheBuster, {
+      cache: 'no-store',
+      headers: {
+        'Cache-Control': 'no-cache',
+      }
+    })
       .then(function(response) {
         if (!response.ok) {
           console.log('[ProfileTabs] No media index found');
@@ -1923,7 +1930,14 @@ function initProfileTabs() {
     }
     const documentsBasePath = pageBasePath + 'static/documents/' + profileId + '/';
     
-    fetch(pageBasePath + 'static/media-index.json')
+    // Add cache busting to prevent stale cache on mobile browsers
+    const cacheBuster = '?t=' + Date.now();
+    fetch(pageBasePath + 'static/media-index.json' + cacheBuster, {
+      cache: 'no-store',
+      headers: {
+        'Cache-Control': 'no-cache',
+      }
+    })
       .then(function(response) {
         if (!response.ok) throw new Error('No media index');
         return response.json();
@@ -2034,7 +2048,14 @@ function initProfileTabs() {
     }
     const documentsBasePath = pageBasePath + 'static/documents/' + profileId + '/';
     
-    fetch(pageBasePath + 'static/media-index.json')
+    // Add cache busting to prevent stale cache on mobile browsers
+    const cacheBuster = '?t=' + Date.now();
+    fetch(pageBasePath + 'static/media-index.json' + cacheBuster, {
+      cache: 'no-store',
+      headers: {
+        'Cache-Control': 'no-cache',
+      }
+    })
       .then(function(response) {
         if (!response.ok) throw new Error('No media index');
         return response.json();
