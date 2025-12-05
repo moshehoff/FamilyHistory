@@ -42,7 +42,7 @@ When she acquired the property, or whether [Morris|I11052340] had it transferred
 
 ---
 
-1914 [Sarah Hoffman|I39967468], with her three younger children ([Wolfe|I38740219], [Rosa|I11029872] and [Eli \[Aliyashiv\]](/profiles/Elyashiv-Hoffman-Hochman)) had returned to Rehovot, and their home on their land in Ezra Street. In November 1917 British forces entered Rehovot during their campaign to conquer Ottoman Palestine. The ANZACs who were stationed in the area were popular with the Jewish settlement. This amusing tale came to light during my research. The girl concerned was Rosa (then aged about 15 years).
+1914 [Sarah Hoffman|I39967468], with her three younger children ([Wolfe|I38740219], [Rosa|I11029872] and [Eli Aliyashiv|I27102630293]) had returned to Rehovot, and their home on their land in Ezra Street. In November 1917 British forces entered Rehovot during their campaign to conquer Ottoman Palestine. The ANZACs who were stationed in the area were popular with the Jewish settlement. This amusing tale came to light during my research. The girl concerned was Rosa (then aged about 15 years).
 
 <div class="citation-box">
 
