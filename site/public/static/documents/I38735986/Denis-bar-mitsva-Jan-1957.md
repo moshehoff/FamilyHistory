@@ -1,0 +1,1 @@
+[Denis|I38516763] bar mitsva Jan 1957. [Morrie|I11052340] [Tobl|I38735986] [Hymie|I11052350] and [Peter|I11052359], [Denis|I38516763],  [Edith|I38516664] and her mother Theresia Spielmann
