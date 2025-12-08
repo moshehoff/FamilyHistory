@@ -101,6 +101,15 @@ class MermaidDiagramBuilder:
             Appends node definition, class, and click handler to lines
         """
         node = self._node_id(iid)
+        
+        # Check if person is private
+        person = self.individuals.get(iid, {})
+        if person.get("is_private", False):
+            # For private individuals, create a simple "private" node without link
+            lines.append(f'{node}["private"]')
+            lines.append(f'class {node} person')
+            return node
+        
         name = self._node_label(iid)
         
         # Node definition

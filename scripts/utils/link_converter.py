@@ -51,7 +51,7 @@ class LinkConverter:
             person_id: GEDCOM ID (e.g., "@I123@")
         
         Returns:
-            HTML link string, or "—" if person not found
+            HTML link string, "private" if person is private, or "—" if person not found
         
         Example:
             >>> html = converter.person_id_to_html("@I11052340@")
@@ -61,6 +61,11 @@ class LinkConverter:
             return "—"
         
         person = self.individuals[person_id]
+        
+        # Check if person is private
+        if person.get("is_private", False):
+            return "private"
+        
         name = person.get("name") or person_id
         
         # Get unique slug
@@ -236,7 +241,7 @@ class LinkConverter:
             match: Regex match object
         
         Returns:
-            HTML link string
+            HTML link string or "private" if person is private
         """
         full_match = match.group(0)  # e.g., "[Hymie|I40775871]"
         original_name = match.group(1)  # e.g., "Hymie"
@@ -247,6 +252,10 @@ class LinkConverter:
         if not person_info:
             logger.debug(f"Person not found for {raw_id}, keeping original text")
             return full_match  # Keep as-is if not found
+        
+        # Check if person is private
+        if person_info.get("is_private", False):
+            return "private"
         
         # Get slug for this person
         slug = self.id_to_slug.get(person_id)
@@ -268,7 +277,7 @@ class LinkConverter:
             match: Regex match object
         
         Returns:
-            HTML link string
+            HTML link string or "private" if person is private
         """
         raw_id = match.group(0)  # e.g., "I11052340"
         person_id = '@' + raw_id + '@'  # Convert to GEDCOM format
@@ -277,6 +286,10 @@ class LinkConverter:
         if not person_info:
             logger.debug(f"Person not found for {raw_id}, keeping original text")
             return raw_id  # Keep as-is if not found
+        
+        # Check if person is private
+        if person_info.get("is_private", False):
+            return "private"
         
         # Get full name from GEDCOM
         name = person_info.get("name") or raw_id
@@ -323,6 +336,10 @@ class LinkConverter:
             if not person_info:
                 logger.debug(f"Person not found for {raw_id}, keeping original text")
                 return full_match  # Keep as-is if not found
+            
+            # Check if person is private
+            if person_info.get("is_private", False):
+                return "private"
             
             # Get slug for this person
             slug = self.id_to_slug.get(person_id)

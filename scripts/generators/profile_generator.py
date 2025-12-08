@@ -88,17 +88,25 @@ class ProfileGenerator:
             self.id_to_slug
         )
         
-        # Generate each profile
-        logger.info(f"Generating {len(self.individuals)} profiles...")
+        # Generate each profile (skip private individuals)
+        logger.info(f"Generating profiles (skipping private individuals)...")
         count = 0
+        skipped_private = 0
         for pid, person in self.individuals.items():
+            # Skip private individuals
+            if person.get("is_private", False):
+                skipped_private += 1
+                continue
+            
             count += 1
             if count % 50 == 0:
-                log_progress(logger, count, len(self.individuals), "profiles")
+                log_progress(logger, count, len(self.individuals) - skipped_private, "profiles")
             
             self._generate_single_profile(pid, person, output_dir)
         
-        logger.info(f"✓ Generated {len(self.individuals)} profiles successfully")
+        if skipped_private > 0:
+            logger.info(f"Skipped {skipped_private} private profile(s)")
+        logger.info(f"✓ Generated {count} profiles successfully")
         return self.id_to_slug
     
     # ========================================================================
@@ -508,24 +516,28 @@ class ProfileGenerator:
         if person["occupation"]:
             lines.append(f'<dt>Occupation:</dt><dd>{person["occupation"]}</dd>')
         
-        # Family relationships
+        # Family relationships (show "private" for private individuals)
         parents_html = ", ".join([
-            self.link_converter.person_id_to_html(pid)
+            "private" if self.individuals.get(pid, {}).get("is_private", False)
+            else self.link_converter.person_id_to_html(pid)
             for pid in family_data["parents_ids"]
         ]) or "—"
         
         siblings_html = ", ".join([
-            self.link_converter.person_id_to_html(sid)
+            "private" if self.individuals.get(sid, {}).get("is_private", False)
+            else self.link_converter.person_id_to_html(sid)
             for sid in family_data["siblings_ids"]
         ]) or "—"
         
         spouses_html = ", ".join([
-            self.link_converter.person_id_to_html(spid)
+            "private" if self.individuals.get(spid, {}).get("is_private", False)
+            else self.link_converter.person_id_to_html(spid)
             for spid in family_data["spouses_ids"]
         ]) or "—"
         
         children_html = ", ".join([
-            self.link_converter.person_id_to_html(cid)
+            "private" if self.individuals.get(cid, {}).get("is_private", False)
+            else self.link_converter.person_id_to_html(cid)
             for cid in family_data["children_ids"]
         ]) or "—"
         
@@ -535,7 +547,8 @@ class ProfileGenerator:
         # Only show half siblings if they exist
         if family_data["half_siblings_ids"]:
             half_siblings_html = ", ".join([
-                self.link_converter.person_id_to_html(sid)
+                "private" if self.individuals.get(sid, {}).get("is_private", False)
+                else self.link_converter.person_id_to_html(sid)
                 for sid in family_data["half_siblings_ids"]
             ])
             lines.append(f'<dt>Half Siblings:</dt><dd>{half_siblings_html}</dd>')

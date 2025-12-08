@@ -51,6 +51,16 @@ def norm_individual(iid: str, data: Dict) -> Dict:
     # Remove slashes from name (GEDCOM surname markers)
     name = data.get("NAME", "").replace("/", "").strip()
     
+    # Check for _PRIVATE tag (case-insensitive)
+    is_private = False
+    for key in data.keys():
+        if key.upper() == "_PRIVATE":
+            # Check if value is "Y" or "yes" (case-insensitive)
+            value = str(data[key]).upper().strip()
+            if value in ("Y", "YES", "1", "TRUE"):
+                is_private = True
+                break
+    
     return {
         "id": iid,
         "name": name,
@@ -62,6 +72,7 @@ def norm_individual(iid: str, data: Dict) -> Dict:
         "notes": data.get("NOTE", ""),
         "famc": data.get("FAMC", ""),
         "fams": fams,
+        "is_private": is_private,
     }
 
 
