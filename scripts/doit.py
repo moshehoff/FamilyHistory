@@ -230,8 +230,9 @@ Examples:
     id_to_slug = generator.generate_all_profiles(args.output)
     
     # Create link converter for processing [Name|ID] links
+    # Use normalized individuals (with is_private field) from generator
     from utils.link_converter import LinkConverter
-    link_converter = LinkConverter(individuals, id_to_slug)
+    link_converter = LinkConverter(generator.individuals, id_to_slug)
     
     # Copy source content to site/content/ (with link processing)
     logger.info("Copying source content...")
@@ -254,7 +255,7 @@ Examples:
     chapters_handler = ChaptersIndexHandler(
         args.bios_dir,
         DEFAULT_STATIC_DIR,
-        individuals,
+        generator.individuals,  # Use normalized individuals
         link_converter=link_converter
     )
     chapters_handler.create_chapters_index()
