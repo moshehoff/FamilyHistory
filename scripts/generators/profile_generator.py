@@ -406,11 +406,10 @@ class ProfileGenerator:
         Build all Mermaid diagrams for a person.
         
         Returns:
-            Dictionary with keys: immediate, descendants, ancestors
+            Dictionary with keys: immediate, ancestors
         """
         return {
             "immediate": self.mermaid_builder.build_immediate_family(pid, person),
-            "descendants": self.mermaid_builder.build_descendants(pid, person),
             "ancestors": self.mermaid_builder.build_ancestors(pid, person)
         }
     
@@ -471,10 +470,7 @@ class ProfileGenerator:
             diagrams["immediate"],
             "",
             "## Ancestors (up to 2 Gen.)",
-            diagrams["ancestors"],
-            "",
-            "## Descendants (up to 2 Gen.)",
-            diagrams["descendants"]
+            diagrams["ancestors"]
         ])
         
         return "\n".join(lines) + "\n"
