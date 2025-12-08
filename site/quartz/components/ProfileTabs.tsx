@@ -1506,7 +1506,12 @@ function initProfileTabs() {
           pathPart = slug;
         }
         
-        return '<a href="' + siteBasePath + '/profiles/' + encodeURIComponent(pathPart) + '">' + text + '</a>';
+        // Check if pathPart is already URL-encoded (contains % followed by hex digits)
+        // If it's already encoded, use it as-is; otherwise encode it
+        var isAlreadyEncoded = /%[0-9A-Fa-f]{2}/.test(pathPart);
+        var finalPath = isAlreadyEncoded ? pathPart : encodeURIComponent(pathPart);
+        
+        return '<a href="' + siteBasePath + '/profiles/' + finalPath + '">' + text + '</a>';
       });
       
       // Escape remaining HTML in code (but keep the links we just created)
