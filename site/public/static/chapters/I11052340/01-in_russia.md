@@ -96,7 +96,7 @@ As a child, Moishe saw his eldest brother <a href="/profiles/Shimon-Meir-%D7%9E%
 
 Children in the shtetels were educated in Jewish schools  which were supported by a special tax levied on the communities. They  learned Torah, and the prayer services from their elders and rabbis in the heder and in shule.  religious classes and synagogue).
 
-_Moishe witnessed pogroms in Savran. He saw mounted troops with swords decapitating Jews._ (related to his grandson <a href="/profiles/Trevor-David-Hoffman">Trevor David</a>)
+_Moishe witnessed pogroms in Savran. He saw mounted troops with swords decapitating Jews._ (related to his grandson Trevor David)
 
 _His sister <a href="/profiles/_Bobka_-Hochman">Bobka</a> met her death in the river during a pogrom._ (related to <a href="/profiles/Edith-%D7%A6%D7%99%D7%A8%D7%9C-Hoffman-Spielmann">Edith</a>)
 
