@@ -1,1 +1,0 @@
-Rolands St. Renovation of the Maylands Hotel

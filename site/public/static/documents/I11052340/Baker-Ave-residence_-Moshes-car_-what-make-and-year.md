@@ -1,1 +1,0 @@
-Baker Ave residence. Moshes car. what make and year

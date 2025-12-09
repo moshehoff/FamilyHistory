@@ -1,1 +1,0 @@
-[Bruce|I87977937] and [Fan|I87977949] [Mendel|I40775955] and [Minnie|I40775682] [Morrie|I40776182] and [Hannah|I40775931]
