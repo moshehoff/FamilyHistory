@@ -218,6 +218,84 @@ class MermaidDiagramBuilder:
         lines.append("```")
         return "\n".join(lines)
     
+    def build_nuclear_family(self, person_id: str, person: Dict) -> str:
+        """
+        Build diagram showing nuclear family (spouse and children only).
+        
+        Args:
+            person_id: Person's GEDCOM ID
+            person: Normalized person dictionary
+        
+        Returns:
+            Complete Mermaid diagram as string, or None if no spouse or children
+        
+        Example:
+            >>> diagram = builder.build_nuclear_family("@I123@", person)
+        """
+        logger.debug(f"Building nuclear family diagram for {person_id}")
+        
+        # Check if there are any family members to show
+        has_family = False
+        for fid in person["fams"]:
+            if fid in self.families:
+                fam = self.families[fid]
+                # Check if there's a spouse or children
+                spouse_id = None
+                if fam.get("husband") == person_id and fam.get("wife"):
+                    spouse_id = fam["wife"]
+                elif fam.get("wife") == person_id and fam.get("husband"):
+                    spouse_id = fam["husband"]
+                
+                if spouse_id or fam.get("children"):
+                    has_family = True
+                    break
+        
+        # If only the person would be shown, return None
+        if not has_family:
+            logger.debug(f"No nuclear family to show for {person_id}, skipping diagram")
+            return None
+        
+        lines = self._init_mermaid_lines()
+        
+        # Add the central person (highlighted)
+        person_node = self._make_node(lines, person_id, is_current=True)
+        
+        # Iterate through all families where this person is a parent
+        for fid in person["fams"]:
+            if fid not in self.families:
+                continue
+            
+            fam = self.families[fid]
+            
+            # Add spouse if exists
+            spouse_id = None
+            if fam.get("husband") == person_id and fam.get("wife"):
+                spouse_id = fam["wife"]
+            elif fam.get("wife") == person_id and fam.get("husband"):
+                spouse_id = fam["husband"]
+            
+            spouse_node = None
+            marriage_node = None
+            
+            if spouse_id:
+                spouse_node = self._make_node(lines, spouse_id)
+                marriage_node = self._add_marriage_node(
+                    lines, fam["id"], person_node, spouse_node
+                )
+            
+            # Add children (only direct children, no grandchildren)
+            for child_id in fam.get("children", []):
+                child_node = self._make_node(lines, child_id)
+                
+                # Connect child to marriage node or parent
+                if marriage_node:
+                    lines.append(f'{marriage_node} --> {child_node}')
+                else:
+                    lines.append(f'{person_node} --> {child_node}')
+        
+        lines.append("```")
+        return "\n".join(lines)
+    
     def build_descendants(
         self,
         person_id: str,
