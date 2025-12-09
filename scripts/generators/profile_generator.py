@@ -406,10 +406,12 @@ class ProfileGenerator:
         Build all Mermaid diagrams for a person.
         
         Returns:
-            Dictionary with keys: immediate, ancestors
+            Dictionary with keys: immediate, descendants, ancestors
+            (any value can be None if diagram would show only the person)
         """
         return {
             "immediate": self.mermaid_builder.build_immediate_family(pid, person),
+            "descendants": self.mermaid_builder.build_descendants(pid, person),
             "ancestors": self.mermaid_builder.build_ancestors(pid, person)
         }
     
@@ -461,17 +463,35 @@ class ProfileGenerator:
         # Build profile info box (HTML)
         lines.extend(self._build_info_box(person, family_data))
         
-        # Add diagrams
+        # Add separator before diagrams
         lines.extend([
             "",
             "---",
-            "",
-            "## Immediate Family",
-            diagrams["immediate"],
-            "",
-            "## Ancestors (up to 2 Gen.)",
-            diagrams["ancestors"]
+            ""
         ])
+        
+        # Add immediate family diagram only if it has content
+        if diagrams["immediate"]:
+            lines.extend([
+                "## Immediate Family",
+                diagrams["immediate"],
+                ""
+            ])
+        
+        # Add ancestors diagram only if it has content
+        if diagrams["ancestors"]:
+            lines.extend([
+                "## Ancestors (up to 2 Gen.)",
+                diagrams["ancestors"],
+                ""
+            ])
+        
+        # Add descendants diagram only if it has content
+        if diagrams.get("descendants"):
+            lines.extend([
+                "## Descendants (up to 2 Gen.)",
+                diagrams["descendants"]
+            ])
         
         return "\n".join(lines) + "\n"
     

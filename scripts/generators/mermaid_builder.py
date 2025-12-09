@@ -183,12 +183,28 @@ class MermaidDiagramBuilder:
             person: Normalized person dictionary
         
         Returns:
-            Complete Mermaid diagram as string
+            Complete Mermaid diagram as string, or None if only the person would be shown
         
         Example:
             >>> diagram = builder.build_immediate_family("@I123@", person)
         """
         logger.debug(f"Building immediate family diagram for {person_id}")
+        
+        # Check if there's anything to show besides the person themselves
+        has_parents_or_siblings = False
+        if person["famc"] in self.families:
+            fam = self.families[person["famc"]]
+            # Check if there are parents or siblings
+            if fam.get("husband") or fam.get("wife"):
+                has_parents_or_siblings = True
+            elif any(child_id != person_id for child_id in fam.get("children", [])):
+                has_parents_or_siblings = True
+        
+        # If only the person would be shown, return None
+        if not has_parents_or_siblings:
+            logger.debug(f"No immediate family to show for {person_id}, skipping diagram")
+            return None
+        
         lines = self._init_mermaid_lines()
         
         # Add the central person (highlighted)
@@ -217,12 +233,34 @@ class MermaidDiagramBuilder:
             max_depth: Maximum number of generations to show
         
         Returns:
-            Complete Mermaid diagram as string
+            Complete Mermaid diagram as string, or None if no descendants to show
         
         Example:
             >>> diagram = builder.build_descendants("@I123@", person, max_depth=3)
         """
         logger.debug(f"Building descendants diagram for {person_id} (depth={max_depth})")
+        
+        # Check if there are any descendants to show
+        has_descendants = False
+        for fid in person["fams"]:
+            if fid in self.families:
+                fam = self.families[fid]
+                # Check if there's a spouse or children
+                spouse_id = None
+                if fam.get("husband") == person_id and fam.get("wife"):
+                    spouse_id = fam["wife"]
+                elif fam.get("wife") == person_id and fam.get("husband"):
+                    spouse_id = fam["husband"]
+                
+                if spouse_id or fam.get("children"):
+                    has_descendants = True
+                    break
+        
+        # If only the person would be shown, return None
+        if not has_descendants:
+            logger.debug(f"No descendants to show for {person_id}, skipping diagram")
+            return None
+        
         lines = self._init_mermaid_lines()
         
         # Add the central person (highlighted)
@@ -261,12 +299,23 @@ class MermaidDiagramBuilder:
             max_depth: Maximum number of generations to show
         
         Returns:
-            Complete Mermaid diagram as string
+            Complete Mermaid diagram as string, or None if no ancestors to show
         
         Example:
             >>> diagram = builder.build_ancestors("@I123@", person, max_depth=3)
         """
         logger.debug(f"Building ancestors diagram for {person_id} (depth={max_depth})")
+        
+        # Check if there are any ancestors to show
+        if person["famc"] not in self.families:
+            logger.debug(f"No ancestors to show for {person_id}, skipping diagram")
+            return None
+        
+        fam = self.families[person["famc"]]
+        if not fam.get("husband") and not fam.get("wife"):
+            logger.debug(f"No parents found for {person_id}, skipping diagram")
+            return None
+        
         lines = self._init_mermaid_lines()
         
         # Add the central person (highlighted)
