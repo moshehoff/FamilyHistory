@@ -267,8 +267,9 @@ class ChaptersIndexHandler:
                 content = f.read()
             
             # Process [Name|ID] links if converter available
+            # Use Markdown links (not HTML) so JavaScript can add base path correctly
             if self.link_converter:
-                content = self.link_converter.convert_ids_to_links(content)
+                content = self.link_converter.convert_ids_to_markdown_links(content)
             
             with open(dest_path, 'w', encoding='utf-8') as f:
                 f.write(content)
@@ -325,8 +326,9 @@ class ChaptersIndexHandler:
                 content = f.read()
             
             # Process [Name|ID] links if converter available
+            # Use Markdown links (not HTML) so JavaScript can add base path correctly
             if self.link_converter:
-                content = self.link_converter.convert_ids_to_links(content)
+                content = self.link_converter.convert_ids_to_markdown_links(content)
             
             with open(dest_path, 'w', encoding='utf-8') as f:
                 f.write(content)
@@ -466,8 +468,9 @@ class ChaptersIndexHandler:
                     content = f.read()
                 
                 # Process [Name|ID] links if converter available
+                # Use Markdown links (not HTML) so JavaScript can add base path correctly
                 if self.link_converter:
-                    content = self.link_converter.convert_ids_to_links(content)
+                    content = self.link_converter.convert_ids_to_markdown_links(content)
                 
                 with open(dest_path, 'w', encoding='utf-8') as f:
                     f.write(content)
@@ -536,8 +539,9 @@ class ChaptersIndexHandler:
                     content = f.read()
                 
                 # Process [Name|ID] links if converter available
+                # Use Markdown links (not HTML) so JavaScript can add base path correctly
                 if self.link_converter:
-                    content = self.link_converter.convert_ids_to_links(content)
+                    content = self.link_converter.convert_ids_to_markdown_links(content)
                 
                 with open(dest_path, 'w', encoding='utf-8') as f:
                     f.write(content)

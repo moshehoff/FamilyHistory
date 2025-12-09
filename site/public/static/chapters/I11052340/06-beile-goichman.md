@@ -15,7 +15,7 @@ In the second column there is a list of general store owners.
 
 The fifth name is **Beile Mordk. Goichman**.
 
-Beile Mordkovna Goichman, my great grandmother (<a href="/profiles/Beile-%D7%91%D7%99%D7%99%D7%9C%D7%90-Hochman-Elizafan">Beile</a>)
+Beile Mordkovna Goichman, my great grandmother ([Beile](/profiles/Beile-%D7%91%D7%99%D7%99%D7%9C%D7%90-Hochman-Elizafan))
 
 ---
 

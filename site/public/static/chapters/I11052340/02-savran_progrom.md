@@ -52,7 +52,7 @@ This account is of a series of pogroms in Savran during and after the Great War.
 
 The account as we see it here lacks some grammatical and logical errors. The original must have been in Yiddish, and someone else translated it. The original has been lost.
 
-Shimon Elizepan (sic) was a member of my great grandmother <a href="/profiles/Beile-%D7%91%D7%99%D7%99%D7%9C%D7%90-Hochman-Elizafan">Beile</a>'s family.
+Shimon Elizepan (sic) was a member of my great grandmother [Beile](/profiles/Beile-%D7%91%D7%99%D7%99%D7%9C%D7%90-Hochman-Elizafan)'s family.
 
 ---
 
