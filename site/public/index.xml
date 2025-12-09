@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>Hoffman Family History</title>
+      <link>https://localhost:8080</link>
+      <description>Last 10 notes on Hoffman Family History</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>profiles-with-gallery</title>
+    <link>https://localhost:8080/pages/profiles-with-gallery</link>
+    <guid>https://localhost:8080/pages/profiles-with-gallery</guid>
+    <description><![CDATA[ Profiles with Gallery This page lists family members who have images in their gallery. ]]></description>
+    <pubDate>Tue, 09 Dec 2025 20:09:02 GMT</pubDate>
+  </item><item>
+    <title>profiles-of-interest</title>
+    <link>https://localhost:8080/pages/profiles-of-interest</link>
+    <guid>https://localhost:8080/pages/profiles-of-interest</guid>
+    <description><![CDATA[ Profiles of Interest This page lists family members who have extended biographical information. ]]></description>
+    <pubDate>Tue, 09 Dec 2025 20:09:01 GMT</pubDate>
+  </item><item>
+    <title>all-profiles</title>
+    <link>https://localhost:8080/pages/all-profiles</link>
+    <guid>https://localhost:8080/pages/all-profiles</guid>
+    <description><![CDATA[ All Profiles Aaron Harry אהרון Hoffman Aharon Nissan ניסן Bar Cohen Kaganovich Alex Schwartz Aliza Hochman Alyce Breazeale Hoffman Arthur Broza Brzoza Arthur Treleaven Avraham Hochman Bat Sheva Hochman Moldavsky Batya Hochman Feingold Beile ביילא Hochman Elizafan Bella Hoffman Hochman Bella Hoffman ... ]]></description>
+    <pubDate>Tue, 09 Dec 2025 20:09:00 GMT</pubDate>
+  </item><item>
+    <title>the_names</title>
+    <link>https://localhost:8080/pages/the_names</link>
+    <guid>https://localhost:8080/pages/the_names</guid>
+    <description><![CDATA[ The Names Opus The study of names - onomastics, is fascinating. The origins and meanings of some of my family names eluded me for years. ]]></description>
+    <pubDate>Tue, 09 Dec 2025 20:08:59 GMT</pubDate>
+  </item><item>
+    <title>Preface</title>
+    <link>https://localhost:8080/pages/preface</link>
+    <guid>https://localhost:8080/pages/preface</guid>
+    <description><![CDATA[ Preface by Peter Hoffman As a child I had no greater interest in family history and genealogy than others of my age, however, I listened to my parents’ conversations, and without effort learned - and apparently faithfully memorised - little by little, a mass of data. ]]></description>
+    <pubDate>Tue, 09 Dec 2025 20:08:59 GMT</pubDate>
+  </item><item>
+    <title>hoffman_history</title>
+    <link>https://localhost:8080/pages/hoffman_history</link>
+    <guid>https://localhost:8080/pages/hoffman_history</guid>
+    <description><![CDATA[ The Hoffman history in Australia Our family history in Australia begins in February 1901 when Haim Yudl and his family landed at the port of Fremantle. ]]></description>
+    <pubDate>Tue, 09 Dec 2025 20:08:59 GMT</pubDate>
+  </item><item>
+    <title>founders</title>
+    <link>https://localhost:8080/pages/founders</link>
+    <guid>https://localhost:8080/pages/founders</guid>
+    <description><![CDATA[ The Founding Generation Savran: The Ancestral Home Our family’s story begins in Savran (סברן), a small town on the banks of the Lower Bug River in the Podolia Governate of the Russian Empire, in what is now the Odessa Oblast, Ukraine. ]]></description>
+    <pubDate>Tue, 09 Dec 2025 20:08:58 GMT</pubDate>
+  </item><item>
+    <title>All Images</title>
+    <link>https://localhost:8080/pages/all-images</link>
+    <guid>https://localhost:8080/pages/all-images</guid>
+    <description><![CDATA[  Loading all images.. ]]></description>
+    <pubDate>Tue, 09 Dec 2025 20:08:58 GMT</pubDate>
+  </item><item>
+    <title>Les Lazar Haimson</title>
+    <link>https://localhost:8080/profiles/Les-Lazar-Haimson</link>
+    <guid>https://localhost:8080/profiles/Les-Lazar-Haimson</guid>
+    <description><![CDATA[  Parents:— Siblings:— Spouse:Elka Dora Devora Haimson Rosensvet Children:— Nuclear Family flowchart TD classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px; classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px; classDef current fill:#bbdefb,stroke:#1976d2,stroke-width:3px; idI... ]]></description>
+    <pubDate>Tue, 09 Dec 2025 20:08:58 GMT</pubDate>
+  </item><item>
+    <title>Buzia Rosensvet</title>
+    <link>https://localhost:8080/profiles/Buzia-Rosensvet</link>
+    <guid>https://localhost:8080/profiles/Buzia-Rosensvet</guid>
+    <description><![CDATA[  Parents:— Siblings:— Spouse:Yefim Rosensvet Children:— Nuclear Family flowchart TD classDef person fill:#e1f5fe,stroke:#0277bd,stroke-width:2px; classDef internal-link fill:#e1f5fe,stroke:#0277bd,stroke-width:2px; classDef current fill:#bbdefb,stroke:#1976d2,stroke-width:3px; idI34830326429[&quot;B... ]]></description>
+    <pubDate>Tue, 09 Dec 2025 20:08:58 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>
