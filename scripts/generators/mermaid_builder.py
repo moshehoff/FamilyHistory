@@ -108,6 +108,8 @@ class MermaidDiagramBuilder:
             # For private individuals, create a simple "private" node without link
             lines.append(f'{node}["private"]')
             lines.append(f'class {node} person')
+            # Add dummy click handler to help Mermaid calculate viewbox correctly
+            lines.append(f'click {node} "javascript:void(0)" "Private profile"')
             return node
         
         name = self._node_label(iid)
