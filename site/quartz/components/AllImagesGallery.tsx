@@ -151,7 +151,8 @@ div.all-images-gallery .gallery-grid {
       .then(function(data) {
         // Collect all images from all profiles
         const allImages = [];
-        const seenPaths = new Set(); // Track unique image paths
+        const seenPaths = new Set(); // Track unique image paths (normalized)
+        let duplicateCount = 0;
         
         // Iterate through all profiles
         for (const profileId in data.images) {
@@ -165,19 +166,38 @@ div.all-images-gallery .gallery-grid {
               imagePath = pageBasePath + 'static/documents/' + profileId + '/' + img.filename;
             }
             
-            // Only add if we haven't seen this path before
-            if (!seenPaths.has(imagePath)) {
-              seenPaths.add(imagePath);
+            // Normalize path for comparison: decode URL encoding and normalize slashes
+            // This ensures the same image with different encodings is treated as duplicate
+            // Use try-catch in case the path is already decoded or has invalid encoding
+            let normalizedPath;
+            try {
+              var decoded = decodeURIComponent(imagePath);
+              // Replace backslashes with forward slashes (escape backslash in template string)
+              normalizedPath = decoded.split('\\\\').join('/').toLowerCase();
+            } catch (e) {
+              // If decoding fails, use the path as-is (might already be decoded)
+              normalizedPath = imagePath.split('\\\\').join('/').toLowerCase();
+            }
+            
+            // Only add if we haven't seen this normalized path before
+            if (!seenPaths.has(normalizedPath)) {
+              seenPaths.add(normalizedPath);
               allImages.push({
                 path: imagePath,
                 caption: img.caption || '',
                 filename: img.filename || ''
               });
+            } else {
+              duplicateCount++;
+              console.log('[AllImagesGallery] Skipping duplicate:', imagePath, 'from profile:', profileId);
             }
           }
         }
         
         console.log('[AllImagesGallery] Found', allImages.length, 'unique images');
+        if (duplicateCount > 0) {
+          console.log('[AllImagesGallery] Skipped', duplicateCount, 'duplicate images');
+        }
         
         if (allImages.length === 0) {
           container.innerHTML = '<div class="empty-message">No images available</div>';
