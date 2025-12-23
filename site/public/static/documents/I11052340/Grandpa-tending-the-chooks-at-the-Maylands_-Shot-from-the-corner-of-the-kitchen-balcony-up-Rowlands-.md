@@ -1,1 +1,0 @@
-Grandpa tending the chooks at the Maylands. Shot from the corner of the kitchen balcony up Rowlands St

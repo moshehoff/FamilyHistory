@@ -1,1 +1,0 @@
-[Bruce|I87977937] and [Fan|I87977949] with [Hannah|I40775931] and Fred Paschof

@@ -1,1 +1,0 @@
-Maylands Hotel. The big bloke is George Brainford Beard, veteran of the 10th Light Horse Regiment. His family is on the balcony.  1923
